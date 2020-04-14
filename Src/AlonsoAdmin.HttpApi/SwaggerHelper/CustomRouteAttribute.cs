@@ -28,30 +28,35 @@ namespace AlonsoAdmin.HttpApi.SwaggerHelper
         /// 自定义路由构造函数，继承基类路由
         /// </summary>
         /// <param name="actionName"></param>
-        public CustomRouteAttribute(string actionName = "") : base(actionName)
-        {
-        }
+        //public CustomRouteAttribute(string actionName = "") : base(actionName)
+        //{
+        //}
         /// <summary>
         /// 自定义版本+路由构造函数，继承基类路由
         /// </summary>
         /// <param name="actionName"></param>
         /// <param name="version"></param>
-        public CustomRouteAttribute(ApiVersions version, string actionName = "[action]") : base(GetRouteTemplate(version, actionName))
+        public CustomRouteAttribute(ApiVersions version, string moduleName="", string actionName = "[action]") : base(GetRouteTemplate(version, moduleName, actionName))
         {
             GroupName = version.ToString();
         }
 
-        private static string GetRouteTemplate(ApiVersions version, string actionName = "[action]")
+        private static string GetRouteTemplate(ApiVersions version, string moduleName = "", string actionName = "[action]")
         {
-            string temp= "/{__tenant__}/api/" + version.ToString() + "/[controller]/" + actionName;
+            var path = moduleName == "" ? version.ToString() : version.ToString()+"/" + moduleName;
             var startupConfig = StartupConfigHelper.Get();
-            switch (startupConfig.TenantRouteStrategy) {
+            string temp;
+            switch (startupConfig.TenantRouteStrategy)
+            {
 
-                case TenantRouteStrategy.Route:                      
-                    temp = "/{__tenant__}/api/" + version.ToString() + "/[controller]/" + actionName;
+                case TenantRouteStrategy.Route:
+                    temp = "/{__tenant__}/api/" + path + "/[controller]/" + actionName;
                     break;
                 case TenantRouteStrategy.Host:
-                    temp = "/api/" + version.ToString() + "/[controller]/" + actionName;  
+                    temp = "/api/" + path + "/[controller]/" + actionName;
+                    break;
+                default:
+                    temp = "/{__tenant__}/api/" + path + "/[controller]/" + actionName;
                     break;
             }
             return temp;

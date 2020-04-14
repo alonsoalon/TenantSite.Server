@@ -18,10 +18,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using static AlonsoAdmin.HttpApi.SwaggerHelper.CustomApiVersion;
 
-namespace AlonsoAdmin.HttpApi.Controllers.V1
+namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-    [CustomRoute(ApiVersions.v1)]
-    public class AuthController : BaseController
+   
+    public class AuthController : ModuleBaseController
     {
         private IAuthToken _authToken;
         private readonly IAuthService _authService;

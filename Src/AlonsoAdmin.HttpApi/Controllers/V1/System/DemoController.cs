@@ -14,12 +14,12 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using static AlonsoAdmin.HttpApi.SwaggerHelper.CustomApiVersion;
 
-namespace AlonsoAdmin.HttpApi.Controllers.V1
+namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
     
 
-    [CustomRoute(ApiVersions.v1)]
-    public class DemoController : BaseController
+    
+    public class DemoController : ModuleBaseController
     {
 
         private ILogger<DemoController> Logger { get; }
