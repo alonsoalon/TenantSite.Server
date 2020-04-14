@@ -82,8 +82,11 @@ namespace AlonsoAdmin.HttpApi
                 // 设置时间格式
                 options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
 
-                options.SerializerSettings.Converters.Add(new IdToStringConverter());
+                //options.SerializerSettings.Converters.Add(new IdToStringConverter());
+                //options.SerializerSettings.Converters.Add(new JsonNumberConverter());
                 
+
+
             });
 
 

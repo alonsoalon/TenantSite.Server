@@ -25,9 +25,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         }
 
         /// <summary>
-        /// 得到单条用户信息
+        /// 得到分页数据
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="req">查询请求</param>
         /// <returns></returns>
         [HttpPost]
         public async Task<IResponseEntity> PageList(RequestEntity<SysUserEntity> req)

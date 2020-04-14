@@ -20,6 +20,10 @@ namespace AlonsoAdmin.Common.JsonConvert
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
+
+        
+
+
             serializer.Serialize(writer, value.ToString());
         }
     }
