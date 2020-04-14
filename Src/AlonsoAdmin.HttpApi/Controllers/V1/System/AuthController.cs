@@ -38,10 +38,15 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
             _loginLogService = loginLogService;
         }
        
-        
+        /// <summary>
+        /// 登录系统
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
         [NoOprationLog]
+        
         public async Task<IResponseEntity> Login(AuthLoginRequest req) {
 
             var sw = new Stopwatch();
@@ -108,6 +113,10 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
             }
         }
 
+        /// <summary>
+        /// 刷新用户信息
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IResponseEntity> UserInfo()
         {

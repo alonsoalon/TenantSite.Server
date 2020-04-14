@@ -343,6 +343,5 @@ healthchecksdb
 
 # wwwroot/images
 *images/
-.1YourProject
-!Admin.Core.Webapi.Template.1.0.0.nupkg
-/Admin.Core/.config
+/Src/AlonsoAdmin.HttpApi/AlonsoAdmin.HttpApi.xml
+/Src/AlonsoAdmin.HttpApi/AlonsoAdmin.Entities.xml
