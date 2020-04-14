@@ -1,0 +1,19 @@
+﻿{
+  // appsettings.json 配置支持热更新，更改立即生效
+  // Settings/startupsettings.json 配置参数是必须重启服务才可生效的（在Startup注册服务时用到的参数）
+  "Cache": {
+    //缓存类型 Memory = 0,Redis = 1
+    "Type": 0,
+    //如果Type 为1 需配置Redis
+    "Redis": {
+      "connectionString": "127.0.0.1:6379,password=,defaultDatabase=2"
+    }
+  },
+  //日志
+  "Log": {
+    //操作日志
+    "operation": true
+  },
+  // 租户路由策略 0:Route 1:Host
+  "TenantRouteStrategy": 0
+}

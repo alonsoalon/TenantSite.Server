@@ -1,0 +1,863 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AlonsoAdmin.Entities</name>
+    </assembly>
+    <members>
+        <member name="F:AlonsoAdmin.Entities.System.Enums.ExternalLinkOpenMode.InternalWindow">
+            <summary>
+            内部窗口展示外链
+            </summary>
+        </member>
+        <member name="F:AlonsoAdmin.Entities.System.Enums.ExternalLinkOpenMode.ExternalWindow">
+            <summary>
+            外部窗口展示外链
+            </summary>
+        </member>
+        <member name="F:AlonsoAdmin.Entities.System.Enums.LinkType.View">
+            <summary>
+            SPA 视图
+            </summary>
+        </member>
+        <member name="F:AlonsoAdmin.Entities.System.Enums.LinkType.ExternalLink">
+            <summary>
+            外链
+            </summary>
+        </member>
+        <member name="F:AlonsoAdmin.Entities.System.Enums.ResourceType.Group">
+            <summary>
+            菜单分组
+            </summary>
+        </member>
+        <member name="F:AlonsoAdmin.Entities.System.Enums.ResourceType.Menu">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="F:AlonsoAdmin.Entities.System.Enums.ResourceType.Func">
+            <summary>
+            功能点（功能点包括 按钮，显示区域，具体由前端控制）
+            </summary>
+        </member>
+        <member name="F:AlonsoAdmin.Entities.System.Enums.UserType.TenantAdmin">
+            <summary>
+            租户管理员
+            </summary>
+        </member>
+        <member name="F:AlonsoAdmin.Entities.System.Enums.UserType.user">
+            <summary>
+            普通用户
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysApiEntity">
+            <summary>
+            后台接口
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysApiEntity.Category">
+            <summary>
+            分类
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysApiEntity.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysApiEntity.Url">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysConditionEntity">
+            <summary>
+            数据条件
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysConditionEntity.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysConditionEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysConditionEntity.Expression">
+            <summary>
+            表达式树 表达式树,目前存放SQL语句
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysConditionEntity.OrderIndex">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity">
+            <summary>
+            数据字典明细
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.Code">
+            <summary>
+            编码 编码
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.DictionaryId">
+            <summary>
+            数据字典ID 
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.ParentId">
+            <summary>
+            上级ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.Title">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.DataValue">
+            <summary>
+            数据值
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.OrderIndex">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.Ex1">
+            <summary>
+            扩展字段1
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.Ex2">
+            <summary>
+            扩展字段2
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.Ex3">
+            <summary>
+            扩展字段3
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.Ex4">
+            <summary>
+            扩展字段4
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.Ex5">
+            <summary>
+            扩展字段5
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.Parent">
+            <summary>
+            父级
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.Childs">
+            <summary>
+            子级集合
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryDetailEntity.Dictionary">
+            <summary>
+            字典分类
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysDictionaryEntity">
+            <summary>
+            数据字典分类
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryEntity.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryEntity.Title">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryEntity.OrderIndex">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryEntity.Ex1">
+            <summary>
+            扩展字段1
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryEntity.Ex2">
+            <summary>
+            扩展字段2
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryEntity.Ex3">
+            <summary>
+            扩展字段3
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryEntity.Ex4">
+            <summary>
+            扩展字段4
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysDictionaryEntity.Ex5">
+            <summary>
+            扩展字段5
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysGroupEntity">
+            <summary>
+            数据组/组织机构
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysGroupEntity.Code">
+            <summary>
+            数据组编码 数据组编码
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysGroupEntity.Title">
+            <summary>
+            数据组标题 数据组标题
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysGroupEntity.Description">
+            <summary>
+            数据组描述
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysGroupEntity.ParentId">
+            <summary>
+            父级ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysGroupEntity.OrderIndex">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysOprationLogEntity.ApiPath">
+            <summary>
+            接口地址
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysOprationLogEntity.ApiMethod">
+            <summary>
+            接口提交方法
+            </summary>        ]
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysOprationLogEntity.Params">
+            <summary>
+            操作参数
+            </summary>      
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysPermissionEntity">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysPermissionEntity.Title">
+            <summary>
+            权限标题
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysPermissionEntity.Description">
+            <summary>
+            权限描述
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysResourceEntity">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.Code">
+            <summary>
+            资源CODE 资源CODE
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.Title">
+            <summary>
+            资源名称 资源名称
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.Description">
+            <summary>
+            资源描述
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.ResourceType">
+            <summary>
+            资源类型 1.分组 2.菜单 3.功能点（功能点包括 按钮，显示区域，具体由前端控制）
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.ParentId">
+            <summary>
+            父级ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.Opened">
+            <summary>
+            如果为分组，是否默认展开（ResourceType为分组类型的独有属性）
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.Url">
+            <summary>
+             SPA视图组件name或外面链接（ResourceType为菜单类型的独有属性）
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.Path">
+            <summary>
+            SPA视图组件path
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.Icon">
+            <summary>
+            ICON
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.OrderIndex">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.IsHidden">
+            <summary>
+            隐藏
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.Closable">
+            <summary>
+            是否可关闭 （ResourceType为菜单类型的独有属性）
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.LinkType">
+            <summary>
+            URL类型（ResourceType为菜单类型的独有属性） 1.SPA视图组件 2.外面链接
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysResourceEntity.OpenMode">
+            <summary>
+            外链打开方式（ResourceType为菜单类型且LinkType为外链类型的属性） 1.内部窗口打开 2.外部窗口打开
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysRoleEntity">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRoleEntity.Code">
+            <summary>
+            资源CODE
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRoleEntity.Title">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRoleEntity.Description">
+            <summary>
+            角色描述
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysRPermissionConditionEntity">
+            <summary>
+            权限与数据条件关系
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionConditionEntity.PermissionId">
+            <summary>
+            权限ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionConditionEntity.ConditionId">
+            <summary>
+            数据条件ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionConditionEntity.Expression">
+            <summary>
+            表达式树 表达式树，目前存放SQL
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionConditionEntity.Permission">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionConditionEntity.Condition">
+            <summary>
+            数据条件
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysRPermissionGroupEntity">
+            <summary>
+            权限与数据组关系
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionGroupEntity.PermissionId">
+            <summary>
+            权限ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionGroupEntity.GroupId">
+            <summary>
+            组ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionGroupEntity.Permission">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionGroupEntity.Group">
+            <summary>
+            权限组
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysRPermissionRoleEntity">
+            <summary>
+            权限与角色关系
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionRoleEntity.PermissionId">
+            <summary>
+            权限ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionRoleEntity.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionRoleEntity.Permission">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRPermissionRoleEntity.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysRResourceApiEntity">
+            <summary>
+            资源与API关系表
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRResourceApiEntity.ResourceId">
+            <summary>
+            资源ID 资源ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRResourceApiEntity.ApiId">
+            <summary>
+            API-ID API ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRResourceApiEntity.Resource">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRResourceApiEntity.Api">
+            <summary>
+            API
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysRRoleResourceEntity">
+            <summary>
+            资源与API关系表
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRRoleResourceEntity.RoleId">
+            <summary>
+            ROLE_ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRRoleResourceEntity.ResourceId">
+            <summary>
+            资源ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRRoleResourceEntity.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysRRoleResourceEntity.Resource">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysSettingEntity">
+            <summary>
+            系统设置
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysSettingEntity.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysSettingEntity.Title">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysSettingEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysSettingEntity.ConfigType">
+            <summary>
+            配置类型:系统配置(SYSTEM)、权限配置（PERMISSION）、用户（USER）
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysSettingEntity.Target">
+            <summary>
+            主体 如果是用户存放用户名，如果是权限岗位存放权限ID，如果是系统存SYSTEM
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysSettingEntity.DataType">
+            <summary>
+            数据类型 数据类型:文本、数字、日期等
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysSettingEntity.DataValue">
+            <summary>
+            数据值
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysSettingEntity.OrderIndex">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.System.SysUserEntity">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysUserEntity.UserType">
+            <summary>
+            用户类型 0普通用户 1超管
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysUserEntity.UserName">
+            <summary>
+            用户名 可用于登录
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysUserEntity.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysUserEntity.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysUserEntity.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysUserEntity.Mail">
+            <summary>
+            电子邮件
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysUserEntity.PermissionId">
+            <summary>
+            权限ID 权限ID
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysUserEntity.Wexin">
+            <summary>
+            微信OPENID 绑定微信
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysUserEntity.LastLoginIp">
+            <summary>
+            最后一次登录IP 最后一次登录IP
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysUserEntity.LastLoginTime">
+            <summary>
+            最后一次登录时间 最后一次登录时间
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.System.SysUserEntity.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.BaseAddEntity">
+            <summary>
+            只需要插入数据，但无需编辑数据的实例类继承此类，如日志等
+            包括了ID、创建人相关
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseAddEntity.CreatedBy">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseAddEntity.CreatedByName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseAddEntity.CreatedTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.BaseEntity">
+            <summary>
+            最全公共属性基类，业务数据实体建议继承此类
+            包括了ID、创建人相关、编辑人相关、软删除、禁用标记、乐观锁、数据归属组
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseEntity.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseEntity.Revision">
+            <summary>
+            乐观锁 即是在数据记录版本号
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseEntity.IsDisabled">
+            <summary>
+            是否禁用
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseEntity.IsDeleted">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseEntity.GroupId">
+            <summary>
+            数据归属组 为数据做数据权限提供方便
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseEntity.CreatedBy">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseEntity.CreatedByName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseEntity.CreatedTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseEntity.UpdatedBy">
+            <summary>
+            更新人
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseEntity.UpdatedByName">
+            <summary>
+            更新人名称
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseEntity.UpdatedTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.BaseIdEntity.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.LogAbstract">
+            <summary>
+            日志类
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.LogAbstract.RealName">
+            <summary>
+            姓名
+            </summary>
+            
+        </member>
+        <member name="P:AlonsoAdmin.Entities.LogAbstract.Ip">
+            <summary>
+            IP
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.LogAbstract.Browser">
+            <summary>
+            浏览器
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.LogAbstract.Os">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.LogAbstract.Device">
+            <summary>
+            设备
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.LogAbstract.BrowserInfo">
+            <summary>
+            浏览器信息
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.LogAbstract.ElapsedMilliseconds">
+            <summary>
+            耗时（毫秒）
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.LogAbstract.Status">
+            <summary>
+            操作状态
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.LogAbstract.Message">
+            <summary>
+            操作消息
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.LogAbstract.Result">
+            <summary>
+            操作结果
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.RequestEntity`1.CurrentPage">
+            <summary>
+            当前页标
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.RequestEntity`1.PageSize">
+            <summary>
+            每页大小
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.RequestEntity`1.Filter">
+            <summary>
+            查询条件
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.IResponseEntity">
+            <summary>
+            返回数据的通用接口
+            场景描述：
+            1.返回错误-当前段ajax请求返回响应状态码不等于200的时候，前端会进入Error回调函数，可由前端统一处理，此状态码Code将赋予响应码同样的值
+            2.返回错误-当前端ajax请求返回响应状态码等于200的时候，前端会进入Success回调函数，这时候分两中情况，
+                a:前端需要在具体业务模块中接管，并进行后续逻辑处理的情况，这种情况前端统一AJAX处理程序将放行响应到业务中
+                b:前端不需要在具体业务模块中接管，也就无后续逻辑的情况，这种情况前端统一AJAX处理程序将拦截响应并做统一的处理（如统一风格的提示）
+            3.返回成功 - 除开上面3中场景的所有情况 
+            
+            有了上面的场景描述，为了达到需求，执行规约如下：
+            场景1   : Success=false, Code = 错误响应码值（统一由错误中间件接管）
+            场景2.a : Success=false, Code = 业务定义的码值(除开0和1保留字外的值，这个码值将来可扩展用于前端错误消息多语言支持)
+            场景2.b : Success=false, Code = 0 此场景下前端将拦截响应，统一处理（一般可由前端统一处理的就几种错误，将来通过扩展多个Code值也可做到统一错误提示的多语言）
+            场景3   : Success=true，Code = 1
+            有了如上规约，前端就比较好做统一处理了，
+            进入Success回调中，只需要验证 Code == 0 就直接拦截下来 提示错误
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.IResponseEntity.Code">
+            <summary>
+            状态码 
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.IResponseEntity.Message">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.IResponseEntity.Success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.IResponseEntity`1">
+            <summary>
+            返回数据泛型接口
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.IResponseEntity`1.Data">
+            <summary>
+            业务数据
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.PageEntity`1.Total">
+            <summary>
+            数据总数
+            </summary>
+        </member>
+        <member name="P:AlonsoAdmin.Entities.PageEntity`1.List">
+            <summary>
+            数据列表
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.ResponseEntity`1">
+            <summary>
+            返回数据的通用接口
+            场景描述：
+            1.返回错误-当前段ajax请求返回响应状态码不等于200的时候，前端会进入Error回调函数，可由前端统一处理，此状态码Code将赋予响应码同样的值
+            2.返回错误-当前端ajax请求返回响应状态码等于200的时候，前端会进入Success回调函数，这时候分两中情况，
+                a:前端需要在具体业务模块中接管，并进行后续逻辑处理的情况，这种情况前端统一AJAX处理程序将放行响应到业务中
+                b:前端不需要在具体业务模块中接管，也就无后续逻辑的情况，这种情况前端统一AJAX处理程序将拦截响应并做统一的处理（如统一风格的提示）
+            3.返回成功 - 除开上面3中场景的所有情况 
+            
+            有了上面的场景描述，为了达到需求，执行规约如下：
+            场景1   : Success=false, Code = 错误响应码值（统一由错误中间件接管）
+            场景2.a : Success=false, Code = 业务定义的码值(除开0和1保留字外的值，这个码值将来可扩展用于前端错误消息多语言支持)，默认已设置成通用的200
+            场景2.b : Success=false, Code = 0 此场景下前端将拦截响应，统一处理（一般可由前端统一处理的就几种错误，将来通过扩展多个Code值也可做到统一错误提示的多语言）
+            场景3   : Success=true，Code = 1
+            有了如上规约，前端就比较好做处理了，
+            进入Success回调中，验证 Code == 0 就直接拦截下来 提示错误
+            </summary>
+        </member>
+        <member name="T:AlonsoAdmin.Entities.ResponseEntity">
+            <summary>
+            返回响应的静态部分重载方法
+            </summary>
+        </member>
+        <member name="M:AlonsoAdmin.Entities.ResponseEntity.Ok``1(``0,System.String)">
+            <summary>
+            成功
+            </summary>
+            <param name="data">数据</param>
+            <param name="msg">消息</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

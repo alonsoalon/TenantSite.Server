@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="System\Implement\**" />
+    <Compile Remove="System\Interface\**" />
+    <EmbeddedResource Remove="System\Implement\**" />
+    <EmbeddedResource Remove="System\Interface\**" />
+    <None Remove="System\Implement\**" />
+    <None Remove="System\Interface\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="System\Implement\SysOprationLogRepository.cs" />
+    <Compile Include="System\Implement\SysLoginLogRepository.cs" />
+    <Compile Include="System\Implement\SysApiRepository.cs" />
+    <Compile Include="System\Implement\SysConditionRepository.cs" />
+    <Compile Include="System\Implement\SysDictionaryDetailRepository.cs" />
+    <Compile Include="System\Implement\SysDictionaryRepository.cs" />
+    <Compile Include="System\Implement\SysGroupRepository.cs" />
+    <Compile Include="System\Implement\SysPermissionRepository.cs" />
+    <Compile Include="System\Implement\SysResourceRepository.cs" />
+    <Compile Include="System\Implement\SysRoleRepository.cs" />
+    <Compile Include="System\Implement\SysRPermissionConditionRepository.cs" />
+    <Compile Include="System\Implement\SysRPermissionGroupRepository.cs" />
+    <Compile Include="System\Implement\SysRPermissionRoleRepository.cs" />
+    <Compile Include="System\Implement\SysRRoleResourceRepository.cs" />
+    <Compile Include="System\Implement\SysRResourceApiRepository.cs" />
+    <Compile Include="System\Implement\SysSettingRepository.cs" />
+    <Compile Include="System\Implement\SysUserRepository.cs" />
+    <Compile Include="System\Interface\ISysOprationLogRepository.cs" />
+    <Compile Include="System\Interface\ISysLoginLogRepository.cs" />
+    <Compile Include="System\Interface\ISysApiRepository.cs" />
+    <Compile Include="System\Interface\ISysConditionRepository.cs" />
+    <Compile Include="System\Interface\ISysDictionaryDetailRepository.cs" />
+    <Compile Include="System\Interface\ISysDictionaryRepository.cs" />
+    <Compile Include="System\Interface\ISysGroupRepository.cs" />
+    <Compile Include="System\Interface\ISysPermissionRepository.cs" />
+    <Compile Include="System\Interface\ISysResourceRepository.cs" />
+    <Compile Include="System\Interface\ISysRoleRepository.cs" />
+    <Compile Include="System\Interface\ISysRPermissionConditionRepository.cs" />
+    <Compile Include="System\Interface\ISysRPermissionGroupRepository.cs" />
+    <Compile Include="System\Interface\ISysRPermissionRoleRepository.cs" />
+    <Compile Include="System\Interface\ISysRRoleResourceRepository.cs" />
+    <Compile Include="System\Interface\ISysRResourceApiRepository.cs" />
+    <Compile Include="System\Interface\ISysSettingRepository.cs" />
+    <Compile Include="System\Interface\ISysUserRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FreeSql.Provider.MySql" Version="1.3.2" />
+    <PackageReference Include="IdleBus" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AlonsoAdmin.Entities\AlonsoAdmin.Entities.csproj" />
+    <ProjectReference Include="..\AlonsoAdmin.MultiTenant\AlonsoAdmin.MultiTenant.csproj" />
+  </ItemGroup>
+
+</Project>
