@@ -13,12 +13,22 @@ namespace AlonsoAdmin.Services.System
     {
         public Mapper()
         {
+            // 登录
             CreateMap<SysUserEntity, AuthLoginResponse>();
 
-            
-            CreateMap<LoginLogAddRequest, SysLoginLogEntity>();             
+            // 登录日志
+            CreateMap<LoginLogAddRequest, SysLoginLogEntity>();        
 
+            // 操作日志
             CreateMap<OprationLogAddRequest, SysOprationLogEntity>();
+
+
+            // Group 创建、更新 用到的映射
+            CreateMap<GroupAddRequest, SysGroupEntity>();
+            // Group 查询实体  用到的映射
+            CreateMap<SysGroupEntity, GroupListResponse>();
+
+
 
 
             ////查询

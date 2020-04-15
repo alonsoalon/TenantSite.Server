@@ -1,4 +1,4 @@
-﻿using AlonsoAdmin.Common.JsonConvert;
+﻿
 using AlonsoAdmin.Entities.System;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace AlonsoAdmin.Services.System.Response
         /// <summary>
         /// 主键Id
         /// </summary>
-        public long Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// 账号

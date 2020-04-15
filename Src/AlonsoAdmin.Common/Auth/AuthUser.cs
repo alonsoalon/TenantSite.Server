@@ -23,16 +23,16 @@ namespace AlonsoAdmin.Common.Auth
         /// 用户Id
         /// </summary>
 
-        public long Id
+        public string Id
         {
             get
             {
                 var id = _accessor?.HttpContext?.User?.FindFirst(ClaimAttributes.UserId);
                 if (id != null && id.Value.IsNotNull())
                 {
-                    return id.Value.ToLong();
+                    return id.Value;
                 }
-                return 0;
+                return "";
             }
         }
 

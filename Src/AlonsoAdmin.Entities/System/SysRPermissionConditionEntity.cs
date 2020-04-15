@@ -16,13 +16,13 @@ namespace AlonsoAdmin.Entities.System
 		/// 权限ID
 		/// </summary>
 		[Column(Name = "PERMISSION_ID", Position = 2)]
-		public long PermissionId { get; set; }
+		public string PermissionId { get; set; }
 
 		/// <summary>
 		/// 数据条件ID
 		/// </summary>
 		[Column(Name = "CONDITION_ID", Position = 3)]
-		public long ConditionId { get; set; } 
+		public string ConditionId { get; set; } 
 
 		/// <summary>
 		/// 表达式树 表达式树，目前存放SQL

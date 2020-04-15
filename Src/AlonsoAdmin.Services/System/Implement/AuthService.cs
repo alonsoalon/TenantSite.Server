@@ -52,7 +52,7 @@ namespace AlonsoAdmin.Services.System.Implement
 
             var user = await _userRepository.GetAsync(a => a.UserName == req.UserName && a.Password == password);
 
-            if (!(user?.Id > 0))
+            if (user == null || user?.Id == "")
             {
                 return ResponseEntity.Error("账号或密码错误!");
             }

@@ -15,13 +15,13 @@ namespace AlonsoAdmin.Entities.System
 		/// 资源ID 资源ID
 		/// </summary>
 		[Column(Name = "RESOURCE_ID", Position = 2)]
-		public long ResourceId { get; set; } 
+		public string ResourceId { get; set; } 
 
 		/// <summary>
 		/// API-ID API ID
 		/// </summary>
 		[Column(Name = "API_ID", Position = 3)]
-		public long ApiId { get; set; } 
+		public string ApiId { get; set; } 
 
 
 		#region 导航属性

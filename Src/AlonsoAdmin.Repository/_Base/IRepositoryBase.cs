@@ -45,7 +45,7 @@ namespace AlonsoAdmin.Repository
         Task<bool> SoftDeleteAsync(TKey[] id);
     }
 
-    public interface IRepositoryBase<TEntity> : IRepositoryBase<TEntity, long> where TEntity : class
+    public interface IRepositoryBase<TEntity> : IRepositoryBase<TEntity, string> where TEntity : class
     {
     }
 }

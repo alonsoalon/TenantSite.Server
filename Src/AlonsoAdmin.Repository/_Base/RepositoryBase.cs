@@ -55,7 +55,7 @@ namespace AlonsoAdmin.Repository
         }
     }
 
-    public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, long> where TEntity : class, new()
+    public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, string> where TEntity : class, new()
     {
       
         public RepositoryBase(IFreeSql db, IAuthUser user) : base(db, user)

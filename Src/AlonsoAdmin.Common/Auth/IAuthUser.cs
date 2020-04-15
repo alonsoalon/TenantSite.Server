@@ -13,7 +13,7 @@ namespace AlonsoAdmin.Common.Auth
         /// <summary>
         /// Key
         /// </summary>
-        long Id { get; }
+        string Id { get; }
 
         /// <summary>
         /// 用户名

@@ -15,14 +15,14 @@ namespace AlonsoAdmin.Repository._SeedData
 
             List<SysUserEntity> list = new List<SysUserEntity>();
             list.Add(new SysUserEntity {
-                Id = 6650943897923698688,
+                Id = "6650943897923698688",
                 UserName = "system",
                 Password = "96E79218965EB72C92A549DD5A33112",
                 UserType = UserType.TenantAdmin,
                 Avatar = "",
 
 
-                CreatedBy = 6650943897923698688,
+                CreatedBy = "6650943897923698688",
                 CreatedByName = "INSTALL",
                 DisplayName = "种子数据",
                 IsDeleted = false,

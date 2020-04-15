@@ -1,4 +1,4 @@
-﻿using AlonsoAdmin.Common.JsonConvert;
+﻿
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Entities.System.Enums;
 using System;
@@ -16,6 +16,7 @@ namespace AlonsoAdmin.Services.System.Response
         /// 权限岗名称
         /// </summary>
         public string PermissionName { get; set; }
+
 
 
     }

@@ -20,7 +20,7 @@ namespace AlonsoAdmin.Services.System.Implement
     {
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _accessor;
-        private readonly ISysLoginLogRepository _oprationLogRepository;
+        private readonly ISysLoginLogRepository _loginLogRepository;
         public SysLoginLogService(
            
             IMapper mapper,
@@ -30,20 +30,21 @@ namespace AlonsoAdmin.Services.System.Implement
         {
             _mapper = mapper;
             _accessor = accessor;
-            _oprationLogRepository = oprationLogRepository;
+            _loginLogRepository = oprationLogRepository;
         }
         public async Task<IResponseEntity> AddAsync(LoginLogAddRequest req)
         {
             var entity = _mapper.Map<SysLoginLogEntity>(req);
-            var id = (await _oprationLogRepository.InsertAsync(entity)).Id;
-            return ResponseEntity.Result(id > 0);
+
+            var item = await _loginLogRepository.InsertAsync(entity);
+            return ResponseEntity.Result(item?.Id != "");
         }
 
         public async Task<IResponseEntity> PageAsync(RequestEntity<SysLoginLogEntity> req)
         {
             var userName = req.Filter?.CreatedByName;
 
-            var list = await _oprationLogRepository.Select
+            var list = await _loginLogRepository.Select
             .WhereIf(userName.IsNotNull(), a => a.CreatedByName.Contains(userName))
             .Count(out var total)
             .OrderByDescending(true, c => c.Id)

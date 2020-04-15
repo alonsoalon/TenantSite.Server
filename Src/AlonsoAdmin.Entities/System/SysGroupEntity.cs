@@ -34,12 +34,13 @@ namespace AlonsoAdmin.Entities.System
 		/// 父级ID
 		/// </summary>
 		[Column(Name = "PARENT_ID", Position = 5)]
-		public long ParentId { get; set; }
+		public string ParentId { get; set; }
 
 		/// <summary>
-		/// 排序
+		/// 排序 InsertValueSql 在mysql下没问题，换其他库。IFNULL 估计会有问题，切换响应函数即可，如oracle 的 nvl
 		/// </summary>
 		[Column(Name = "ORDER_INDEX", Position = 6)]
+		[MaxValue]
 		public int? OrderIndex { get; set; }
 
 		#region 导航属性

@@ -16,13 +16,13 @@ namespace AlonsoAdmin.Entities.System
 		/// 权限ID
 		/// </summary>
 		[Column(Name = "PERMISSION_ID",Position = 2)]
-		public long PermissionId { get; set; }
+		public string PermissionId { get; set; }
 
 		/// <summary>
 		/// 角色ID
 		/// </summary>
 		[Column(Name = "ROLE_ID",Position = 3)]
-		public long RoleId { get; set; } 
+		public string RoleId { get; set; } 
 
 
 		#region 导航属性

@@ -26,7 +26,7 @@ namespace AlonsoAdmin.Entities.System
 		/// 数据字典ID 
 		/// </summary>
 		[Column(Name = "DICTIONARY_ID", Position = 3)]
-		public long DictionaryId { get; set; }
+		public string DictionaryId { get; set; }
 
 		/// <summary>
 		/// 上级ID
@@ -56,6 +56,7 @@ namespace AlonsoAdmin.Entities.System
 		/// 排序
 		/// </summary>
 		[Column(Name = "ORDER_INDEX", Position = 8)]
+		[MaxValue]
 		public int? OrderIndex { get; set; }
 
 		/// <summary>

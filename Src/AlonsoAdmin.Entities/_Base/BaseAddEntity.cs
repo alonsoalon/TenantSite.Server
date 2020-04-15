@@ -19,7 +19,7 @@ namespace AlonsoAdmin.Entities
 		/// 创建人
 		/// </summary>
 		[Column(Name = "CREATED_BY", Position = -7, CanUpdate = false)]
-		public long? CreatedBy { get; set; }
+		public string CreatedBy { get; set; }
 
 		/// <summary>
 		/// 创建人名称

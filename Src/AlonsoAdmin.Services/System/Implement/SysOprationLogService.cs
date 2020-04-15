@@ -38,9 +38,8 @@ namespace AlonsoAdmin.Services.System.Implement
         {
 
             var entity = _mapper.Map<SysOprationLogEntity>(req);
-            var id = (await _oprationLogRepository.InsertAsync(entity)).Id;
-
-            return ResponseEntity.Result(id > 0);
+            var item = await _oprationLogRepository.InsertAsync(entity);
+            return ResponseEntity.Result(item?.Id != "");
         }
 
         public async Task<IResponseEntity> PageAsync(RequestEntity<SysOprationLogEntity> req)

@@ -14,6 +14,6 @@ namespace AlonsoAdmin.Entities
 		/// </summary>
 		[Column(Name = "ID", Position = 1, IsPrimary = true)]
 		[Snowflake]
-		public long Id { get; set; }
+		public string Id { get; set; }
 	}
 }

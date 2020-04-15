@@ -42,7 +42,7 @@ namespace AlonsoAdmin.Entities.System
 		/// 父级ID
 		/// </summary>
 		[Column(Name = "PARENT_ID", Position = 6)]
-		public long ParentId { get; set; }
+		public string ParentId { get; set; }
 
 		/// <summary>
 		/// 如果为分组，是否默认展开（ResourceType为分组类型的独有属性）
@@ -72,6 +72,7 @@ namespace AlonsoAdmin.Entities.System
 		/// 排序
 		/// </summary>
 		[Column(Name = "ORDER_INDEX", Position = 11)]
+		[MaxValue]
 		public int? OrderIndex { get; set; } = 0;
 
 		/// <summary>

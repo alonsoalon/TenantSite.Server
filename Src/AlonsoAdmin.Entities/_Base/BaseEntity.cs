@@ -19,7 +19,7 @@ namespace AlonsoAdmin.Entities
 		/// </summary>
 		[Column(Name = "ID", Position = 1, IsPrimary = true)]
 		[Snowflake]
-		public long Id { get; set; }
+		public string Id { get; set; }
 
 
 		/// <summary>
@@ -45,7 +45,7 @@ namespace AlonsoAdmin.Entities
 		/// 数据归属组 为数据做数据权限提供方便
 		/// </summary>
 		[Column(Name = "GROUP_ID", Position = -8)]
-		public long GroupId { get; set; }
+		public string GroupId { get; set; }
 
 
 		#region 创建人相关
@@ -54,7 +54,7 @@ namespace AlonsoAdmin.Entities
 		/// 创建人
 		/// </summary>
 		[Column(Name = "CREATED_BY", Position = -7, CanUpdate = false)]
-		public long? CreatedBy { get; set; }
+		public string CreatedBy { get; set; }
 
 		/// <summary>
 		/// 创建人名称
@@ -76,7 +76,7 @@ namespace AlonsoAdmin.Entities
 		/// 更新人
 		/// </summary>
 		[Column(Name = "UPDATED_BY", Position = -4, CanInsert = false)]
-		public long? UpdatedBy { get; set; }
+		public string UpdatedBy { get; set; }
 
 		/// <summary>
 		/// 更新人名称

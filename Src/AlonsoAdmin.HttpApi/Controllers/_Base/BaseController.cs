@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace AlonsoAdmin.HttpApi.Controllers
 {
-
-
     [ApiController]
     [Authorize("default")]
-
     public abstract class BaseController : ControllerBase
     {
 

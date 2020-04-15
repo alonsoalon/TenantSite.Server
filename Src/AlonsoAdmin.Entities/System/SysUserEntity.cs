@@ -54,25 +54,13 @@ namespace AlonsoAdmin.Entities.System
 		/// 权限ID 权限ID
 		/// </summary>
 		[Column(Name = "PERMISSION_ID", Position = 8)]
-		public long PermissionId { get; set; }
+		public string PermissionId { get; set; }
 
 		/// <summary>
 		/// 微信OPENID 绑定微信
 		/// </summary>
 		[Column(Name = "WEXIN", Position = 9)]
 		public string Wexin { get; set; } = string.Empty;
-
-		/// <summary>
-		/// 最后一次登录IP 最后一次登录IP
-		/// </summary>
-		[Column(Name = "LAST_LOGIN_IP", Position = 10)]
-		public string LastLoginIp { get; set; } = string.Empty;
-
-		/// <summary>
-		/// 最后一次登录时间 最后一次登录时间
-		/// </summary>
-		[Column(Name = "LAST_LOGIN_TIME", Position = 11)]
-		public string LastLoginTime { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 头像

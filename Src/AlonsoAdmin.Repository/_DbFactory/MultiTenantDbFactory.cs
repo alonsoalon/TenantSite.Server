@@ -1,21 +1,19 @@
-﻿using AlonsoAdmin.Common;
-using AlonsoAdmin.Common.Auth;
+﻿using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Common.Configs;
 using AlonsoAdmin.Common.Extensions;
 using AlonsoAdmin.Common.IdGenerator;
+using AlonsoAdmin.Entities;
 using AlonsoAdmin.MultiTenant;
 using AlonsoAdmin.MultiTenant.Extensions;
 using FreeSql.Aop;
+using FreeSql.DataAnnotations;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace AlonsoAdmin.Repository
 {
@@ -102,6 +100,8 @@ namespace AlonsoAdmin.Repository
 
             var fsql = freeSqlBuilder.Build();
 
+
+            fsql.Aop.ConfigEntityProperty +=  ConfigEntityProperty;
             fsql.Aop.CurdBefore += CurdBefore;
             fsql.Aop.AuditValue += AuditValue;
             //fsql.Aop.SyncStructureAfter += SyncStructureAfter;
@@ -109,11 +109,27 @@ namespace AlonsoAdmin.Repository
             return fsql;
         }
 
+        private void ConfigEntityProperty(object s, ConfigEntityPropertyEventArgs e) {
+
+            
+            if (e.Property.GetCustomAttributes(typeof(MaxValueAttribute)).Any()) {
+            
+                var tableName = (e.EntityType.GetCustomAttribute(typeof(TableAttribute)) as FreeSql.DataAnnotations.TableAttribute).Name;
+                if (tableName == "") tableName = e.EntityType.Name;
+
+                var fieldName = (e.Property.GetCustomAttribute(typeof(ColumnAttribute)) as FreeSql.DataAnnotations.ColumnAttribute).Name;
+                if (fieldName == "") fieldName = e.Property.Name;
+
+                // sql语句在mysql下没问题，但在其他库未测试
+                e.ModifyResult.InsertValueSql = $"(SELECT a.max_v FROM (SELECT (IFNULL(max({fieldName}),0) + 1) max_v from {tableName}) a)";
+            }
+        }
+
         private void AuditValue(object s, AuditValueEventArgs e) {
 
             if (e.AuditValueType == AuditValueType.Insert
                 && e.Property.Name == "Id"
-                && e.Column.CsType == typeof(long)
+                //&& e.Column.CsType == typeof(long)
                 && e.Property.GetCustomAttribute<SnowflakeAttribute>(false) != null
                 )
             {
@@ -122,10 +138,10 @@ namespace AlonsoAdmin.Repository
                 var workId = _systemConfig.CurrentValue?.WorkId ?? 20;
                 sf.Init(dataCenterId, workId);
                 var id = sf.NextId();
-                e.Value = id;
+                e.Value = id.ToString();
             }
 
-            if (_authUser == null || !(_authUser.Id > 0))
+            if (_authUser == null || _authUser.Id == "")
             {
                 return;
             }

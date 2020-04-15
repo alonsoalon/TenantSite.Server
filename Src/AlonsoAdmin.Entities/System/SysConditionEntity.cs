@@ -35,6 +35,7 @@ namespace AlonsoAdmin.Entities.System
 		/// 排序
 		/// </summary>
 		[Column(Name = "ORDER_INDEX", Position = 5)]
+		[MaxValue]
 		public int? OrderIndex { get; set; }
 
 

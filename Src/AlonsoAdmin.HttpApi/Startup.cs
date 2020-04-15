@@ -1,7 +1,6 @@
 using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Common.Cache;
 using AlonsoAdmin.Common.Configs;
-using AlonsoAdmin.Common.JsonConvert;
 using AlonsoAdmin.Common.Utils;
 using AlonsoAdmin.HttpApi.Filters;
 using AlonsoAdmin.HttpApi.Logs;
@@ -80,11 +79,7 @@ namespace AlonsoAdmin.HttpApi
                 // 使用小驼峰
                 options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver(); // new DefaultContractResolver();
                 // 设置时间格式
-                options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
-
-                //options.SerializerSettings.Converters.Add(new IdToStringConverter());
-                //options.SerializerSettings.Converters.Add(new JsonNumberConverter());
-                
+                options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";             
 
 
             });
