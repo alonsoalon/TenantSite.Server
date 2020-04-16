@@ -43,38 +43,66 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         }
 
         /// <summary>
-        /// 删除记录
+        /// 物理删除 - 单条
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
         public async Task<IResponseEntity> Delete(string id)
         {
+            
             return await _sysGroupService.DeleteAsync(id);
         }
 
         /// <summary>
-        /// 软删除记录
+        /// 物理删除 - 批量 
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public async Task<IResponseEntity> DeleteBatch(string[] ids)
+        {
+            return await _sysGroupService.DeleteBatchAsync(ids);
+        }
+
+        /// <summary>
+        /// 软删除 - 单条
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
         public async Task<IResponseEntity> SoftDelete(string id)
         {
-    
-
             return await _sysGroupService.SoftDeleteAsync(id);
         }
 
 
-        [HttpPost]
-        public IResponseEntity BatchSoftDelete(string[] ids)
+
+        /// <summary>
+        /// 软删除 - 批量
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public async Task<IResponseEntity> SoftDeleteBatch(string[] ids)
         {
-            return ResponseEntity.Error("nononono");
+            return await _sysGroupService.SoftDeleteBatchAsync(ids);
+            
         }
 
         /// <summary>
-        /// 取得分页列表数据
+        /// 得到实体
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IResponseEntity> GetItem(string id)
+        {
+            return await _sysGroupService.GetItemAsync(id);
+        }
+
+        /// <summary>
+        /// 取得条件下分页列表数据
         /// </summary>
         /// <param name="req"></param>
         /// <returns></returns>
@@ -85,7 +113,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         }
 
         /// <summary>
-        /// 取得所有的数据（不分页）
+        /// 取得条件下所有的数据（不分页）
         /// </summary>
         /// <param name="req"></param>
         /// <returns></returns>

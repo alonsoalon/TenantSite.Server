@@ -57,6 +57,13 @@ namespace AlonsoAdmin.Services.System
         Task<IResponseEntity> UpdateAsync(TEditEntity req);
 
         /// <summary>
+        /// 得到单条实体
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<IResponseEntity> GetItemAsync(string id);
+
+        /// <summary>
         /// 查询分页数据
         /// </summary>
         /// <typeparam name="T"></typeparam>
