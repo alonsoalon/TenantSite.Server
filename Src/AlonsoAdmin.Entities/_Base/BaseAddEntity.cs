@@ -11,7 +11,10 @@ namespace AlonsoAdmin.Entities
 	/// 只需要插入数据，但无需编辑数据的实例类继承此类，如日志等
 	/// 包括了ID、创建人相关
 	/// </summary>
-    public abstract class BaseAddEntity : BaseIdEntity
+    public abstract class BaseAddEntity : 
+		BaseIdEntity,
+		IBaseId, 
+		IBaseAdd
     {
 		#region 创建人相关
 

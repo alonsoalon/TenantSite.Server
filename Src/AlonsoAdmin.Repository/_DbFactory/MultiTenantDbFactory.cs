@@ -1,7 +1,6 @@
 ﻿using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Common.Configs;
 using AlonsoAdmin.Common.Extensions;
-using AlonsoAdmin.Common.IdGenerator;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.MultiTenant;
 using AlonsoAdmin.MultiTenant.Extensions;
@@ -19,11 +18,11 @@ namespace AlonsoAdmin.Repository
 {
     public class MultiTenantDbFactory : IMultiTenantDbFactory
     {
-        private IHttpContextAccessor _accessor;
-        private IdleBus<IFreeSql> _ib;
-        private IAuthUser _authUser;
-        private IOptionsMonitor<SystemConfig> _systemConfig;
-        private IWebHostEnvironment _env;
+        private readonly IHttpContextAccessor _accessor;
+        private readonly IdleBus<IFreeSql> _ib;
+        private readonly IAuthUser _authUser;
+        private readonly IOptionsMonitor<SystemConfig> _systemConfig;
+        private readonly IWebHostEnvironment _env;
         public MultiTenantDbFactory(
             IHttpContextAccessor accessor, 
             IdleBus<IFreeSql> ib,
@@ -106,19 +105,23 @@ namespace AlonsoAdmin.Repository
             fsql.Aop.AuditValue += AuditValue;
             //fsql.Aop.SyncStructureAfter += SyncStructureAfter;
 
+            fsql.GlobalFilter.Apply<IBaseSoftDelete>("SoftDelete", a => a.IsDeleted == false);
+
             return fsql;
         }
 
         private void ConfigEntityProperty(object s, ConfigEntityPropertyEventArgs e) {
 
-            
+            // 处理排序字段自动取最大值插入
             if (e.Property.GetCustomAttributes(typeof(MaxValueAttribute)).Any()) {
-            
-                var tableName = (e.EntityType.GetCustomAttribute(typeof(TableAttribute)) as FreeSql.DataAnnotations.TableAttribute).Name;
-                if (tableName == "") tableName = e.EntityType.Name;
 
-                var fieldName = (e.Property.GetCustomAttribute(typeof(ColumnAttribute)) as FreeSql.DataAnnotations.ColumnAttribute).Name;
-                if (fieldName == "") fieldName = e.Property.Name;
+                string tableName=e.EntityType.Name;
+                var entityTypeAttr = (e.EntityType.GetCustomAttribute(typeof(TableAttribute)) as FreeSql.DataAnnotations.TableAttribute);
+                if (entityTypeAttr?.Name != "") tableName = entityTypeAttr.Name;
+
+                string fieldName= e.Property.Name;
+                var PropertyAttr = (e.Property.GetCustomAttribute(typeof(ColumnAttribute)) as FreeSql.DataAnnotations.ColumnAttribute);
+                if (PropertyAttr?.Name != "") fieldName = PropertyAttr.Name;
 
                 // sql语句在mysql下没问题，但在其他库未测试
                 e.ModifyResult.InsertValueSql = $"(SELECT a.max_v FROM (SELECT (IFNULL(max({fieldName}),0) + 1) max_v from {tableName}) a)";
@@ -129,11 +132,10 @@ namespace AlonsoAdmin.Repository
 
             if (e.AuditValueType == AuditValueType.Insert
                 && e.Property.Name == "Id"
-                //&& e.Column.CsType == typeof(long)
                 && e.Property.GetCustomAttribute<SnowflakeAttribute>(false) != null
                 )
             {
-                var sf = Snowflake.Instance();
+                var sf = Common.IdGenerator.Snowflake.Instance();
                 var dataCenterId = _systemConfig.CurrentValue?.DataCenterId ?? 5;
                 var workId = _systemConfig.CurrentValue?.WorkId ?? 20;
                 sf.Init(dataCenterId, workId);

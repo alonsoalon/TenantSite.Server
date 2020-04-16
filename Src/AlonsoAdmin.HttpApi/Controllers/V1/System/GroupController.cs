@@ -26,9 +26,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public Task<IResponseEntity> Create(GroupAddRequest req)
+        public async Task<IResponseEntity> Create(GroupAddRequest req)
         {
-            return _sysGroupService.CreateAsync(req);
+            return await _sysGroupService.CreateAsync(req);
         }
 
         /// <summary>
@@ -37,9 +37,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPut]
-        public Task<IResponseEntity> Update(GroupEditRequest req)
+        public async Task<IResponseEntity> Update(GroupEditRequest req)
         {
-            return _sysGroupService.UpdateAsync(req);
+            return await _sysGroupService.UpdateAsync(req);
         }
 
         /// <summary>
@@ -48,9 +48,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
-        public Task<IResponseEntity> Delete(string id)
+        public async Task<IResponseEntity> Delete(string id)
         {
-            return _sysGroupService.DeleteAsync(id);
+            return await _sysGroupService.DeleteAsync(id);
         }
 
         /// <summary>
@@ -58,10 +58,12 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpPost]
-        public Task<IResponseEntity> SoftDelete(string id)
+        [HttpDelete]
+        public async Task<IResponseEntity> SoftDelete(string id)
         {
-            return _sysGroupService.SoftDeleteAsync(id);
+    
+
+            return await _sysGroupService.SoftDeleteAsync(id);
         }
 
 
@@ -77,9 +79,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public Task<IResponseEntity> GetList(RequestEntity<GroupFilterRequest> req)
+        public async Task<IResponseEntity> GetList(RequestEntity<GroupFilterRequest> req)
         {
-            return _sysGroupService.GetListAsync(req);
+            return await _sysGroupService.GetListAsync(req);
         }
 
         /// <summary>
@@ -88,9 +90,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public Task<IResponseEntity> GetAll(GroupFilterRequest req)
+        public async Task<IResponseEntity> GetAll(GroupFilterRequest req)
         {
-            return _sysGroupService.GetAllAsync(req);
+            return await _sysGroupService.GetAllAsync(req);
         }
     }
 }

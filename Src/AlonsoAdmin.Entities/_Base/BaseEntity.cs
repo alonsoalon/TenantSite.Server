@@ -1,10 +1,7 @@
-﻿using AlonsoAdmin.Common.IdGenerator;
+﻿
 using FreeSql.DataAnnotations;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace AlonsoAdmin.Entities
 {
@@ -12,15 +9,16 @@ namespace AlonsoAdmin.Entities
 	/// 最全公共属性基类，业务数据实体建议继承此类
 	/// 包括了ID、创建人相关、编辑人相关、软删除、禁用标记、乐观锁、数据归属组
 	/// </summary>
-	public abstract class BaseEntity
+	public abstract class BaseEntity :
+		BaseIdEntity,// 主键 实现实体类
+		IBaseId, 
+		IBaseRevision, 
+		IBaseDisable, 
+		IBaseSoftDelete, 
+		IBaseGroup, 
+		IBaseAdd, 
+		IBaseEdit
 	{
-		/// <summary>
-		/// 主键
-		/// </summary>
-		[Column(Name = "ID", Position = 1, IsPrimary = true)]
-		[Snowflake]
-		public string Id { get; set; }
-
 
 		/// <summary>
 		/// 乐观锁 即是在数据记录版本号

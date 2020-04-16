@@ -43,6 +43,12 @@ namespace AlonsoAdmin.Entities.System
 		[MaxValue]
 		public int? OrderIndex { get; set; }
 
+		/// <summary>
+		/// 打开状态
+		/// </summary>
+		[Column(Name = "OPENED", Position = 7)]
+		public bool? Opened { get; set; }
+
 		#region 导航属性
 		[Navigate(ManyToMany = typeof(SysRPermissionGroupEntity))]
 		public virtual ICollection<SysPermissionEntity> Permissions { get; set; }

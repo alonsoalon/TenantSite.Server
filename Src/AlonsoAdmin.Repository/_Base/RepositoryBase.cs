@@ -13,12 +13,12 @@ namespace AlonsoAdmin.Repository
 {
     public abstract class RepositoryBase<TEntity, TKey> : BaseRepository<TEntity, TKey> where TEntity : class, new()
     {
-        private readonly IAuthUser _user;
+        private readonly IAuthUser _authUser;
        
 
-        protected RepositoryBase(IFreeSql db, IAuthUser user) : base(db, null, null)
+        protected RepositoryBase(IFreeSql db, IAuthUser authUser) : base(db, null, null)
         {
-            _user = user;
+            _authUser = authUser;
         }
 
         public virtual Task<TDto> GetAsync<TDto>(TKey id)
@@ -38,8 +38,9 @@ namespace AlonsoAdmin.Repository
 
         public async Task<bool> SoftDeleteAsync(TKey id)
         {
+
             await UpdateDiy
-                .SetDto(new { IsDeleted = true, ModifiedUserId = _user.Id, ModifiedUserName = _user.UserName })
+                .SetDto(new { IsDeleted = true, UpdatedBy = _authUser.Id, UpdatedByName = _authUser.UserName })
                 .WhereDynamic(id)
                 .ExecuteAffrowsAsync();
             return true;
@@ -48,7 +49,7 @@ namespace AlonsoAdmin.Repository
         public async Task<bool> SoftDeleteAsync(TKey[] ids)
         {
             await UpdateDiy
-                .SetDto(new { IsDeleted = true, ModifiedUserId = _user.Id, ModifiedUserName = _user.UserName })
+                .SetDto(new { IsDeleted = true, UpdatedBy = _authUser.Id, UpdatedByName = _authUser.UserName })
                 .WhereDynamic(ids)
                 .ExecuteAffrowsAsync();
             return true;

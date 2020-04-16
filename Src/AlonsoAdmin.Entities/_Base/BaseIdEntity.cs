@@ -1,14 +1,10 @@
-﻿using AlonsoAdmin.Common.IdGenerator;
+﻿
 using FreeSql.DataAnnotations;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AlonsoAdmin.Entities
 {
-    public abstract class BaseIdEntity
-    {
+	public abstract class BaseIdEntity : IBaseId
+	{
 		/// <summary>
 		/// 主键
 		/// </summary>

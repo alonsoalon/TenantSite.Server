@@ -25,6 +25,10 @@ namespace AlonsoAdmin.Services.System
 
             // Group 创建、更新 用到的映射
             CreateMap<GroupAddRequest, SysGroupEntity>();
+
+
+            CreateMap<GroupEditRequest, SysGroupEntity>();
+
             // Group 查询实体  用到的映射
             CreateMap<SysGroupEntity, GroupListResponse>();
 
