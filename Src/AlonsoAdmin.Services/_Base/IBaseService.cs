@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlonsoAdmin.Services.System
+namespace AlonsoAdmin.Services
 {
     public interface IBaseService<TFilter, TAddEntity,TEditEntity>
         where TFilter : class     // 用于前端 查询条件请求实体
