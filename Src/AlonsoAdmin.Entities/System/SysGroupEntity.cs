@@ -37,7 +37,7 @@ namespace AlonsoAdmin.Entities.System
 		public string ParentId { get; set; }
 
 		/// <summary>
-		/// 排序 InsertValueSql 在mysql下没问题，换其他库。IFNULL 估计会有问题，切换响应函数即可，如oracle 的 nvl
+		/// 排序
 		/// </summary>
 		[Column(Name = "ORDER_INDEX", Position = 6)]
 		[MaxValue]

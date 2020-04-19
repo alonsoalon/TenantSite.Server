@@ -134,13 +134,12 @@ namespace AlonsoAdmin.Services.System.Implement
         {
 
             var result = await _sysGroupRepository.GetAsync(id);
-            return ResponseEntity.Result(result != null);
+            var data = _mapper.Map<GroupForItemResponse>(result);
+            return ResponseEntity.Ok(data);
         }
 
         public async Task<IResponseEntity> GetListAsync(RequestEntity<GroupFilterRequest> req)
         {
-
-
 
             var key = req.Filter?.Key;
             var withDisable = req.Filter!=null ? req.Filter.WithDisable : false;
@@ -153,9 +152,9 @@ namespace AlonsoAdmin.Services.System.Implement
                 .Page(req.CurrentPage, req.PageSize)
                 .ToListAsync();
 
-            var data = new PageEntity<GroupListResponse>()
+            var data = new PageEntity<GroupForListResponse>()
             {
-                List = _mapper.Map<List<GroupListResponse>>(list),
+                List = _mapper.Map<List<GroupForListResponse>>(list),
                 Total = total
             };
 
@@ -164,16 +163,17 @@ namespace AlonsoAdmin.Services.System.Implement
 
         public async Task<IResponseEntity> GetAllAsync(GroupFilterRequest req)
         {
-            var cacheKey = string.Format(CacheKeyTemplate.UserGroupList, _authUser.Id);
+            var withDisable = req != null ? req.WithDisable : false;
+
+            var cacheKey = string.Format(CacheKeyTemplate.UserGroupList, _authUser.Id, withDisable ? "withDisable" : "onlyEnable");
             if (await _cache.ExistsAsync(cacheKey))
             {
-                var data = await _cache.GetAsync<List<GroupListResponse>>(cacheKey);
+                var data = await _cache.GetAsync<List<GroupForListResponse>>(cacheKey);
                 return ResponseEntity.Ok(data);
             }
 
 
             var key = req?.Key;
-            var withDisable = req != null ? req.WithDisable : false;
             var list = await _sysGroupRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key)))
                 .WhereIf(!withDisable, a => a.IsDisabled == false)
@@ -181,7 +181,7 @@ namespace AlonsoAdmin.Services.System.Implement
                 .OrderBy(true, a => a.OrderIndex)
                 .ToListAsync();
 
-            var result = _mapper.Map<List<GroupListResponse>>(list);
+            var result = _mapper.Map<List<GroupForListResponse>>(list);
 
             await _cache.SetAsync(cacheKey, result);
 

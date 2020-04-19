@@ -24,10 +24,12 @@ namespace AlonsoAdmin.Services.System
             #region Group
             // 创建 用到的映射
             CreateMap<GroupAddRequest, SysGroupEntity>();
-            // Group 更新 用到的映射
+            // 更新 用到的映射
             CreateMap<GroupEditRequest, SysGroupEntity>();
-            // Group 查询 用到的映射
-            CreateMap<SysGroupEntity, GroupListResponse>();
+            // 查询 用到的映射
+            CreateMap<SysGroupEntity, GroupForListResponse>();
+            // 查询单条明细 用到的映射
+            CreateMap<SysGroupEntity, GroupForItemResponse>();
             #endregion
 
 
@@ -36,8 +38,34 @@ namespace AlonsoAdmin.Services.System
             CreateMap<ResourceAddRequest, SysResourceEntity>();
             // 更新 用到的映射
             CreateMap<ResourceEditRequest, SysResourceEntity>();
-            // 查询 用到的映射
-            CreateMap<SysResourceEntity, ResourceListResponse>();
+            // 查询列表 用到的映射
+            CreateMap<SysResourceEntity, ResourceForListResponse>();
+            // 查询单条明细 用到的映射
+            CreateMap<SysResourceEntity, ResourceForItemResponse>();
+            #endregion
+
+
+            #region Permission
+            // 创建 用到的映射
+            CreateMap<PermissionAddRequest, SysPermissionEntity>();
+            // 更新 用到的映射
+            CreateMap<PermissionEditRequest, SysPermissionEntity>();
+            // 查询列表 用到的映射
+            CreateMap<SysPermissionEntity, PermissionForListResponse>();
+            // 查询单条明细 用到的映射
+            CreateMap<SysPermissionEntity, PermissionForItemResponse>();
+            #endregion
+
+
+            #region Role
+            // 创建 用到的映射
+            CreateMap<RoleAddRequest, SysRoleEntity>();
+            // 更新 用到的映射
+            CreateMap<RoleEditRequest, SysRoleEntity>();
+            // 查询列表 用到的映射
+            CreateMap<SysRoleEntity, RoleForListResponse>();
+            // 查询单条明细 用到的映射
+            CreateMap<SysRoleEntity, RoleForItemResponse>();
             #endregion
 
 

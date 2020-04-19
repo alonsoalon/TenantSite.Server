@@ -13,7 +13,7 @@ namespace AlonsoAdmin.Services.System.Request
     {
 
 		/// <summary>
-		/// 资源CODE 资源CODE
+		/// 资源CODE
 		/// </summary>
 		public string Code { get; set; } = string.Empty;
 

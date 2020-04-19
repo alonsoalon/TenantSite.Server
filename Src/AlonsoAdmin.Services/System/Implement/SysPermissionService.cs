@@ -14,28 +14,28 @@ using System.Threading.Tasks;
 
 namespace AlonsoAdmin.Services.System.Implement
 {
-    public class SysResourceService : ISysResourceService
+    public class SysPermissionService : ISysPermissionService
     {
         private readonly IMapper _mapper;
-        private readonly ISysResourceRepository _sysResourceRepository;
-        public SysResourceService(
+        private readonly ISysPermissionRepository _sysPermissionRepository;
+        public SysPermissionService(
             IMapper mapper,
-            ISysResourceRepository sysResourceRepository
+            ISysPermissionRepository sysPermissionRepository
             )
         {
             _mapper = mapper;
-            _sysResourceRepository = sysResourceRepository;
+            _sysPermissionRepository = sysPermissionRepository;
         }
 
         #region 通用接口服务实现 对应通用接口
-        public async Task<IResponseEntity> CreateAsync(ResourceAddRequest req)
+        public async Task<IResponseEntity> CreateAsync(PermissionAddRequest req)
         {
-            var item = _mapper.Map<SysResourceEntity>(req);
-            var result = await _sysResourceRepository.InsertAsync(item);
+            var item = _mapper.Map<SysPermissionEntity>(req);
+            var result = await _sysPermissionRepository.InsertAsync(item);
             return ResponseEntity.Result(result != null && result?.Id != "");
         }
 
-        public async Task<IResponseEntity> UpdateAsync(ResourceEditRequest req)
+        public async Task<IResponseEntity> UpdateAsync(PermissionEditRequest req)
         {
 
             if (req == null || req?.Id == "")
@@ -43,15 +43,15 @@ namespace AlonsoAdmin.Services.System.Implement
                 return ResponseEntity.Error("更新的实体主键丢失");
             }
 
-            //var entity = await _sysResourceRepository.GetAsync(req.Id);
+            //var entity = await _sysPermissionRepository.GetAsync(req.Id);
             //if (entity == null || entity?.Id == "")
             //{
             //    return ResponseEntity.Error("找不到更新的实体！");
             //}
             //_mapper.Map(req, entity);
 
-            var entity = _mapper.Map<SysResourceEntity>(req);
-            await _sysResourceRepository.UpdateAsync(entity);
+            var entity = _mapper.Map<SysPermissionEntity>(req);
+            await _sysPermissionRepository.UpdateAsync(entity);
             return ResponseEntity.Ok("更新成功");
         }
 
@@ -61,7 +61,7 @@ namespace AlonsoAdmin.Services.System.Implement
             {
                 return ResponseEntity.Error("删除对象的主键获取失败");
             }
-            var result = await _sysResourceRepository.DeleteAsync(id);
+            var result = await _sysPermissionRepository.DeleteAsync(id);
             return ResponseEntity.Result(result > 0);
         }
 
@@ -71,7 +71,7 @@ namespace AlonsoAdmin.Services.System.Implement
             {
                 return ResponseEntity.Error("删除对象的主键获取失败");
             }
-            var result = await _sysResourceRepository.Where(m => ids.Contains(m.Id)).ToDelete().ExecuteAffrowsAsync();
+            var result = await _sysPermissionRepository.Where(m => ids.Contains(m.Id)).ToDelete().ExecuteAffrowsAsync();
             return ResponseEntity.Result(result > 0);
         }
 
@@ -82,7 +82,7 @@ namespace AlonsoAdmin.Services.System.Implement
                 return ResponseEntity.Error("删除对象的主键获取失败");
             }
 
-            var result = await _sysResourceRepository.SoftDeleteAsync(id);
+            var result = await _sysPermissionRepository.SoftDeleteAsync(id);
             return ResponseEntity.Result(result);
         }
 
@@ -93,50 +93,49 @@ namespace AlonsoAdmin.Services.System.Implement
                 return ResponseEntity.Error("删除对象的主键获取失败");
             }
 
-            var result = await _sysResourceRepository.SoftDeleteAsync(ids);
+            var result = await _sysPermissionRepository.SoftDeleteAsync(ids);
             return ResponseEntity.Result(result);
         }
 
         public async Task<IResponseEntity> GetItemAsync(string id)
         {
 
-            var result = await _sysResourceRepository.GetAsync(id);
-            var data = _mapper.Map<ResourceForItemResponse>(result);
+            var result = await _sysPermissionRepository.GetAsync(id);
+            var data = _mapper.Map<PermissionForItemResponse>(result);
             return ResponseEntity.Ok(data);
-
         }
 
-        public async Task<IResponseEntity> GetListAsync(RequestEntity<ResourceFilterRequest> req)
+        public async Task<IResponseEntity> GetListAsync(RequestEntity<PermissionFilterRequest> req)
         {
             var key = req.Filter?.Key;
                 
-            var list = await _sysResourceRepository.Select
-                .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key)))
+            var list = await _sysPermissionRepository.Select
+                .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key) || a.Description.Contains(key)))
                 .Count(out var total)               
                 .OrderBy(true, a => a.OrderIndex)
                 .Page(req.CurrentPage, req.PageSize)
                 .ToListAsync();
 
-            var data = new PageEntity<ResourceForListResponse>()
+            var data = new PageEntity<PermissionForListResponse>()
             {
-                List = _mapper.Map<List<ResourceForListResponse>>(list),
+                List = _mapper.Map<List<PermissionForListResponse>>(list),
                 Total = total
             };
 
             return ResponseEntity.Ok(data);
         }
 
-        public async Task<IResponseEntity> GetAllAsync(ResourceFilterRequest req)
+        public async Task<IResponseEntity> GetAllAsync(PermissionFilterRequest req)
         {
             var key = req?.Key;
 
-            var list = await _sysResourceRepository.Select
-                .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key)))
+            var list = await _sysPermissionRepository.Select
+                .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key) || a.Description.Contains(key)))
                 .Count(out var total)
                 .OrderBy(true, a => a.OrderIndex)
                 .ToListAsync();
 
-            var result = _mapper.Map<List<ResourceForListResponse>>(list);
+            var result = _mapper.Map<List<PermissionForListResponse>>(list);
             return ResponseEntity.Ok(result);
         }
         #endregion

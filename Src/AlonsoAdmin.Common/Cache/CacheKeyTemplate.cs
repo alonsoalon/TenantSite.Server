@@ -18,7 +18,7 @@ namespace AlonsoAdmin.Common.Cache
         /// 用户权限组
         /// </summary>
         [Description("用户权限组")]
-        public const string UserGroupList = "admin:user:{0}:grouplist";
+        public const string UserGroupList = "admin:user:{0}:grouplist:{1}";
 
     }
 }

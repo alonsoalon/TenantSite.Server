@@ -30,6 +30,14 @@ namespace AlonsoAdmin.Entities.System
 		public string Description { get; set; } = string.Empty;
 
 
+		/// <summary>
+		/// 排序 
+		/// </summary>
+		[Column(Name = "ORDER_INDEX", Position = 5)]
+		[MaxValue]
+		public int? OrderIndex { get; set; }
+
+
 		#region 导航属性
 		[Navigate(ManyToMany = typeof(SysRPermissionRoleEntity))]
 		public virtual ICollection<SysPermissionEntity> Permissions { get; set; }
