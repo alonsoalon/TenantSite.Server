@@ -62,7 +62,7 @@ namespace AlonsoAdmin.HttpApi.Logs
             var client = UAParser.Parser.GetDefault().Parse(ua);
             var device = client.Device.Family;
 
-            var req = new OprationLogAddRequest
+            var req = new OprationLogRequest
             {
                 ApiMethod = context.HttpContext.Request.Method.ToLower(),
                 ApiPath = GetCurrentRoutePath(),

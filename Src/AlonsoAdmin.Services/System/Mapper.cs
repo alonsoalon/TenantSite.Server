@@ -16,13 +16,13 @@ namespace AlonsoAdmin.Services.System
             // 登录
             CreateMap<SysUserEntity, AuthLoginResponse>();
             // 登录日志
-            CreateMap<LoginLogAddRequest, SysLoginLogEntity>();
+            CreateMap<LoginLogRequest, SysLoginLogEntity>();
             // 操作日志
-            CreateMap<OprationLogAddRequest, SysOprationLogEntity>();
+            CreateMap<OprationLogRequest, SysOprationLogEntity>();
 
             
             #region Group
-            // Group 创建 用到的映射
+            // 创建 用到的映射
             CreateMap<GroupAddRequest, SysGroupEntity>();
             // Group 更新 用到的映射
             CreateMap<GroupEditRequest, SysGroupEntity>();
@@ -31,20 +31,15 @@ namespace AlonsoAdmin.Services.System
             #endregion
 
 
+            #region Resource
+            // 创建 用到的映射
+            CreateMap<ResourceAddRequest, SysResourceEntity>();
+            // 更新 用到的映射
+            CreateMap<ResourceEditRequest, SysResourceEntity>();
+            // 查询 用到的映射
+            CreateMap<SysResourceEntity, ResourceListResponse>();
+            #endregion
 
-            ////查询
-            //CreateMap<SysUserEntity, UserGetResponse>().ForMember(
-            //    d => d.RoleIds,
-            //    m => m.MapFrom(s => s.Roles.Select(a => a.Id))
-            //);
-
-
-            //查询列表
-            CreateMap<SysUserEntity, UserListResponse>()
-                .ForMember(
-                d => d.PermissionName, 
-                m => m.MapFrom(s => s.Permission.Title)
-                );
 
 
         }

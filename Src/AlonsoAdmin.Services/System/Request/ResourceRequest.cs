@@ -1,125 +1,120 @@
-
-using Newtonsoft.Json;
-using FreeSql.DataAnnotations;
-using System.Collections.Generic;
+﻿using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Entities.System.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace AlonsoAdmin.Entities.System
+namespace AlonsoAdmin.Services.System.Request
 {
-
 	/// <summary>
-	/// 资源
+	/// 添加实体类 要么继承 数据库实体类，要么属性尽量取名一致(除非迁就前端)，避免automapper做对应映射处理
 	/// </summary>
-	[Table(Name = "sys_resource")]
-	public class SysResourceEntity : BaseEntity
-	{
+    public class ResourceAddRequest
+    {
 
 		/// <summary>
 		/// 资源CODE 资源CODE
 		/// </summary>
-		[Column(Name = "CODE", Position = 2)]
 		public string Code { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 资源名称 资源名称
 		/// </summary>
-		[Column(Name = "TITLE", Position = 3)]
 		public string Title { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 资源描述
 		/// </summary>
-		[Column(Name = "DESCRIPTION", Position = 4)]
 		public string Description { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 资源类型 1.分组 2.菜单 3.功能点（功能点包括 按钮，显示区域，具体由前端控制）
 		/// </summary>
-		[Column(Name = "RESOURCE_TYPE", Position = 5, MapType = typeof(int), CanUpdate = false)]
 		public ResourceType ResourceType { get; set; }
 
 		/// <summary>
 		/// 父级ID
 		/// </summary>
-		[Column(Name = "PARENT_ID", Position = 6)]
 		public string ParentId { get; set; }
-
-		/// <summary>
-		/// 如果为分组，是否默认展开（ResourceType为分组类型的独有属性）
-		/// </summary>
-		[Column(Name = "OPENED", Position = 7)]
-		public bool? Opened { get; set; }
 
 		/// <summary>
 		///  SPA视图组件name或外面链接（ResourceType为菜单类型的独有属性）
 		/// </summary>
-		[Column(Name = "PATH", Position = 8)]
-		public string Path { get; set; } = string.Empty;
+		public string Path { get; set; }
 
 		/// <summary>
 		/// SPA视图组件path
 		/// </summary>
-		[Column(Name = "VIEW_PATH", Position = 9)]
 		public string ViewPath { get; set; }
 		/// <summary>
 		/// SPA视图组件path
 		/// </summary>
-		[Column(Name = "VIEW_NAME", Position = 9)]
 		public string ViewName { get; set; }
 
 		/// <summary>
-		/// SPA视图组件 是否启用缓存
+		/// SPA视图组件 是否缓存
 		/// </summary>
-		[Column(Name = "CACHE", Position = 10)]
 		public bool viewCache { get; set; }
 
 		/// <summary>
 		/// ICON
 		/// </summary>
-		[Column(Name = "ICON", Position = 11)]
 		public string Icon { get; set; } = string.Empty;
 
-		/// <summary>
-		/// 排序
-		/// </summary>
-		[Column(Name = "ORDER_INDEX", Position = 12)]
-		[MaxValue]
-		public int? OrderIndex { get; set; } = 0;
 
 		/// <summary>
 		/// 隐藏
 		/// </summary>
-		[Column(Name = "HIDDEN", Position = 13)]
 		public bool Hidden { get; set; } = false;
 
 		/// <summary>
 		/// 是否可关闭 （ResourceType为菜单类型的独有属性）
 		/// </summary>
-		[Column(Name = "CLOSABLE", Position = 14)]
 		public bool? Closable { get; set; }
 
 		/// <summary>
 		/// URL类型（ResourceType为菜单类型的独有属性） 1.SPA视图组件 2.外面链接
 		/// </summary>
-		[Column(Name = "LINK_TYPE", Position = 15, MapType = typeof(int))]
 		public LinkType LinkType { get; set; }
 
 		/// <summary>
 		/// 外链打开方式（ResourceType为菜单类型且LinkType为外链类型的属性） 1.内部窗口打开 2.外部窗口打开
 		/// </summary>
-		[Column(Name = "OPEN_MODE", Position = 16, MapType = typeof(int))]
 		public ExternalLinkOpenMode OpenMode { get; set; }
-		
 
-		#region 导航属性
-		[Navigate(ManyToMany = typeof(SysRResourceApiEntity))]
-		public virtual ICollection<SysApiEntity> Apis { get; set; }
+		/// <summary>
+		/// 如果为分组，是否默认展开（ResourceType为分组类型的独有属性）
+		/// </summary>
+		public bool? Opened { get; set; }
 
-		[Navigate(ManyToMany = typeof(SysRRoleResourceEntity))]
-		public virtual ICollection<SysRoleEntity> Roles { get; set; }
-		#endregion
+		/// <summary>
+		/// 是否禁用
+		/// </summary>
+		public bool IsDisabled { get; set; }
+
+
+		/// <summary>
+		/// 数据归属组
+		/// </summary>
+		public string GroupId { get; set; }
 
 
 	}
 
+	public class ResourceEditRequest : ResourceAddRequest
+	{
+		public string Id { get; set; }
+
+		public int? OrderIndex { get; set; }
+
+		public int Revision { get; set; }
+
+
+
+	}
+
+	public class ResourceFilterRequest
+	{
+		public string Key { get; set; }
+	}
 }

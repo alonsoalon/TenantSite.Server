@@ -3,10 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AlonsoAdmin.Services.System.Request
+namespace AlonsoAdmin.Services.System.Response
 {
-    public class LoginLogAddRequest: SysLoginLogEntity
+    public class ResourceListResponse : SysResourceEntity
     {
 
+
+
     }
+
+
 }

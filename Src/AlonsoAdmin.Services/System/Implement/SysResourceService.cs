@@ -1,6 +1,4 @@
-﻿using AlonsoAdmin.Common.Auth;
-using AlonsoAdmin.Common.Cache;
-using AlonsoAdmin.Common.Extensions;
+﻿using AlonsoAdmin.Common.Extensions;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Repository.System;
@@ -16,39 +14,28 @@ using System.Threading.Tasks;
 
 namespace AlonsoAdmin.Services.System.Implement
 {
-    public class SysGroupService : ISysGroupService
+    public class SysResourceService : ISysResourceService
     {
         private readonly IMapper _mapper;
-        private readonly ICache _cache;
-        private readonly IAuthUser _authUser;        
-        private readonly ISysGroupRepository _sysGroupRepository;
-        public SysGroupService(
+        private readonly ISysResourceRepository _sysResourceRepository;
+        public SysResourceService(
             IMapper mapper,
-            ICache cache,
-            IAuthUser authUser,
-            ISysGroupRepository sysGroupRepository
+            ISysResourceRepository sysResourceRepository
             )
         {
             _mapper = mapper;
-            _cache = cache;
-            _authUser= authUser;
-            _sysGroupRepository = sysGroupRepository;
+            _sysResourceRepository = sysResourceRepository;
         }
 
-
         #region 通用接口服务实现 对应通用接口
-        public async Task<IResponseEntity> CreateAsync(GroupAddRequest req)
+        public async Task<IResponseEntity> CreateAsync(ResourceAddRequest req)
         {
-            var item = _mapper.Map<SysGroupEntity>(req);
-            var result = await _sysGroupRepository.InsertAsync(item);
-
-            //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
-
+            var item = _mapper.Map<SysResourceEntity>(req);
+            var result = await _sysResourceRepository.InsertAsync(item);
             return ResponseEntity.Result(result != null && result?.Id != "");
         }
 
-        public async Task<IResponseEntity> UpdateAsync(GroupEditRequest req)
+        public async Task<IResponseEntity> UpdateAsync(ResourceEditRequest req)
         {
 
             if (req == null || req?.Id == "")
@@ -56,19 +43,15 @@ namespace AlonsoAdmin.Services.System.Implement
                 return ResponseEntity.Error("更新的实体主键丢失");
             }
 
-            //var entity = await _sysGroupRepository.GetAsync(req.Id);
+            //var entity = await _sysResourceRepository.GetAsync(req.Id);
             //if (entity == null || entity?.Id == "")
             //{
             //    return ResponseEntity.Error("找不到更新的实体！");
             //}
             //_mapper.Map(req, entity);
 
-            var entity = _mapper.Map<SysGroupEntity>(req);
-            await _sysGroupRepository.UpdateAsync(entity);
-
-            //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
-
+            var entity = _mapper.Map<SysResourceEntity>(req);
+            await _sysResourceRepository.UpdateAsync(entity);
             return ResponseEntity.Ok("更新成功");
         }
 
@@ -78,11 +61,7 @@ namespace AlonsoAdmin.Services.System.Implement
             {
                 return ResponseEntity.Error("删除对象的主键获取失败");
             }
-            var result = await _sysGroupRepository.DeleteAsync(id);
-
-            //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
-
+            var result = await _sysResourceRepository.DeleteAsync(id);
             return ResponseEntity.Result(result > 0);
         }
 
@@ -92,11 +71,7 @@ namespace AlonsoAdmin.Services.System.Implement
             {
                 return ResponseEntity.Error("删除对象的主键获取失败");
             }
-            var result = await _sysGroupRepository.Where(m => ids.Contains(m.Id)).ToDelete().ExecuteAffrowsAsync();
-
-            //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
-
+            var result = await _sysResourceRepository.Where(m => ids.Contains(m.Id)).ToDelete().ExecuteAffrowsAsync();
             return ResponseEntity.Result(result > 0);
         }
 
@@ -107,11 +82,7 @@ namespace AlonsoAdmin.Services.System.Implement
                 return ResponseEntity.Error("删除对象的主键获取失败");
             }
 
-            var result = await _sysGroupRepository.SoftDeleteAsync(id);
-
-            //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
-
+            var result = await _sysResourceRepository.SoftDeleteAsync(id);
             return ResponseEntity.Result(result);
         }
 
@@ -122,75 +93,53 @@ namespace AlonsoAdmin.Services.System.Implement
                 return ResponseEntity.Error("删除对象的主键获取失败");
             }
 
-            var result = await _sysGroupRepository.SoftDeleteAsync(ids);
-
-            //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
-
+            var result = await _sysResourceRepository.SoftDeleteAsync(ids);
             return ResponseEntity.Result(result);
         }
 
         public async Task<IResponseEntity> GetItemAsync(string id)
         {
 
-            var result = await _sysGroupRepository.GetAsync(id);
+            var result = await _sysResourceRepository.GetAsync(id);
             return ResponseEntity.Result(result != null);
         }
 
-        public async Task<IResponseEntity> GetListAsync(RequestEntity<GroupFilterRequest> req)
+        public async Task<IResponseEntity> GetListAsync(RequestEntity<ResourceFilterRequest> req)
         {
-
-
-
             var key = req.Filter?.Key;
-            var withDisable = req.Filter!=null ? req.Filter.WithDisable : false;
-
-            var list = await _sysGroupRepository.Select
+                
+            var list = await _sysResourceRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key)))
-                .WhereIf(!withDisable, a => a.IsDisabled == false)
-                .Count(out var total)
+                .Count(out var total)               
                 .OrderBy(true, a => a.OrderIndex)
                 .Page(req.CurrentPage, req.PageSize)
                 .ToListAsync();
 
-            var data = new PageEntity<GroupListResponse>()
+            var data = new PageEntity<ResourceListResponse>()
             {
-                List = _mapper.Map<List<GroupListResponse>>(list),
+                List = _mapper.Map<List<ResourceListResponse>>(list),
                 Total = total
             };
 
             return ResponseEntity.Ok(data);
         }
 
-        public async Task<IResponseEntity> GetAllAsync(GroupFilterRequest req)
+        public async Task<IResponseEntity> GetAllAsync(ResourceFilterRequest req)
         {
-            var cacheKey = string.Format(CacheKeyTemplate.UserGroupList, _authUser.Id);
-            if (await _cache.ExistsAsync(cacheKey))
-            {
-                var data = await _cache.GetAsync<List<GroupListResponse>>(cacheKey);
-                return ResponseEntity.Ok(data);
-            }
-
-
             var key = req?.Key;
-            var withDisable = req != null ? req.WithDisable : false;
-            var list = await _sysGroupRepository.Select
+
+            var list = await _sysResourceRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key)))
-                .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .Count(out var total)
                 .OrderBy(true, a => a.OrderIndex)
                 .ToListAsync();
 
-            var result = _mapper.Map<List<GroupListResponse>>(list);
-
-            await _cache.SetAsync(cacheKey, result);
-
+            var result = _mapper.Map<List<ResourceListResponse>>(list);
             return ResponseEntity.Ok(result);
         }
         #endregion
 
         #region 特殊接口服务实现
-
         #endregion
 
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AlonsoAdmin.Services.System.Request
 {
-    public class OprationLogAddRequest
+    public class OprationLogRequest
     {
 
         /// <summary>

@@ -32,7 +32,7 @@ namespace AlonsoAdmin.Services.System.Implement
             _accessor = accessor;
             _loginLogRepository = oprationLogRepository;
         }
-        public async Task<IResponseEntity> AddAsync(LoginLogAddRequest req)
+        public async Task<IResponseEntity> AddAsync(LoginLogRequest req)
         {
             var entity = _mapper.Map<SysLoginLogEntity>(req);
 

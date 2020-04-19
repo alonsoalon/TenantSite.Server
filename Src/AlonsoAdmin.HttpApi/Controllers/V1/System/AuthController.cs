@@ -69,7 +69,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
                 string ua = HttpContext.Request.Headers["User-Agent"];
                 var client = UAParser.Parser.GetDefault().Parse(ua);
                 var device = client.Device.Family;
-                var loginLogAddRequest = new LoginLogAddRequest()
+                var loginLogAddRequest = new LoginLogRequest()
                 {
                     CreatedBy = user.Id,
                     CreatedByName = user.UserName,

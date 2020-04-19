@@ -8,14 +8,9 @@ using System.Threading.Tasks;
 
 namespace AlonsoAdmin.Services.System.Interface
 {
-
-    public interface ISysGroupService : IBaseService<GroupFilterRequest, GroupAddRequest, GroupEditRequest>
+    public interface ISysResourceService : IBaseService<ResourceFilterRequest, ResourceAddRequest, ResourceEditRequest>
     {
 
-        #region 特殊接口 在此定义
-
-
-
-        #endregion
+        // 特殊接口 在此定义
     }
 }

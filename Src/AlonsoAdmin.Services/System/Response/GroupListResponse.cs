@@ -10,7 +10,5 @@ namespace AlonsoAdmin.Services.System.Response
     public class GroupListResponse : SysGroupEntity
     {
    
-
-       
     }
 }

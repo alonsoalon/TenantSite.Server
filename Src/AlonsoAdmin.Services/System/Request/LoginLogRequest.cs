@@ -5,8 +5,8 @@ using System.Text;
 
 namespace AlonsoAdmin.Services.System.Request
 {
-    public class GroupFilterRequest 
+    public class LoginLogRequest: SysLoginLogEntity
     {
-        public string Key { get; set; }
+
     }
 }

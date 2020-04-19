@@ -12,12 +12,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
 
-    public class GroupController : ModuleBaseController
+    public class ResourceController : ModuleBaseController
     {
-        private readonly ISysGroupService _sysGroupService;
-        public GroupController(ISysGroupService sysGroupService)
+        private readonly ISysResourceService _sysResourceService;
+        public ResourceController(ISysResourceService sysResourceService)
         {
-            _sysGroupService = sysGroupService;
+            _sysResourceService = sysResourceService;
         }
 
         #region 通用API方法
@@ -27,9 +27,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResponseEntity> Create(GroupAddRequest req)
+        public async Task<IResponseEntity> Create(ResourceAddRequest req)
         {
-            return await _sysGroupService.CreateAsync(req);
+            return await _sysResourceService.CreateAsync(req);
         }
 
         /// <summary>
@@ -38,9 +38,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IResponseEntity> Update(GroupEditRequest req)
+        public async Task<IResponseEntity> Update(ResourceEditRequest req)
         {
-            return await _sysGroupService.UpdateAsync(req);
+            return await _sysResourceService.UpdateAsync(req);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         public async Task<IResponseEntity> Delete(string id)
         {
 
-            return await _sysGroupService.DeleteAsync(id);
+            return await _sysResourceService.DeleteAsync(id);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpPut]
         public async Task<IResponseEntity> DeleteBatch(string[] ids)
         {
-            return await _sysGroupService.DeleteBatchAsync(ids);
+            return await _sysResourceService.DeleteBatchAsync(ids);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpDelete]
         public async Task<IResponseEntity> SoftDelete(string id)
         {
-            return await _sysGroupService.SoftDeleteAsync(id);
+            return await _sysResourceService.SoftDeleteAsync(id);
         }
 
 
@@ -87,7 +87,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpPut]
         public async Task<IResponseEntity> SoftDeleteBatch(string[] ids)
         {
-            return await _sysGroupService.SoftDeleteBatchAsync(ids);
+            return await _sysResourceService.SoftDeleteBatchAsync(ids);
 
         }
 
@@ -99,7 +99,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpGet]
         public async Task<IResponseEntity> GetItem(string id)
         {
-            return await _sysGroupService.GetItemAsync(id);
+            return await _sysResourceService.GetItemAsync(id);
         }
 
         /// <summary>
@@ -108,9 +108,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResponseEntity> GetList(RequestEntity<GroupFilterRequest> req)
+        public async Task<IResponseEntity> GetList(RequestEntity<ResourceFilterRequest> req)
         {
-            return await _sysGroupService.GetListAsync(req);
+            return await _sysResourceService.GetListAsync(req);
         }
 
         /// <summary>
@@ -119,14 +119,13 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResponseEntity> GetAll(GroupFilterRequest req)
+        public async Task<IResponseEntity> GetAll(ResourceFilterRequest req)
         {
-            return await _sysGroupService.GetAllAsync(req);
+            return await _sysResourceService.GetAllAsync(req);
         }
         #endregion
 
         #region 特殊API方法
-        
         #endregion
 
     }

@@ -13,6 +13,6 @@ namespace AlonsoAdmin.Services.System.Interface
     {
         Task<IResponseEntity> PageAsync(RequestEntity<SysOprationLogEntity> req);
 
-        Task<IResponseEntity> AddAsync(OprationLogAddRequest req);
+        Task<IResponseEntity> AddAsync(OprationLogRequest req);
     }
 }
