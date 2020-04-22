@@ -35,7 +35,7 @@ namespace AlonsoAdmin.Services.System.Request
 		/// <summary>
 		/// 父级ID
 		/// </summary>
-		public string ParentId { get; set; }
+		public string ParentId { get; set; } = string.Empty;
 
 		/// <summary>
 		///  SPA视图组件name或外面链接（ResourceType为菜单类型的独有属性）
@@ -54,7 +54,7 @@ namespace AlonsoAdmin.Services.System.Request
 		/// <summary>
 		/// SPA视图组件 是否缓存
 		/// </summary>
-		public bool viewCache { get; set; }
+		public bool ViewCache { get; set; }
 
 		/// <summary>
 		/// ICON
@@ -65,12 +65,12 @@ namespace AlonsoAdmin.Services.System.Request
 		/// <summary>
 		/// 隐藏
 		/// </summary>
-		public bool Hidden { get; set; } = false;
+		public bool IsHidden { get; set; } = false;
 
 		/// <summary>
 		/// 是否可关闭 （ResourceType为菜单类型的独有属性）
 		/// </summary>
-		public bool? Closable { get; set; }
+		public bool Closable { get; set; } = true;
 
 		/// <summary>
 		/// URL类型（ResourceType为菜单类型的独有属性） 1.SPA视图组件 2.外面链接
@@ -115,6 +115,14 @@ namespace AlonsoAdmin.Services.System.Request
 
 	public class ResourceFilterRequest
 	{
-		public string Key { get; set; }
+		/// <summary>
+		/// 查询关键字
+		/// </summary>
+		public string Key { get; set; } = string.Empty;
+
+		/// <summary>
+		/// 是否包含禁用的数据
+		/// </summary>
+		public bool WithDisable { get; set; } = false;
 	}
 }

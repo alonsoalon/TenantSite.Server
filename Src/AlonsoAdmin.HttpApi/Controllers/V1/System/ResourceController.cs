@@ -126,6 +126,28 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         #endregion
 
         #region 特殊API方法
+
+        /// <summary>
+        /// 得到供配置角色的资源列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IResponseEntity> GetResources()
+        {
+            return await _sysResourceService.GetResourcesAsync();
+        }
+
+        /// <summary>
+        /// 得到指定角色下的资源列表
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IResponseEntity> GetResourceIdsByRoleId(string roleId)
+        {
+            return await _sysResourceService.GetResourceIdsByRoleIdAsync(roleId);
+        }
+
         #endregion
 
     }

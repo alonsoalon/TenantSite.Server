@@ -12,5 +12,18 @@ namespace AlonsoAdmin.Services.System.Interface
     {
 
         // 特殊接口 在此定义
+
+        /// <summary>
+        /// 得到资源列表 - 合并功能到菜单资源
+        /// </summary>
+        /// <returns></returns>
+        Task<IResponseEntity> GetResourcesAsync();
+
+        /// <summary>
+        /// 得到资源列表 - 根据角色ID
+        /// </summary>
+        /// <returns></returns>
+        Task<IResponseEntity> GetResourceIdsByRoleIdAsync(string roleId);
+        
     }
 }

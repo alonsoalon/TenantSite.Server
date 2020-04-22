@@ -42,6 +42,10 @@ namespace AlonsoAdmin.Services.System
             CreateMap<SysResourceEntity, ResourceForListResponse>();
             // 查询单条明细 用到的映射
             CreateMap<SysResourceEntity, ResourceForItemResponse>();
+
+            // 查询菜单 用到的映射
+            CreateMap<SysResourceEntity, ResourceForMenuResponse>();
+            
             #endregion
 
 

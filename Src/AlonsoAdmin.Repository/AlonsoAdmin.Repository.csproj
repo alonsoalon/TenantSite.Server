@@ -51,6 +51,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
     <PackageReference Include="IdleBus" Version="1.1.0" />
   </ItemGroup>
 

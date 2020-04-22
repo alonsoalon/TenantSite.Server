@@ -1,6 +1,7 @@
 ﻿using AlonsoAdmin.Entities.System;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace AlonsoAdmin.Services.System.Request
@@ -25,6 +26,16 @@ namespace AlonsoAdmin.Services.System.Request
 		/// </summary>
 		public string Description { get; set; } = string.Empty;
 
+		/// <summary>
+		/// 是否禁用
+		/// </summary>
+		public bool IsDisabled { get; set; }
+
+		/// <summary>
+		/// 数据归属组
+		/// </summary>
+		public string GroupId { get; set; }
+
 	}
 
 	public class RoleEditRequest : RoleAddRequest
@@ -48,5 +59,17 @@ namespace AlonsoAdmin.Services.System.Request
 		/// 是否包含禁用的数据
 		/// </summary>
 		public bool WithDisable { get; set; } = false;
+	}
+
+
+	// 其他请求实体
+
+	public class RoleResourceAssignRequest
+	{
+		[Required(ErrorMessage = "角色不能为空！")]
+		public string RoleId { get; set; }
+
+		[Required(ErrorMessage = "资源不能为空！")]
+		public List<string> ResourceIds { get; set; }
 	}
 }

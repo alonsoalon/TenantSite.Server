@@ -33,6 +33,6 @@ namespace AlonsoAdmin.Services.System.Response
         /// <summary>
         /// 权限菜单
         /// </summary>
-        public List<SysResourceEntity> Menus { get; set; }
+        public List<ResourceForMenuResponse> Menus { get; set; }
     }
 }

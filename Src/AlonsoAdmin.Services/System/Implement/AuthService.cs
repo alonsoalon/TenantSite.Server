@@ -22,7 +22,7 @@ namespace AlonsoAdmin.Services.System.Implement
         private readonly ICache _cache;
         private readonly IMapper _mapper;
         private readonly ISysUserRepository _userRepository;
-        private readonly ISysResourceRepository _resourceRepository;
+        private readonly ISysResourceRepository _sysResourceRepository;
 
         private readonly ISysRRoleResourceRepository _rRoleResourceRepository;
         private readonly IAuthUser _authUser;
@@ -38,7 +38,7 @@ namespace AlonsoAdmin.Services.System.Implement
             _cache = cache;
             _mapper = mapper;
             _userRepository = userRepository;
-            _resourceRepository = resourceRepository;
+            _sysResourceRepository = resourceRepository;
             _rRoleResourceRepository = rRoleResourceRepository;
             _authUser = authUser;
         }
@@ -59,6 +59,26 @@ namespace AlonsoAdmin.Services.System.Implement
 
             var res = _mapper.Map<AuthLoginResponse>(user);
 
+            List<ResourceForMenuResponse> list = new List<ResourceForMenuResponse>();
+            var cacheKey = string.Format(CacheKeyTemplate.UserPermissionList, user.Id);
+            if (await _cache.ExistsAsync(cacheKey))
+            {
+                list = await _cache.GetAsync<List<ResourceForMenuResponse>>(cacheKey);
+            }
+            else
+            {
+                var menus = await _sysResourceRepository.Select
+                .Where(a => a.IsDisabled == false)
+                .Where(a=> new[] { ResourceType.Group, ResourceType.Menu }.Contains(a.ResourceType))
+                .OrderBy(true, a => a.OrderIndex)
+                .ToListAsync();
+                list = _mapper.Map<List<ResourceForMenuResponse>>(menus);
+                // 写入缓存
+                await _cache.SetAsync(cacheKey, list);
+            }
+
+            res.Menus = list;
+
             return ResponseEntity.Ok(res);
 
         }
@@ -74,17 +94,37 @@ namespace AlonsoAdmin.Services.System.Implement
               //});
             
 
-            var db = _userRepository.Orm;
-            var menus = await db.Select<SysUserEntity, SysRPermissionRoleEntity, SysRRoleResourceEntity, SysResourceEntity>()
-                  .LeftJoin((a, b, c, d) => a.PermissionId == b.PermissionId)
-                  .LeftJoin((a, b, c, d) => b.RoleId == c.RoleId)
-                  .LeftJoin((a, b, c, d) => c.ResourceId == d.Id && new[] { ResourceType.Group, ResourceType.Menu }.Contains(d.ResourceType))
-                  .Where((a, b, c, d) => a.Id == _authUser.Id)
-                  .Distinct()
-                  .ToListAsync((a, b, c, d) => d);
+            //var db = _userRepository.Orm;
+            //var menus = await db.Select<SysUserEntity, SysRPermissionRoleEntity, SysRRoleResourceEntity, SysResourceEntity>()
+            //      .LeftJoin((a, b, c, d) => a.PermissionId == b.PermissionId)
+            //      .LeftJoin((a, b, c, d) => b.RoleId == c.RoleId)
+            //      .LeftJoin((a, b, c, d) => c.ResourceId == d.Id && new[] { ResourceType.Group, ResourceType.Menu }.Contains(d.ResourceType))
+            //      .Where((a, b, c, d) => a.Id == _authUser.Id)
+            //      .Distinct()
+            //      .ToListAsync((a, b, c, d) => d);
 
             var res = _mapper.Map<AuthLoginResponse>(user);
-            res.Menus = menus == null|| menus[0] == null ? null : menus;
+
+
+            List<ResourceForMenuResponse> list = new List<ResourceForMenuResponse>();
+            var cacheKey = string.Format(CacheKeyTemplate.UserPermissionList, user.Id);
+            if (await _cache.ExistsAsync(cacheKey))
+            {
+                list = await _cache.GetAsync<List<ResourceForMenuResponse>>(cacheKey);
+            }
+            else
+            {
+                var menus = await _sysResourceRepository.Select
+                .Where(a => a.IsDisabled == false)
+                .Where(a => new[] { ResourceType.Group, ResourceType.Menu }.Contains(a.ResourceType))
+                .OrderBy(true, a => a.OrderIndex)
+                .ToListAsync();
+                list = _mapper.Map<List<ResourceForMenuResponse>>(menus);
+                // 写入缓存
+                await _cache.SetAsync(cacheKey, list);
+            }
+
+            res.Menus =list;
 
             return ResponseEntity.Ok(res);
         }

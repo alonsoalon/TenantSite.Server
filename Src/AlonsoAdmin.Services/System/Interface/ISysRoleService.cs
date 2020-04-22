@@ -12,5 +12,12 @@ namespace AlonsoAdmin.Services.System.Interface
     {
 
         // 特殊接口 在此定义
+
+        /// <summary>
+        /// 为角色分配资源（角色赋权）
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        Task<IResponseEntity> RoleAssignResourcesAsync(RoleResourceAssignRequest req);
     }
 }

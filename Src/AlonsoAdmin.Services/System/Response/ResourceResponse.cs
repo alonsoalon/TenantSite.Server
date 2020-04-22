@@ -19,4 +19,13 @@ namespace AlonsoAdmin.Services.System.Response
     {
 
     }
+
+
+    /// <summary>
+    /// 菜单导航实体
+    /// </summary>
+    public class ResourceForMenuResponse : SysResourceEntity
+    {
+
+    }
 }

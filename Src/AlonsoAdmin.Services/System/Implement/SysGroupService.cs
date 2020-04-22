@@ -177,7 +177,6 @@ namespace AlonsoAdmin.Services.System.Implement
             var list = await _sysGroupRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key)))
                 .WhereIf(!withDisable, a => a.IsDisabled == false)
-                .Count(out var total)
                 .OrderBy(true, a => a.OrderIndex)
                 .ToListAsync();
 

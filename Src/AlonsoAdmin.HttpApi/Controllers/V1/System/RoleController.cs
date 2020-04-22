@@ -126,6 +126,16 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         #endregion
 
         #region 特殊API方法
+
+        /// <summary>
+        /// 为指定角色分配资源（角色赋权）
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IResponseEntity> RoleAssignResources(RoleResourceAssignRequest req) {
+            return await _sysRoleService.RoleAssignResourcesAsync(req);
+        }
         #endregion
 
     }

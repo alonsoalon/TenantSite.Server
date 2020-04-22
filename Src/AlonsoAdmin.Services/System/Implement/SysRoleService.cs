@@ -1,4 +1,5 @@
-﻿using AlonsoAdmin.Common.Extensions;
+﻿using AlonsoAdmin.Common.Cache;
+using AlonsoAdmin.Common.Extensions;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Repository.System;
@@ -17,14 +18,20 @@ namespace AlonsoAdmin.Services.System.Implement
     public class SysRoleService : ISysRoleService
     {
         private readonly IMapper _mapper;
+        private readonly ICache _cache;
         private readonly ISysRoleRepository _sysRoleRepository;
+        private readonly ISysRRoleResourceRepository _sysRRoleResourceRepository;
         public SysRoleService(
             IMapper mapper,
-            ISysRoleRepository sysRoleRepository
+            ICache cache,
+            ISysRoleRepository sysRoleRepository,
+            ISysRRoleResourceRepository sysRRoleResourceRepository
             )
         {
             _mapper = mapper;
+            _cache = cache;
             _sysRoleRepository = sysRoleRepository;
+            _sysRRoleResourceRepository = sysRRoleResourceRepository;
         }
 
         #region 通用接口服务实现 对应通用接口
@@ -108,9 +115,10 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> GetListAsync(RequestEntity<RoleFilterRequest> req)
         {
             var key = req.Filter?.Key;
-                
+            var withDisable = req.Filter != null ? req.Filter.WithDisable : false;
             var list = await _sysRoleRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key) || a.Description.Contains(key)))
+                .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .Count(out var total)               
                 .OrderBy(true, a => a.OrderIndex)
                 .Page(req.CurrentPage, req.PageSize)
@@ -128,10 +136,10 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> GetAllAsync(RoleFilterRequest req)
         {
             var key = req?.Key;
-
+            var withDisable = req != null ? req.WithDisable : false;
             var list = await _sysRoleRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key) || a.Description.Contains(key)))
-                .Count(out var total)
+                .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .OrderBy(true, a => a.OrderIndex)
                 .ToListAsync();
 
@@ -141,6 +149,18 @@ namespace AlonsoAdmin.Services.System.Implement
         #endregion
 
         #region 特殊接口服务实现
+
+       
+        public async Task<IResponseEntity> RoleAssignResourcesAsync(RoleResourceAssignRequest req)
+        {
+         
+            var result = await _sysRRoleResourceRepository.RoleAssignResourcesAsync(req.RoleId, req.ResourceIds);
+            //清除权限缓存
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList) ;
+
+            return ResponseEntity.Result(result);
+        }
+
         #endregion
 
     }

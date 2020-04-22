@@ -25,6 +25,16 @@ namespace AlonsoAdmin.Services.System.Request
 		/// </summary>
 		public string Description { get; set; } = string.Empty;
 
+		/// <summary>
+		/// 是否禁用
+		/// </summary>
+		public bool IsDisabled { get; set; }
+
+		/// <summary>
+		/// 数据归属组
+		/// </summary>
+		public string GroupId { get; set; }
+
 	}
 
 	public class PermissionEditRequest : PermissionAddRequest

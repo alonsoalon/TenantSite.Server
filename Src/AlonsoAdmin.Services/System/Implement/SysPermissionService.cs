@@ -108,10 +108,12 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> GetListAsync(RequestEntity<PermissionFilterRequest> req)
         {
             var key = req.Filter?.Key;
-                
+            var withDisable = req.Filter != null ? req.Filter.WithDisable : false;
+
             var list = await _sysPermissionRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key) || a.Description.Contains(key)))
-                .Count(out var total)               
+                .WhereIf(!withDisable, a => a.IsDisabled == false)
+                .Count(out var total)
                 .OrderBy(true, a => a.OrderIndex)
                 .Page(req.CurrentPage, req.PageSize)
                 .ToListAsync();
@@ -128,10 +130,10 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> GetAllAsync(PermissionFilterRequest req)
         {
             var key = req?.Key;
-
+            var withDisable = req != null ? req.WithDisable : false;
             var list = await _sysPermissionRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key) || a.Description.Contains(key)))
-                .Count(out var total)
+                .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .OrderBy(true, a => a.OrderIndex)
                 .ToListAsync();
 
@@ -141,6 +143,8 @@ namespace AlonsoAdmin.Services.System.Implement
         #endregion
 
         #region 特殊接口服务实现
+
+
         #endregion
 
     }

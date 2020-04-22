@@ -70,8 +70,8 @@ namespace AlonsoAdmin.Entities.System
 		/// <summary>
 		/// SPA视图组件 是否启用缓存
 		/// </summary>
-		[Column(Name = "CACHE", Position = 10)]
-		public bool viewCache { get; set; }
+		[Column(Name = "VIEW_CACHE", Position = 10)]
+		public bool ViewCache { get; set; }
 
 		/// <summary>
 		/// ICON
@@ -89,8 +89,8 @@ namespace AlonsoAdmin.Entities.System
 		/// <summary>
 		/// 隐藏
 		/// </summary>
-		[Column(Name = "HIDDEN", Position = 13)]
-		public bool Hidden { get; set; } = false;
+		[Column(Name = "IS_HIDDEN", Position = 13)]
+		public bool IsHidden { get; set; } = false;
 
 		/// <summary>
 		/// 是否可关闭 （ResourceType为菜单类型的独有属性）
@@ -109,9 +109,12 @@ namespace AlonsoAdmin.Entities.System
 		/// </summary>
 		[Column(Name = "OPEN_MODE", Position = 16, MapType = typeof(int))]
 		public ExternalLinkOpenMode OpenMode { get; set; }
-		
+
 
 		#region 导航属性
+		//[Navigate(nameof(ParentId))]
+		//public ICollection<SysResourceEntity> children { get; set; }
+
 		[Navigate(ManyToMany = typeof(SysRResourceApiEntity))]
 		public virtual ICollection<SysApiEntity> Apis { get; set; }
 

@@ -1,6 +1,8 @@
-﻿using AlonsoAdmin.Common.Extensions;
+﻿using AlonsoAdmin.Common.Cache;
+using AlonsoAdmin.Common.Extensions;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
+using AlonsoAdmin.Entities.System.Enums;
 using AlonsoAdmin.Repository.System;
 using AlonsoAdmin.Services.System.Interface;
 using AlonsoAdmin.Services.System.Request;
@@ -17,14 +19,20 @@ namespace AlonsoAdmin.Services.System.Implement
     public class SysResourceService : ISysResourceService
     {
         private readonly IMapper _mapper;
+        private readonly ICache _cache;
         private readonly ISysResourceRepository _sysResourceRepository;
+        private readonly ISysRRoleResourceRepository _sysRRoleResourceRepository;
         public SysResourceService(
             IMapper mapper,
-            ISysResourceRepository sysResourceRepository
+            ICache cache,
+            ISysResourceRepository sysResourceRepository,
+            ISysRRoleResourceRepository sysRRoleResourceRepository
             )
         {
             _mapper = mapper;
+            _cache = cache;
             _sysResourceRepository = sysResourceRepository;
+            _sysRRoleResourceRepository = sysRRoleResourceRepository;
         }
 
         #region 通用接口服务实现 对应通用接口
@@ -32,6 +40,8 @@ namespace AlonsoAdmin.Services.System.Implement
         {
             var item = _mapper.Map<SysResourceEntity>(req);
             var result = await _sysResourceRepository.InsertAsync(item);
+            //清除缓存
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
             return ResponseEntity.Result(result != null && result?.Id != "");
         }
 
@@ -52,6 +62,8 @@ namespace AlonsoAdmin.Services.System.Implement
 
             var entity = _mapper.Map<SysResourceEntity>(req);
             await _sysResourceRepository.UpdateAsync(entity);
+            //清除缓存
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
             return ResponseEntity.Ok("更新成功");
         }
 
@@ -62,6 +74,8 @@ namespace AlonsoAdmin.Services.System.Implement
                 return ResponseEntity.Error("删除对象的主键获取失败");
             }
             var result = await _sysResourceRepository.DeleteAsync(id);
+            //清除缓存
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
             return ResponseEntity.Result(result > 0);
         }
 
@@ -72,6 +86,8 @@ namespace AlonsoAdmin.Services.System.Implement
                 return ResponseEntity.Error("删除对象的主键获取失败");
             }
             var result = await _sysResourceRepository.Where(m => ids.Contains(m.Id)).ToDelete().ExecuteAffrowsAsync();
+            //清除缓存
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
             return ResponseEntity.Result(result > 0);
         }
 
@@ -83,6 +99,9 @@ namespace AlonsoAdmin.Services.System.Implement
             }
 
             var result = await _sysResourceRepository.SoftDeleteAsync(id);
+            //清除缓存
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+
             return ResponseEntity.Result(result);
         }
 
@@ -94,6 +113,11 @@ namespace AlonsoAdmin.Services.System.Implement
             }
 
             var result = await _sysResourceRepository.SoftDeleteAsync(ids);
+
+            //清除缓存
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+
+
             return ResponseEntity.Result(result);
         }
 
@@ -109,9 +133,10 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> GetListAsync(RequestEntity<ResourceFilterRequest> req)
         {
             var key = req.Filter?.Key;
-                
+            var withDisable = req.Filter != null ? req.Filter.WithDisable : false;
             var list = await _sysResourceRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key)))
+                .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .Count(out var total)               
                 .OrderBy(true, a => a.OrderIndex)
                 .Page(req.CurrentPage, req.PageSize)
@@ -129,10 +154,10 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> GetAllAsync(ResourceFilterRequest req)
         {
             var key = req?.Key;
-
+            var withDisable = req != null ? req.WithDisable : false;
             var list = await _sysResourceRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key)))
-                .Count(out var total)
+                .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .OrderBy(true, a => a.OrderIndex)
                 .ToListAsync();
 
@@ -142,6 +167,43 @@ namespace AlonsoAdmin.Services.System.Implement
         #endregion
 
         #region 特殊接口服务实现
+
+        public async Task<IResponseEntity> GetResourcesAsync()
+        {
+            var resources = await _sysResourceRepository.Select
+                .Where(a=>a.IsDisabled==false)
+                .OrderBy(a => a.ParentId)
+                .OrderBy(a => a.OrderIndex)
+                .ToListAsync(a => new { a.Id, a.ParentId, a.Title, a.ResourceType,a.Icon });
+
+            var funcs = resources
+                .Where(a => a.ResourceType == ResourceType.Func)
+                .Select(a => new { a.Id, a.ParentId, a.Title });
+
+            var result = resources
+                .Where(a => (new[] { ResourceType.Group, ResourceType.Menu }).Contains(a.ResourceType))
+                .Select(a => new
+                {
+                    a.Id,                    
+                    a.ParentId,
+                    a.Icon,
+                    a.Title,
+                    funcs = funcs.Where(b => b.ParentId == a.Id).Select(b => new { b.Id, b.Title })
+                });
+
+            return ResponseEntity.Ok(result);
+        }
+
+        public async Task<IResponseEntity> GetResourceIdsByRoleIdAsync(string roleId)
+        {
+            var resourceIds = await _sysRRoleResourceRepository
+             .Select.Where(d => d.RoleId == roleId)
+             .ToListAsync(a => a.ResourceId);
+
+            return ResponseEntity.Ok(resourceIds);
+        }
+        
+
         #endregion
 
     }
