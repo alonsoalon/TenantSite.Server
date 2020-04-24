@@ -1,5 +1,6 @@
 ﻿using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
+using AlonsoAdmin.Services.System.Request;
 using AlonsoAdmin.Services.System.Response;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,24 @@ using System.Threading.Tasks;
 
 namespace AlonsoAdmin.Services.System.Interface
 {
-    public interface ISysUserService
+    public interface ISysUserService : IBaseService<UserFilterRequest, UserAddRequest, UserEditRequest>
     {
-        //Task<IEnumerable<string>> GetCurrentUserRolesAsync();
 
-        //Task<ResponseEntity<UserGetResponse>> GetAsync(long id);
+        #region 特殊接口 在此定义
 
-        Task<IResponseEntity> GetPageAsync(RequestEntity<SysUserEntity> req);
+        /// <summary>
+        /// 修改指定用户的密码
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        Task<IResponseEntity> UserChangePasswordAsync(UserChangePasswordRequest req);
 
+        /// <summary>
+        /// 修改当前用户的密码
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        Task<IResponseEntity> ChangePasswordAsync(ChangePasswordRequest req);
+        #endregion
     }
 }

@@ -69,7 +69,12 @@ namespace AlonsoAdmin.HttpApi
                 if (_startupConfig.Log.Operation)
                 {
                     options.Filters.Add<LogActionFilter>();
+                    options.Filters.Add<ValidateModelFilter>();// 自定义 模型验证内
                 }
+            })
+            .ConfigureApiBehaviorOptions(options => {
+                //关闭默认模型验证,因为我们使用了自己的ValidateModelFilter
+                options.SuppressModelStateInvalidFilter = true;
             })
             // 设定json序列化参数
             .AddNewtonsoftJson(options =>

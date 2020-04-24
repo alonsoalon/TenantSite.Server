@@ -69,6 +69,12 @@ namespace AlonsoAdmin.Entities.System
 		[Column(Name = "AVATAR", Position = 12)]
 		public string Avatar { get; set; }
 
+		/// <summary>
+		/// 角色描述
+		/// </summary>
+		[Column(Name = "DESCRIPTION", Position = 13)]
+		public string Description { get; set; } = string.Empty;
+
 
 		#region 导航属性
 		[Navigate("PermissionId")]

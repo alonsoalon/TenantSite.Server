@@ -11,14 +11,17 @@ namespace AlonsoAdmin.Services.System.Request
 	/// </summary>
 	public class RoleAddRequest
     {
+
 		/// <summary>
 		/// CODE
 		/// </summary>
+		
 		public string Code { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 标题
 		/// </summary>
+		[Required(ErrorMessage = "标题不能为空！")]
 		public string Title { get; set; } = string.Empty;
 
 		/// <summary>

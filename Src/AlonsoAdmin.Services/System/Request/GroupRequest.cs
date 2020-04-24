@@ -1,6 +1,7 @@
 ﻿using AlonsoAdmin.Entities.System;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace AlonsoAdmin.Services.System.Request
@@ -18,6 +19,7 @@ namespace AlonsoAdmin.Services.System.Request
 		/// <summary>
 		/// 数据组标题 数据组标题
 		/// </summary>
+		[Required(ErrorMessage = "标题不能为空！")]
 		public string Title { get; set; } = string.Empty;
 
 		/// <summary>

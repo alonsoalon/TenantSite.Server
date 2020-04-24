@@ -2,6 +2,7 @@
 using AlonsoAdmin.Entities.System.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace AlonsoAdmin.Services.System.Request
@@ -19,7 +20,8 @@ namespace AlonsoAdmin.Services.System.Request
 
 		/// <summary>
 		/// 资源名称 资源名称
-		/// </summary>
+		/// </summary>、
+		[Required(ErrorMessage = "标题不能为空！")]
 		public string Title { get; set; } = string.Empty;
 
 		/// <summary>

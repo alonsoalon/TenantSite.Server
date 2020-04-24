@@ -20,7 +20,23 @@ namespace AlonsoAdmin.Services.System
             // 操作日志
             CreateMap<OprationLogRequest, SysOprationLogEntity>();
 
-            
+            #region User
+            // 创建 用到的映射
+            CreateMap<UserAddRequest, SysUserEntity>();
+            // 更新 用到的映射
+            CreateMap<UserEditRequest, SysUserEntity>();
+            // 查询 用到的映射
+            CreateMap<SysUserEntity, UserForListResponse>().ForMember(
+                d => d.PermissionName,
+                m => m.MapFrom(s =>s.Permission.Title)
+            );
+            // 查询单条明细 用到的映射
+            CreateMap<SysUserEntity, UserForItemResponse>().ForMember(
+                d => d.PermissionName,
+                m => m.MapFrom(s => s.Permission.Title)
+            );
+            #endregion
+
             #region Group
             // 创建 用到的映射
             CreateMap<GroupAddRequest, SysGroupEntity>();
