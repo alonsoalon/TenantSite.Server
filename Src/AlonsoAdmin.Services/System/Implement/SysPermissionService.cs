@@ -1,4 +1,5 @@
-﻿using AlonsoAdmin.Common.Extensions;
+﻿using AlonsoAdmin.Common.Cache;
+using AlonsoAdmin.Common.Extensions;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Repository.System;
@@ -17,14 +18,24 @@ namespace AlonsoAdmin.Services.System.Implement
     public class SysPermissionService : ISysPermissionService
     {
         private readonly IMapper _mapper;
+        private readonly ICache _cache;
         private readonly ISysPermissionRepository _sysPermissionRepository;
+        private readonly ISysRPermissionGroupRepository _sysRPermissionGroupRepository;
+        private readonly ISysRPermissionRoleRepository _sysRPermissionRoleRepository;
         public SysPermissionService(
             IMapper mapper,
-            ISysPermissionRepository sysPermissionRepository
+            ICache cache,
+            ISysPermissionRepository sysPermissionRepository,
+            ISysRPermissionGroupRepository sysRPermissionGroupRepository,
+            ISysRPermissionRoleRepository sysRPermissionRoleRepository
             )
         {
             _mapper = mapper;
+            _cache = cache;
             _sysPermissionRepository = sysPermissionRepository;
+            _sysRPermissionGroupRepository = sysRPermissionGroupRepository;
+            _sysRPermissionRoleRepository = sysRPermissionRoleRepository;
+
         }
 
         #region 通用接口服务实现 对应通用接口
@@ -143,6 +154,37 @@ namespace AlonsoAdmin.Services.System.Implement
         #endregion
 
         #region 特殊接口服务实现
+
+
+        public async Task<IResponseEntity> PermissionAssignPowerAsync(PermissionAssignPowerRequest req)
+        {
+
+            var result = await _sysPermissionRepository.PermissionAssignPowerAsync(req.PermissionId, req.RoleIds, req.GroupIds);
+            //清除权限缓存
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+            return ResponseEntity.Result(result);
+        }
+
+
+
+        public async Task<IResponseEntity> GetGroupIdsByPermissionIdAsync(string permissionId)
+        {
+            var groupIds = await _sysRPermissionGroupRepository
+                .Select.Where(d => d.PermissionId == permissionId)
+                .ToListAsync(a => a.GroupId);
+
+            return ResponseEntity.Ok(groupIds);
+        }
+
+
+        public async Task<IResponseEntity> GetRoleIdsByPermissionIdAsync(string permissionId) {
+            var roleIds = await _sysRPermissionRoleRepository
+                .Select.Where(d => d.PermissionId == permissionId)
+                .ToListAsync(a => a.RoleId);
+
+            return ResponseEntity.Ok(roleIds);
+        }
+
 
 
         #endregion

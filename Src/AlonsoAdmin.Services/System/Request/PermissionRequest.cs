@@ -61,4 +61,16 @@ namespace AlonsoAdmin.Services.System.Request
 		/// </summary>
 		public bool WithDisable { get; set; } = false;
 	}
+
+
+	public class PermissionAssignPowerRequest {
+		[Required(ErrorMessage = "角色不能为空！")]
+		public string PermissionId { get; set; }
+
+		[Required(ErrorMessage = "角色不能为空！")]
+		public List<string> RoleIds { get; set; }
+
+		[Required(ErrorMessage = "组不能为空！")]
+		public List<string> GroupIds { get; set; }
+	}
 }

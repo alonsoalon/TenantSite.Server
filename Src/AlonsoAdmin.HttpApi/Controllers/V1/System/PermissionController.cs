@@ -125,7 +125,39 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         }
         #endregion
 
-        #region 特殊API方法
+        #region 特殊API方法     
+        /// <summary>
+        /// 为指定岗位分配权限（权限岗赋权）
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IResponseEntity> PermissionAssignPower(PermissionAssignPowerRequest req)
+        {
+            return await _sysPermissionService.PermissionAssignPowerAsync(req);
+        }
+
+        /// <summary>
+        /// 取指定权限岗下的数据组ID集合
+        /// </summary>
+        /// <param name="permissionId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IResponseEntity> GetGroupIdsByPermissionId(string permissionId)
+        {
+            return await _sysPermissionService.GetGroupIdsByPermissionIdAsync(permissionId);
+        }
+
+        /// <summary>
+        /// 取指定权限岗下的角色ID集合
+        /// </summary>
+        /// <param name="permissionId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IResponseEntity> GetRoleIdsByPermissionId(string permissionId)
+        {
+            return await _sysPermissionService.GetRoleIdsByPermissionIdAsync(permissionId);
+        }
         #endregion
 
     }

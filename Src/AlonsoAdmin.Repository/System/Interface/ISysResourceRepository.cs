@@ -3,7 +3,8 @@
 namespace AlonsoAdmin.Repository.System
 {
     public interface ISysResourceRepository : IRepositoryBase<SysResourceEntity>
-    { 
-
+    {
+        
+        
     }
 }

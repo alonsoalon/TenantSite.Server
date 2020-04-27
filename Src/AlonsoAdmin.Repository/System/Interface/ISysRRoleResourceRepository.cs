@@ -14,5 +14,6 @@ namespace AlonsoAdmin.Repository.System
         /// <param name="resourceIds">资源ID集</param>
         /// <returns></returns>
         Task<bool> RoleAssignResourcesAsync(string roleId, List<string> resourceIds);
+        
     }
 }
