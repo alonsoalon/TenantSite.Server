@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using AlonsoAdmin.Entities;
@@ -11,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-
+    [Description("角色")]
     public class RoleController : ModuleBaseController
     {
         private readonly ISysRoleService _sysRoleService;
@@ -133,6 +134,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
+        [Description("为指定角色分配资源（角色赋权）")]
         public async Task<IResponseEntity> RoleAssignResources(RoleResourceAssignRequest req) {
             return await _sysRoleService.RoleAssignResourcesAsync(req);
         }

@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ using static AlonsoAdmin.HttpApi.SwaggerHelper.CustomApiVersion;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-   
+    [Description("用户认证")]
     public class AuthController : ModuleBaseController
     {
         private IAuthToken _authToken;
@@ -46,7 +47,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [AllowAnonymous]
         [HttpPost]
         [NoOprationLog]
-        
+        [Description("登录验证")]
         public async Task<IResponseEntity> Login(AuthLoginRequest req) {
 
             var sw = new Stopwatch();
@@ -119,6 +120,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Description("刷新用户信息-根据Token")]
         public async Task<IResponseEntity> UserInfo()
         {
 

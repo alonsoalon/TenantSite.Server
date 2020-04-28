@@ -31,7 +31,7 @@ namespace AlonsoAdmin.HttpApi.AuthStore
         public ApiItem Find(string id)
         {
             
-            var a = SysApiService.GetList();
+            //var a = SysApiService.GetList();
             return _apis.Find(_ => _.Api == id);
         }
     }

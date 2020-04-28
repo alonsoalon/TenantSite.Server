@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using AlonsoAdmin.Entities;
@@ -16,9 +17,9 @@ using static AlonsoAdmin.HttpApi.SwaggerHelper.CustomApiVersion;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-    
 
-    
+
+    [Description("示例")]
     public class DemoController : ModuleBaseController
     {
 
@@ -41,22 +42,6 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         }
 
         
-        [HttpGet]
-        public IResponseEntity query1()
-        {
-            var item = SysApiService.Query1();
-            return ResponseEntity.Ok(item);
 
-        }
-
-       
-        [HttpGet]
-        public IResponseEntity query2()
-        {
-            var item = SysApiService.Query2();
-
-            return ResponseEntity.Ok(item);
-
-        }
     }
 }

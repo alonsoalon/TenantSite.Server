@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using AlonsoAdmin.Entities;
@@ -11,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-
+    [Description("权限岗")]
     public class PermissionController : ModuleBaseController
     {
         private readonly ISysPermissionService _sysPermissionService;
@@ -132,6 +133,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
+        [Description("为指定岗位分配权限（权限岗赋权）")]
         public async Task<IResponseEntity> PermissionAssignPower(PermissionAssignPowerRequest req)
         {
             return await _sysPermissionService.PermissionAssignPowerAsync(req);
@@ -143,6 +145,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="permissionId"></param>
         /// <returns></returns>
         [HttpGet]
+        [Description("取指定权限岗下的数据组ID集合")]
         public async Task<IResponseEntity> GetGroupIdsByPermissionId(string permissionId)
         {
             return await _sysPermissionService.GetGroupIdsByPermissionIdAsync(permissionId);
@@ -154,6 +157,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="permissionId"></param>
         /// <returns></returns>
         [HttpGet]
+        [Description("取指定权限岗下的角色ID集合")]
         public async Task<IResponseEntity> GetRoleIdsByPermissionId(string permissionId)
         {
             return await _sysPermissionService.GetRoleIdsByPermissionIdAsync(permissionId);

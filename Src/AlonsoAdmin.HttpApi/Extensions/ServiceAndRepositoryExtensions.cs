@@ -36,6 +36,7 @@ namespace AlonsoAdmin.HttpApi
         /// 注册所有模块的services
         /// </summary>
         /// <param name="services"></param>
+        /// <param name="env"></param>
         /// <param name="serviceLifetime"></param>
         private static void RegsiterServices(this IServiceCollection services, IWebHostEnvironment env = null, ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
         {
@@ -68,6 +69,7 @@ namespace AlonsoAdmin.HttpApi
         /// 注册所有模块的Repository
         /// </summary>
         /// <param name="services"></param>
+        /// <param name="env"></param>
         /// <param name="serviceLifetime"></param>
         private static void RegsiterRepositories(this IServiceCollection services, IWebHostEnvironment env = null, ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
         {

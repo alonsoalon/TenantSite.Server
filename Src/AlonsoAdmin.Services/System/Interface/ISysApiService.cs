@@ -1,18 +1,21 @@
 ﻿using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
+using AlonsoAdmin.Services.System.Request;
+using AlonsoAdmin.Services.System.Response;
+using System;
 using System.Collections.Generic;
-
+using System.Text;
+using System.Threading.Tasks;
 
 namespace AlonsoAdmin.Services.System.Interface
 {
-    public interface ISysApiService
+    public interface ISysApiService : IBaseService<ApiFilterRequest, ApiAddRequest, ApiEditRequest>
     {
-   
-        List<SysApiEntity> Query1();
-        List<SysApiEntity> Query2();
 
-        List<SysApiEntity> GetList();
+        #region 特殊接口 在此定义
 
-        SysApiEntity FindByUrl(string url);
+        Task<IResponseEntity> GenerateApisAsync(List<SysApiEntity> list);
+
+        #endregion
     }
 }

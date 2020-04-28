@@ -25,12 +25,37 @@ namespace AlonsoAdmin.Entities.System
 		[Column(Name = "TITLE", Position = 3)]
 		public string Title { get; set; } = string.Empty;
 
+		/// <summary>
+		/// 描述
+		/// </summary>
+		[Column(Name = "DESCRIPTION", Position = 4, StringLength = 500)]
+		public string Description { get; set; } = string.Empty;
+
 
 		/// <summary>
-		/// URL
+		/// URL,API接口相对路径
 		/// </summary>
-		[Column(Name = "URL", Position = 4)]
+		[Column(Name = "URL", Position = 5, StringLength = 500)]
 		public string Url { get; set; } = string.Empty;
+
+		/// <summary>
+		/// 请求方法
+		/// </summary>
+		[Column(Name = "HTTP_METHOD", Position = 6, StringLength = 50)]
+		public string HttpMethod { get; set; }
+
+		/// <summary>
+		/// 启用API验证，为false时，只要登录了系统即可访问API，为True时，将验证用户权限
+		/// </summary>
+		[Column(Name = "IS_VALIDATION", Position = 7)]
+		public bool IsValidation { get; set; } = true;
+
+		/// <summary>
+		/// 排序
+		/// </summary>
+		[Column(Name = "ORDER_INDEX", Position = 8)]
+		[MaxValue]
+		public int? OrderIndex { get; set; } = 0;
 
 
 		#region 导航属性

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using AlonsoAdmin.Entities;
@@ -14,7 +15,7 @@ using static AlonsoAdmin.HttpApi.SwaggerHelper.CustomApiVersion;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-
+    [Description("用户")]
     public class UserController : ModuleBaseController
     {
         
@@ -138,6 +139,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
+        [Description("修改当前登录用户密码")]
         public async Task<IResponseEntity> ChangePassword(ChangePasswordRequest req) {
             return await _sysUserService.ChangePasswordAsync(req);
         }
@@ -148,6 +150,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
+        [Description("修改指定用户密码")]
         public async Task<IResponseEntity> UserChangePassword(UserChangePasswordRequest req)
         {
             return await _sysUserService.UserChangePasswordAsync(req);

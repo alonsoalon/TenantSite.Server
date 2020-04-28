@@ -48,7 +48,6 @@ namespace AlonsoAdmin.Services.System
             CreateMap<SysGroupEntity, GroupForItemResponse>();
             #endregion
 
-
             #region Resource
             // 创建 用到的映射
             CreateMap<ResourceAddRequest, SysResourceEntity>();
@@ -64,7 +63,6 @@ namespace AlonsoAdmin.Services.System
             
             #endregion
 
-
             #region Permission
             // 创建 用到的映射
             CreateMap<PermissionAddRequest, SysPermissionEntity>();
@@ -75,7 +73,6 @@ namespace AlonsoAdmin.Services.System
             // 查询单条明细 用到的映射
             CreateMap<SysPermissionEntity, PermissionForItemResponse>();
             #endregion
-
 
             #region Role
             // 创建 用到的映射
@@ -88,7 +85,16 @@ namespace AlonsoAdmin.Services.System
             CreateMap<SysRoleEntity, RoleForItemResponse>();
             #endregion
 
-
+            #region Api
+            // 创建 用到的映射
+            CreateMap<ApiAddRequest, SysApiEntity>();
+            // 更新 用到的映射
+            CreateMap<ApiEditRequest, SysApiEntity>();
+            // 查询列表 用到的映射
+            CreateMap<SysApiEntity, ApiForListResponse>();
+            // 查询单条明细 用到的映射
+            CreateMap<SysApiEntity, ApiForItemResponse>();
+            #endregion
 
         }
     }

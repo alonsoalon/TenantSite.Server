@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using AlonsoAdmin.Entities;
@@ -11,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-
+    [Description("归属组")]
     public class GroupController : ModuleBaseController
     {
         private readonly ISysGroupService _sysGroupService;

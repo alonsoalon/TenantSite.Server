@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using AlonsoAdmin.Entities;
@@ -11,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-
+    [Description("资源")]
     public class ResourceController : ModuleBaseController
     {
         private readonly ISysResourceService _sysResourceService;
@@ -132,6 +133,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Description("得到供配置角色的资源列表")]
         public async Task<IResponseEntity> GetResources()
         {
             return await _sysResourceService.GetResourcesAsync();
@@ -143,6 +145,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="roleId"></param>
         /// <returns></returns>
         [HttpGet]
+        [Description("得到指定角色下的资源列表")]
         public async Task<IResponseEntity> GetResourceIdsByRoleId(string roleId)
         {
             return await _sysResourceService.GetResourceIdsByRoleIdAsync(roleId);

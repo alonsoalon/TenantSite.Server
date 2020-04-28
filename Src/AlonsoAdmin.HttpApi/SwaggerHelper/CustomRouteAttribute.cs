@@ -23,17 +23,11 @@ namespace AlonsoAdmin.HttpApi.SwaggerHelper
         /// 分组名称,是来实现接口 IApiDescriptionGroupNameProvider
         /// </summary>
         public string GroupName { get; set; }
-        //[Route("{__tenant__=tenant1}/api/[controller]/[action]")]
-        /// <summary>
-        /// 自定义路由构造函数，继承基类路由
-        /// </summary>
-        /// <param name="actionName"></param>
-        //public CustomRouteAttribute(string actionName = "") : base(actionName)
-        //{
-        //}
+
         /// <summary>
         /// 自定义版本+路由构造函数，继承基类路由
         /// </summary>
+        /// <param name="moduleName">模块名称</param>
         /// <param name="actionName"></param>
         /// <param name="version"></param>
         public CustomRouteAttribute(ApiVersions version, string moduleName="", string actionName = "[action]") : base(GetRouteTemplate(version, moduleName, actionName))

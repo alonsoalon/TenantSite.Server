@@ -20,6 +20,7 @@ namespace AlonsoAdmin.HttpApi
         /// 注册权限验证服务相关
         /// </summary>
         /// <param name="services"></param>
+        /// <param name="env"></param>
         public static void RegsiterPermissionServices(this IServiceCollection services, IWebHostEnvironment env)
         {
             services.TryAddSingleton<IAuthUser, AuthUser>();
