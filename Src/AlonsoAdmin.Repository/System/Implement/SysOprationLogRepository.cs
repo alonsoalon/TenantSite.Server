@@ -15,7 +15,7 @@ namespace AlonsoAdmin.Repository.System
     {
      
         public SysOprationLogRepository(IMultiTenantDbFactory dbFactory, IAuthUser user) 
-            : base(dbFactory.Db(Constants.Dbkey), user)
+            : base(dbFactory.Db(Constants.SystemDbKey), user)
         {
            
         }

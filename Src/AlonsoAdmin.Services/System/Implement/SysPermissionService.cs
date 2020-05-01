@@ -1,5 +1,6 @@
 ﻿using AlonsoAdmin.Common.Cache;
 using AlonsoAdmin.Common.Extensions;
+using AlonsoAdmin.Domain.System.Interface;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Repository.System;
@@ -22,12 +23,14 @@ namespace AlonsoAdmin.Services.System.Implement
         private readonly ISysPermissionRepository _sysPermissionRepository;
         private readonly ISysRPermissionGroupRepository _sysRPermissionGroupRepository;
         private readonly ISysRPermissionRoleRepository _sysRPermissionRoleRepository;
+        private readonly IPermissionDomain _permissionDomain;
         public SysPermissionService(
             IMapper mapper,
             ICache cache,
             ISysPermissionRepository sysPermissionRepository,
             ISysRPermissionGroupRepository sysRPermissionGroupRepository,
-            ISysRPermissionRoleRepository sysRPermissionRoleRepository
+            ISysRPermissionRoleRepository sysRPermissionRoleRepository,
+            IPermissionDomain permissionDomain
             )
         {
             _mapper = mapper;
@@ -35,6 +38,7 @@ namespace AlonsoAdmin.Services.System.Implement
             _sysPermissionRepository = sysPermissionRepository;
             _sysRPermissionGroupRepository = sysRPermissionGroupRepository;
             _sysRPermissionRoleRepository = sysRPermissionRoleRepository;
+            _permissionDomain = permissionDomain;
 
         }
 
@@ -159,7 +163,7 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> PermissionAssignPowerAsync(PermissionAssignPowerRequest req)
         {
 
-            var result = await _sysPermissionRepository.PermissionAssignPowerAsync(req.PermissionId, req.RoleIds, req.GroupIds);
+            var result = await _permissionDomain.PermissionAssignPowerAsync(req.PermissionId, req.RoleIds, req.GroupIds);
             //清除权限缓存
             await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
             return ResponseEntity.Result(result);

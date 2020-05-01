@@ -1,8 +1,10 @@
 ﻿using AlonsoAdmin.Common.Cache;
 using AlonsoAdmin.Common.Extensions;
+using AlonsoAdmin.Domain.System.Interface;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Entities.System.Enums;
+using AlonsoAdmin.Repository;
 using AlonsoAdmin.Repository.System;
 using AlonsoAdmin.Services.System.Interface;
 using AlonsoAdmin.Services.System.Request;
@@ -21,18 +23,22 @@ namespace AlonsoAdmin.Services.System.Implement
         private readonly IMapper _mapper;
         private readonly ICache _cache;
         private readonly ISysResourceRepository _sysResourceRepository;
-        private readonly ISysRRoleResourceRepository _sysRRoleResourceRepository;
+        private readonly ISysRResourceApiRepository _sysRResourceApiRepository;
+        private readonly IResourceDomain _resourceDomain;
         public SysResourceService(
             IMapper mapper,
             ICache cache,
             ISysResourceRepository sysResourceRepository,
-            ISysRRoleResourceRepository sysRRoleResourceRepository
+            ISysRResourceApiRepository sysRResourceApiRepository,
+            IResourceDomain resourceDomain
             )
         {
             _mapper = mapper;
             _cache = cache;
             _sysResourceRepository = sysResourceRepository;
-            _sysRRoleResourceRepository = sysRRoleResourceRepository;
+            _sysRResourceApiRepository = sysRResourceApiRepository;
+            _resourceDomain = resourceDomain;
+
         }
 
         #region 通用接口服务实现 对应通用接口
@@ -168,6 +174,26 @@ namespace AlonsoAdmin.Services.System.Implement
 
         #region 特殊接口服务实现
 
+        public async Task<IResponseEntity> GetResourceApisByIdAsync(string resourceId) {
+            var apis = await _sysRResourceApiRepository.Select
+                .Where(a => a.ResourceId == resourceId)
+                .Include(a=>a.Api)
+                .ToListAsync(a=>a.Api);    
+
+            return ResponseEntity.Ok(apis);
+
+        }
+
+        //[Transactional]
+        public async Task<IResponseEntity> UpdateResourceApisByIdAsync(UpdateResourceApiRequest req)
+        {
+            var result = await _resourceDomain.UpdateResourceApisByIdAsync(req.resourceId, req.ApiIds);
+
+            //清除权限缓存
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+            return ResponseEntity.Result(result);
+        }
+
         public async Task<IResponseEntity> GetResourcesAsync()
         {
             var resources = await _sysResourceRepository.Select
@@ -192,17 +218,7 @@ namespace AlonsoAdmin.Services.System.Implement
                 });
 
             return ResponseEntity.Ok(result);
-        }
-
-        public async Task<IResponseEntity> GetResourceIdsByRoleIdAsync(string roleId)
-        {
-            var resourceIds = await _sysRRoleResourceRepository
-             .Select.Where(d => d.RoleId == roleId)
-             .ToListAsync(a => a.ResourceId);
-
-            return ResponseEntity.Ok(resourceIds);
-        }
-        
+        }        
 
         #endregion
 

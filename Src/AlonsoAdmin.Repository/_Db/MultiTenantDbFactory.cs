@@ -63,19 +63,9 @@ namespace AlonsoAdmin.Repository
             var dbType = (FreeSql.DataType)Enum.Parse(typeof(FreeSql.DataType), currentDbOption.DbType);
             var fristName = $"{Tenant.Id}#{dbKey}#";
             var dbCacheKey = fristName + currentDbOption.SerializeToString().Md5();
-
-            var oldDb = _ib.TryGet(dbCacheKey);
-
-            if (oldDb == null)
-            {
-                _ib.TryRegister(dbCacheKey, () => CreateDb(dbType, currentDbOption));
-
-                return _ib.TryGet(dbCacheKey);
-            }
-            else
-            {
-                return oldDb;
-            }
+            // TryRegister 内部做了如果存在KEY，就什么不做，不存在就创建
+            _ib.TryRegister(dbCacheKey, () => CreateDb(dbType, currentDbOption));
+            return _ib.Get(dbCacheKey);
         }
 
         private IFreeSql CreateDb(FreeSql.DataType dbType, DbInfo currentDbOption)

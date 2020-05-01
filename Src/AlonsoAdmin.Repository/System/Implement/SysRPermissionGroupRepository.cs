@@ -7,7 +7,7 @@ namespace AlonsoAdmin.Repository.System
 {
     public class SysRPermissionGroupRepository : RepositoryBase<SysRPermissionGroupEntity>, ISysRPermissionGroupRepository
     {
-        public SysRPermissionGroupRepository(IMultiTenantDbFactory dbFactory, IAuthUser user) : base(dbFactory.Db(Constants.Dbkey), user)
+        public SysRPermissionGroupRepository(IMultiTenantDbFactory dbFactory, IAuthUser user) : base(dbFactory.Db(Constants.SystemDbKey), user)
         {
 
         }

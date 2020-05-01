@@ -2,7 +2,9 @@
 using AlonsoAdmin.HttpApi.Auth;
 using AlonsoAdmin.HttpApi.AuthStore;
 using AlonsoAdmin.Repository;
+using AlonsoAdmin.Repository.System;
 using AlonsoAdmin.Services.System;
+using FreeSql;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +30,7 @@ namespace AlonsoAdmin.HttpApi
         public static void RegsiterServicesAndRepositories(this IServiceCollection services, IWebHostEnvironment env) {
 
             services.RegsiterRepositories(env);
+            services.RegsiterDomains(env);
             services.RegsiterServices(env);
 
         }
@@ -44,18 +47,10 @@ namespace AlonsoAdmin.HttpApi
             // 根据程序集的名字获取程序集对象
             Assembly assembly = Assembly.Load(assemblyName);//var assembly = AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(assemblyName));
             //根据程序集的名字 获取程序集中所有的类型
-            Type[] types = assembly.GetTypes();
-
-            var list = types.Where(t =>
-            t.IsClass && 
-            !t.IsAbstract && 
-            !t.IsGenericType &&
-            !t.FullName.Contains("<")
-            ).ToList();
-
-            foreach (var implType in list)
+            IEnumerable<Type> types = assembly.GetTypes().Where(t => t.IsClass && !t.IsAbstract && t.FullName.EndsWith("Service"));
+            foreach (var implType in types)
             {
-                var interfaceList = implType.GetInterfaces();
+                var interfaceList = implType.GetInterfaces().Where(x => x.Name.EndsWith(implType.Name));
                 if (interfaceList.Any())
                 {
                     var interType = interfaceList.First();
@@ -65,6 +60,25 @@ namespace AlonsoAdmin.HttpApi
             }
         }
 
+
+        private static void RegsiterDomains(this IServiceCollection services, IWebHostEnvironment env = null, ServiceLifetime serviceLifetime = ServiceLifetime.Scoped) {
+            var assemblyName = "AlonsoAdmin.Domain"; 
+             Assembly assembly = Assembly.Load(assemblyName);
+            //Type[] types = assembly.GetTypes();
+            //根据程序集的名字 获取程序集中Domain类
+            IEnumerable<Type> domianTypes = assembly.GetTypes().Where(t => t.IsClass && !t.IsAbstract && t.FullName.EndsWith("Domain"));
+
+            foreach (var implType in domianTypes)
+            {
+   
+                var interfaceList = implType.GetInterfaces().Where(x => x.Name.EndsWith(implType.Name));
+                if (interfaceList.Any()) {       
+                    var interType = interfaceList.First();
+                    ServiceDescriptor serviceDescriptor = new ServiceDescriptor(interType, implType, serviceLifetime);
+                    services.Add(serviceDescriptor);
+                }
+            }
+        }
         /// <summary>
         /// 注册所有模块的Repository
         /// </summary>
@@ -89,30 +103,75 @@ namespace AlonsoAdmin.HttpApi
 
             // 多租户数据工厂添加到容器
             services.AddSingleton<IMultiTenantDbFactory, MultiTenantDbFactory>();
+
+            //services.AddScoped<UnitOfWorkManager>(x => new UowManager(x.GetRequiredService<IMultiTenantDbFactory>(), Constants.SystemDbKey));
+            //services.AddScoped<UnitOfWorkManager>(x => new UowManager(x.GetRequiredService<IMultiTenantDbFactory>(), Constants.BlogDbKey));
+            //services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<IMultiTenantDbFactory>().Db(Constants.SystemDbKey).CreateUnitOfWork());
+            //services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<IMultiTenantDbFactory>().Db(Constants.BlogDbKey).CreateUnitOfWork());
+            //services.AddScoped(implementationFactory =>
+            //{
+            //    Func<string, UowManager> accesor = key =>
+            //    {
+                    
+            //        if (key.Equals(Constants.SystemDbKey))
+            //        {
+            //            return new UowManager(implementationFactory.GetRequiredService<IMultiTenantDbFactory>(), Constants.SystemDbKey);
+            //        }
+            //        else if (key.Equals(Constants.BlogDbKey))
+            //        {
+            //            return new UowManager(implementationFactory.GetRequiredService<IMultiTenantDbFactory>(), Constants.BlogDbKey);
+            //        }
+            //        else
+            //        {
+            //            throw new ArgumentException($"Not Support key : {key}");
+            //        }
+            //    };
+            //    return accesor;
+            //});
+
+
             var assemblyName = "AlonsoAdmin.Repository";
             Assembly assembly = Assembly.Load(assemblyName); // var assembly = AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(assemblyName));
             //根据程序集的名字 获取程序集中所有的类型
             Type[] types = assembly.GetTypes();
-            //过滤上述程序集 首先按照传进来的条件进行过滤 接着要求Type必须是类，而且不能是抽象类
+
+            //IEnumerable<Type> uowManagerTypes = types.Where(t =>
+            //     t.IsClass &&
+            //     !t.IsAbstract &&
+            //     t.FullName.EndsWith("UowManager")
+            //);
+
+            //// 注册各个模块工作单元管理器
+            ////services.AddScoped<IUowManager, Repository.System.UowManager>();
+            //foreach (var implType in uowManagerTypes)
+            //{
+            //    //services.AddScoped<IUowManager, Repository.System.UowManager>();
+            //    ServiceDescriptor uowManagerServiceDescriptor = new ServiceDescriptor(typeof(UnitOfWorkManager), implType, ServiceLifetime.Scoped);
+            //    services.Add(uowManagerServiceDescriptor);
+            //}
+
+
+
+            //过滤上述程序集 得到仓储实现类
             IEnumerable<Type> _types = types.Where(t =>
-            t.IsClass &&
-            !t.IsAbstract &&
-            !t.FullName.StartsWith($"{assemblyName}.MultiTenantDbFactory") &&
-            !t.FullName.StartsWith($"{assemblyName}.RepositoryBase") &&
-            //!t.FullName.EndsWith("<>c") &&
-            !t.FullName.Contains("<")
+                t.IsClass &&
+                !t.IsAbstract &&
+                t.FullName.EndsWith("Repository")
             );
+
+
 
             foreach (var implType in _types)
             {
-                var name = implType.FullName;
-                var name2 = implType.Name;
-                var interfaceList = implType.GetInterfaces();
+
+                var interfaceList = implType.GetInterfaces().Where(x => x.Name.EndsWith(implType.Name));
                 if (interfaceList.Any())
                 {
-                    //var interType = interfaceList.First();
-                    var interFullName = $"{implType.Namespace}.I{implType.Name}";
-                    var interType = assembly.GetType(interFullName);
+                    var interType = interfaceList.First();
+                    //var interFullName = $"{implType.Namespace}.I{implType.Name}";
+                    //var interType = assembly.GetType(interFullName);
+                    
+
                     ServiceDescriptor serviceDescriptor = new ServiceDescriptor(interType, implType, serviceLifetime);
                     services.Add(serviceDescriptor);
 

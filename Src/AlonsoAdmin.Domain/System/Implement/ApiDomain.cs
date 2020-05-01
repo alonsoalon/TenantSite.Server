@@ -1,32 +1,32 @@
-﻿using AlonsoAdmin.Common.Auth;
+﻿using AlonsoAdmin.Domain.System.Interface;
 using AlonsoAdmin.Entities.System;
-using AlonsoAdmin.MultiTenant;
-using FreeSql;
-using Microsoft.AspNetCore.Http;
+using AlonsoAdmin.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace AlonsoAdmin.Repository.System
+namespace AlonsoAdmin.Domain.System.Implement
 {
-    public class SysApiRepository : RepositoryBase<SysApiEntity>, ISysApiRepository
+    public class ApiDomain: IApiDomain
     {
 
-        public SysApiRepository(IMultiTenantDbFactory dbFactory, IAuthUser user)
-            : base(dbFactory.Db(Constants.SystemDbKey), user)
+        private readonly IFreeSql _systemDb;
+        public ApiDomain(IMultiTenantDbFactory multiTenantDbFactory)
         {
-
+            _systemDb = multiTenantDbFactory.Db(Constants.SystemDbKey);
         }
+
 
         public async Task<bool> GenerateApisAsync(List<SysApiEntity> list)
         {
-            if (list == null || list.Count == 0) {
+            if (list == null || list.Count == 0)
+            {
                 return false;
             }
-                
-            using (var uow = base.Orm.CreateUnitOfWork())
+
+            using (var uow = _systemDb.CreateUnitOfWork())
             {
                 var dbApi = uow.GetRepository<SysApiEntity>();
 

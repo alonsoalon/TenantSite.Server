@@ -5,6 +5,8 @@ using AlonsoAdmin.Common.Utils;
 using AlonsoAdmin.HttpApi.Filters;
 using AlonsoAdmin.HttpApi.Logs;
 using AlonsoAdmin.MultiTenant.Extensions;
+using AlonsoAdmin.Repository;
+using FreeSql;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -146,8 +148,8 @@ namespace AlonsoAdmin.HttpApi
                 services.AddScoped<ILogHandler, LogHandler>();
             }
 
+            
 
-           
 
         }
 

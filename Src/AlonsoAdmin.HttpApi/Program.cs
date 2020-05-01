@@ -23,7 +23,7 @@ namespace AlonsoAdmin.HttpApi
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
-            //.UseDynamicProxy();
+                })
+            .UseDynamicProxy();
     }
 }

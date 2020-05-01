@@ -8,7 +8,7 @@ namespace AlonsoAdmin.Repository.System
     public class SysRPermissionRoleRepository : RepositoryBase<SysRPermissionRoleEntity>, ISysRPermissionRoleRepository
     {
 
-        public SysRPermissionRoleRepository(IMultiTenantDbFactory dbFactory, IAuthUser user): base(dbFactory.Db(Constants.Dbkey), user)
+        public SysRPermissionRoleRepository(IMultiTenantDbFactory dbFactory, IAuthUser user): base(dbFactory.Db(Constants.SystemDbKey), user)
         {
          
         }

@@ -1,6 +1,7 @@
 ﻿using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Common.Cache;
 using AlonsoAdmin.Common.Extensions;
+using AlonsoAdmin.Domain.System.Interface;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.MultiTenant;
@@ -24,17 +25,20 @@ namespace AlonsoAdmin.Services.System.Implement
         private readonly ICache _cache;
         private readonly IMapper _mapper;
         private readonly ISysApiRepository _sysApiRepository;
+        private readonly IApiDomain _apiDomain;
         public SysApiService(
             IAuthUser authUser,
             ICache cache,
             IMapper mapper,
-            ISysApiRepository sysApiRepository
+            ISysApiRepository sysApiRepository,
+            IApiDomain apiDomain
             )
         {
             _authUser = authUser;
             _cache = cache;
             _mapper = mapper;
             _sysApiRepository = sysApiRepository;
+            _apiDomain = apiDomain;
 
         }
 
@@ -147,7 +151,7 @@ namespace AlonsoAdmin.Services.System.Implement
         #region 特殊接口服务实现
 
         public async Task<IResponseEntity> GenerateApisAsync(List<SysApiEntity> list) {
-            var result= await _sysApiRepository.GenerateApisAsync(list);
+            var result= await _apiDomain.GenerateApisAsync(list);
             return ResponseEntity.Result(result);
         }
 

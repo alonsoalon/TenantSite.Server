@@ -19,5 +19,12 @@ namespace AlonsoAdmin.Services.System.Interface
         /// <param name="req"></param>
         /// <returns></returns>
         Task<IResponseEntity> RoleAssignResourcesAsync(RoleResourceAssignRequest req);
+
+        /// <summary>
+        /// 根据指定角色ID取回该角色的资源ID集合
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns></returns>
+        Task<IResponseEntity> GetResourceIdsByIdAsync(string roleId);
     }
 }

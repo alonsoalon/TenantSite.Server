@@ -127,4 +127,22 @@ namespace AlonsoAdmin.Services.System.Request
 		/// </summary>
 		public bool WithDisable { get; set; } = false;
 	}
+
+
+	/// <summary>
+	/// UpdateResourceApi 更新资源API请求实体
+	/// </summary>
+	public class UpdateResourceApiRequest
+	{
+		/// <summary>
+		/// 资源ID
+		/// </summary>
+		public string resourceId { get; set; }
+
+		/// <summary>
+		/// 资源ID下的API集合
+		/// </summary>
+		public List<string> ApiIds { get; set; } 
+	}
+
 }

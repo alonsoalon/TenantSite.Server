@@ -1,5 +1,6 @@
 ﻿using AlonsoAdmin.Common.Cache;
 using AlonsoAdmin.Common.Extensions;
+using AlonsoAdmin.Domain.System.Interface;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Repository.System;
@@ -21,17 +22,20 @@ namespace AlonsoAdmin.Services.System.Implement
         private readonly ICache _cache;
         private readonly ISysRoleRepository _sysRoleRepository;
         private readonly ISysRRoleResourceRepository _sysRRoleResourceRepository;
+        private readonly IRoleDomain _roleDomain;
         public SysRoleService(
             IMapper mapper,
             ICache cache,
             ISysRoleRepository sysRoleRepository,
-            ISysRRoleResourceRepository sysRRoleResourceRepository
+            ISysRRoleResourceRepository sysRRoleResourceRepository,
+            IRoleDomain roleDomain
             )
         {
             _mapper = mapper;
             _cache = cache;
             _sysRoleRepository = sysRoleRepository;
             _sysRRoleResourceRepository = sysRRoleResourceRepository;
+            _roleDomain = roleDomain;
         }
 
         #region 通用接口服务实现 对应通用接口
@@ -154,11 +158,21 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> RoleAssignResourcesAsync(RoleResourceAssignRequest req)
         {
          
-            var result = await _sysRRoleResourceRepository.RoleAssignResourcesAsync(req.RoleId, req.ResourceIds);
+            var result = await _roleDomain.RoleAssignResourcesAsync(req.RoleId, req.ResourceIds);
             //清除权限缓存
             await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList) ;
 
             return ResponseEntity.Result(result);
+        }
+
+
+        public async Task<IResponseEntity> GetResourceIdsByIdAsync(string roleId)
+        {
+            var resourceIds = await _sysRRoleResourceRepository
+             .Select.Where(d => d.RoleId == roleId)
+             .ToListAsync(a => a.ResourceId);
+
+            return ResponseEntity.Ok(resourceIds);
         }
 
         #endregion

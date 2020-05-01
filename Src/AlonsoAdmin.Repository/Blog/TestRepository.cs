@@ -5,15 +5,11 @@ namespace AlonsoAdmin.Repository.Blog
 {
     public class TestRepository : RepositoryBase<SysApiEntity>,ITestRepository
     {
-        //private IMultiTenantDbFactory _dbFactory;
-        //private IAuthUser _user;
-        //private string _dbKey;
+   
 
-        public TestRepository(IMultiTenantDbFactory dbFactory, IAuthUser user) : base(dbFactory.Db(Constants.Dbkey), user)
+        public TestRepository(IMultiTenantDbFactory dbFactory, IAuthUser user) : base(dbFactory.Db(Constants.BlogDbKey), user)
         {
-            //_dbFactory = dbFactory;
-            //_dbKey = dbKey;
-            //_user = user;
+
         }
 
 

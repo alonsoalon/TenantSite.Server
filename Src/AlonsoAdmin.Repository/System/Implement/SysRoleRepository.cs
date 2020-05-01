@@ -7,7 +7,7 @@ namespace AlonsoAdmin.Repository.System
 {
     public class SysRoleRepository : RepositoryBase<SysRoleEntity>, ISysRoleRepository
     {
-        public SysRoleRepository(IMultiTenantDbFactory dbFactory, IAuthUser user) : base(dbFactory.Db(Constants.Dbkey), user)
+        public SysRoleRepository(IMultiTenantDbFactory dbFactory, IAuthUser user) : base(dbFactory.Db(Constants.SystemDbKey), user)
         {
 
         }

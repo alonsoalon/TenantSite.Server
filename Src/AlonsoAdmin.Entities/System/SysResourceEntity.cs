@@ -120,9 +120,9 @@ namespace AlonsoAdmin.Entities.System
 
 		[Navigate(ManyToMany = typeof(SysRRoleResourceEntity))]
 		public virtual ICollection<SysRoleEntity> Roles { get; set; }
-		#endregion
+        #endregion
 
 
-	}
+    }
 
 }

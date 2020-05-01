@@ -77,9 +77,6 @@ namespace AlonsoAdmin.Services.System.Request
 		public string UserName { get; set; }
 
 		public int Revision { get; set; }
-
-
-
 	}
 
 	public class UserFilterRequest

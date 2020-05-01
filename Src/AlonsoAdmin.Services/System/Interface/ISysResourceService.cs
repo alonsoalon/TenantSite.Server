@@ -11,7 +11,15 @@ namespace AlonsoAdmin.Services.System.Interface
     public interface ISysResourceService : IBaseService<ResourceFilterRequest, ResourceAddRequest, ResourceEditRequest>
     {
 
-        // 特殊接口 在此定义
+        #region 特殊接口 在此定义
+
+
+        /// <summary>
+        /// 根据指定资源ID获取该资源的API集合
+        /// </summary>
+        /// <param name="resourceId"></param>
+        /// <returns></returns>
+        Task<IResponseEntity> GetResourceApisByIdAsync(string resourceId);
 
         /// <summary>
         /// 得到资源列表 - 合并功能到菜单资源
@@ -19,11 +27,16 @@ namespace AlonsoAdmin.Services.System.Interface
         /// <returns></returns>
         Task<IResponseEntity> GetResourcesAsync();
 
+
         /// <summary>
-        /// 得到资源列表 - 根据角色ID
+        /// 根据指定资源ID更新该资源的API集合
         /// </summary>
+        /// <param name="req"></param>
         /// <returns></returns>
-        Task<IResponseEntity> GetResourceIdsByRoleIdAsync(string roleId);
-        
+        Task<IResponseEntity> UpdateResourceApisByIdAsync(UpdateResourceApiRequest req);
+
+
+        #endregion
+
     }
 }

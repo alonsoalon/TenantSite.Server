@@ -14,7 +14,7 @@ namespace AlonsoAdmin.Repository.System
     public class SysLoginLogRepository : RepositoryBase<SysLoginLogEntity>, ISysLoginLogRepository
     {
         public SysLoginLogRepository(IMultiTenantDbFactory dbFactory, IAuthUser user) 
-            : base(dbFactory.Db(Constants.Dbkey), user)
+            : base(dbFactory.Db(Constants.SystemDbKey), user)
         {
            
         }

@@ -127,29 +127,42 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         #endregion
 
         #region 特殊API方法
+        /// <summary>
+        /// 根据指定资源ID获取该资源的API集合
+        /// </summary>
+        /// <param name="resourceId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Description("根据指定资源ID获取该资源的API集合")]
+        public async Task<IResponseEntity> GetResourceApisById(string resourceId)
+        {
+            return await _sysResourceService.GetResourceApisByIdAsync(resourceId);
+        }
+
+        /// <summary>
+        /// 根据指定资源ID更新该资源的API集合
+        /// </summary>
+        /// <param name="req">UpdateResourceApiRequest</param>
+        /// <returns></returns>
+        [HttpPut]
+        [Description("更新指定资源ID下的API集合")]
+        public async Task<IResponseEntity> UpdateResourceApisById(UpdateResourceApiRequest req)
+        {
+            return await _sysResourceService.UpdateResourceApisByIdAsync(req);
+        }
 
         /// <summary>
         /// 得到供配置角色的资源列表
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Description("得到供配置角色的资源列表")]
+        [Description("得到供配置角色的资源列表(功能点合并)")]
         public async Task<IResponseEntity> GetResources()
         {
             return await _sysResourceService.GetResourcesAsync();
         }
 
-        /// <summary>
-        /// 得到指定角色下的资源列表
-        /// </summary>
-        /// <param name="roleId"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [Description("得到指定角色下的资源列表")]
-        public async Task<IResponseEntity> GetResourceIdsByRoleId(string roleId)
-        {
-            return await _sysResourceService.GetResourceIdsByRoleIdAsync(roleId);
-        }
+    
 
         #endregion
 

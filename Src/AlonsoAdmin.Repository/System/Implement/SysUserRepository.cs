@@ -15,7 +15,7 @@ namespace AlonsoAdmin.Repository.System
         private readonly IAuthUser _user;
         private readonly ILogger<SysUserRepository> _logger;
 
-        public SysUserRepository(IMultiTenantDbFactory dbFactory, IAuthUser user, ILogger<SysUserRepository> logger) : base(dbFactory.Db(Constants.Dbkey), user)
+        public SysUserRepository(IMultiTenantDbFactory dbFactory, IAuthUser user, ILogger<SysUserRepository> logger) : base(dbFactory.Db(Constants.SystemDbKey), user)
         {
             _user = user;
             _logger = logger;

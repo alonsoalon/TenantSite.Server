@@ -53,9 +53,17 @@ namespace AlonsoAdmin.Services.System.Implement
             {
                 return ResponseEntity.Error("更新的实体主键丢失");
             }
+            var entity = await _sysUserRepository.GetAsync(req.Id);
+            if (entity==null|| entity.Id =="")
+            {
+                return ResponseEntity.Error("用户不存在!");
+            }
 
-            var entity = _mapper.Map<SysUserEntity>(req);
+            _mapper.Map(req, entity);
+            //var entity = _mapper.Map<SysUserEntity>(req);
             await _sysUserRepository.UpdateAsync(entity);
+
+           
             return ResponseEntity.Ok("更新成功");
         }
 

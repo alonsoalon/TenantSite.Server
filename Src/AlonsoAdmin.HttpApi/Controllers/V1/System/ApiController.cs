@@ -139,27 +139,22 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [Description("自动生成API,当API存在时更新")]
         public async Task<IResponseEntity> GenerateApis()
         {
-            //Dictionary<string, List<string>> controllersAndActions = new Dictionary<string, List<string>>();
-
-
+            //接口列表
             List<SysApiEntity> list = new List<SysApiEntity>();
 
+            // 反射取回所有控制器
             var dllTypes = Assembly.GetExecutingAssembly()
-                .GetTypes();
+                .GetTypes().Where(t => t.FullName.EndsWith("Controller"));
 
-
-
+            // 取得API接口控制器（排除基类控制器）
             var controllers = dllTypes
-                .Where(t => t.FullName.EndsWith("Controller")
-                && !t.FullName.EndsWith("ModuleBaseController")
-                && !t.FullName.EndsWith("BaseController")
-                );
-            //.Where(t => typeof(Controller).IsAssignableFrom(t));
+                .Where(t => !t.FullName.EndsWith("ModuleBaseController")&& !t.FullName.EndsWith("BaseController"));
+           
+
             foreach (var controller in controllers)
             {
                 var members = controller.GetMethods()
                      .Where(m => typeof(Task<IResponseEntity>).IsAssignableFrom(m.ReturnType));
-
 
                 //验证模块基类
                 var moduleBaseController = dllTypes.Where(t => t == controller.BaseType).FirstOrDefault();
@@ -172,7 +167,6 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
                 string pathTemplate = string.Empty;
                 if (moduleBaseController.GetCustomAttributes(typeof(CustomRouteAttribute)).Any())
                 {
-
                     var routeAttr = (moduleBaseController.GetCustomAttribute(typeof(CustomRouteAttribute)) as CustomRouteAttribute);
                     pathTemplate = routeAttr.Template;
                 }
@@ -216,8 +210,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
                         }
                     }
 
-
-
+                    // 处理固定接口描述
                     if (desc == string.Empty)
                     {
                         switch (member.Name)

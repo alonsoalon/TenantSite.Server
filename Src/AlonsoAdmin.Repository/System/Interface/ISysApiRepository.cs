@@ -8,11 +8,6 @@ namespace AlonsoAdmin.Repository.System
     public interface ISysApiRepository : IRepositoryBase<SysApiEntity>
     {
 
-        /// <summary>
-        /// API入库
-        /// </summary>
-        /// <param name="list"></param>
-        /// <returns></returns>
-        Task<bool> GenerateApisAsync(List<SysApiEntity> list);
+    
     }
 }

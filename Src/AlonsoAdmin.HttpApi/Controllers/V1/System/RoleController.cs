@@ -129,6 +129,18 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         #region 特殊API方法
 
         /// <summary>
+        /// 根据指定角色ID取回该角色的资源ID集合
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Description("根据指定角色ID取回该角色的资源ID集合")]
+        public async Task<IResponseEntity> GetResourceIdsById(string roleId)
+        {
+            return await _sysRoleService.GetResourceIdsByIdAsync(roleId);
+        }  
+
+        /// <summary>
         /// 为指定角色分配资源（角色赋权）
         /// </summary>
         /// <param name="req"></param>
@@ -138,6 +150,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         public async Task<IResponseEntity> RoleAssignResources(RoleResourceAssignRequest req) {
             return await _sysRoleService.RoleAssignResourcesAsync(req);
         }
+
         #endregion
 
     }
