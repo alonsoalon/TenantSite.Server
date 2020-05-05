@@ -35,7 +35,7 @@ namespace AlonsoAdmin.Entities.System
 		/// <summary>
 		/// 资源类型 1.分组 2.菜单 3.功能点（功能点包括 按钮，显示区域，具体由前端控制）
 		/// </summary>
-		[Column(Name = "RESOURCE_TYPE", Position = 5, MapType = typeof(int), CanUpdate = false)]
+		[Column(Name = "RESOURCE_TYPE", Position = 5, MapType = typeof(int))]
 		public ResourceType ResourceType { get; set; }
 
 		/// <summary>

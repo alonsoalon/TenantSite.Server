@@ -70,6 +70,21 @@ namespace AlonsoAdmin.Common.Auth
             }
         }
 
+        public string PermissionId
+        {
+            get
+            {
+                var name = _accessor?.HttpContext?.User?.FindFirst(ClaimAttributes.PermissionId);
+
+                if (name != null && name.Value.IsNotNull())
+                {
+                    return name.Value;
+                }
+
+                return "";
+            }
+        }
+
 
     }
 
@@ -81,22 +96,27 @@ namespace AlonsoAdmin.Common.Auth
     {
 
         /// <summary>
-        /// 用户Id
+        /// 用户Id key
         /// </summary>
         public const string UserId = "id";
 
         /// <summary>
-        /// 用户名
+        /// 用户名 key
         /// </summary>
         public const string UserName = "un";
 
         /// <summary>
-        /// 姓名
+        /// 姓名 key
         /// </summary>
         public const string DisplayName = "dn";
 
         /// <summary>
-        /// 登录日志Id
+        /// 权限岗Id key
+        /// </summary>
+        public const string PermissionId = "pi";
+
+        /// <summary>
+        /// 登录日志Id  key
         /// </summary>
         public const string UserLoginLogId = "llid";
 

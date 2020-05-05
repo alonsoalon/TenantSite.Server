@@ -1,7 +1,9 @@
 ﻿using AlonsoAdmin.Common.Auth;
+using AlonsoAdmin.Common.Cache;
 using AlonsoAdmin.Common.Configs;
 using AlonsoAdmin.Common.Extensions;
 using AlonsoAdmin.Entities;
+using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.MultiTenant;
 using AlonsoAdmin.MultiTenant.Extensions;
 using FreeSql.Aop;
@@ -11,8 +13,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace AlonsoAdmin.Repository
 {
@@ -23,12 +27,15 @@ namespace AlonsoAdmin.Repository
         private readonly IAuthUser _authUser;
         private readonly IOptionsMonitor<SystemConfig> _systemConfig;
         private readonly IWebHostEnvironment _env;
+
+        private readonly ICache _cache;
         public MultiTenantDbFactory(
-            IHttpContextAccessor accessor, 
+            IHttpContextAccessor accessor,
             IdleBus<IFreeSql> ib,
             IAuthUser authUser,
             IOptionsMonitor<SystemConfig> systemConfig,
-            IWebHostEnvironment env
+            IWebHostEnvironment env,
+            ICache cache
             )
         {
             _accessor = accessor;
@@ -36,6 +43,7 @@ namespace AlonsoAdmin.Repository
             _authUser = authUser;
             _systemConfig = systemConfig;
             _env = env;
+            _cache = cache;
         }
 
         public TenantInfo Tenant
@@ -95,9 +103,26 @@ namespace AlonsoAdmin.Repository
             fsql.Aop.AuditValue += AuditValue;
             //fsql.Aop.SyncStructureAfter += SyncStructureAfter;
 
-            fsql.GlobalFilter.Apply<IBaseSoftDelete>("SoftDelete", a => a.IsDeleted == false);
+            DataFilterAsync(fsql);
 
             return fsql;
+        }
+
+        private void DataFilterAsync(IFreeSql fsql) {
+
+            fsql.GlobalFilter.Apply<IBaseSoftDelete>("SoftDelete", a => a.IsDeleted == false);
+
+            //var cacheKey = string.Format(CacheKeyTemplate.PermissionGroupList, _authUser.PermissionId);
+            //List<string> groupIds = new List<string>();
+            //if (await _cache.ExistsAsync(cacheKey))
+            //{
+            //    var data = await _cache.GetAsync<List<SysGroupEntity>>(cacheKey);
+
+            //    foreach (var item in data) {
+            //        groupIds.Add(item.Id);
+            //    }
+            //}
+            //fsql.GlobalFilter.Apply<IBaseGroup>("Group", a => groupIds.Contains(a.GroupId));
         }
 
         private void ConfigEntityProperty(object s, ConfigEntityPropertyEventArgs e) {
@@ -176,6 +201,8 @@ namespace AlonsoAdmin.Repository
             {
                 Console.WriteLine($"{e.Sql}\r\n");
             }
+
+ 
         }
 
         

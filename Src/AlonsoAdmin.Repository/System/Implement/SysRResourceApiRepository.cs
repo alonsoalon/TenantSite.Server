@@ -1,11 +1,8 @@
 ﻿using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Entities.System;
-using FreeSql;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AlonsoAdmin.Repository.System.Interface;
 
-namespace AlonsoAdmin.Repository.System
+namespace AlonsoAdmin.Repository.System.Implement
 {
     public class SysRResourceApiRepository : RepositoryBase<SysRResourceApiEntity>, ISysRResourceApiRepository
     {

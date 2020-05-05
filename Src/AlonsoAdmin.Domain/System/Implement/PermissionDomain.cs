@@ -1,5 +1,6 @@
 ﻿using AlonsoAdmin.Domain.System.Interface;
 using AlonsoAdmin.Entities.System;
+using AlonsoAdmin.Entities.System.Enums;
 using AlonsoAdmin.Repository;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,13 @@ namespace AlonsoAdmin.Domain.System.Implement
             _systemDb = multiTenantDbFactory.Db(Constants.SystemDbKey);
         }
 
+        /// <summary>
+        /// 权限赋权
+        /// </summary>
+        /// <param name="permissionId"></param>
+        /// <param name="roleIds"></param>
+        /// <param name="groupIds"></param>
+        /// <returns></returns>
         public async Task<bool> PermissionAssignPowerAsync(string permissionId, List<string> roleIds, List<string> groupIds)
         {
 
@@ -88,6 +96,41 @@ namespace AlonsoAdmin.Domain.System.Implement
             }
             return true;
 
+        }
+
+        /// <summary>
+        /// 得到权限菜单集合
+        /// </summary>
+        /// <param name="permissionId"></param>
+        /// <returns></returns>
+        public async Task<List<SysResourceEntity>> GetPermissionMenusAsync(string permissionId)
+        {
+
+            var list = await _systemDb.Select<SysRPermissionRoleEntity, SysRRoleResourceEntity, SysResourceEntity>()
+                  .InnerJoin((a, b, c) => a.RoleId == b.RoleId)
+                  .InnerJoin((a, b, c) => b.ResourceId == c.Id && c.IsDisabled == false && new[] { ResourceType.Group, ResourceType.Menu }.Contains(c.ResourceType))
+                  .Where((a, b, c) => a.PermissionId == permissionId)
+                  .OrderBy((a, b, c) => c.OrderIndex)
+                  .Distinct()
+                  .ToListAsync((a, b, c) => c);
+
+            return list;
+        }
+
+        /// <summary>
+        /// 得到权限的权限数据组集合
+        /// </summary>
+        /// <param name="permissionId"></param>
+        /// <returns></returns>
+        public async Task<List<SysGroupEntity>> GetPermissionGroupsAsync(string permissionId)
+        {
+
+            var list = await _systemDb.GetRepository<SysRPermissionGroupEntity>().Select
+                .Include(a => a.Group)
+                .Distinct()
+                .ToListAsync(a => a.Group);
+
+            return list;
         }
     }
 }

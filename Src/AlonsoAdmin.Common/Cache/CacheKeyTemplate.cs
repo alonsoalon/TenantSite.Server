@@ -9,16 +9,16 @@ namespace AlonsoAdmin.Common.Cache
     {
 
         /// <summary>
-        /// 用户权限 admin:user:用户主键:permissions
+        /// 权限岗菜单资源缓存 admin:Permission:权限岗主键:MenuList
         /// </summary>
-        [Description("用户权限")]
-        public const string UserPermissionList = "admin:user:{0}:permissionlist";
+        [Description("权限岗菜单资源缓存")]
+        public const string PermissionMenuList = "admin:Permission:{0}:MenuList";
 
         /// <summary>
-        /// 用户权限组
+        /// 权限岗权限组缓存 admin:Permission:权限岗主键:GroupList
         /// </summary>
-        [Description("用户权限组")]
-        public const string UserGroupList = "admin:user:{0}:grouplist:{1}";
+        [Description("权限岗权限组缓存")]
+        public const string PermissionGroupList = "admin:Permission:{0}:GroupList";
 
     }
 }

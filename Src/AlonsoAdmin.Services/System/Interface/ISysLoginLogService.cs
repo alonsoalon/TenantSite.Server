@@ -11,8 +11,19 @@ namespace AlonsoAdmin.Services.System.Interface
 {
     public interface ISysLoginLogService
     {
-        Task<IResponseEntity> PageAsync(RequestEntity<SysLoginLogEntity> req);
+        /// <summary>
+        /// 登录日志-取得分页数据
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        Task<IResponseEntity> GetListAsync(RequestEntity<LoginLogFilterRequest> req);
 
-        Task<IResponseEntity> AddAsync(LoginLogRequest req);
+
+        /// <summary>
+        /// 登录日志-新增
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        Task<IResponseEntity> CreateAsync(LoginLogAddRequest req);
     }
 }

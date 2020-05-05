@@ -170,16 +170,19 @@ namespace AlonsoAdmin.HttpApi
             // 路由中间件
             app.UseRouting();
 
+            // 跨域检查
             app.UseCors(_allowSpecificOrigins);
-
 
             // 启用多租户中间件
             app.UseMultiTenant();
 
             // 启用Authentication中间件，遍历策略中的身份验证方案获取多张证件，最后合并放入HttpContext.User中
             app.UseAuthentication();
+
             // 对请求进行权限验证
             app.UseAuthorization();
+
+           
 
             app.UseEndpoints(endpoints =>
             {

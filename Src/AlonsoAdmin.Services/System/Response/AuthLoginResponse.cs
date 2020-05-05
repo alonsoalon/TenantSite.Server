@@ -26,6 +26,12 @@ namespace AlonsoAdmin.Services.System.Response
         public string DisplayName { get; set; }
 
         /// <summary>
+        /// 权限岗ID
+        /// </summary>
+        public string PermissionId { get; set; }
+        
+
+        /// <summary>
         /// 头像
         /// </summary>
         public string Avatar { get; set; }

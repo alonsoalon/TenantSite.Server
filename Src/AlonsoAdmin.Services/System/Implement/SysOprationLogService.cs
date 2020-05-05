@@ -4,6 +4,7 @@ using AlonsoAdmin.Common.Utils;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Repository.System;
+using AlonsoAdmin.Repository.System.Interface;
 using AlonsoAdmin.Services.System.Interface;
 using AlonsoAdmin.Services.System.Request;
 using AlonsoAdmin.Services.System.Response;
@@ -34,26 +35,26 @@ namespace AlonsoAdmin.Services.System.Implement
             _accessor = accessor;
             _oprationLogRepository = oprationLogRepository;
         }
-        public async Task<IResponseEntity> AddAsync(OprationLogRequest req)
+        public async Task<IResponseEntity> CreateAsync(OprationLogAddRequest req)
         {
 
-            var entity = _mapper.Map<SysOprationLogEntity>(req);
+            var entity = _mapper.Map<SysOperationLogEntity>(req);
             var item = await _oprationLogRepository.InsertAsync(entity);
             return ResponseEntity.Result(item?.Id != "");
         }
 
-        public async Task<IResponseEntity> PageAsync(RequestEntity<SysOprationLogEntity> req)
+        public async Task<IResponseEntity> GetListAsync(RequestEntity<OprationLogFilterRequest> req)
         {
-            var userName = req.Filter?.CreatedByName;
+            var key = req.Filter?.Key;
 
             var list = await _oprationLogRepository.Select
-            .WhereIf(userName.IsNotNull(), a => a.CreatedByName.Contains(userName))
+            .WhereIf(key.IsNotNull(), a => a.CreatedByName.Contains(key) || a.RealName.Contains(key) || a.ApiTitle.Contains(key) || a.Ip.Contains(key) || a.ApiPath.Contains(key))
             .Count(out var total)
             .OrderByDescending(true, c => c.Id)
             .Page(req.CurrentPage, req.PageSize)
-            .ToListAsync<OprationLogResponse>();
+            .ToListAsync<OperationLogForListResponse>();
 
-            var data = new PageEntity<OprationLogResponse>()
+            var data = new PageEntity<OperationLogForListResponse>()
             {
                 List = list,
                 Total = total

@@ -6,6 +6,7 @@ using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Entities.System.Enums;
 using AlonsoAdmin.Repository;
 using AlonsoAdmin.Repository.System;
+using AlonsoAdmin.Repository.System.Interface;
 using AlonsoAdmin.Services.System.Interface;
 using AlonsoAdmin.Services.System.Request;
 using AlonsoAdmin.Services.System.Response;
@@ -47,7 +48,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var item = _mapper.Map<SysResourceEntity>(req);
             var result = await _sysResourceRepository.InsertAsync(item);
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
             return ResponseEntity.Result(result != null && result?.Id != "");
         }
 
@@ -69,7 +70,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var entity = _mapper.Map<SysResourceEntity>(req);
             await _sysResourceRepository.UpdateAsync(entity);
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
             return ResponseEntity.Ok("更新成功");
         }
 
@@ -81,7 +82,7 @@ namespace AlonsoAdmin.Services.System.Implement
             }
             var result = await _sysResourceRepository.DeleteAsync(id);
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
             return ResponseEntity.Result(result > 0);
         }
 
@@ -93,7 +94,7 @@ namespace AlonsoAdmin.Services.System.Implement
             }
             var result = await _sysResourceRepository.Where(m => ids.Contains(m.Id)).ToDelete().ExecuteAffrowsAsync();
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
             return ResponseEntity.Result(result > 0);
         }
 
@@ -106,7 +107,7 @@ namespace AlonsoAdmin.Services.System.Implement
 
             var result = await _sysResourceRepository.SoftDeleteAsync(id);
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
 
             return ResponseEntity.Result(result);
         }
@@ -121,7 +122,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysResourceRepository.SoftDeleteAsync(ids);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
 
 
             return ResponseEntity.Result(result);
@@ -184,30 +185,31 @@ namespace AlonsoAdmin.Services.System.Implement
 
         }
 
-        //[Transactional]
         public async Task<IResponseEntity> UpdateResourceApisByIdAsync(UpdateResourceApiRequest req)
         {
             var result = await _resourceDomain.UpdateResourceApisByIdAsync(req.resourceId, req.ApiIds);
 
             //清除权限缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
             return ResponseEntity.Result(result);
         }
 
         public async Task<IResponseEntity> GetResourcesAsync()
         {
             var resources = await _sysResourceRepository.Select
-                .Where(a=>a.IsDisabled==false)
-                .OrderBy(a => a.ParentId)
+                .Where(a => a.IsDisabled == false)
+                //.OrderBy(a => a.ParentId)
                 .OrderBy(a => a.OrderIndex)
-                .ToListAsync(a => new { a.Id, a.ParentId, a.Title, a.ResourceType,a.Icon });
+                .ToListAsync(a => new { a.Id, a.ParentId, a.Title, a.ResourceType, a.Icon, a.OrderIndex });
 
             var funcs = resources
                 .Where(a => a.ResourceType == ResourceType.Func)
+                .OrderBy(a => a.OrderIndex)
                 .Select(a => new { a.Id, a.ParentId, a.Title });
 
             var result = resources
                 .Where(a => (new[] { ResourceType.Group, ResourceType.Menu }).Contains(a.ResourceType))
+                .OrderBy(a => a.OrderIndex)
                 .Select(a => new
                 {
                     a.Id,                    

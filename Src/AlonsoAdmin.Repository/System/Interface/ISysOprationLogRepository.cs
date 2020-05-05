@@ -2,9 +2,9 @@
 using AlonsoAdmin.MultiTenant;
 using System.Collections.Generic;
 
-namespace AlonsoAdmin.Repository.System
+namespace AlonsoAdmin.Repository.System.Interface
 {
-    public interface ISysOprationLogRepository : IRepositoryBase<SysOprationLogEntity>
+    public interface ISysOprationLogRepository : IRepositoryBase<SysOperationLogEntity>
     {
   
     }

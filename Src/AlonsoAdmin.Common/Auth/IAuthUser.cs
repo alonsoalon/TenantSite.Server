@@ -24,7 +24,10 @@ namespace AlonsoAdmin.Common.Auth
         /// 显示名
         /// </summary>
         string DisplayName { get; }
-        
-        
+
+        /// <summary>
+        /// 权限岗Id
+        /// </summary>
+        string PermissionId { get; }
     }
 }

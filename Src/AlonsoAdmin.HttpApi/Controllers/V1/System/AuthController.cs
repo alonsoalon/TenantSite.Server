@@ -70,7 +70,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
                 string ua = HttpContext.Request.Headers["User-Agent"];
                 var client = UAParser.Parser.GetDefault().Parse(ua);
                 var device = client.Device.Family;
-                var loginLogAddRequest = new LoginLogRequest()
+                var loginLogAddRequest = new LoginLogAddRequest()
                 {
                     CreatedBy = user.Id,
                     CreatedByName = user.UserName,
@@ -86,14 +86,15 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
                     Ip = IPHelper.GetIP(HttpContext?.Request)
                 };
 
-                await _loginLogService.AddAsync(loginLogAddRequest);
+                await _loginLogService.CreateAsync(loginLogAddRequest);
                 #endregion
 
                 #region 构造JWT Token
                 var claims = new Claim[]{
                     new Claim(ClaimAttributes.UserId, user.Id.ToString()),
                     new Claim(ClaimAttributes.UserName, user.UserName),
-                    new Claim(ClaimAttributes.DisplayName,user.DisplayName)
+                    new Claim(ClaimAttributes.DisplayName,user.DisplayName),
+                    new Claim(ClaimAttributes.PermissionId,user.PermissionId)
                 };
                 var token = _authToken.Build(claims);
                 #endregion
@@ -121,7 +122,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <returns></returns>
         [HttpGet]
         [Description("刷新用户信息-根据Token")]
-        public async Task<IResponseEntity> UserInfo()
+        public async Task<IResponseEntity> GetUserInfo()
         {
 
             var res = await _authService.GetUserInfoAsync();
@@ -135,7 +136,8 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
             var claims = new Claim[]{
                     new Claim(ClaimAttributes.UserId, user.Id.ToString()),
                     new Claim(ClaimAttributes.UserName, user.UserName),
-                    new Claim(ClaimAttributes.DisplayName,user.DisplayName)
+                    new Claim(ClaimAttributes.DisplayName,user.DisplayName),
+                    new Claim(ClaimAttributes.PermissionId,user.PermissionId)
                 };
             var token = _authToken.Build(claims);
             #endregion
@@ -157,5 +159,12 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 
             return ResponseEntity.Ok(data);
         }
+
+        [HttpGet]
+        [Description("获取用户数据权限组-根据Token")]
+        public async Task<IResponseEntity> GetUserGroups() {
+            return await _authService.GetUserGroupsAsync();
+        }
+        
     }
 }

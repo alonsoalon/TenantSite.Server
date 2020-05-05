@@ -1,15 +1,19 @@
 ﻿using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Common.Utils;
 using AlonsoAdmin.Entities;
+using AlonsoAdmin.HttpApi.SwaggerHelper;
 using AlonsoAdmin.Services.System.Interface;
 using AlonsoAdmin.Services.System.Request;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace AlonsoAdmin.HttpApi.Logs
@@ -62,13 +66,14 @@ namespace AlonsoAdmin.HttpApi.Logs
             var client = UAParser.Parser.GetDefault().Parse(ua);
             var device = client.Device.Family;
 
-            var req = new OprationLogRequest
+            var req = new OprationLogAddRequest
             {
-                ApiMethod = context.HttpContext.Request.Method.ToLower(),
-                ApiPath = GetCurrentRoutePath(),
+                ApiTitle = GetCurrentActionDesc(context),
+                ApiPath = GetCurrentRoutePath(context),
+                ApiMethod = context.HttpContext.Request.Method.ToLower(),               
                 ElapsedMilliseconds = sw.ElapsedMilliseconds,
-                Status = res?.Success,
-                Message = res?.Message,
+                Status = res.Success,
+                Message = res.Message,
 
                 Browser = client.UA.Family,
                 Os = client.OS.Family,
@@ -80,19 +85,78 @@ namespace AlonsoAdmin.HttpApi.Logs
                 Result = result
             };
             
-            await _oprationLogService.AddAsync(req);
+            await _oprationLogService.CreateAsync(req);
         }
 
 
-        private string GetCurrentRoutePath()
+        private string GetCurrentRoutePath(ActionExecutingContext context)
         {
-            //var api= context.ActionDescriptor.AttributeRouteInfo.Template;
-            //var questUrl = _accessor.HttpContext.Request.Path.Value.ToLower();
-            var routeValues = _accessor.HttpContext.Request.RouteValues;            
+            var routeValues = _accessor.HttpContext.Request.RouteValues;
             routeValues.TryGetValue("controller", out object controller);
             routeValues.TryGetValue("action", out object action);
-            string currentRoutePath = controller.ToString() + "/" + action.ToString();
-            return currentRoutePath;
+
+            var moduleBaseControllerType = context.Controller.GetType().BaseType;
+            string pathTemplate = string.Empty;
+            if (moduleBaseControllerType.GetCustomAttributes(typeof(CustomRouteAttribute)).Any())
+            {
+                var routeAttr = (moduleBaseControllerType.GetCustomAttribute(typeof(CustomRouteAttribute)) as CustomRouteAttribute);
+                // 加.Replace("{__tenant__}/", "")为了兼容在多租户非Host模式下的问题
+                pathTemplate = routeAttr.Template.Replace("{__tenant__}/", "");
+
+            }
+
+            return pathTemplate.Replace("[controller]", controller.ToString()).Replace("[action]", action.ToString());
+        }
+
+        private string GetCurrentActionDesc(ActionExecutingContext context) {
+            var actionDescriptor = context.ActionDescriptor as ControllerActionDescriptor;
+            //var controllerName = actionDescriptor.ControllerName;
+            var actionName = actionDescriptor.ActionName;
+
+            string desc = string.Empty;
+            var methodInfo = actionDescriptor.MethodInfo;
+            if (methodInfo.GetCustomAttributes(typeof(DescriptionAttribute)).Any())
+            {
+                desc = (methodInfo.GetCustomAttribute(typeof(DescriptionAttribute)) as DescriptionAttribute).Description;
+            }
+
+            // 处理固定接口描述
+            if (desc == string.Empty)
+            {
+                switch (actionName)
+                {
+                    case "Create":
+                        desc = "创建记录";
+                        break;
+                    case "Update":
+                        desc = "更新记录";
+                        break;
+                    case "Delete":
+                        desc = "删除记录-物理删除单条";
+                        break;
+                    case "DeleteBatch":
+                        desc = "删除记录-物理删除批量";
+                        break;
+                    case "SoftDelete":
+                        desc = "删除记录-软删除单条";
+                        break;
+                    case "SoftDeleteBatch":
+                        desc = "删除记录-软删除批量";
+                        break;
+                    case "GetItem":
+                        desc = "得到实体-根据主键ID";
+                        break;
+                    case "GetList":
+                        desc = "取得条件下数据(分页)";
+                        break;
+                    case "GetAll":
+                        desc = "取得条件下数据(不分页)";
+                        break;
+                }
+            }
+
+            return desc;
+
         }
     }
 }

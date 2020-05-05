@@ -1,5 +1,6 @@
 ﻿using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Entities.System;
+using AlonsoAdmin.Repository.System.Interface;
 using FreeSql;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
@@ -7,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AlonsoAdmin.Repository.System
+namespace AlonsoAdmin.Repository.System.Implement
 {
     public class SysUserRepository : RepositoryBase<SysUserEntity>, ISysUserRepository
     {

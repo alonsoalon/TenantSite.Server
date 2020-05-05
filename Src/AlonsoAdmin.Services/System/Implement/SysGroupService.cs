@@ -4,6 +4,7 @@ using AlonsoAdmin.Common.Extensions;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Repository.System;
+using AlonsoAdmin.Repository.System.Interface;
 using AlonsoAdmin.Services.System.Interface;
 using AlonsoAdmin.Services.System.Request;
 using AlonsoAdmin.Services.System.Response;
@@ -43,7 +44,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysGroupRepository.InsertAsync(item);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
 
             return ResponseEntity.Result(result != null && result?.Id != "");
         }
@@ -67,7 +68,7 @@ namespace AlonsoAdmin.Services.System.Implement
             await _sysGroupRepository.UpdateAsync(entity);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
 
             return ResponseEntity.Ok("更新成功");
         }
@@ -81,7 +82,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysGroupRepository.DeleteAsync(id);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
 
             return ResponseEntity.Result(result > 0);
         }
@@ -95,7 +96,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysGroupRepository.Where(m => ids.Contains(m.Id)).ToDelete().ExecuteAffrowsAsync();
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
 
             return ResponseEntity.Result(result > 0);
         }
@@ -110,7 +111,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysGroupRepository.SoftDeleteAsync(id);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
 
             return ResponseEntity.Result(result);
         }
@@ -125,7 +126,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysGroupRepository.SoftDeleteAsync(ids);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
 
             return ResponseEntity.Result(result);
         }
@@ -165,30 +166,47 @@ namespace AlonsoAdmin.Services.System.Implement
         {
             var withDisable = req != null ? req.WithDisable : false;
 
-            var cacheKey = string.Format(CacheKeyTemplate.UserGroupList, _authUser.Id, withDisable ? "withDisable" : "onlyEnable");
-            if (await _cache.ExistsAsync(cacheKey))
-            {
-                var data = await _cache.GetAsync<List<GroupForListResponse>>(cacheKey);
-                return ResponseEntity.Ok(data);
-            }
-
-
             var key = req?.Key;
-            var list = await _sysGroupRepository.Select
+            var data = await _sysGroupRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key)))
                 .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .OrderBy(true, a => a.OrderIndex)
                 .ToListAsync();
-
-            var result = _mapper.Map<List<GroupForListResponse>>(list);
-
-            await _cache.SetAsync(cacheKey, result);
-
+            var result = _mapper.Map<List<GroupForListResponse>>(data);
             return ResponseEntity.Ok(result);
+
+
+            //var cacheKey = string.Format(CacheKeyTemplate.PermissionGroupList, _authUser.PermissionId, withDisable ? "withDisable" : "onlyEnable");
+            //List<SysGroupEntity> data = new List<SysGroupEntity>();
+            //if (await _cache.ExistsAsync(cacheKey))
+            //{
+            //    data = await _cache.GetAsync<List<SysGroupEntity>>(cacheKey);
+               
+            //}
+            //else
+            //{
+
+
+            //    var key = req?.Key;
+            //    data = await _sysGroupRepository.Select
+            //        .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key)))
+            //        .WhereIf(!withDisable, a => a.IsDisabled == false)
+            //        .OrderBy(true, a => a.OrderIndex)
+            //        .ToListAsync();
+            //    await _cache.SetAsync(cacheKey, data);
+
+              
+
+            //}
+            //var result = _mapper.Map<List<GroupForListResponse>>(data);
+            //return ResponseEntity.Ok(result);
         }
         #endregion
 
         #region 特殊接口服务实现
+
+
+
 
         #endregion
 

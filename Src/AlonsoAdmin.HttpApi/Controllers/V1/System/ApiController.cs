@@ -154,7 +154,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
             foreach (var controller in controllers)
             {
                 var members = controller.GetMethods()
-                     .Where(m => typeof(Task<IResponseEntity>).IsAssignableFrom(m.ReturnType));
+                     .Where(m => typeof(Task<IResponseEntity>).IsAssignableFrom(m.ReturnType) || typeof(IResponseEntity).IsAssignableFrom(m.ReturnType));
 
                 //验证模块基类
                 var moduleBaseController = dllTypes.Where(t => t == controller.BaseType).FirstOrDefault();
@@ -168,7 +168,8 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
                 if (moduleBaseController.GetCustomAttributes(typeof(CustomRouteAttribute)).Any())
                 {
                     var routeAttr = (moduleBaseController.GetCustomAttribute(typeof(CustomRouteAttribute)) as CustomRouteAttribute);
-                    pathTemplate = routeAttr.Template;
+                    pathTemplate = routeAttr.Template.Replace("{__tenant__}/", "");
+                  
                 }
                 else
                 {

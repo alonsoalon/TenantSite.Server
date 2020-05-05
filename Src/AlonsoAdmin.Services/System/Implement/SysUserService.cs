@@ -14,6 +14,7 @@ using AlonsoAdmin.Common.Extensions;
 using AlonsoAdmin.Services.System.Response;
 using AlonsoAdmin.Services.System.Request;
 using AlonsoAdmin.Common.Utils;
+using AlonsoAdmin.Repository.System.Interface;
 
 namespace AlonsoAdmin.Services.System.Implement
 {
@@ -59,11 +60,17 @@ namespace AlonsoAdmin.Services.System.Implement
                 return ResponseEntity.Error("用户不存在!");
             }
 
+            if (entity.PermissionId != req.PermissionId) {
+                //清除权限岗的菜单缓存
+                await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
+                //清除权限岗的数据归属组缓存
+                await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
+            }
+
             _mapper.Map(req, entity);
             //var entity = _mapper.Map<SysUserEntity>(req);
             await _sysUserRepository.UpdateAsync(entity);
 
-           
             return ResponseEntity.Ok("更新成功");
         }
 

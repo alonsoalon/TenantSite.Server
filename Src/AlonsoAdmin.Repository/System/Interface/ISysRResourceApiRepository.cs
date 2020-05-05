@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AlonsoAdmin.Repository.System
+namespace AlonsoAdmin.Repository.System.Interface
 {
     public interface ISysRResourceApiRepository : IRepositoryBase<SysRResourceApiEntity>
     {

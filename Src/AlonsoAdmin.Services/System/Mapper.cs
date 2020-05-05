@@ -16,9 +16,9 @@ namespace AlonsoAdmin.Services.System
             // 登录
             CreateMap<SysUserEntity, AuthLoginResponse>();
             // 登录日志
-            CreateMap<LoginLogRequest, SysLoginLogEntity>();
+            CreateMap<LoginLogAddRequest, SysLoginLogEntity>();
             // 操作日志
-            CreateMap<OprationLogRequest, SysOprationLogEntity>();
+            CreateMap<OprationLogAddRequest, SysOperationLogEntity>();
 
             #region User
             // 创建 用到的映射

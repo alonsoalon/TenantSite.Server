@@ -4,6 +4,7 @@ using AlonsoAdmin.Domain.System.Interface;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Repository.System;
+using AlonsoAdmin.Repository.System.Interface;
 using AlonsoAdmin.Services.System.Interface;
 using AlonsoAdmin.Services.System.Request;
 using AlonsoAdmin.Services.System.Response;
@@ -165,7 +166,7 @@ namespace AlonsoAdmin.Services.System.Implement
 
             var result = await _permissionDomain.PermissionAssignPowerAsync(req.PermissionId, req.RoleIds, req.GroupIds);
             //清除权限缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.UserPermissionList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
             return ResponseEntity.Result(result);
         }
 

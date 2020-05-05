@@ -1,9 +1,8 @@
 ﻿using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Entities.System;
-using FreeSql;
+using AlonsoAdmin.Repository.System.Interface;
 
-
-namespace AlonsoAdmin.Repository.System
+namespace AlonsoAdmin.Repository.System.Implement
 {
     public class SysDictionaryRepository : RepositoryBase<SysDictionaryEntity>, ISysDictionaryRepository
     {

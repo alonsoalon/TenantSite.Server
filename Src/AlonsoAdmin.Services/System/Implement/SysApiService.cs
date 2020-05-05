@@ -7,6 +7,7 @@ using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.MultiTenant;
 using AlonsoAdmin.Repository;
 using AlonsoAdmin.Repository.System;
+using AlonsoAdmin.Repository.System.Interface;
 using AlonsoAdmin.Services.System.Interface;
 using AlonsoAdmin.Services.System.Request;
 using AlonsoAdmin.Services.System.Response;
@@ -121,7 +122,7 @@ namespace AlonsoAdmin.Services.System.Implement
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Category.Contains(key) || a.Url.Contains(key) || a.HttpMethod.Contains(key)))
                 .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .Count(out var total)
-                .OrderBy(true, a => a.CreatedTime)
+                .OrderBy(true, a => a.Category)
                 .Page(req.CurrentPage, req.PageSize)
                 .ToListAsync();
 

@@ -11,8 +11,18 @@ namespace AlonsoAdmin.Services.System.Interface
 {
     public interface ISysOprationLogService
     {
-        Task<IResponseEntity> PageAsync(RequestEntity<SysOprationLogEntity> req);
+        /// <summary>
+        /// Api访问日志-取得分页数据
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        Task<IResponseEntity> GetListAsync(RequestEntity<OprationLogFilterRequest> req);
 
-        Task<IResponseEntity> AddAsync(OprationLogRequest req);
+        /// <summary>
+        /// Api访问日志-新增
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        Task<IResponseEntity> CreateAsync(OprationLogAddRequest req);
     }
 }

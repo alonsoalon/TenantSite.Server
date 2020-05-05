@@ -1,31 +1,29 @@
-﻿using System;
+﻿using AlonsoAdmin.Entities.System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AlonsoAdmin.Services.System.Response
 {
-    public class OprationLogResponse
+    /// <summary>
+    /// ForList 实体对象（一般用于列表页展示数据用）
+    /// </summary>
+    public class OperationLogForListResponse
     {
-
         /// <summary>
         /// 编号
         /// </summary>
         public long Id { get; set; }
 
         /// <summary>
-        /// 姓名
+        /// 昵称
         /// </summary>
         public string RealName { get; set; }
 
         /// <summary>
-        /// 创建者
+        /// 接口标题
         /// </summary>
-        public string CreatedUserName { get; set; }
-
-        /// <summary>
-        /// 接口名称
-        /// </summary>
-        public string ApiLabel { get; set; }
+        public string ApiTitle { get; set; }
 
         /// <summary>
         /// 接口地址
@@ -70,11 +68,29 @@ namespace AlonsoAdmin.Services.System.Response
         /// <summary>
         /// 操作消息
         /// </summary>
-        public string Msg { get; set; }
+        public string Message { get; set; }
+
+
+        /// <summary>
+        /// 创建者
+        /// </summary>
+        public string CreatedBy { get; set; }
+
+        /// <summary>
+        /// 创建者用户名
+        /// </summary>
+        public string CreatedByName { get; set; }
 
         /// <summary>
         /// 创建时间
         /// </summary>
         public DateTime? CreatedTime { get; set; }
+    }
+    /// <summary>
+    /// ForIem 实体对象（一般用于明细页展示数据用）
+    /// </summary>
+    public class OperationLogForItemResponse : SysOperationLogEntity
+    {
+
     }
 }
