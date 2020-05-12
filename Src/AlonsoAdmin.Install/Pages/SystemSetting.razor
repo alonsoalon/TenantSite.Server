@@ -1,0 +1,31 @@
+﻿@page "/system-setting"
+@using AlonsoAdmin.Common.Configs
+@using AlonsoAdmin.Install.Services.System
+<h2>系统参数</h2>
+您也可以通过直接修改HttpApi项目下的appsettings文件的System节点来完成配置工作
+<br />
+<br />
+@inherits FormBase
+<BForm @ref="configForm" Value="value">
+    <BFormItem TValue="bool" Label="缓存类型" Name="@nameof(SystemConfig.WatchCurd)" IsRequired="true">
+        <BSwitch TValue="bool" ActiveValue="true" InactiveValue="false"></BSwitch>
+        如果打开，在控制台将输出每次请求数据库的SQL语句
+    </BFormItem>
+
+    <BFormItem TValue="System.UInt32" Label="数据中心Id" Name="@nameof(SystemConfig.DataCenterId)" IsRequired="true">
+        <BInput TValue="System.UInt32"></BInput>
+        用于生成雪花算法
+    </BFormItem>
+    <BFormItem TValue="uint" Label="Work Id" Name="@nameof(SystemConfig.WorkId)"  IsRequired="true">
+        <BInput TValue="uint"></BInput>
+        用于生成雪花算法
+    </BFormItem>
+    <BFormActionItem>
+        <BButton Type="@ButtonType.Primary" OnClick="e=>Submit()">保存</BButton>
+        <BButton OnClick="e=>Reset()">重置</BButton>
+    </BFormActionItem>
+</BForm>
+
+@code {
+
+}

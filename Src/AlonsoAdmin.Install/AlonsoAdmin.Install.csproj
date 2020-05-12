@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazui.Component" Version="0.0.7.3" />
+    <PackageReference Include="FreeSql.All" Version="1.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AlonsoAdmin.Common\AlonsoAdmin.Common.csproj" />
+    <ProjectReference Include="..\AlonsoAdmin.Entities\AlonsoAdmin.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

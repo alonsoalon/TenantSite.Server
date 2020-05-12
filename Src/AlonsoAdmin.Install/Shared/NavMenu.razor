@@ -1,0 +1,58 @@
+﻿@using AlonsoAdmin.MultiTenant
+@inject AlonsoAdmin.Install.Services.ISettingService SettingService
+
+
+<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">AlonsoAdmin.Install</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> 欢迎页
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="Startup">
+                <span class="oi oi-wrench" aria-hidden="true"></span> 启动参数
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="system-setting">
+                <span class="oi oi-wrench" aria-hidden="true"></span> 系统参数
+            </NavLink>
+        </li>
+
+        @foreach (var item in tenants)
+        {
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="@($"tenant/{ item.Id}")">
+                    <span class="oi oi-plus" aria-hidden="true"></span> @item.Name
+                </NavLink>
+            </li>
+        }
+
+
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private List<TenantInfo> tenants;
+    protected override async Task OnInitializedAsync()
+    {
+        tenants = await SettingService.GetTenantListAsync();
+
+    }
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

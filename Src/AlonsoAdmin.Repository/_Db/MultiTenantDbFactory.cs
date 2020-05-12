@@ -62,6 +62,7 @@ namespace AlonsoAdmin.Repository
 
         public IFreeSql Db(string dbKey = "default")
         {
+
             var currentDbOption = Tenant.DbOptions.Where(e => e.Key.ToLower() == dbKey.ToLower()).FirstOrDefault();
             if (currentDbOption == null)
             {
@@ -196,16 +197,25 @@ namespace AlonsoAdmin.Repository
 
         }
 
+        /// <summary>
+        /// Curd前事件
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="e"></param>
         private void CurdBefore(object s, CurdBeforeEventArgs e) {
             if (_systemConfig.CurrentValue != null && _systemConfig.CurrentValue.WatchCurd)
             {
                 Console.WriteLine($"{e.Sql}\r\n");
             }
-
- 
         }
 
-        
+        private void SyncStructureAfter(object s, SyncStructureAfterEventArgs e) { 
+
+
+        }
+
+
+
 
 
     }

@@ -1,0 +1,37 @@
+﻿@page "/"
+
+@using AlonsoAdmin.Install.Services.Tenant;
+
+<h2>Admin Host Api 安装工具 （开发人员工具）</h2>
+<p>功能如下：</p>
+<p>1.参数配置工具 （您也可以通过直接修改HttpApi项目下的appsettings文件来完成配置工作）</p>
+<p>2.初始化租户（租户被设计成一个租户一个数据库，针对租户进行数据库结构初始化，种子数据初始化）</p>
+
+
+
+    <BButton Style="display:block;" Type="@ButtonType.Primary" OnClick="e => GenerateSeedData()">生成种子数据</BButton>
+
+
+@code{
+
+    [Inject]
+    MessageBox MessageBox { get; set; }
+
+
+    private void GenerateSeedData()
+    {
+        try
+        {
+
+            SeedData data = new SeedData();
+            data.GenerateSeedData();
+            _ = MessageBox.AlertAsync("生产成功");
+        }
+        catch (Exception ex)
+        {
+            _ = MessageBox.AlertAsync(ex.Message);
+        }
+    }
+
+}
+

@@ -1,0 +1,73 @@
+﻿@page "/startup"
+@using AlonsoAdmin.Common.Configs
+@using AlonsoAdmin.Common.Cache
+@using AlonsoAdmin.Install.Services.Startup
+
+
+<h2>启动参数</h2>
+启动参数，是在Api项目中Startup.cs需要用到的配置，如果修改需重启Api项目才可生效，
+<br />
+您也可以通过直接修改HttpApi项目下的appsettings文件的Startup节点来完成配置工作
+<br />
+<br />
+@inherits FormBase
+<BForm @ref="configForm" Value="value">
+    <BFormItem TValue="CacheType" Label="缓存类型" Name="@nameof(StartupEntity.CacheType)">
+        <BRadio Value="CacheType.Memory">内存</BRadio>
+        <BRadio Value="CacheType.Redis">Redis</BRadio>
+    </BFormItem>
+
+    <BFormItem TValue="string" Label="Redis连接串" Name="@nameof(StartupEntity.RedisConnectionString)">
+        <BInput TValue="string"></BInput>
+    </BFormItem>
+    <BFormItem TValue="bool" Label="API访问日志" Name="@nameof(StartupEntity.OperationlogOpen)">
+        <BSwitch TValue="bool" ActiveValue="true" InactiveValue="false"></BSwitch>
+        如果打开，在Action未标记特性[NoOprationLog]的API接口将记录访问日志
+    </BFormItem>
+    <BFormItem TValue="TenantRouteStrategy" Label="租户策略" Name="@nameof(StartupEntity.TenantRouteStrategy)">
+        <BRadio Value="TenantRouteStrategy.Host">Host</BRadio>
+        <BRadio Value="TenantRouteStrategy.Route">Route</BRadio>
+        <pre style="line-height:15px; ">
+注：
+1. 如果缓存类型为Redis,请正确配置Redis连接串。
+2. 如果租户策略选择Host,可借助Nginx来模拟实现Host环境,
+如下是我Nginx的配置,监听了5188（后端）和80（前端）端口,
+配置成功后即可通过
+http://{租户Code}.localhost:5188/ 来访问租户API，
+http://{租户Code}.localhost/ 来访问前端租户站点 
+前端apiBaseURL配置也需切换成Host模板，配置地址（见：前端项目文件夹 > Src > settings.js > apiBaseURL）
+监听配置如下:
+# API 5188
+server {
+    listen 5188;
+    server_name  ~^(.*).localhost;
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://localhost:5188;
+    }
+}
+
+# 前端 80
+server {
+    listen 80;
+    server_name  ~^(.*).localhost;
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://localhost:5189/;
+    }
+}
+    </pre>
+    </BFormItem>
+    <BFormActionItem>
+        <BButton Type="@ButtonType.Primary" OnClick="e=>Submit()">保存</BButton>
+        <BButton OnClick="e=>Reset()">重置</BButton>
+    </BFormActionItem>
+</BForm>
+
+@code {
+
+}

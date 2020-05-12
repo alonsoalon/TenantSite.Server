@@ -1,0 +1,139 @@
+﻿@page "/tenant"
+@page "/tenant/{tenantId}"
+
+
+
+@using AlonsoAdmin.Install.Services.Tenant
+<h1> 设置</h1>
+<p>设置租户参数</p>
+
+@inherits FormBase
+
+
+<div class="el-form-item">
+    <label for="name" class="el-form-item__label" style="width:100px">租户code</label>
+    <div class="el-form-item__content" style="margin-left:100px">
+        <div class="el-input el-input--normal" style="">
+            <input type="text" placeholder="请输入内容" class="el-input__inner " @bind-value="@TenantItem.Code"><br />
+            如果修了租户CODE，需手工到前端TenantSite.UI > src > api > account.js > getTenants 函数修改对应的CODE，否则租户接口无法访问
+        </div>
+    </div>
+</div>
+
+<div class="el-form-item">
+    <label for="name" class="el-form-item__label" style="width:100px">租户名称</label>
+    <div class="el-form-item__content" style="margin-left:100px">
+        <div class="el-input el-input--normal" style="">
+            <input type="text" placeholder="请输入内容" class="el-input__inner " @bind-value="@TenantItem.Name">
+        </div>
+    </div>
+</div>
+<BTab Type="@TabType.BorderCard">
+    @foreach (var item in TenantItem.DbOptions.Where(x=>x.Key.ToLower()=="system"))
+    {
+    <BTabPanel Title="@($"{item.Key}-{getDbName(item.Key)}")">
+        <div class="el-form-item">
+            <label for="name" class="el-form-item__label" style="width:100px">数据库类型</label>
+            <div class="el-form-item__content" style="margin-left:100px">
+                <div class="el-input el-input--normal" style="">
+                    <select class="form-control" id="@($"{item.Key}-dbType")">
+                        <option value="0" selected="@(item.DbType == "MySql")">MySql</option>
+                        <option value="1" selected="@(item.DbType == "SqlServer")">SqlServer</option>
+                        <option value="2" selected="@(item.DbType == "PostgreSQL")">PostgreSQL</option>
+                        <option value="3" selected="@(item.DbType == "Oracle")">Oracle</option>
+                        <option value="4" selected="@(item.DbType == "Sqlite")">Sqlite</option>
+                        <option value="9" selected="@(item.DbType == "Odbc")">Odbc</option>
+                        <option value="5" selected="@(item.DbType == "OdbcOracle")">Odbc Oracle</option>
+                        <option value="6" selected="@(item.DbType == "OdbcSqlServer")">Odbc SqlServer</option>
+                        <option value="7" selected="@(item.DbType == "OdbcMySql")">Odbc MySql</option>
+                        <option value="8" selected="@(item.DbType == "OdbcPostgreSQL")">Odbc PostgreSQL</option>
+                        <option value="10" selected="@(item.DbType == "OdbcDameng")">Odbc Dameng</option>
+                        <option value="11" selected="@(item.DbType == "MsAccess")">MsAccess</option>
+                        <option value="12" selected="@(item.DbType == "Dameng")">Dameng</option>
+                    </select>
+                    <div style="padding:0px 10px 0 10px; margin-top:10px; font-size:12px; border:solid 1px #0094ff;">
+                        特别感谢Freesql，系统采用Freesql作为ORM，数据库类型支持情况明细请查看Freesql介绍,本地只对MySql做了测试。
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <BTab>
+            @foreach (var conn in item.ConnectionStrings)
+            {
+
+                <BTabPanel Title="@($"{getDbUseType(conn.UseType)}")">
+
+                    @if (conn.UseType == MultiTenant.DbUseType.Slave)
+                    {
+                        <div style="padding:10px; margin-bottom:10px; font-size:12px; border:solid 1px #0094ff;">
+                            如果你有多个从库，请自行到API项目appsettings.json Tenants > ConnectionStrings > 追加UseType为1的连接字符串,<br />
+                            如不需要从库，也可以在配置文件中删除从库配置。
+                        </div>
+                    }
+
+                    <div class="el-form-item">
+                        <label for="name" class="el-form-item__label" style="width:150px">@conn.UseType 连接字符</label>
+                        <div class="el-form-item__content" style="margin-left:150px">
+                            <div class="el-input el-input--normal" style="">
+                                <input type="text" placeholder="请输入内容" class="el-input__inner " @bind-value="@conn.ConnectionString">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <BButton Type="@ButtonType.Success" Style="width:100%;" OnClick="e => TestDb()">测试 @getDbUseType(conn.UseType) 连接</BButton>
+                    </div>
+
+                </BTabPanel>
+            }
+        </BTab>
+    </BTabPanel>
+    }
+</BTab>
+<br />
+<br />
+<BForm @ref="configForm" EnableAlwaysRender=true>
+
+
+    <BFormActionItem>
+        <BButton Type="@ButtonType.Primary" OnClick="e => Save()">保存</BButton>
+        @*<BButton OnClick="e => Reset()">重置</BButton>*@
+        <BButton Type="@ButtonType.Primary" OnClick="e => Submit()">保存并初始化当前租户</BButton>
+    </BFormActionItem>
+</BForm>
+
+<div style="padding:10px; margin-bottom:10px;">
+    @foreach (var log in Logs) { 
+    
+    <div>@log</div>
+    }
+</div>
+
+@code {
+    private string getDbUseType(MultiTenant.DbUseType UseType)
+    {
+        var str = UseType == MultiTenant.DbUseType.Master ? "主库" : "从库";
+        return str;
+    }
+    private string getDbName(string key)
+    {
+        string str = "";
+        switch (key.ToLower())
+        {
+            case "system":
+                str = "应用库配置";
+                break;
+            case "blog":
+                str = "多库示例库";
+                break;
+        }
+        return str;
+    }
+    private long getDbTypeIndex(string dbTypeStr)
+    {
+        var dbType = (FreeSql.DataType)Enum.Parse(typeof(FreeSql.DataType), dbTypeStr);
+        return dbType.ToInt64();
+    }
+
+}
