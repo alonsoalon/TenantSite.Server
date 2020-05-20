@@ -7,18 +7,18 @@
 <br />
 @inherits FormBase
 <BForm @ref="configForm" Value="value">
-    <BFormItem TValue="bool" Label="缓存类型" Name="@nameof(SystemConfig.WatchCurd)" IsRequired="true">
+    <BFormItem TValue="bool" Label="监控SQL" Name="@nameof(SystemConfig.WatchCurd)" IsRequired="true">
         <BSwitch TValue="bool" ActiveValue="true" InactiveValue="false"></BSwitch>
         如果打开，在控制台将输出每次请求数据库的SQL语句
     </BFormItem>
 
     <BFormItem TValue="System.UInt32" Label="数据中心Id" Name="@nameof(SystemConfig.DataCenterId)" IsRequired="true">
         <BInput TValue="System.UInt32"></BInput>
-        用于生成雪花算法
+        用于生成雪花算法的主键ID生成，系统所有表主键采样雪花算法实现。
     </BFormItem>
-    <BFormItem TValue="uint" Label="Work Id" Name="@nameof(SystemConfig.WorkId)"  IsRequired="true">
+    <BFormItem TValue="uint" Label="Work Id" Name="@nameof(SystemConfig.WorkId)" IsRequired="true">
         <BInput TValue="uint"></BInput>
-        用于生成雪花算法
+        用于生成雪花算法的主键ID生成，系统所有表主键采样雪花算法实现。
     </BFormItem>
     <BFormActionItem>
         <BButton Type="@ButtonType.Primary" OnClick="e=>Submit()">保存</BButton>

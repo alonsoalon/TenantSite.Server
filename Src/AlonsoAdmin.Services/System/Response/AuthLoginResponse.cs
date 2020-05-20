@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace AlonsoAdmin.Services.System.Response
 {
-    public class AuthLoginResponse 
+    public class AuthLoginResponse : AuthResourceResponse
     {
         
         /// <summary>
@@ -36,9 +36,20 @@ namespace AlonsoAdmin.Services.System.Response
         /// </summary>
         public string Avatar { get; set; }
 
+    }
+
+    public class AuthResourceResponse
+    {
+
         /// <summary>
         /// 权限菜单
         /// </summary>
         public List<ResourceForMenuResponse> Menus { get; set; }
+
+        /// <summary>
+        /// 功能权限列表
+        /// </summary>
+        public List<string> FunctionPoints { get; set; }
     }
+
 }

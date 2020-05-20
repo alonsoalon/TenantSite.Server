@@ -2,27 +2,6 @@
   "SysApiEntities": [
     {
       "Category": "Api-接口管理",
-      "Title": "创建记录",
-      "Description": "参数： ApiAddRequest req",
-      "Url": "/api/v1/System/Api/Create",
-      "HttpMethod": "Post",
-      "IsValidation": true,
-      "OrderIndex": 1,
-      "Resource": null,
-      "Revision": 5,
-      "IsDisabled": false,
-      "IsDeleted": false,
-      "GroupId": null,
-      "CreatedBy": "6650943897923698688",
-      "CreatedByName": "admin",
-      "CreatedTime": "2020-04-30T22:39:58",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
-      "Id": "6661755994307772416"
-    },
-    {
-      "Category": "Api-接口管理",
       "Title": "更新记录",
       "Description": "参数： ApiEditRequest req",
       "Url": "/api/v1/System/Api/Update",
@@ -30,7 +9,7 @@
       "IsValidation": true,
       "OrderIndex": 2,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -39,7 +18,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994307772417"
     },
     {
@@ -51,7 +30,7 @@
       "IsValidation": true,
       "OrderIndex": 3,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -60,7 +39,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994307772418"
     },
     {
@@ -72,7 +51,7 @@
       "IsValidation": true,
       "OrderIndex": 4,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -81,7 +60,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994307772419"
     },
     {
@@ -93,7 +72,7 @@
       "IsValidation": true,
       "OrderIndex": 5,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -102,7 +81,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994307772420"
     },
     {
@@ -114,7 +93,7 @@
       "IsValidation": true,
       "OrderIndex": 6,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -123,7 +102,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994311966720"
     },
     {
@@ -135,7 +114,7 @@
       "IsValidation": true,
       "OrderIndex": 7,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -144,7 +123,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994311966721"
     },
     {
@@ -156,7 +135,7 @@
       "IsValidation": true,
       "OrderIndex": 8,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -165,7 +144,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994311966722"
     },
     {
@@ -177,7 +156,7 @@
       "IsValidation": true,
       "OrderIndex": 9,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -186,7 +165,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994311966723"
     },
     {
@@ -198,7 +177,7 @@
       "IsValidation": true,
       "OrderIndex": 10,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -207,7 +186,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994311966724"
     },
     {
@@ -219,7 +198,7 @@
       "IsValidation": true,
       "OrderIndex": 11,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -228,7 +207,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994311966725"
     },
     {
@@ -240,7 +219,7 @@
       "IsValidation": true,
       "OrderIndex": 13,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -249,7 +228,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994311966727"
     },
     {
@@ -261,7 +240,7 @@
       "IsValidation": true,
       "OrderIndex": 14,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -270,7 +249,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994316161024"
     },
     {
@@ -282,7 +261,7 @@
       "IsValidation": true,
       "OrderIndex": 15,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -291,7 +270,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994316161025"
     },
     {
@@ -303,7 +282,7 @@
       "IsValidation": true,
       "OrderIndex": 16,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -312,7 +291,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994316161026"
     },
     {
@@ -324,7 +303,7 @@
       "IsValidation": true,
       "OrderIndex": 17,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -333,7 +312,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994316161027"
     },
     {
@@ -345,7 +324,7 @@
       "IsValidation": true,
       "OrderIndex": 18,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -354,7 +333,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994316161028"
     },
     {
@@ -366,7 +345,7 @@
       "IsValidation": true,
       "OrderIndex": 19,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -375,7 +354,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994316161029"
     },
     {
@@ -387,7 +366,7 @@
       "IsValidation": true,
       "OrderIndex": 20,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -396,7 +375,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994316161030"
     },
     {
@@ -408,7 +387,7 @@
       "IsValidation": true,
       "OrderIndex": 21,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -417,7 +396,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994316161031"
     },
     {
@@ -429,7 +408,7 @@
       "IsValidation": true,
       "OrderIndex": 22,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -438,7 +417,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994316161032"
     },
     {
@@ -450,7 +429,7 @@
       "IsValidation": true,
       "OrderIndex": 23,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -459,7 +438,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994320355328"
     },
     {
@@ -471,7 +450,7 @@
       "IsValidation": true,
       "OrderIndex": 24,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -480,7 +459,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994320355329"
     },
     {
@@ -492,7 +471,7 @@
       "IsValidation": true,
       "OrderIndex": 25,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -501,7 +480,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994320355330"
     },
     {
@@ -513,7 +492,7 @@
       "IsValidation": true,
       "OrderIndex": 26,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -522,7 +501,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994320355331"
     },
     {
@@ -534,7 +513,7 @@
       "IsValidation": true,
       "OrderIndex": 27,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -543,7 +522,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994320355332"
     },
     {
@@ -555,7 +534,7 @@
       "IsValidation": true,
       "OrderIndex": 28,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -564,7 +543,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994320355333"
     },
     {
@@ -576,7 +555,7 @@
       "IsValidation": true,
       "OrderIndex": 29,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -585,7 +564,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994320355334"
     },
     {
@@ -597,7 +576,7 @@
       "IsValidation": true,
       "OrderIndex": 30,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -606,7 +585,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994320355335"
     },
     {
@@ -618,7 +597,7 @@
       "IsValidation": true,
       "OrderIndex": 31,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -627,7 +606,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994320355336"
     },
     {
@@ -639,7 +618,7 @@
       "IsValidation": true,
       "OrderIndex": 32,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -648,7 +627,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994320355337"
     },
     {
@@ -660,7 +639,7 @@
       "IsValidation": true,
       "OrderIndex": 33,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -669,7 +648,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994324549632"
     },
     {
@@ -681,7 +660,7 @@
       "IsValidation": true,
       "OrderIndex": 34,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -690,7 +669,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994324549633"
     },
     {
@@ -702,7 +681,7 @@
       "IsValidation": true,
       "OrderIndex": 35,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -711,7 +690,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994324549634"
     },
     {
@@ -723,7 +702,7 @@
       "IsValidation": true,
       "OrderIndex": 36,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -732,7 +711,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994324549635"
     },
     {
@@ -744,7 +723,7 @@
       "IsValidation": true,
       "OrderIndex": 37,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -753,7 +732,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994324549636"
     },
     {
@@ -765,7 +744,7 @@
       "IsValidation": true,
       "OrderIndex": 38,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -774,7 +753,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994324549637"
     },
     {
@@ -786,7 +765,7 @@
       "IsValidation": true,
       "OrderIndex": 39,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -795,7 +774,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994324549638"
     },
     {
@@ -807,7 +786,7 @@
       "IsValidation": true,
       "OrderIndex": 40,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -816,7 +795,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994324549639"
     },
     {
@@ -828,7 +807,7 @@
       "IsValidation": true,
       "OrderIndex": 41,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -837,7 +816,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994324549640"
     },
     {
@@ -849,7 +828,7 @@
       "IsValidation": true,
       "OrderIndex": 42,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -858,7 +837,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994324549641"
     },
     {
@@ -870,7 +849,7 @@
       "IsValidation": true,
       "OrderIndex": 43,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -879,7 +858,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994328743936"
     },
     {
@@ -891,7 +870,7 @@
       "IsValidation": true,
       "OrderIndex": 44,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -900,7 +879,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994328743937"
     },
     {
@@ -912,7 +891,7 @@
       "IsValidation": true,
       "OrderIndex": 45,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -921,7 +900,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994328743938"
     },
     {
@@ -933,7 +912,7 @@
       "IsValidation": true,
       "OrderIndex": 46,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -942,7 +921,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994328743939"
     },
     {
@@ -954,7 +933,7 @@
       "IsValidation": true,
       "OrderIndex": 47,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -963,7 +942,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994328743940"
     },
     {
@@ -975,7 +954,7 @@
       "IsValidation": true,
       "OrderIndex": 48,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -984,7 +963,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994328743941"
     },
     {
@@ -996,7 +975,7 @@
       "IsValidation": true,
       "OrderIndex": 49,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1005,7 +984,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938240"
     },
     {
@@ -1017,7 +996,7 @@
       "IsValidation": true,
       "OrderIndex": 50,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1026,7 +1005,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938241"
     },
     {
@@ -1038,7 +1017,7 @@
       "IsValidation": true,
       "OrderIndex": 51,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1047,7 +1026,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938242"
     },
     {
@@ -1059,7 +1038,7 @@
       "IsValidation": true,
       "OrderIndex": 52,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1068,7 +1047,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938243"
     },
     {
@@ -1080,7 +1059,7 @@
       "IsValidation": true,
       "OrderIndex": 53,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1089,7 +1068,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938244"
     },
     {
@@ -1101,7 +1080,7 @@
       "IsValidation": true,
       "OrderIndex": 54,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1110,7 +1089,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938245"
     },
     {
@@ -1122,7 +1101,7 @@
       "IsValidation": true,
       "OrderIndex": 55,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1131,7 +1110,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938246"
     },
     {
@@ -1143,7 +1122,7 @@
       "IsValidation": true,
       "OrderIndex": 56,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1152,7 +1131,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938247"
     },
     {
@@ -1164,7 +1143,7 @@
       "IsValidation": true,
       "OrderIndex": 57,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1173,7 +1152,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938248"
     },
     {
@@ -1185,7 +1164,7 @@
       "IsValidation": true,
       "OrderIndex": 58,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1194,7 +1173,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938249"
     },
     {
@@ -1206,7 +1185,7 @@
       "IsValidation": true,
       "OrderIndex": 59,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1215,7 +1194,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938250"
     },
     {
@@ -1227,7 +1206,7 @@
       "IsValidation": true,
       "OrderIndex": 60,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1236,7 +1215,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994332938251"
     },
     {
@@ -1248,7 +1227,7 @@
       "IsValidation": true,
       "OrderIndex": 61,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1257,7 +1236,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994337132544"
     },
     {
@@ -1269,7 +1248,7 @@
       "IsValidation": true,
       "OrderIndex": 62,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1278,7 +1257,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994337132545"
     },
     {
@@ -1290,7 +1269,7 @@
       "IsValidation": true,
       "OrderIndex": 63,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1299,7 +1278,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994337132546"
     },
     {
@@ -1311,7 +1290,7 @@
       "IsValidation": true,
       "OrderIndex": 64,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1320,7 +1299,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994337132547"
     },
     {
@@ -1332,7 +1311,7 @@
       "IsValidation": true,
       "OrderIndex": 65,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1341,7 +1320,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994337132548"
     },
     {
@@ -1353,7 +1332,7 @@
       "IsValidation": false,
       "OrderIndex": 66,
       "Resource": null,
-      "Revision": 6,
+      "Revision": 7,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1362,7 +1341,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994337132549"
     },
     {
@@ -1374,7 +1353,7 @@
       "IsValidation": true,
       "OrderIndex": 67,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1383,7 +1362,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6661755994337132550"
     },
     {
@@ -1395,7 +1374,7 @@
       "IsValidation": true,
       "OrderIndex": 68,
       "Resource": null,
-      "Revision": 4,
+      "Revision": 5,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1404,7 +1383,7 @@
       "CreatedTime": "2020-05-02T13:53:53",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6662348376376033280"
     },
     {
@@ -1416,7 +1395,7 @@
       "IsValidation": true,
       "OrderIndex": 69,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1425,7 +1404,7 @@
       "CreatedTime": "2020-05-02T13:53:53",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6662348376376033281"
     },
     {
@@ -1437,7 +1416,7 @@
       "IsValidation": true,
       "OrderIndex": 70,
       "Resource": null,
-      "Revision": 3,
+      "Revision": 4,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1446,7 +1425,7 @@
       "CreatedTime": "2020-05-05T14:37:40",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6663446556891103232"
     },
     {
@@ -1458,7 +1437,7 @@
       "IsValidation": true,
       "OrderIndex": 71,
       "Resource": null,
-      "Revision": 3,
+      "Revision": 4,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1467,7 +1446,7 @@
       "CreatedTime": "2020-05-05T14:37:40",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6663446556891103233"
     },
     {
@@ -1500,7 +1479,7 @@
       "IsValidation": true,
       "OrderIndex": 73,
       "Resource": null,
-      "Revision": 2,
+      "Revision": 3,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1509,7 +1488,7 @@
       "CreatedTime": "2020-05-05T22:32:12",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-05T22:35:15",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6663565978314162176"
     },
     {
@@ -1521,16 +1500,16 @@
       "IsValidation": true,
       "OrderIndex": 74,
       "Resource": null,
-      "Revision": 0,
+      "Revision": 1,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
       "CreatedBy": "6650943897923698688",
       "CreatedByName": "admin",
       "CreatedTime": "2020-05-05T22:35:15",
-      "UpdatedBy": null,
-      "UpdatedByName": null,
-      "UpdatedTime": null,
+      "UpdatedBy": "6650943897923698688",
+      "UpdatedByName": "admin",
+      "UpdatedTime": "2020-05-20T22:01:28",
       "Id": "6663566747893448704"
     },
     {
@@ -1542,17 +1521,38 @@
       "IsValidation": true,
       "OrderIndex": 75,
       "Resource": null,
-      "Revision": 0,
+      "Revision": 1,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
       "CreatedBy": "6650943897923698688",
       "CreatedByName": "admin",
       "CreatedTime": "2020-05-05T22:35:15",
+      "UpdatedBy": "6650943897923698688",
+      "UpdatedByName": "admin",
+      "UpdatedTime": "2020-05-20T22:01:28",
+      "Id": "6663566747893448705"
+    },
+    {
+      "Category": "Api-接口管理",
+      "Title": "创建记录",
+      "Description": "参数： ApiAddRequest req",
+      "Url": "/api/v1/System/Api/Create",
+      "HttpMethod": "Post",
+      "IsValidation": true,
+      "OrderIndex": 76,
+      "Resource": null,
+      "Revision": 0,
+      "IsDisabled": false,
+      "IsDeleted": false,
+      "GroupId": null,
+      "CreatedBy": "6650943897923698688",
+      "CreatedByName": "admin",
+      "CreatedTime": "2020-05-20T22:01:28",
       "UpdatedBy": null,
       "UpdatedByName": null,
       "UpdatedTime": null,
-      "Id": "6663566747893448705"
+      "Id": "6668994064157458432"
     }
   ],
   "SysConditionEntities": [],
@@ -1923,67 +1923,25 @@
       "Id": "6661232285310468096"
     },
     {
-      "Code": "SP-KeyUser",
-      "Title": "食品事业部-关键用户",
-      "Description": "",
+      "Code": "PermissionAience",
+      "Title": "授权管理观众",
+      "Description": "授权管理观众",
       "OrderIndex": 2,
       "Roles": null,
       "Groups": null,
       "Conditions": null,
       "Users": null,
-      "Revision": 3,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
-      "GroupId": "6656547648424329216",
+      "GroupId": "6656383230713479168",
       "CreatedBy": "6650943897923698688",
       "CreatedByName": "admin",
       "CreatedTime": "2020-04-29T12:02:03",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-01T23:05:35",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-05-20T23:53:25",
       "Id": "6661233067346837505"
-    },
-    {
-      "Code": "QF-KeyUser",
-      "Title": "轻纺与轻工事业部-关键用户",
-      "Description": "",
-      "OrderIndex": 3,
-      "Roles": null,
-      "Groups": null,
-      "Conditions": null,
-      "Users": null,
-      "Revision": 4,
-      "IsDisabled": false,
-      "IsDeleted": false,
-      "GroupId": null,
-      "CreatedBy": "6650943897923698688",
-      "CreatedByName": "admin",
-      "CreatedTime": "2020-04-29T12:03:13",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-01T23:05:14",
-      "Id": "6661233364085456897"
-    },
-    {
-      "Code": "TestUser",
-      "Title": "演示用户",
-      "Description": "",
-      "OrderIndex": 4,
-      "Roles": null,
-      "Groups": null,
-      "Conditions": null,
-      "Users": null,
-      "Revision": 2,
-      "IsDisabled": false,
-      "IsDeleted": false,
-      "GroupId": null,
-      "CreatedBy": "6650943897923698688",
-      "CreatedByName": "admin",
-      "CreatedTime": "2020-04-29T12:43:02",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-02T00:17:27",
-      "Id": "6661243382495133697"
     },
     {
       "Code": "",
@@ -2009,13 +1967,13 @@
     {
       "Code": "Demonstration",
       "Title": "示例模块用户",
-      "Description": "",
+      "Description": "示例模块用户",
       "OrderIndex": 5,
       "Roles": null,
       "Groups": null,
       "Conditions": null,
       "Users": null,
-      "Revision": 2,
+      "Revision": 3,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -2024,8 +1982,29 @@
       "CreatedTime": "2020-05-02T00:16:37",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-02T00:17:38",
+      "UpdatedTime": "2020-05-20T23:02:14",
       "Id": "6662142704338288640"
+    },
+    {
+      "Code": "Audience",
+      "Title": "观众",
+      "Description": "拥有各模块的查看（R）权限，但无CUD权限",
+      "OrderIndex": 5,
+      "Roles": null,
+      "Groups": null,
+      "Conditions": null,
+      "Users": null,
+      "Revision": 1,
+      "IsDisabled": false,
+      "IsDeleted": false,
+      "GroupId": null,
+      "CreatedBy": "6650943897923698688",
+      "CreatedByName": "admin",
+      "CreatedTime": "2020-05-20T23:27:14",
+      "UpdatedBy": "6650943897923698688",
+      "UpdatedByName": "admin",
+      "UpdatedTime": "2020-05-20T23:27:29",
+      "Id": "6669015644904308736"
     }
   ],
   "SysResourceEntities": [
@@ -2046,6 +2025,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 10,
@@ -2077,6 +2057,7 @@
       "Closable": false,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 10,
@@ -2108,6 +2089,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 3,
@@ -2139,6 +2121,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 5,
@@ -2170,6 +2153,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 7,
@@ -2201,6 +2185,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 4,
@@ -2232,6 +2217,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 2,
@@ -2263,6 +2249,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 3,
@@ -2294,6 +2281,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 3,
@@ -2325,6 +2313,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 13,
@@ -2356,6 +2345,7 @@
       "Closable": true,
       "LinkType": 2,
       "OpenMode": 1,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 5,
@@ -2387,6 +2377,7 @@
       "Closable": true,
       "LinkType": 2,
       "OpenMode": 2,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 3,
@@ -2418,6 +2409,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 4,
@@ -2449,6 +2441,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 6,
@@ -2480,6 +2473,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 3,
@@ -2511,6 +2505,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 7,
@@ -2542,6 +2537,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 5,
@@ -2573,6 +2569,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 5,
@@ -2604,6 +2601,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 7,
@@ -2635,6 +2633,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 9,
@@ -2666,6 +2665,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 7,
@@ -2681,7 +2681,7 @@
       "Id": "6661321495551885312"
     },
     {
-      "Code": "",
+      "Code": "Demo",
       "Title": "示例",
       "Description": "",
       "ResourceType": 1,
@@ -2697,9 +2697,10 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
-      "Revision": 2,
+      "Revision": 3,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -2708,7 +2709,7 @@
       "CreatedTime": "2020-04-29T17:57:12",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-04-29T18:00:33",
+      "UpdatedTime": "2020-05-20T22:33:19",
       "Id": "6661322445133922305"
     },
     {
@@ -2728,6 +2729,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -2759,6 +2761,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 1,
@@ -2790,6 +2793,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -2821,6 +2825,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -2852,6 +2857,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -2883,6 +2889,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -2914,6 +2921,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -2945,6 +2953,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -2976,6 +2985,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3007,6 +3017,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3038,6 +3049,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3069,6 +3081,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3100,6 +3113,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3131,6 +3145,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3162,6 +3177,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3193,6 +3209,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3224,6 +3241,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3255,6 +3273,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3286,6 +3305,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3317,6 +3337,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3348,6 +3369,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3379,6 +3401,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 1,
@@ -3410,6 +3433,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3441,6 +3465,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3472,6 +3497,7 @@
       "Closable": true,
       "LinkType": 1,
       "OpenMode": 0,
+      "Parent": null,
       "Apis": null,
       "Roles": null,
       "Revision": 0,
@@ -3485,17 +3511,49 @@
       "UpdatedByName": null,
       "UpdatedTime": null,
       "Id": "6663565742967570432"
+    },
+    {
+      "Code": "ChangePassword",
+      "Title": "改密",
+      "Description": "",
+      "ResourceType": 3,
+      "ParentId": "6657649326938603520",
+      "Opened": null,
+      "Path": null,
+      "ViewPath": "",
+      "ViewName": "",
+      "ViewCache": false,
+      "Icon": "",
+      "OrderIndex": 57,
+      "IsHidden": false,
+      "Closable": true,
+      "LinkType": 1,
+      "OpenMode": 0,
+      "Parent": null,
+      "Apis": null,
+      "Roles": null,
+      "Revision": 0,
+      "IsDisabled": false,
+      "IsDeleted": false,
+      "GroupId": null,
+      "CreatedBy": "6650943897923698688",
+      "CreatedByName": "admin",
+      "CreatedTime": "2020-05-20T22:48:04",
+      "UpdatedBy": null,
+      "UpdatedByName": null,
+      "UpdatedTime": null,
+      "Id": "6669005791427248128"
     }
   ],
   "SysRoleEntities": [
     {
       "Code": "System-Owner",
-      "Title": "系统数据维护",
-      "Description": "资源、API、角色、权限岗、归属组 模块所有权限",
+      "Title": "系统管理-管理",
+      "Description": "系统管理模块CURD权限",
       "OrderIndex": 1,
       "Permissions": null,
       "Resources": null,
-      "Revision": 10,
+      "Revision": 13,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -3504,17 +3562,17 @@
       "CreatedTime": "2020-04-19T17:30:31",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-01T22:30:57",
+      "UpdatedTime": "2020-05-20T22:53:47",
       "Id": "6657691850302504960"
     },
     {
       "Code": "Demo-Owner",
-      "Title": "示例模块使用权限",
+      "Title": "示例模块",
       "Description": "示例资源所有权",
       "OrderIndex": 5,
       "Permissions": null,
       "Resources": null,
-      "Revision": 10,
+      "Revision": 11,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -3523,17 +3581,17 @@
       "CreatedTime": "2020-04-20T22:51:31",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-01T22:32:38",
+      "UpdatedTime": "2020-05-20T22:56:10",
       "Id": "6658135023852142592"
     },
     {
       "Code": "Power-Owner",
-      "Title": "授权管理",
-      "Description": "角色赋权、权限岗赋权、用户管理 模块所有权限",
+      "Title": "授权管理-管理",
+      "Description": "授权管理CURD权限",
       "OrderIndex": 3,
       "Permissions": null,
       "Resources": null,
-      "Revision": 11,
+      "Revision": 13,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": "6656383230713479168",
@@ -3542,17 +3600,17 @@
       "CreatedTime": "2020-04-29T14:18:46",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-01T22:31:54",
+      "UpdatedTime": "2020-05-20T22:54:53",
       "Id": "6661267477010006016"
     },
     {
       "Code": "System-Display",
-      "Title": "系统数据查看",
-      "Description": "资源、API、角色、权限岗、归属组 模块查看权限",
+      "Title": "系统管理-观众",
+      "Description": "系统管理模块R权限",
       "OrderIndex": 2,
       "Permissions": null,
       "Resources": null,
-      "Revision": 4,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -3561,17 +3619,17 @@
       "CreatedTime": "2020-05-01T22:25:28",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-01T22:31:09",
+      "UpdatedTime": "2020-05-20T22:54:07",
       "Id": "6662114733246332928"
     },
     {
       "Code": "Power-Display",
-      "Title": "授权数据查看",
-      "Description": "角色赋权、权限岗赋权、用户管理 模块查看权限",
+      "Title": "授权管理-观众",
+      "Description": "授权管理R权限",
       "OrderIndex": 4,
       "Permissions": null,
       "Resources": null,
-      "Revision": 3,
+      "Revision": 5,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -3580,8 +3638,27 @@
       "CreatedTime": "2020-05-01T22:26:33",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-01T22:32:08",
+      "UpdatedTime": "2020-05-20T22:55:57",
       "Id": "6662115003770552320"
+    },
+    {
+      "Code": "Welcome",
+      "Title": "欢迎页",
+      "Description": "",
+      "OrderIndex": 0,
+      "Permissions": null,
+      "Resources": null,
+      "Revision": 1,
+      "IsDisabled": false,
+      "IsDeleted": false,
+      "GroupId": null,
+      "CreatedBy": "6650943897923698688",
+      "CreatedByName": "admin",
+      "CreatedTime": "2020-05-20T22:58:39",
+      "UpdatedBy": "6650943897923698688",
+      "UpdatedByName": "admin",
+      "UpdatedTime": "2020-05-20T22:58:51",
+      "Id": "6669008454978060288"
     }
   ],
   "SysRPermissionConditionEntities": [],
@@ -4048,98 +4125,84 @@
       "RoleId": "6657691850302504960",
       "Permission": null,
       "Role": null,
-      "Id": "6662076790792208384"
+      "Id": "6669014782970642432"
     },
     {
       "PermissionId": "6661232285310468096",
       "RoleId": "6658135023852142592",
+      "Permission": null,
+      "Role": null,
+      "Id": "6669014782970642433"
+    },
+    {
+      "PermissionId": "6661232285310468096",
+      "RoleId": "6661267477010006016",
       "Permission": null,
       "Role": null,
       "Id": "6662122160440164352"
     },
     {
       "PermissionId": "6661232285310468096",
-      "RoleId": "6661267477010006016",
+      "RoleId": "6669008454978060288",
       "Permission": null,
       "Role": null,
       "Id": "6662076790792208385"
     },
     {
       "PermissionId": "6661233067346837505",
-      "RoleId": "6657691850302504960",
-      "Permission": null,
-      "Role": null,
-      "Id": "6662125354247471104"
-    },
-    {
-      "PermissionId": "6661233067346837505",
-      "RoleId": "6658135023852142592",
-      "Permission": null,
-      "Role": null,
-      "Id": "6662125354247471106"
-    },
-    {
-      "PermissionId": "6661233067346837505",
-      "RoleId": "6661267477010006016",
-      "Permission": null,
-      "Role": null,
-      "Id": "6662125354247471105"
-    },
-    {
-      "PermissionId": "6661233364085456897",
-      "RoleId": "6657691850302504960",
-      "Permission": null,
-      "Role": null,
-      "Id": "6662125415698219008"
-    },
-    {
-      "PermissionId": "6661233364085456897",
-      "RoleId": "6658135023852142592",
-      "Permission": null,
-      "Role": null,
-      "Id": "6662125415698219010"
-    },
-    {
-      "PermissionId": "6661233364085456897",
-      "RoleId": "6661267477010006016",
-      "Permission": null,
-      "Role": null,
-      "Id": "6662125415698219009"
-    },
-    {
-      "PermissionId": "6661243382495133697",
-      "RoleId": "6658135023852142592",
-      "Permission": null,
-      "Role": null,
-      "Id": "6662125524750123010"
-    },
-    {
-      "PermissionId": "6661243382495133697",
-      "RoleId": "6662114733246332928",
-      "Permission": null,
-      "Role": null,
-      "Id": "6662144564327563267"
-    },
-    {
-      "PermissionId": "6661243382495133697",
       "RoleId": "6662115003770552320",
       "Permission": null,
       "Role": null,
-      "Id": "6662144564327563266"
+      "Id": "6669022100156268546"
     },
     {
-      "PermissionId": "6661750831249571840",
-      "RoleId": "6661750987869077504",
+      "PermissionId": "6661233067346837505",
+      "RoleId": "6669008454978060288",
       "Permission": null,
       "Role": null,
-      "Id": "6661751179330666496"
+      "Id": "6669015100911468546"
     },
     {
       "PermissionId": "6662142704338288640",
       "RoleId": "6658135023852142592",
       "Permission": null,
       "Role": null,
-      "Id": "6662143302093717506"
+      "Id": "6669015132914008065"
+    },
+    {
+      "PermissionId": "6662142704338288640",
+      "RoleId": "6669008454978060288",
+      "Permission": null,
+      "Role": null,
+      "Id": "6669015132914008064"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "RoleId": "6658135023852142592",
+      "Permission": null,
+      "Role": null,
+      "Id": "6669016176788193283"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "RoleId": "6662114733246332928",
+      "Permission": null,
+      "Role": null,
+      "Id": "6669016176788193281"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "RoleId": "6662115003770552320",
+      "Permission": null,
+      "Role": null,
+      "Id": "6669016176788193282"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "RoleId": "6669008454978060288",
+      "Permission": null,
+      "Role": null,
+      "Id": "6669016176788193280"
     }
   ],
   "SysRResourceApiEntities": [
@@ -4210,13 +4273,6 @@
     },
     {
       "RoleId": "6657691850302504960",
-      "ResourceId": "6657605520855875584",
-      "Role": null,
-      "Resource": null,
-      "Id": "6662121605466636288"
-    },
-    {
-      "RoleId": "6657691850302504960",
       "ResourceId": "6657610555492876288",
       "Role": null,
       "Resource": null,
@@ -4266,13 +4322,6 @@
     },
     {
       "RoleId": "6657691850302504960",
-      "ResourceId": "6662117268443054080",
-      "Role": null,
-      "Resource": null,
-      "Id": "6662121605466636295"
-    },
-    {
-      "RoleId": "6657691850302504960",
       "ResourceId": "6662117446789054465",
       "Role": null,
       "Resource": null,
@@ -4290,77 +4339,77 @@
       "ResourceId": "6662117994955227136",
       "Role": null,
       "Resource": null,
-      "Id": "6662121605466636297"
+      "Id": "6668991554495660032"
     },
     {
       "RoleId": "6657691850302504960",
       "ResourceId": "6662118122143301633",
       "Role": null,
       "Resource": null,
-      "Id": "6662121605466636298"
+      "Id": "6668991554495660033"
     },
     {
       "RoleId": "6657691850302504960",
       "ResourceId": "6662118312132689921",
       "Role": null,
       "Resource": null,
-      "Id": "6662121605466636299"
+      "Id": "6668992897092370433"
     },
     {
       "RoleId": "6657691850302504960",
       "ResourceId": "6662118475672797185",
       "Role": null,
       "Resource": null,
-      "Id": "6662121605466636300"
+      "Id": "6669003033118720000"
     },
     {
       "RoleId": "6657691850302504960",
       "ResourceId": "6662118553405833217",
       "Role": null,
       "Resource": null,
-      "Id": "6662121605466636301"
+      "Id": "6669003033118720001"
     },
     {
       "RoleId": "6657691850302504960",
       "ResourceId": "6662118680421941249",
       "Role": null,
       "Resource": null,
-      "Id": "6662121605466636302"
+      "Id": "6669003033118720002"
     },
     {
       "RoleId": "6657691850302504960",
       "ResourceId": "6662118871900307457",
       "Role": null,
       "Resource": null,
-      "Id": "6662121605466636303"
+      "Id": "6668997296489447424"
     },
     {
       "RoleId": "6657691850302504960",
       "ResourceId": "6662118927378366465",
       "Role": null,
       "Resource": null,
-      "Id": "6662121605466636304"
+      "Id": "6668997296489447425"
     },
     {
       "RoleId": "6657691850302504960",
       "ResourceId": "6662119016775761921",
       "Role": null,
       "Resource": null,
-      "Id": "6662121605466636305"
+      "Id": "6668997296489447426"
     },
     {
       "RoleId": "6657691850302504960",
       "ResourceId": "6662119148216860672",
       "Role": null,
       "Resource": null,
-      "Id": "6662121605466636306"
+      "Id": "6668995762804441088"
     },
     {
       "RoleId": "6657691850302504960",
       "ResourceId": "6662119220954480641",
       "Role": null,
       "Resource": null,
-      "Id": "6662121605466636307"
+      "Id": "6668996942599241728"
     },
     {
       "RoleId": "6657691850302504960",
@@ -4396,13 +4445,6 @@
       "Role": null,
       "Resource": null,
       "Id": "6663449763927244802"
-    },
-    {
-      "RoleId": "6658135023852142592",
-      "ResourceId": "6657605520855875584",
-      "Role": null,
-      "Resource": null,
-      "Id": "6662121933956136960"
     },
     {
       "RoleId": "6658135023852142592",
@@ -4462,13 +4504,6 @@
     },
     {
       "RoleId": "6661267477010006016",
-      "ResourceId": "6657605520855875584",
-      "Role": null,
-      "Resource": null,
-      "Id": "6662121844881702925"
-    },
-    {
-      "RoleId": "6661267477010006016",
       "ResourceId": "6657649326938603520",
       "Role": null,
       "Resource": null,
@@ -4500,14 +4535,14 @@
       "ResourceId": "6662119483136229377",
       "Role": null,
       "Resource": null,
-      "Id": "6662121844881702926"
+      "Id": "6669004580984668162"
     },
     {
       "RoleId": "6661267477010006016",
       "ResourceId": "6662119548680617985",
       "Role": null,
       "Resource": null,
-      "Id": "6662121844881702927"
+      "Id": "6668999255246192642"
     },
     {
       "RoleId": "6661267477010006016",
@@ -4531,18 +4566,18 @@
       "Id": "6662121844881702930"
     },
     {
+      "RoleId": "6661267477010006016",
+      "ResourceId": "6669005791427248128",
+      "Role": null,
+      "Resource": null,
+      "Id": "6669006125520338946"
+    },
+    {
       "RoleId": "6662114733246332928",
       "ResourceId": "6657601531351351296",
       "Role": null,
       "Resource": null,
       "Id": "6662121753026445313"
-    },
-    {
-      "RoleId": "6662114733246332928",
-      "ResourceId": "6657605520855875584",
-      "Role": null,
-      "Resource": null,
-      "Id": "6662121753026445312"
     },
     {
       "RoleId": "6662114733246332928",
@@ -4609,13 +4644,6 @@
     },
     {
       "RoleId": "6662115003770552320",
-      "ResourceId": "6657605520855875584",
-      "Role": null,
-      "Resource": null,
-      "Id": "6662121892734517252"
-    },
-    {
-      "RoleId": "6662115003770552320",
       "ResourceId": "6657649326938603520",
       "Role": null,
       "Resource": null,
@@ -4641,6 +4669,13 @@
       "Role": null,
       "Resource": null,
       "Id": "6662121892734517248"
+    },
+    {
+      "RoleId": "6669008454978060288",
+      "ResourceId": "6657605520855875584",
+      "Role": null,
+      "Resource": null,
+      "Id": "6669014659469361152"
     }
   ],
   "SysSettingEntities": [],
@@ -4648,16 +4683,16 @@
     {
       "UserType": 0,
       "UserName": "admin",
-      "DisplayName": "Alonso",
-      "Mobile": null,
+      "DisplayName": "Admin",
+      "Mobile": "",
       "Password": "96E79218965EB72C92A549DD5A33112",
-      "Mail": null,
-      "PermissionId": "6661232285310468096",
+      "Mail": "alonsoalon@163.com",
+      "PermissionId": "6669015644904308736",
       "Wexin": "",
       "Avatar": null,
       "Description": null,
       "Permission": null,
-      "Revision": 8,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": "6656383230713479168",
@@ -4666,22 +4701,22 @@
       "CreatedTime": "2020-04-13T18:18:59",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-01T22:17:14",
+      "UpdatedTime": "2020-05-20T23:31:38",
       "Id": "6650943897923698688"
     },
     {
       "UserType": 0,
-      "UserName": "food",
-      "DisplayName": "食品部-李四",
+      "UserName": "alonso",
+      "DisplayName": "Alonso",
       "Mobile": "",
       "Password": "96E79218965EB72C92A549DD5A33112",
-      "Mail": "",
-      "PermissionId": "6661233067346837505",
+      "Mail": "alonsoalon@163.com",
+      "PermissionId": "6661232285310468096",
       "Wexin": "",
       "Avatar": null,
       "Description": null,
       "Permission": null,
-      "Revision": 17,
+      "Revision": 20,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": "6656383230713479168",
@@ -4690,60 +4725,12 @@
       "CreatedTime": "2020-04-22T16:15:46",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-01T23:03:36",
+      "UpdatedTime": "2020-05-20T23:31:22",
       "Id": "6658760203095982080"
     },
     {
       "UserType": 0,
-      "UserName": "textile",
-      "DisplayName": "纺织部-张三",
-      "Mobile": "",
-      "Password": "",
-      "Mail": "",
-      "PermissionId": "6661233364085456897",
-      "Wexin": "",
-      "Avatar": null,
-      "Description": null,
-      "Permission": null,
-      "Revision": 6,
-      "IsDisabled": false,
-      "IsDeleted": false,
-      "GroupId": "6656383230713479168",
-      "CreatedBy": "6650943897923698688",
-      "CreatedByName": "admin",
-      "CreatedTime": "2020-04-22T16:17:49",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-02T00:06:07",
-      "Id": "6658760718156513280"
-    },
-    {
-      "UserType": 0,
-      "UserName": "user",
-      "DisplayName": "演示用户",
-      "Mobile": "",
-      "Password": "96E79218965EB72C92A549DD5A33112",
-      "Mail": "",
-      "PermissionId": "6661243382495133697",
-      "Wexin": "",
-      "Avatar": null,
-      "Description": null,
-      "Permission": null,
-      "Revision": 8,
-      "IsDisabled": false,
-      "IsDeleted": false,
-      "GroupId": null,
-      "CreatedBy": "6650943897923698688",
-      "CreatedByName": "admin",
-      "CreatedTime": "2020-04-22T16:57:36",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-02T00:06:00",
-      "Id": "6658770731046486016"
-    },
-    {
-      "UserType": 0,
-      "UserName": "Demo",
+      "UserName": "demo",
       "DisplayName": "示例用户",
       "Mobile": "",
       "Password": "96E79218965EB72C92A549DD5A33112",
@@ -4753,7 +4740,7 @@
       "Avatar": null,
       "Description": null,
       "Permission": null,
-      "Revision": 3,
+      "Revision": 4,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -4762,8 +4749,32 @@
       "CreatedTime": "2020-04-22T20:12:34",
       "UpdatedBy": "6650943897923698688",
       "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-02T00:17:58",
+      "UpdatedTime": "2020-05-20T23:08:03",
       "Id": "6658819795695910912"
+    },
+    {
+      "UserType": 0,
+      "UserName": "power",
+      "DisplayName": "授权管理观众",
+      "Mobile": null,
+      "Password": "96E79218965EB72C92A549DD5A33112",
+      "Mail": null,
+      "PermissionId": "6661233067346837505",
+      "Wexin": "",
+      "Avatar": null,
+      "Description": null,
+      "Permission": null,
+      "Revision": 4,
+      "IsDisabled": false,
+      "IsDeleted": false,
+      "GroupId": null,
+      "CreatedBy": "6650943897923698688",
+      "CreatedByName": "admin",
+      "CreatedTime": "2020-05-20T23:29:01",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-05-20T23:54:28",
+      "Id": "6669016097025114112"
     }
   ]
 }

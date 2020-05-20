@@ -48,7 +48,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var item = _mapper.Map<SysResourceEntity>(req);
             var result = await _sysResourceRepository.InsertAsync(item);
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
             return ResponseEntity.Result(result != null && result?.Id != "");
         }
 
@@ -70,7 +70,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var entity = _mapper.Map<SysResourceEntity>(req);
             await _sysResourceRepository.UpdateAsync(entity);
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
             return ResponseEntity.Ok("更新成功");
         }
 
@@ -82,7 +82,7 @@ namespace AlonsoAdmin.Services.System.Implement
             }
             var result = await _sysResourceRepository.DeleteAsync(id);
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
             return ResponseEntity.Result(result > 0);
         }
 
@@ -94,7 +94,7 @@ namespace AlonsoAdmin.Services.System.Implement
             }
             var result = await _sysResourceRepository.Where(m => ids.Contains(m.Id)).ToDelete().ExecuteAffrowsAsync();
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
             return ResponseEntity.Result(result > 0);
         }
 
@@ -107,7 +107,7 @@ namespace AlonsoAdmin.Services.System.Implement
 
             var result = await _sysResourceRepository.SoftDeleteAsync(id);
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
 
             return ResponseEntity.Result(result);
         }
@@ -122,7 +122,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysResourceRepository.SoftDeleteAsync(ids);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
 
 
             return ResponseEntity.Result(result);
@@ -190,7 +190,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _resourceDomain.UpdateResourceApisByIdAsync(req.resourceId, req.ApiIds);
 
             //清除权限缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
             return ResponseEntity.Result(result);
         }
 

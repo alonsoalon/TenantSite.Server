@@ -108,7 +108,8 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
                         name = user.UserName,
                         displayNamme = user.DisplayName,
                         avatar = user.Avatar,
-                        menus = user.Menus
+                        menus = user.Menus,
+                        functionPoints = user.FunctionPoints
                     }
                 };
 
@@ -152,9 +153,10 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
                     name = user.UserName,
                     displayNamme = user.DisplayName,
                     avatar = user.Avatar,
-                    menus = user.Menus
+                    menus = user.Menus,
+                    functionPoints = user.FunctionPoints
                 }
-                
+
             };
 
             return ResponseEntity.Ok(data);

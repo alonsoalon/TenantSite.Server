@@ -61,8 +61,8 @@ namespace AlonsoAdmin.Services.System.Implement
             }
 
             if (entity.PermissionId != req.PermissionId) {
-                //清除权限岗的菜单缓存
-                await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList);
+                //清除权限岗的资源缓存
+                await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
                 //清除权限岗的数据归属组缓存
                 await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
             }

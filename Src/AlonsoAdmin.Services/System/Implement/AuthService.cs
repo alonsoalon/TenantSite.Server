@@ -44,7 +44,42 @@ namespace AlonsoAdmin.Services.System.Implement
             _permissionDomain = permissionDomain;
         }
 
-        
+
+        private async Task<AuthLoginResponse> getUserItem(SysUserEntity user)
+        {
+
+            var res = _mapper.Map<AuthLoginResponse>(user);
+
+            #region 得到菜单数据
+            AuthResourceResponse authResource = new AuthResourceResponse();
+            var cacheKey = string.Format(CacheKeyTemplate.PermissionResourceList, user.PermissionId);
+            if (await _cache.ExistsAsync(cacheKey))
+            {
+                authResource = await _cache.GetAsync<AuthResourceResponse>(cacheKey);
+            }
+            else
+            {
+
+                var resourceList = await _permissionDomain.GetPermissionResourcesAsync(user.PermissionId);
+                var menuList = resourceList.Where(x => new[] { ResourceType.Group, ResourceType.Menu }.Contains(x.ResourceType));
+                var functionPointList = resourceList.Where(x => x.ResourceType == ResourceType.Func);
+
+                authResource.Menus = _mapper.Map<List<ResourceForMenuResponse>>(menuList);
+                authResource.FunctionPoints = functionPointList.Select(x => menuList.Where(y => y.Id == x.ParentId).FirstOrDefault()?.Code + "." + x.Code).ToList();
+
+                // 写入缓存
+                await _cache.SetAsync(cacheKey, authResource);
+            }
+            #endregion
+
+
+            res.Menus = authResource.Menus;
+            res.FunctionPoints = authResource.FunctionPoints;
+
+            return res;
+
+        }
+
 
         public async Task<IResponseEntity> LoginAsync(AuthLoginRequest req)
         {
@@ -60,29 +95,9 @@ namespace AlonsoAdmin.Services.System.Implement
             {
                 return ResponseEntity.Error("账号或密码错误!");
             }
-
-            var res = _mapper.Map<AuthLoginResponse>(user);
-
-            List<ResourceForMenuResponse> list = new List<ResourceForMenuResponse>();
-            var cacheKey = string.Format(CacheKeyTemplate.PermissionMenuList, user.PermissionId);
-            if (await _cache.ExistsAsync(cacheKey))
-            {
-                list = await _cache.GetAsync<List<ResourceForMenuResponse>>(cacheKey);
-            }
-            else
-            {
-
-                var menus = await _permissionDomain.GetPermissionMenusAsync(user.PermissionId);
-
-                list = _mapper.Map<List<ResourceForMenuResponse>>(menus);
-                // 写入缓存
-                await _cache.SetAsync(cacheKey, list);
-            }
-
-            res.Menus = list;
-
+            
+            var res = await getUserItem(user);
             return ResponseEntity.Ok(res);
-
         }
 
         /// <summary>
@@ -92,26 +107,7 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> GetUserInfoAsync()
         {
             var user = _userRepository.Get(_authUser.Id);
-
-            var res = _mapper.Map<AuthLoginResponse>(user);
-
-            List<ResourceForMenuResponse> list = new List<ResourceForMenuResponse>();
-            var cacheKey = string.Format(CacheKeyTemplate.PermissionMenuList, user.Id);
-            if (await _cache.ExistsAsync(cacheKey))
-            {
-                list = await _cache.GetAsync<List<ResourceForMenuResponse>>(cacheKey);
-            }
-            else
-            {
-
-                var menus = await _permissionDomain.GetPermissionMenusAsync(user.PermissionId);    
-                list = _mapper.Map<List<ResourceForMenuResponse>>(menus);
-                // 写入缓存
-                await _cache.SetAsync(cacheKey, list);
-            }
-
-            res.Menus =list;
-
+            var res = await getUserItem(user);
             return ResponseEntity.Ok(res);
         }
 

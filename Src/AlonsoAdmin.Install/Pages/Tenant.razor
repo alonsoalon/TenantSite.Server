@@ -4,34 +4,91 @@
 
 
 @using AlonsoAdmin.Install.Services.Tenant
-<h1> 设置</h1>
-<p>设置租户参数</p>
+    <h1>@TenantItem.Name 参数设置、初始化租户数据</h1>
+<p>
+    设置租户参数,目前租户参数采样的是配置方式。如果需要增减租户可手工到HostAPI项目下appsettings > Tenants 节点进行增减 <br />
+</p>
 
 @inherits FormBase
 
 
-<div class="el-form-item">
-    <label for="name" class="el-form-item__label" style="width:100px">租户code</label>
-    <div class="el-form-item__content" style="margin-left:100px">
-        <div class="el-input el-input--normal" style="">
-            <input type="text" placeholder="请输入内容" class="el-input__inner " @bind-value="@TenantItem.Code"><br />
-            如果修了租户CODE，需手工到前端TenantSite.UI > src > api > account.js > getTenants 函数修改对应的CODE，否则租户接口无法访问
-        </div>
-    </div>
-</div>
+<BTab Type="@TabType.BorderCard" EnableAlwaysRender="true">
+    <BTabPanel Title="基本信息" EnableAlwaysRender="true">
+        <div class="el-form-item">
+            <label for="name" class="el-form-item__label" style="width:100px">租户code</label>
+            <div class="el-form-item__content" style="margin-left:100px">
+                <div class="el-input el-input--normal" style="">
+                    <input type="text" placeholder="请输入内容" class="el-input__inner " @bind-value="@TenantItem.Code"><br />
 
-<div class="el-form-item">
-    <label for="name" class="el-form-item__label" style="width:100px">租户名称</label>
-    <div class="el-form-item__content" style="margin-left:100px">
-        <div class="el-input el-input--normal" style="">
-            <input type="text" placeholder="请输入内容" class="el-input__inner " @bind-value="@TenantItem.Name">
+                    <div style="padding:0px 10px 0 10px; line-height:23px; margin-top:10px; font-size:12px; border:solid 1px #0094ff;">
+                        租户Code为租户的唯一标识<br />
+                        如果修了租户默认CODE，需手工到前端TenantSite.UI > src > api > account.js > getTenants 函数修改对应的CODE，否则租户接口无法访问
+                    </div>
+
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<BTab Type="@TabType.BorderCard">
-    @foreach (var item in TenantItem.DbOptions.Where(x=>x.Key.ToLower()=="system"))
+
+        <div class="el-form-item">
+            <label for="name" class="el-form-item__label" style="width:100px">租户名称</label>
+            <div class="el-form-item__content" style="margin-left:100px">
+                <div class="el-input el-input--normal" style="">
+                    <input type="text" placeholder="请输入内容" class="el-input__inner " @bind-value="@TenantItem.Name">
+                </div>
+            </div>
+        </div>
+    </BTabPanel>
+</BTab>
+<div style="height:10px;"></div>
+<BTab Type="@TabType.BorderCard" EnableAlwaysRender="true">
+    <BTabPanel Title="JWT参数配置" EnableAlwaysRender="true">
+        <div class="el-form-item">
+            <label for="name" class="el-form-item__label" style="width:100px">Issuer</label>
+            <div class="el-form-item__content" style="margin-left:100px">
+                <div class="el-input el-input--normal" style="">
+                    <input type="text" placeholder="请输入内容" class="el-input__inner " @bind-value="@TenantOtherItem.Issuer">
+                </div>
+            </div>
+        </div>
+
+        <div class="el-form-item">
+            <label for="name" class="el-form-item__label" style="width:100px">Audience</label>
+            <div class="el-form-item__content" style="margin-left:100px">
+                <div class="el-input el-input--normal" style="">
+                    <input type="text" placeholder="请输入内容" class="el-input__inner " @bind-value="@TenantOtherItem.Audience">
+                </div>
+            </div>
+        </div>
+
+        <div class="el-form-item">
+            <label for="name" class="el-form-item__label" style="width:100px">过期时间(分)</label>
+            <div class="el-form-item__content" style="margin-left:100px">
+                <div class="el-input el-input--normal" style="">
+                    <input type="number" placeholder="请输入内容" class="el-input__inner " @bind-value="@TenantOtherItem.ExpirationMinutes">
+                </div>
+            </div>
+        </div>
+
+        <div class="el-form-item">
+            <label for="name" class="el-form-item__label" style="width:100px">Token密匙</label>
+            <div class="el-form-item__content" style="margin-left:100px">
+                <div class="el-input el-input--normal" style="">
+                    <input type="text" placeholder="请输入内容" class="el-input__inner " @bind-value="@TenantOtherItem.Secret">
+                </div>
+            </div>
+        </div>
+    </BTabPanel>
+</BTab>
+<div style="height:10px;"></div>
+<BTab Type="@TabType.BorderCard" EnableAlwaysRender="true">
+    @foreach (var item in TenantItem.DbOptions.Where(x => x.Key.ToLower() == "system"))
     {
-    <BTabPanel Title="@($"{item.Key}-{getDbName(item.Key)}")">
+    <BTabPanel Title="@($"{item.Key}-{getDbName(item.Key)}")" EnableAlwaysRender="true">
+
+        <div style="padding:10px;  margin-bottom:10px; font-size:12px; line-height:23px; border:solid 1px #0094ff;">
+            特别感谢Freesql，系统采用Freesql作为ORM，数据库类型支持情况明细及使用请查看Freesql介绍,本地只对MySql做了测试。
+        </div>
+
         <div class="el-form-item">
             <label for="name" class="el-form-item__label" style="width:100px">数据库类型</label>
             <div class="el-form-item__content" style="margin-left:100px">
@@ -51,19 +108,17 @@
                         <option value="11" selected="@(item.DbType == "MsAccess")">MsAccess</option>
                         <option value="12" selected="@(item.DbType == "Dameng")">Dameng</option>
                     </select>
-                    <div style="padding:0px 10px 0 10px; margin-top:10px; font-size:12px; border:solid 1px #0094ff;">
-                        特别感谢Freesql，系统采用Freesql作为ORM，数据库类型支持情况明细请查看Freesql介绍,本地只对MySql做了测试。
-                    </div>
+
 
                 </div>
             </div>
         </div>
 
-        <BTab>
+        <BTab EnableAlwaysRender="true">
             @foreach (var conn in item.ConnectionStrings)
             {
 
-                <BTabPanel Title="@($"{getDbUseType(conn.UseType)}")">
+                <BTabPanel Title="@($"{getDbUseType(conn.UseType)}")" EnableAlwaysRender="true">
 
                     @if (conn.UseType == MultiTenant.DbUseType.Slave)
                     {
@@ -104,9 +159,10 @@
 </BForm>
 
 <div style="padding:10px; margin-bottom:10px;">
-    @foreach (var log in Logs) { 
-    
-    <div>@log</div>
+    @foreach (var log in Logs)
+    {
+
+        <div>@log</div>
     }
 </div>
 

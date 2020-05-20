@@ -32,10 +32,31 @@ namespace AlonsoAdmin.Install.Services.Tenant
 
         protected TenantInfo TenantItem { get; set; }
 
+        protected TenantOtherOptions TenantOtherItem { get; set; }
+
         protected BForm configForm;
 
+        private bool WriteTenantSettings()
+        {
 
-        protected void Save() {
+            TenantItem.Items.Clear();
+            TenantItem.Items.Add("Audience", TenantOtherItem.Audience);
+            TenantItem.Items.Add("Issuer", TenantOtherItem.Issuer);
+            TenantItem.Items.Add("ExpirationMinutes", TenantOtherItem.ExpirationMinutes);
+            TenantItem.Items.Add("Secret", TenantOtherItem.Secret);
+
+            var tenants = SettingService.GetTenantListAsync().Result;
+            var item = tenants.Where(x => x.Id == TenantId).FirstOrDefault();
+            tenants.Remove(item);
+            tenants.Add(TenantItem);
+
+            var result = SettingService.WriteTenantsConfig(tenants);
+
+            return result;
+        }
+
+
+            protected void Save() {
             if (!configForm.IsValid())
             {
                 return;
@@ -43,13 +64,16 @@ namespace AlonsoAdmin.Install.Services.Tenant
             try
             {
 
-                var tenants = SettingService.GetTenantListAsync().Result;
-                var item = tenants.Where(x => x.Id == TenantId).FirstOrDefault();
-                tenants.Remove(item);
-                tenants.Add(TenantItem);
-                var result = SettingService.WriteTenantsConfig(tenants);
 
-                _ = MessageBox.AlertAsync("更新成功");
+                if (WriteTenantSettings())
+                {
+                    _ = MessageBox.AlertAsync("更新成功");
+                }
+                else {
+                    _ = MessageBox.AlertAsync("更新失败");
+                }
+
+                
             }
             catch (Exception ex)
             {
@@ -57,6 +81,8 @@ namespace AlonsoAdmin.Install.Services.Tenant
             }
 
         }
+
+        
         protected void Submit()
         {
             if (!configForm.IsValid())
@@ -75,12 +101,11 @@ namespace AlonsoAdmin.Install.Services.Tenant
 
                 Logs.Clear();
                 Logs.Add("保存配置 开始");
-                var tenants = SettingService.GetTenantListAsync().Result;                
-                var item = tenants.Where(x => x.Id == TenantId).FirstOrDefault();
-                tenants.Remove(item);
-                tenants.Add(TenantItem);
-
-                var result = SettingService.WriteTenantsConfig(tenants);
+                if (!WriteTenantSettings())
+                { 
+                    _ = MessageBox.AlertAsync("配置保存失败");
+                    return;
+                }
                 Logs.Add("保存配置 结束");
 
 
@@ -306,6 +331,26 @@ namespace AlonsoAdmin.Install.Services.Tenant
             var tenants = SettingService.GetTenantListAsync().Result;
             var item = tenants.Where(x => x.Id == TenantId).FirstOrDefault();
             TenantItem = item;
+
+            TenantOtherOptions jwtOptions = new TenantOtherOptions();
+            if (TenantItem.Items.TryGetValue("Audience",out object audience)) {
+                jwtOptions.Audience = audience.ToString();
+            }
+            if (TenantItem.Items.TryGetValue("ExpirationMinutes", out object expirationMinutes))
+            {
+                jwtOptions.ExpirationMinutes = expirationMinutes.ToString();
+            }
+            if (TenantItem.Items.TryGetValue("Issuer", out object issuer))
+            {
+                jwtOptions.Issuer = issuer.ToString();
+            }
+            if (TenantItem.Items.TryGetValue("Secret", out object secret))
+            {
+                jwtOptions.Secret = secret.ToString();
+            }
+
+            TenantOtherItem = jwtOptions;
+
         }
     }
 }

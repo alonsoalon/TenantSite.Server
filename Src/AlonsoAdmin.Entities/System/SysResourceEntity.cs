@@ -112,8 +112,8 @@ namespace AlonsoAdmin.Entities.System
 
 
 		#region 导航属性
-		//[Navigate(nameof(ParentId))]
-		//public ICollection<SysResourceEntity> children { get; set; }
+		[Navigate(nameof(ParentId))]
+		public SysResourceEntity Parent { get; set; }
 
 		[Navigate(ManyToMany = typeof(SysRResourceApiEntity))]
 		public virtual ICollection<SysApiEntity> Apis { get; set; }

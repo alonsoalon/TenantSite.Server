@@ -17,12 +17,16 @@ namespace AlonsoAdmin.Domain.System.Interface
         /// <returns></returns>
         Task<bool> PermissionAssignPowerAsync(string permissionId, List<string> roleIds, List<string> groupIds);
 
+
         /// <summary>
-        /// 根据指定权限岗，得到权限菜单集合
+        /// 根据指定权限岗，得到权限资源集合
         /// </summary>
         /// <param name="permissionId"></param>
         /// <returns></returns>
-        Task<List<SysResourceEntity>> GetPermissionMenusAsync(string permissionId);
+        Task<List<SysResourceEntity>> GetPermissionResourcesAsync(string permissionId);
+
+
+
 
         /// <summary>
         /// 根据指定权限岗，得到权限数据组集合 

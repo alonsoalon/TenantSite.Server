@@ -161,7 +161,7 @@ namespace AlonsoAdmin.Services.System.Implement
          
             var result = await _roleDomain.RoleAssignResourcesAsync(req.RoleId, req.ResourceIds);
             //清除权限缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionMenuList) ;
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList) ;
 
             return ResponseEntity.Result(result);
         }

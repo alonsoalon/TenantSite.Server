@@ -103,12 +103,12 @@ namespace AlonsoAdmin.Domain.System.Implement
         /// </summary>
         /// <param name="permissionId"></param>
         /// <returns></returns>
-        public async Task<List<SysResourceEntity>> GetPermissionMenusAsync(string permissionId)
+        public async Task<List<SysResourceEntity>> GetPermissionResourcesAsync(string permissionId)
         {
 
             var list = await _systemDb.Select<SysRPermissionRoleEntity, SysRRoleResourceEntity, SysResourceEntity>()
-                  .InnerJoin((a, b, c) => a.RoleId == b.RoleId)
-                  .InnerJoin((a, b, c) => b.ResourceId == c.Id && c.IsDisabled == false && new[] { ResourceType.Group, ResourceType.Menu }.Contains(c.ResourceType))
+                  .InnerJoin((a, b, c) => a.RoleId == b.RoleId)                  
+                  .InnerJoin((a, b, c) => b.ResourceId == c.Id && c.IsDisabled == false)
                   .Where((a, b, c) => a.PermissionId == permissionId)
                   .OrderBy((a, b, c) => c.OrderIndex)
                   .Distinct()

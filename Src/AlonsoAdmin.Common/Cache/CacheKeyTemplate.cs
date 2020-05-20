@@ -9,10 +9,11 @@ namespace AlonsoAdmin.Common.Cache
     {
 
         /// <summary>
-        /// 权限岗菜单资源缓存 admin:Permission:权限岗主键:MenuList
+        /// 权限岗菜单资源缓存 admin:Permission:权限岗主键:ResourceList
         /// </summary>
-        [Description("权限岗菜单资源缓存")]
-        public const string PermissionMenuList = "admin:Permission:{0}:MenuList";
+        [Description("权限岗资源缓存")]
+        public const string PermissionResourceList = "admin:Permission:{0}:ResourceList";
+
 
         /// <summary>
         /// 权限岗权限组缓存 admin:Permission:权限岗主键:GroupList
