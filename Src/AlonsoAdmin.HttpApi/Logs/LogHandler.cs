@@ -66,11 +66,16 @@ namespace AlonsoAdmin.HttpApi.Logs
             var client = UAParser.Parser.GetDefault().Parse(ua);
             var device = client.Device.Family;
 
+
+            var title = GetCurrentActionDesc(context);
+            var apiPath = GetCurrentRoutePath(context);
+            var apiMethod = context.HttpContext.Request.Method.ToLower();
+            var ip = IPHelper.GetIP(_accessor?.HttpContext?.Request);
             var req = new OprationLogAddRequest
             {
-                ApiTitle = GetCurrentActionDesc(context),
-                ApiPath = GetCurrentRoutePath(context),
-                ApiMethod = context.HttpContext.Request.Method.ToLower(),               
+                ApiTitle = title,
+                ApiPath = apiPath,
+                ApiMethod = apiMethod,
                 ElapsedMilliseconds = sw.ElapsedMilliseconds,
                 Status = res.Success,
                 Message = res.Message,
@@ -79,12 +84,12 @@ namespace AlonsoAdmin.HttpApi.Logs
                 Os = client.OS.Family,
                 Device = device.ToLower() == "other" ? "" : device,
                 BrowserInfo = ua,
-                Ip = IPHelper.GetIP(_accessor?.HttpContext?.Request),
+                Ip = ip,
                 RealName = _authUser.DisplayName,
                 Params = args,
                 Result = result
             };
-            
+
             await _oprationLogService.CreateAsync(req);
         }
 

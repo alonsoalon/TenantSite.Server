@@ -21,6 +21,11 @@ namespace AlonsoAdmin.Common.Configs
         /// </summary>
         public uint WorkId { get; set; }
 
+        /// <summary>
+        /// 启用Api访问控制
+        /// </summary>
+        public bool EnableApiAccessControl { get; set; }
 
-}
+
+    }
 }

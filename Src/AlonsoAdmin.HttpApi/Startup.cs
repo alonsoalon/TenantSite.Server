@@ -127,10 +127,6 @@ namespace AlonsoAdmin.HttpApi
 
 
 
-            
-
-
-
             // 注册 AutoMapper 
             services.RegisterMapper();
             // 注册 多租户 服务

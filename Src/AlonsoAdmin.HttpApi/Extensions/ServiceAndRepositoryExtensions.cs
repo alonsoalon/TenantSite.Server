@@ -1,22 +1,11 @@
-﻿using AlonsoAdmin.Common.Auth;
-using AlonsoAdmin.HttpApi.Auth;
-using AlonsoAdmin.HttpApi.AuthStore;
-using AlonsoAdmin.Repository;
-using AlonsoAdmin.Repository.System;
-using AlonsoAdmin.Services.System;
-using FreeSql;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
+﻿using AlonsoAdmin.Repository;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
-using System.Runtime.Loader;
-using System.Threading.Tasks;
 
 namespace AlonsoAdmin.HttpApi
 {

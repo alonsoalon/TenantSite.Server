@@ -22,7 +22,6 @@ namespace AlonsoAdmin.Domain.System.Implement
 
         public async Task<bool> RoleAssignResourcesAsync(string roleId, List<string> resourceIds)
         {
-
             using (var uow = _systemDb.CreateUnitOfWork())
             {
                 var db = uow.GetRepository<SysRRoleResourceEntity>();
@@ -55,6 +54,7 @@ namespace AlonsoAdmin.Domain.System.Implement
 
                 uow.Commit();
             }
+
             return true;
         }
     }

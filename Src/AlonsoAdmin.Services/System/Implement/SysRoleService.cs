@@ -158,12 +158,14 @@ namespace AlonsoAdmin.Services.System.Implement
        
         public async Task<IResponseEntity> RoleAssignResourcesAsync(RoleResourceAssignRequest req)
         {
-         
+
             var result = await _roleDomain.RoleAssignResourcesAsync(req.RoleId, req.ResourceIds);
             //清除权限缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList) ;
-
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
             return ResponseEntity.Result(result);
+
+
+
         }
 
 

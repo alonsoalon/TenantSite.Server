@@ -132,5 +132,32 @@ namespace AlonsoAdmin.Domain.System.Implement
 
             return list;
         }
+
+
+        /// <summary>
+        /// 得到权限岗的API集合
+        /// </summary>
+        /// <param name="permissionId"></param>
+        /// <returns></returns>
+        public async Task<List<SysApiEntity>> GetPermissionApisAsync(string permissionId)
+        {      
+
+            //得到无需控制权限的APIs
+            var noAccessControlApis = await _systemDb.GetRepository<SysApiEntity>().Where(x => x.IsValidation == false).ToListAsync();
+
+            //得到需要控制权限的APIs
+            var accessControlApis = await _systemDb.Select<SysRPermissionRoleEntity, SysRRoleResourceEntity, SysRResourceApiEntity, SysApiEntity>()
+                  .InnerJoin((a, b, c, d) => a.RoleId == b.RoleId)
+                  .InnerJoin((a, b, c, d) => b.ResourceId == c.ResourceId)
+                  .InnerJoin((a, b, c, d) => c.ApiId == d.Id)
+                  .Where((a, b, c, d) => a.PermissionId == permissionId)
+                  .Distinct()
+                  .ToListAsync((a, b, c, d) => d);
+
+            var list = accessControlApis.Union(noAccessControlApis).Distinct().ToList();
+
+            return list;
+        }
+
     }
 }

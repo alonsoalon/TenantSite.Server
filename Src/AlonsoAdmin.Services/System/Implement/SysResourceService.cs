@@ -185,12 +185,17 @@ namespace AlonsoAdmin.Services.System.Implement
 
         }
 
+        /// <summary>
+        /// 更新资源API集合
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
         public async Task<IResponseEntity> UpdateResourceApisByIdAsync(UpdateResourceApiRequest req)
         {
             var result = await _resourceDomain.UpdateResourceApisByIdAsync(req.resourceId, req.ApiIds);
 
             //清除权限缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionApiList);
             return ResponseEntity.Result(result);
         }
 

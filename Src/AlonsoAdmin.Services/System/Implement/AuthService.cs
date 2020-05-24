@@ -132,5 +132,43 @@ namespace AlonsoAdmin.Services.System.Implement
             return ResponseEntity.Ok(result);
         }
 
+        /// <summary>
+        /// 验证当前用户API访问权限
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> VerifyUserAccessApiAsync(string api)
+        {
+
+            // 方案1(目前采用)：
+            // 未注册的API，需授权才可访问
+
+            // 方案2：
+            // 未注册的API，视为不用授权即可访问，需求先验证API在数据库中存在与否
+
+            var cacheKey = string.Format(CacheKeyTemplate.PermissionApiList, _authUser.PermissionId);
+            List<SysApiEntity> data = new List<SysApiEntity>();
+            if (await _cache.ExistsAsync(cacheKey))
+            {
+                data = await _cache.GetAsync<List<SysApiEntity>>(cacheKey);
+            }
+            else
+            {
+
+
+                data = await _permissionDomain.GetPermissionApisAsync(_authUser.PermissionId);
+                await _cache.SetAsync(cacheKey, data);
+            }
+
+            var filterApis = data.Where(x => x.Url.ToLower() == api.ToLower());
+
+
+            if (filterApis.Count() > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }
