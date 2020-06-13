@@ -64,9 +64,8 @@ namespace AlonsoAdmin.Entities.System
 
 		/// <summary>
 		/// 头像
-		/// </summary>
-		[MaxLength(100)]
-		[Column(Name = "AVATAR", Position = 12)]
+		/// </summary>		
+		[Column(Name = "AVATAR", Position = 12, StringLength = -1)]
 		public string Avatar { get; set; }
 
 		/// <summary>

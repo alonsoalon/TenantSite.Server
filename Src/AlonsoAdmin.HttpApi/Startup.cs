@@ -1,7 +1,9 @@
 using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Common.Cache;
 using AlonsoAdmin.Common.Configs;
+using AlonsoAdmin.Common.Upload;
 using AlonsoAdmin.Common.Utils;
+using AlonsoAdmin.HttpApi.Extensions;
 using AlonsoAdmin.HttpApi.Filters;
 using AlonsoAdmin.HttpApi.Logs;
 using AlonsoAdmin.MultiTenant.Extensions;
@@ -109,6 +111,8 @@ namespace AlonsoAdmin.HttpApi
                     // 见RegsiterMultiTenantServices WithPerTenantOptions<JwtBearerOptions>
                 });
 
+            //注册上传工具类
+            services.AddSingleton<IUploadTool, UploadTool>();
 
             #region 缓存
             var cacheSettings = _startupConfig.Cache;
@@ -162,6 +166,9 @@ namespace AlonsoAdmin.HttpApi
 
             // 全局异常捕获
             app.UseErrorHandlingMiddleware();
+
+            //静态文件
+            app.UseUploadConfig();
 
             // 路由中间件
             app.UseRouting();

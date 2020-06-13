@@ -5,6 +5,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using AlonsoAdmin.Common.RequestEntity;
+using AlonsoAdmin.Common.ResponseEntity;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.HttpApi.SwaggerHelper;

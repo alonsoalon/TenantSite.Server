@@ -1,5 +1,7 @@
 ﻿using AlonsoAdmin.Common.Extensions;
 using AlonsoAdmin.Common.Utils;
+using AlonsoAdmin.MultiTenant;
+using AlonsoAdmin.MultiTenant.Extensions;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -82,6 +84,21 @@ namespace AlonsoAdmin.Common.Auth
                 }
 
                 return "";
+            }
+        }
+
+
+
+        public TenantInfo Tenant
+        {
+            get
+            {
+                var tenantInfo = _accessor.HttpContext.GetMultiTenantContext()?.TenantInfo;
+                if (tenantInfo == null)
+                {
+                    throw new Exception("没有找到租户信息");
+                }
+                return tenantInfo;
             }
         }
 

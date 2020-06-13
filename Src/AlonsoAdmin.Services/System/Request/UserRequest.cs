@@ -93,42 +93,6 @@ namespace AlonsoAdmin.Services.System.Request
 	}
 
 
-
-
-
-	/// <summary>
-	/// 指定用户密码修改
-	/// </summary>
-	public class UserChangePasswordRequest
-	{
-		/// <summary>
-		/// 主键ID
-		/// </summary>
-		[Required(ErrorMessage = "用户主键不能为空！")]
-		public string Id { get; set; }
-
-		/// <summary>
-		/// 用户名
-		/// </summary>
-		[Required(ErrorMessage = "用户名不能为空！")]
-		public string UserName { get; set; }
-		/// <summary>
-		/// 密码
-		/// </summary>
-		[Required(ErrorMessage = "密码不能为空！")]
-		public string Password { get; set; }
-		/// <summary>
-		/// 确认密码
-		/// </summary>
-		[Required(ErrorMessage = "密码不能为空！")]
-		public string ConfirmPassword { get; set; }
-		/// <summary>
-		/// 版本
-		/// </summary>
-		public int Revision { get; set; }
-	}
-
-
 	/// <summary>
 	/// 当前登录用户密码修改
 	/// </summary>
@@ -162,4 +126,36 @@ namespace AlonsoAdmin.Services.System.Request
 		/// </summary>
 		public int Revision { get; set; }
 	}
+
+	/// <summary>
+	/// 指定用户密码修改
+	/// </summary>
+	public class UserChangePasswordRequest: ChangePasswordRequest
+	{
+		/// <summary>
+		/// 主键ID
+		/// </summary>
+		[Required(ErrorMessage = "用户主键不能为空！")]
+		public string Id { get; set; }
+
+		/// <summary>
+		/// 用户名
+		/// </summary>
+		[Required(ErrorMessage = "用户名不能为空！")]
+		public string UserName { get; set; }
+	}
+
+	/// <summary>
+	/// 更新当前用户头像
+	/// </summary>
+	public class UploadAvatarRequest
+	{
+		/// <summary>
+		/// 主键ID
+		/// </summary>
+		[Required(ErrorMessage = "头像不能为空！")]
+		public string Avatar { get; set; }
+
+	}
+
 }

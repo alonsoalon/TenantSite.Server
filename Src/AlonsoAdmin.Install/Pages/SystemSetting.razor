@@ -24,6 +24,10 @@
         <BButton Type="@ButtonType.Primary" OnClick="e=>Submit()">保存</BButton>
         <BButton OnClick="e=>Reset()">重置</BButton>
     </BFormActionItem>
+    <BFormItem TValue="bool" Label="API验证" Name="@nameof(SystemConfig.EnableApiAccessControl)" IsRequired="true">
+        <BSwitch TValue="bool" ActiveValue="true" InactiveValue="false"></BSwitch>
+        如果打开，后台将对每次请求的API进行权限验证
+    </BFormItem>
 </BForm>
 
 @code {

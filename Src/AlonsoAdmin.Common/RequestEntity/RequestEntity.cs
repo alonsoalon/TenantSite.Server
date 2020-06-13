@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AlonsoAdmin.Entities
+namespace AlonsoAdmin.Common.RequestEntity
 {
     public class RequestEntity<T>
     {
@@ -20,5 +20,10 @@ namespace AlonsoAdmin.Entities
         /// 查询条件
         /// </summary>
         public T Filter { get; set; }
+
+        /// <summary>
+        /// 高级查询条件
+        /// </summary>
+        public FreeSql.Internal.Model.DynamicFilterInfo DynamicFilter { get; set; } = null;
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AlonsoAdmin.Entities
+namespace AlonsoAdmin.Common.ResponseEntity
 {
-    public class PageEntity<T>
+    public class ResponsePageEntity<T>
     {
         /// <summary>
         /// 数据总数

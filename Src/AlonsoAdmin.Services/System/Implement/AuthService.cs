@@ -1,5 +1,6 @@
 ﻿using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Common.Cache;
+using AlonsoAdmin.Common.ResponseEntity;
 using AlonsoAdmin.Common.Utils;
 using AlonsoAdmin.Domain.System.Interface;
 using AlonsoAdmin.Entities;

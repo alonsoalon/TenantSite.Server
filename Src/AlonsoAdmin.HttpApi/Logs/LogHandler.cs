@@ -1,4 +1,5 @@
 ﻿using AlonsoAdmin.Common.Auth;
+using AlonsoAdmin.Common.ResponseEntity;
 using AlonsoAdmin.Common.Utils;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.HttpApi.SwaggerHelper;
@@ -44,6 +45,8 @@ namespace AlonsoAdmin.HttpApi.Logs
             dynamic actionResult = (await next()).Result;
 
             sw.Stop();
+         
+
 
             //操作参数
             var args = JsonConvert.SerializeObject(context.ActionArguments,
@@ -87,7 +90,7 @@ namespace AlonsoAdmin.HttpApi.Logs
                 Ip = ip,
                 RealName = _authUser.DisplayName,
                 Params = args,
-                Result = result
+                Result = result==null?"": result
             };
 
             await _oprationLogService.CreateAsync(req);

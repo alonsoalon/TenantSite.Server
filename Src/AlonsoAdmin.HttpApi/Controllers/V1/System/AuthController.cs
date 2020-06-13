@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AlonsoAdmin.Common.Auth;
+using AlonsoAdmin.Common.ResponseEntity;
 using AlonsoAdmin.Common.Utils;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.HttpApi.Attributes;
@@ -105,8 +106,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
                     uuid = user.Id,
                     info = new
                     {
+                        id = user.Id,
                         name = user.UserName,
-                        displayNamme = user.DisplayName,
+                        displayName = user.DisplayName,
                         avatar = user.Avatar,
                         menus = user.Menus,
                         functionPoints = user.FunctionPoints
@@ -122,6 +124,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [NoOprationLog]
         [Description("刷新用户信息-根据Token")]
         public async Task<IResponseEntity> GetUserInfo()
         {
@@ -150,8 +153,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
                 token,
                 info = new
                 {
+                    id=user.Id,
                     name = user.UserName,
-                    displayNamme = user.DisplayName,
+                    displayName = user.DisplayName,
                     avatar = user.Avatar,
                     menus = user.Menus,
                     functionPoints = user.FunctionPoints

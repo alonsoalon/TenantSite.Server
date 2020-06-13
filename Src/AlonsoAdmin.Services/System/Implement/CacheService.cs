@@ -1,14 +1,12 @@
 ﻿using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Common.Cache;
-using AlonsoAdmin.Entities;
+using AlonsoAdmin.Common.ResponseEntity;
 using AlonsoAdmin.Services.System.Interface;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AlonsoAdmin.Services.System.Implement

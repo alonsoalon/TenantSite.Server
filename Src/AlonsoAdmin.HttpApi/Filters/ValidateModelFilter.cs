@@ -1,4 +1,5 @@
-﻿using AlonsoAdmin.Entities;
+﻿using AlonsoAdmin.Common.ResponseEntity;
+using AlonsoAdmin.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
@@ -30,7 +31,9 @@ namespace AlonsoAdmin.HttpApi.Filters
 
         public void OnActionExecuted(ActionExecutedContext context)
         {
-
+            //if (context.Exception != null) { 
+                
+            //}
         }
     }
 }

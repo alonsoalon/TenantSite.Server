@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AlonsoAdmin.MultiTenant;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
@@ -29,5 +30,7 @@ namespace AlonsoAdmin.Common.Auth
         /// 权限岗Id
         /// </summary>
         string PermissionId { get; }
+
+        TenantInfo Tenant { get; }
     }
 }

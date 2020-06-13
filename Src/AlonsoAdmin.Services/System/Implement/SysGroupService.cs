@@ -1,6 +1,8 @@
 ﻿using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Common.Cache;
 using AlonsoAdmin.Common.Extensions;
+using AlonsoAdmin.Common.RequestEntity;
+using AlonsoAdmin.Common.ResponseEntity;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Repository.System;
@@ -153,7 +155,7 @@ namespace AlonsoAdmin.Services.System.Implement
                 .Page(req.CurrentPage, req.PageSize)
                 .ToListAsync();
 
-            var data = new PageEntity<GroupForListResponse>()
+            var data = new ResponsePageEntity<GroupForListResponse>()
             {
                 List = _mapper.Map<List<GroupForListResponse>>(list),
                 Total = total

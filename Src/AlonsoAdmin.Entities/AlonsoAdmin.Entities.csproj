@@ -10,10 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FreeSql.All" Version="1.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\AlonsoAdmin.Common\AlonsoAdmin.Common.csproj" />
   </ItemGroup>
 

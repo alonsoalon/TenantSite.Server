@@ -1,4 +1,6 @@
-﻿using AlonsoAdmin.Entities;
+﻿using AlonsoAdmin.Common.RequestEntity;
+using AlonsoAdmin.Common.ResponseEntity;
+using AlonsoAdmin.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

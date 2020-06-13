@@ -99,7 +99,8 @@ namespace AlonsoAdmin.HttpApi
                 {
                     c.SwaggerEndpoint($"/swagger/{version}/swagger.json", $"{ApiName} {version}");
                 });
-
+                c.RoutePrefix = "";//直接根目录访问
+                c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);//折叠Api
             });
 
         }

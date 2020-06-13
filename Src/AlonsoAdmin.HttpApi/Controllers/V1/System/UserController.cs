@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using AlonsoAdmin.Entities;
-using AlonsoAdmin.Entities.System;
-using AlonsoAdmin.HttpApi.SwaggerHelper;
-using AlonsoAdmin.MultiTenant.Extensions;
+using AlonsoAdmin.Common.RequestEntity;
+using AlonsoAdmin.Common.ResponseEntity;
+using AlonsoAdmin.HttpApi.Attributes;
 using AlonsoAdmin.Services.System.Interface;
 using AlonsoAdmin.Services.System.Request;
 using Microsoft.AspNetCore.Http;
@@ -155,6 +154,41 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         {
             return await _sysUserService.UserChangePasswordAsync(req);
         }
+
+        /// <summary>
+        /// 更新当前用户头像
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        [HttpPost]
+        //[NoOprationLog]
+        [Description("更新当前用户头像")]
+        public async Task<IResponseEntity> UploadAvatar([FromForm]IFormFile file)
+        {
+            var res = await _sysUserService.UploadAvatarAsync(file);
+
+            if (res.Success)
+            {
+                return ResponseEntity.Ok(res.Data.FileRelativePath);
+            }
+
+            return ResponseEntity.Error("上传失败！");
+
+
+        }
+
+        /// <summary>
+        /// 更新用户基本信息
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        [HttpPost]        
+        [Description("更新当前用户基本信息")]
+        public async Task<IResponseEntity> UpdateUserInfo(UserEditRequest req)
+        {
+            return await _sysUserService.UpdateUserInfo(req);
+        }
+        
         #endregion
     }
 }

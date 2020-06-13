@@ -1,7 +1,4 @@
-﻿using AlonsoAdmin.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using AlonsoAdmin.Common.ResponseEntity;
 using System.Threading.Tasks;
 
 namespace AlonsoAdmin.Services.System.Interface

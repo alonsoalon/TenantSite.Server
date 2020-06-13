@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using AlonsoAdmin.Common.RequestEntity;
+using AlonsoAdmin.Common.ResponseEntity;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Services.System.Interface;
 using AlonsoAdmin.Services.System.Request;

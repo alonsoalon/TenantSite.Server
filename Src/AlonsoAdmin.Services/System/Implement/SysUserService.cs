@@ -15,6 +15,15 @@ using AlonsoAdmin.Services.System.Response;
 using AlonsoAdmin.Services.System.Request;
 using AlonsoAdmin.Common.Utils;
 using AlonsoAdmin.Repository.System.Interface;
+using AlonsoAdmin.Common.ResponseEntity;
+using AlonsoAdmin.Common.RequestEntity;
+using Microsoft.AspNetCore.Http;
+using FileInfo = AlonsoAdmin.Common.File.FileInfo;
+using System.IO;
+using System.Threading;
+using AlonsoAdmin.Common.Upload;
+using Microsoft.Extensions.Options;
+using AlonsoAdmin.Common.Configs;
 
 namespace AlonsoAdmin.Services.System.Implement
 {
@@ -24,17 +33,26 @@ namespace AlonsoAdmin.Services.System.Implement
         private readonly ICache _cache;
         private readonly IMapper _mapper;
         private readonly ISysUserRepository _sysUserRepository;
+        private readonly IOptionsMonitor<SystemConfig> _systemConfig;
+        private readonly IUploadTool _uploadTool;
+
+
         public SysUserService(
             IAuthUser authUser,
             ICache cache,
             IMapper mapper,
-            ISysUserRepository sysUserRepository
+            ISysUserRepository sysUserRepository,
+            IOptionsMonitor<SystemConfig> systemConfig,
+            IUploadTool uploadTool
             )
         {
             _authUser = authUser;
             _cache = cache;
             _mapper = mapper;
             _sysUserRepository = sysUserRepository;
+            _systemConfig = systemConfig;
+            _uploadTool = uploadTool;
+           
 
         }
 
@@ -137,7 +155,7 @@ namespace AlonsoAdmin.Services.System.Implement
                 .Page(req.CurrentPage, req.PageSize)
                 .ToListAsync();
 
-            var data = new PageEntity<UserForListResponse>()
+            var data = new ResponsePageEntity<UserForListResponse>()
             {
                 List = _mapper.Map<List<UserForListResponse>>(list),
                 Total = total
@@ -196,26 +214,70 @@ namespace AlonsoAdmin.Services.System.Implement
         /// <returns></returns>
         public async Task<IResponseEntity> ChangePasswordAsync(ChangePasswordRequest req)
         {
-
-            if (_authUser.Id == "")
-            {
-                return ResponseEntity.Error("更新的实体主键丢失");
+            var oldPassword = MD5Encrypt.Encrypt32(req.OldPassword);
+            var item = _sysUserRepository.Where(a => a.Id == _authUser.Id && a.Password == oldPassword).First();
+            if (item == null) {
+                return ResponseEntity.Error("旧密码错误，请输入正确的旧密码");
             }
-            if (req.Password != req.ConfirmPassword)
+            if (req.NewPassword != req.ConfirmPassword)
             {
                 return ResponseEntity.Error("两次密码不一致，请重新输入");
             }
-
-            var password = MD5Encrypt.Encrypt32(req.Password);
-            var item = _sysUserRepository.Where(a => a.Id == _authUser.Id).First(); //此时快照 item
-            if (item == null) {
-                return ResponseEntity.Error("找不到指定用户");
-            }
-            item.Password = password;
-            await _sysUserRepository.UpdateAsync(item); //对比快照时的变化
-
+            var newPassword = MD5Encrypt.Encrypt32(req.NewPassword);   
+            item.Password = newPassword;
+            await _sysUserRepository.UpdateAsync(item); 
             return ResponseEntity.Ok("更新成功");
         }
+
+ 
+
+        public async Task<IResponseEntity<FileInfo>> UploadAvatarAsync(IFormFile file)
+        {
+            
+    
+            var res = await _uploadTool.UploadAvatarAsync(file);
+
+            var item = _sysUserRepository.Where(a => a.Id == _authUser.Id).First(); //此时快照 item
+            if (item == null)
+            {
+                return new ResponseEntity<FileInfo>().Error("找不到指定用户");
+            }
+            item.Avatar = res.Data.FileRelativePath;
+            await _sysUserRepository.UpdateAsync(item); //对比快照时的变化
+
+            return res;
+        }
+
+        /// <summary>
+        /// 更新当前用户基本信息
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        public async Task<IResponseEntity> UpdateUserInfo(UserEditRequest req)
+        {
+            if (req == null )
+            {
+                return ResponseEntity.Error("更新的实体丢失");
+            }
+
+            //req.Id = _authUser.Id;
+
+            var entity = await _sysUserRepository.GetAsync(_authUser.Id);
+            if (entity == null || entity.Id == "")
+            {
+                return ResponseEntity.Error("用户不存在!");
+            }
+
+            entity.DisplayName = req.DisplayName;
+            entity.Mobile = req.Mobile;
+            entity.Mail = req.Mail;
+            entity.Description = req.Description;   
+
+            await _sysUserRepository.UpdateAsync(entity);
+
+            return ResponseEntity.Ok(entity);
+        }
+
         #endregion
     }
 }

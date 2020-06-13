@@ -3,7 +3,7 @@
     "AlonsoAdmin.HttpApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger/",
+      //"launchUrl": "swagger/",
       "applicationUrl": "http://localhost:5188",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

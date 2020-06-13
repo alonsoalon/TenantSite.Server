@@ -1,9 +1,5 @@
-﻿using AlonsoAdmin.Entities;
-using AlonsoAdmin.Entities.System;
+﻿using AlonsoAdmin.Common.ResponseEntity;
 using AlonsoAdmin.Services.System.Request;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AlonsoAdmin.Services.System.Interface
@@ -11,7 +7,7 @@ namespace AlonsoAdmin.Services.System.Interface
     public interface ISysRoleService : IBaseService<RoleFilterRequest, RoleAddRequest, RoleEditRequest>
     {
 
-        // 特殊接口 在此定义
+        #region 特殊接口 在此定义
 
         /// <summary>
         /// 为角色分配资源（角色赋权）
@@ -26,5 +22,7 @@ namespace AlonsoAdmin.Services.System.Interface
         /// <param name="roleId"></param>
         /// <returns></returns>
         Task<IResponseEntity> GetResourceIdsByIdAsync(string roleId);
+
+        #endregion
     }
 }

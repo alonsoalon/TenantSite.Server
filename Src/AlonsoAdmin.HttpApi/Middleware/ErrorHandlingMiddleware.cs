@@ -1,4 +1,5 @@
-﻿using AlonsoAdmin.Entities;
+﻿using AlonsoAdmin.Common.ResponseEntity;
+using AlonsoAdmin.Entities;
 using AlonsoAdmin.HttpApi.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;

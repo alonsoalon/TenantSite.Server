@@ -1,5 +1,7 @@
 ﻿using AlonsoAdmin.Common.Auth;
 using AlonsoAdmin.Common.Extensions;
+using AlonsoAdmin.Common.RequestEntity;
+using AlonsoAdmin.Common.ResponseEntity;
 using AlonsoAdmin.Common.Utils;
 using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
@@ -51,7 +53,7 @@ namespace AlonsoAdmin.Services.System.Implement
             .Page(req.CurrentPage, req.PageSize)
             .ToListAsync<LoginLogForListResponse>();
 
-            var data = new PageEntity<LoginLogForListResponse>()
+            var data = new ResponsePageEntity<LoginLogForListResponse>()
             {
                 List = list,
                 Total = total
