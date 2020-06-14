@@ -9,7 +9,7 @@
       "IsValidation": true,
       "OrderIndex": 1,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -18,7 +18,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994307772416"
     },
     {
@@ -30,7 +30,7 @@
       "IsValidation": true,
       "OrderIndex": 2,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -39,7 +39,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994307772417"
     },
     {
@@ -51,7 +51,7 @@
       "IsValidation": true,
       "OrderIndex": 3,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -60,7 +60,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994307772418"
     },
     {
@@ -72,7 +72,7 @@
       "IsValidation": true,
       "OrderIndex": 4,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -81,7 +81,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994307772419"
     },
     {
@@ -93,7 +93,7 @@
       "IsValidation": true,
       "OrderIndex": 5,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -102,7 +102,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994307772420"
     },
     {
@@ -114,7 +114,7 @@
       "IsValidation": true,
       "OrderIndex": 6,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -123,7 +123,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994311966720"
     },
     {
@@ -135,7 +135,7 @@
       "IsValidation": true,
       "OrderIndex": 7,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -144,7 +144,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994311966721"
     },
     {
@@ -156,7 +156,7 @@
       "IsValidation": true,
       "OrderIndex": 8,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -165,7 +165,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994311966722"
     },
     {
@@ -177,7 +177,7 @@
       "IsValidation": true,
       "OrderIndex": 9,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -186,7 +186,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994311966723"
     },
     {
@@ -198,7 +198,7 @@
       "IsValidation": true,
       "OrderIndex": 10,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -207,7 +207,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994311966724"
     },
     {
@@ -219,7 +219,7 @@
       "IsValidation": false,
       "OrderIndex": 11,
       "Resource": null,
-      "Revision": 8,
+      "Revision": 11,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -228,7 +228,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994311966725"
     },
     {
@@ -240,7 +240,7 @@
       "IsValidation": true,
       "OrderIndex": 13,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -249,7 +249,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994311966727"
     },
     {
@@ -261,7 +261,7 @@
       "IsValidation": true,
       "OrderIndex": 14,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -270,7 +270,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994316161024"
     },
     {
@@ -282,7 +282,7 @@
       "IsValidation": true,
       "OrderIndex": 15,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -291,7 +291,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994316161025"
     },
     {
@@ -303,7 +303,7 @@
       "IsValidation": true,
       "OrderIndex": 16,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -312,7 +312,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994316161026"
     },
     {
@@ -324,7 +324,7 @@
       "IsValidation": true,
       "OrderIndex": 17,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -333,7 +333,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994316161027"
     },
     {
@@ -345,7 +345,7 @@
       "IsValidation": true,
       "OrderIndex": 18,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -354,7 +354,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994316161028"
     },
     {
@@ -366,7 +366,7 @@
       "IsValidation": true,
       "OrderIndex": 19,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -375,7 +375,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994316161029"
     },
     {
@@ -387,7 +387,7 @@
       "IsValidation": true,
       "OrderIndex": 20,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -396,7 +396,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994316161030"
     },
     {
@@ -408,7 +408,7 @@
       "IsValidation": true,
       "OrderIndex": 21,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -417,7 +417,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994316161031"
     },
     {
@@ -429,7 +429,7 @@
       "IsValidation": true,
       "OrderIndex": 22,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -438,7 +438,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994316161032"
     },
     {
@@ -450,7 +450,7 @@
       "IsValidation": true,
       "OrderIndex": 23,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -459,7 +459,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994320355328"
     },
     {
@@ -471,7 +471,7 @@
       "IsValidation": true,
       "OrderIndex": 24,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -480,7 +480,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994320355329"
     },
     {
@@ -492,7 +492,7 @@
       "IsValidation": true,
       "OrderIndex": 25,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -501,7 +501,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994320355330"
     },
     {
@@ -513,7 +513,7 @@
       "IsValidation": true,
       "OrderIndex": 26,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -522,7 +522,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994320355331"
     },
     {
@@ -534,7 +534,7 @@
       "IsValidation": true,
       "OrderIndex": 27,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -543,7 +543,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994320355332"
     },
     {
@@ -555,7 +555,7 @@
       "IsValidation": true,
       "OrderIndex": 28,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -564,7 +564,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994320355333"
     },
     {
@@ -576,7 +576,7 @@
       "IsValidation": true,
       "OrderIndex": 29,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -585,7 +585,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994320355334"
     },
     {
@@ -597,7 +597,7 @@
       "IsValidation": true,
       "OrderIndex": 30,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -606,7 +606,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994320355335"
     },
     {
@@ -618,7 +618,7 @@
       "IsValidation": true,
       "OrderIndex": 31,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -627,7 +627,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994320355336"
     },
     {
@@ -639,7 +639,7 @@
       "IsValidation": true,
       "OrderIndex": 32,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -648,7 +648,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994320355337"
     },
     {
@@ -660,7 +660,7 @@
       "IsValidation": true,
       "OrderIndex": 33,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -669,7 +669,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994324549632"
     },
     {
@@ -681,7 +681,7 @@
       "IsValidation": true,
       "OrderIndex": 34,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -690,7 +690,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994324549633"
     },
     {
@@ -702,7 +702,7 @@
       "IsValidation": true,
       "OrderIndex": 35,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -711,7 +711,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994324549634"
     },
     {
@@ -723,7 +723,7 @@
       "IsValidation": true,
       "OrderIndex": 36,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -732,7 +732,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994324549635"
     },
     {
@@ -744,7 +744,7 @@
       "IsValidation": true,
       "OrderIndex": 37,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -753,7 +753,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994324549636"
     },
     {
@@ -765,7 +765,7 @@
       "IsValidation": true,
       "OrderIndex": 38,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -774,7 +774,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994324549637"
     },
     {
@@ -786,7 +786,7 @@
       "IsValidation": true,
       "OrderIndex": 39,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -795,7 +795,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994324549638"
     },
     {
@@ -807,7 +807,7 @@
       "IsValidation": true,
       "OrderIndex": 40,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -816,7 +816,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994324549639"
     },
     {
@@ -828,7 +828,7 @@
       "IsValidation": true,
       "OrderIndex": 41,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -837,7 +837,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994324549640"
     },
     {
@@ -849,7 +849,7 @@
       "IsValidation": true,
       "OrderIndex": 42,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -858,7 +858,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994324549641"
     },
     {
@@ -870,7 +870,7 @@
       "IsValidation": true,
       "OrderIndex": 43,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -879,7 +879,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994328743936"
     },
     {
@@ -891,7 +891,7 @@
       "IsValidation": true,
       "OrderIndex": 44,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -900,7 +900,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994328743937"
     },
     {
@@ -912,7 +912,7 @@
       "IsValidation": true,
       "OrderIndex": 45,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -921,7 +921,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994328743938"
     },
     {
@@ -933,7 +933,7 @@
       "IsValidation": true,
       "OrderIndex": 46,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -942,7 +942,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994328743939"
     },
     {
@@ -954,7 +954,7 @@
       "IsValidation": true,
       "OrderIndex": 47,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -963,7 +963,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994328743940"
     },
     {
@@ -975,7 +975,7 @@
       "IsValidation": true,
       "OrderIndex": 48,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -984,7 +984,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994328743941"
     },
     {
@@ -996,7 +996,7 @@
       "IsValidation": true,
       "OrderIndex": 49,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1005,7 +1005,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938240"
     },
     {
@@ -1017,7 +1017,7 @@
       "IsValidation": true,
       "OrderIndex": 50,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1026,7 +1026,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938241"
     },
     {
@@ -1038,7 +1038,7 @@
       "IsValidation": true,
       "OrderIndex": 51,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1047,7 +1047,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938242"
     },
     {
@@ -1059,7 +1059,7 @@
       "IsValidation": true,
       "OrderIndex": 52,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1068,7 +1068,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938243"
     },
     {
@@ -1080,7 +1080,7 @@
       "IsValidation": true,
       "OrderIndex": 53,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1089,7 +1089,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938244"
     },
     {
@@ -1101,7 +1101,7 @@
       "IsValidation": true,
       "OrderIndex": 54,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1110,7 +1110,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938245"
     },
     {
@@ -1122,7 +1122,7 @@
       "IsValidation": true,
       "OrderIndex": 55,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1131,7 +1131,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938246"
     },
     {
@@ -1143,7 +1143,7 @@
       "IsValidation": true,
       "OrderIndex": 56,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1152,7 +1152,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938247"
     },
     {
@@ -1164,7 +1164,7 @@
       "IsValidation": true,
       "OrderIndex": 57,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1173,7 +1173,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938248"
     },
     {
@@ -1185,7 +1185,7 @@
       "IsValidation": true,
       "OrderIndex": 58,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1194,7 +1194,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938249"
     },
     {
@@ -1206,7 +1206,7 @@
       "IsValidation": true,
       "OrderIndex": 59,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1215,7 +1215,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938250"
     },
     {
@@ -1227,7 +1227,7 @@
       "IsValidation": true,
       "OrderIndex": 60,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1236,7 +1236,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994332938251"
     },
     {
@@ -1248,7 +1248,7 @@
       "IsValidation": true,
       "OrderIndex": 61,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1257,7 +1257,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994337132544"
     },
     {
@@ -1269,7 +1269,7 @@
       "IsValidation": true,
       "OrderIndex": 62,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1278,7 +1278,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994337132545"
     },
     {
@@ -1290,7 +1290,7 @@
       "IsValidation": true,
       "OrderIndex": 63,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1299,7 +1299,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994337132546"
     },
     {
@@ -1311,7 +1311,7 @@
       "IsValidation": true,
       "OrderIndex": 64,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1320,7 +1320,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994337132547"
     },
     {
@@ -1332,7 +1332,7 @@
       "IsValidation": true,
       "OrderIndex": 65,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1341,7 +1341,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994337132548"
     },
     {
@@ -1353,7 +1353,7 @@
       "IsValidation": false,
       "OrderIndex": 66,
       "Resource": null,
-      "Revision": 8,
+      "Revision": 11,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1362,7 +1362,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994337132549"
     },
     {
@@ -1374,7 +1374,7 @@
       "IsValidation": true,
       "OrderIndex": 67,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1383,7 +1383,7 @@
       "CreatedTime": "2020-04-30T22:39:58",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6661755994337132550"
     },
     {
@@ -1395,7 +1395,7 @@
       "IsValidation": false,
       "OrderIndex": 68,
       "Resource": null,
-      "Revision": 7,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1404,7 +1404,7 @@
       "CreatedTime": "2020-05-02T13:53:53",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6662348376376033280"
     },
     {
@@ -1416,7 +1416,7 @@
       "IsValidation": false,
       "OrderIndex": 69,
       "Resource": null,
-      "Revision": 8,
+      "Revision": 11,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1425,7 +1425,7 @@
       "CreatedTime": "2020-05-02T13:53:53",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6662348376376033281"
     },
     {
@@ -1437,7 +1437,7 @@
       "IsValidation": true,
       "OrderIndex": 70,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 8,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1446,7 +1446,7 @@
       "CreatedTime": "2020-05-05T14:37:40",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6663446556891103232"
     },
     {
@@ -1458,7 +1458,7 @@
       "IsValidation": true,
       "OrderIndex": 71,
       "Resource": null,
-      "Revision": 5,
+      "Revision": 8,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1467,7 +1467,7 @@
       "CreatedTime": "2020-05-05T14:37:40",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6663446556891103233"
     },
     {
@@ -1479,7 +1479,7 @@
       "IsValidation": true,
       "OrderIndex": 73,
       "Resource": null,
-      "Revision": 4,
+      "Revision": 7,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1488,7 +1488,7 @@
       "CreatedTime": "2020-05-05T22:32:12",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6663565978314162176"
     },
     {
@@ -1500,7 +1500,7 @@
       "IsValidation": true,
       "OrderIndex": 74,
       "Resource": null,
-      "Revision": 2,
+      "Revision": 5,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1509,7 +1509,7 @@
       "CreatedTime": "2020-05-05T22:35:15",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6663566747893448704"
     },
     {
@@ -1521,7 +1521,7 @@
       "IsValidation": true,
       "OrderIndex": 75,
       "Resource": null,
-      "Revision": 2,
+      "Revision": 5,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -1530,7 +1530,7 @@
       "CreatedTime": "2020-05-05T22:35:15",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-24T23:57:10",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
       "Id": "6663566747893448705"
     },
     {
@@ -1553,6 +1553,48 @@
       "UpdatedByName": null,
       "UpdatedTime": null,
       "Id": "6668994064157458432"
+    },
+    {
+      "Category": "User-用户",
+      "Title": "更新当前用户头像",
+      "Description": "参数： UploadAvatarRequest req",
+      "Url": "/api/v1/System/User/UploadAvatar",
+      "HttpMethod": "Post",
+      "IsValidation": true,
+      "OrderIndex": 77,
+      "Resource": null,
+      "Revision": 2,
+      "IsDisabled": false,
+      "IsDeleted": false,
+      "GroupId": null,
+      "CreatedBy": "6658760203095982080",
+      "CreatedByName": "alonso",
+      "CreatedTime": "2020-05-27T18:07:32.343",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-06-13T18:58:56.401",
+      "Id": "6671471905973420032"
+    },
+    {
+      "Category": "User-用户",
+      "Title": "更新当前用户基本信息",
+      "Description": "参数： UserEditRequest req",
+      "Url": "/api/v1/System/User/UpdateUserInfo",
+      "HttpMethod": "Post",
+      "IsValidation": true,
+      "OrderIndex": 78,
+      "Resource": null,
+      "Revision": 1,
+      "IsDisabled": false,
+      "IsDeleted": false,
+      "GroupId": null,
+      "CreatedBy": "6658760203095982080",
+      "CreatedByName": "alonso",
+      "CreatedTime": "2020-06-13T18:56:46.69",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-06-13T18:58:56.432",
+      "Id": "6677644891122253824"
     }
   ],
   "SysConditionEntities": [],
@@ -2115,7 +2157,7 @@
       "ViewPath": "/admin/resource/index",
       "ViewName": "admin--resource--index",
       "ViewCache": true,
-      "Icon": "el-icon-s-help",
+      "Icon": "el-icon-s-grid",
       "OrderIndex": 2,
       "IsHidden": false,
       "Closable": true,
@@ -2124,16 +2166,16 @@
       "Parent": null,
       "Apis": null,
       "Roles": null,
-      "Revision": 5,
+      "Revision": 6,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
       "CreatedBy": "6650943897923698688",
       "CreatedByName": "INSTALL",
       "CreatedTime": "2020-04-19T12:08:06",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-04-29T17:23:31",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-05-26T14:40:59",
       "Id": "6657610714545078272"
     },
     {
@@ -2398,12 +2440,12 @@
       "Description": "",
       "ResourceType": 2,
       "ParentId": "6661321495551885312",
-      "Opened": null,
+      "Opened": false,
       "Path": "/admin/user/index",
       "ViewPath": "/admin/user/index",
       "ViewName": "admin--user--index",
       "ViewCache": true,
-      "Icon": "el-icon-user-solid",
+      "Icon": "el-icon-s-custom",
       "OrderIndex": 10,
       "IsHidden": false,
       "Closable": true,
@@ -2412,7 +2454,7 @@
       "Parent": null,
       "Apis": null,
       "Roles": null,
-      "Revision": 5,
+      "Revision": 7,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -2421,7 +2463,7 @@
       "CreatedTime": "2020-04-19T14:41:32",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-05-25T00:22:32",
+      "UpdatedTime": "2020-05-26T14:44:03",
       "Id": "6657649326938603520"
     },
     {
@@ -2617,7 +2659,7 @@
       "Id": "6660497004600967168"
     },
     {
-      "Code": "",
+      "Code": "CRM API",
       "Title": "CRM系统集成API资源",
       "Description": "",
       "ResourceType": 1,
@@ -2628,7 +2670,7 @@
       "ViewName": "",
       "ViewCache": false,
       "Icon": "",
-      "OrderIndex": 30,
+      "OrderIndex": 40,
       "IsHidden": false,
       "Closable": true,
       "LinkType": 1,
@@ -2636,16 +2678,16 @@
       "Parent": null,
       "Apis": null,
       "Roles": null,
-      "Revision": 9,
+      "Revision": 10,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
       "CreatedBy": "6650943897923698688",
       "CreatedByName": "admin",
       "CreatedTime": "2020-04-29T02:20:12",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-01T23:24:47",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-05-26T14:19:32",
       "Id": "6661086643397279744"
     },
     {
@@ -2659,7 +2701,7 @@
       "ViewPath": "",
       "ViewName": "",
       "ViewCache": false,
-      "Icon": "el-icon-s-custom",
+      "Icon": "el-icon-s-help",
       "OrderIndex": 12,
       "IsHidden": false,
       "Closable": true,
@@ -2668,16 +2710,16 @@
       "Parent": null,
       "Apis": null,
       "Roles": null,
-      "Revision": 7,
+      "Revision": 9,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
       "CreatedBy": "6650943897923698688",
       "CreatedByName": "admin",
       "CreatedTime": "2020-04-29T17:53:25",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-01T22:13:10",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-05-26T14:42:54",
       "Id": "6661321495551885312"
     },
     {
@@ -2692,7 +2734,7 @@
       "ViewName": "",
       "ViewCache": false,
       "Icon": "el-icon-s-grid",
-      "OrderIndex": 20,
+      "OrderIndex": 30,
       "IsHidden": false,
       "Closable": true,
       "LinkType": 1,
@@ -2700,16 +2742,16 @@
       "Parent": null,
       "Apis": null,
       "Roles": null,
-      "Revision": 3,
+      "Revision": 4,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
       "CreatedBy": "6650943897923698688",
       "CreatedByName": "admin",
       "CreatedTime": "2020-04-29T17:57:12",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-20T22:33:19",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-05-26T14:32:11",
       "Id": "6661322445133922305"
     },
     {
@@ -3543,6 +3585,70 @@
       "UpdatedByName": null,
       "UpdatedTime": null,
       "Id": "6669005791427248128"
+    },
+    {
+      "Code": "UserSetting",
+      "Title": "个人设置",
+      "Description": "",
+      "ResourceType": 2,
+      "ParentId": "6671055908154064897",
+      "Opened": null,
+      "Path": "/admin/user-setting/index",
+      "ViewPath": "/admin/user-setting/index",
+      "ViewName": "admin--user-setting--index",
+      "ViewCache": false,
+      "Icon": "el-icon-setting",
+      "OrderIndex": 20,
+      "IsHidden": false,
+      "Closable": true,
+      "LinkType": 1,
+      "OpenMode": 0,
+      "Parent": null,
+      "Apis": null,
+      "Roles": null,
+      "Revision": 10,
+      "IsDisabled": false,
+      "IsDeleted": false,
+      "GroupId": null,
+      "CreatedBy": "6658760203095982080",
+      "CreatedByName": "alonso",
+      "CreatedTime": "2020-05-26T14:18:51",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-05-26T14:44:12",
+      "Id": "6671051967819366400"
+    },
+    {
+      "Code": "UserCenter",
+      "Title": "用户中心",
+      "Description": "",
+      "ResourceType": 1,
+      "ParentId": "",
+      "Opened": true,
+      "Path": null,
+      "ViewPath": "",
+      "ViewName": "",
+      "ViewCache": false,
+      "Icon": "el-icon-s-custom",
+      "OrderIndex": 20,
+      "IsHidden": false,
+      "Closable": true,
+      "LinkType": 1,
+      "OpenMode": 0,
+      "Parent": null,
+      "Apis": null,
+      "Roles": null,
+      "Revision": 3,
+      "IsDisabled": false,
+      "IsDeleted": false,
+      "GroupId": null,
+      "CreatedBy": "6658760203095982080",
+      "CreatedByName": "alonso",
+      "CreatedTime": "2020-05-26T14:34:30",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-05-26T14:44:18",
+      "Id": "6671055908154064897"
     }
   ],
   "SysRoleEntities": [
@@ -3659,6 +3765,25 @@
       "UpdatedByName": "admin",
       "UpdatedTime": "2020-05-20T22:58:51",
       "Id": "6669008454978060288"
+    },
+    {
+      "Code": "UserCenter",
+      "Title": "用户中心",
+      "Description": "",
+      "OrderIndex": 6,
+      "Permissions": null,
+      "Resources": null,
+      "Revision": 0,
+      "IsDisabled": false,
+      "IsDeleted": false,
+      "GroupId": null,
+      "CreatedBy": "6658760203095982080",
+      "CreatedByName": "alonso",
+      "CreatedTime": "2020-05-26T14:24:08",
+      "UpdatedBy": null,
+      "UpdatedByName": null,
+      "UpdatedTime": null,
+      "Id": "6671053300211335168"
     }
   ],
   "SysRPermissionConditionEntities": [],
@@ -4117,6 +4242,125 @@
       "Permission": null,
       "Group": null,
       "Id": "6662143302278266896"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656383230713479168",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163681882115"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656384148670464000",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163681882116"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656384232942419968",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163681882117"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656547648424329216",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163677687808"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656547859888553984",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163677687809"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656547947364958208",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163677687810"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656548238713896960",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163677687812"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656548397787070464",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163677687811"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656548507103215616",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163677687813"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656548949262548992",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163677687814"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656549120423706624",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163681882112"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656549358433681408",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163681882113"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6656549617293541376",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163681882114"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6657576658054889472",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163681882118"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6662122598040289281",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163681882119"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6662122647096868865",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163681882120"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "GroupId": "6662122928786325505",
+      "Permission": null,
+      "Group": null,
+      "Id": "6671055163681882121"
     }
   ],
   "SysRPermissionRoleEntities": [
@@ -4149,6 +4393,13 @@
       "Id": "6662076790792208385"
     },
     {
+      "PermissionId": "6661232285310468096",
+      "RoleId": "6671053300211335168",
+      "Permission": null,
+      "Role": null,
+      "Id": "6671054916238917632"
+    },
+    {
       "PermissionId": "6661233067346837505",
       "RoleId": "6662115003770552320",
       "Permission": null,
@@ -4163,6 +4414,13 @@
       "Id": "6669015100911468546"
     },
     {
+      "PermissionId": "6661233067346837505",
+      "RoleId": "6671053300211335168",
+      "Permission": null,
+      "Role": null,
+      "Id": "6671055099018297344"
+    },
+    {
       "PermissionId": "6662142704338288640",
       "RoleId": "6658135023852142592",
       "Permission": null,
@@ -4175,6 +4433,13 @@
       "Permission": null,
       "Role": null,
       "Id": "6669015132914008064"
+    },
+    {
+      "PermissionId": "6662142704338288640",
+      "RoleId": "6671053300211335168",
+      "Permission": null,
+      "Role": null,
+      "Id": "6671055123345260546"
     },
     {
       "PermissionId": "6669015644904308736",
@@ -4203,6 +4468,13 @@
       "Permission": null,
       "Role": null,
       "Id": "6669016176788193280"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "RoleId": "6671053300211335168",
+      "Permission": null,
+      "Role": null,
+      "Id": "6671055163610578944"
     }
   ],
   "SysRResourceApiEntities": [
@@ -4376,24 +4648,38 @@
     },
     {
       "ResourceId": "6659511118182694912",
-      "ApiId": "6661755994320355336",
+      "ApiId": "6661755994316161031",
       "Resource": null,
       "Api": null,
-      "Id": "6670450619742633984"
+      "Id": "6671054447496085505"
     },
     {
-      "ResourceId": "6660497004600967168",
-      "ApiId": "6661755994311966722",
+      "ResourceId": "6659511118182694912",
+      "ApiId": "6661755994320355335",
       "Resource": null,
       "Api": null,
-      "Id": "6670464522941841409"
+      "Id": "6671053930015440898"
     },
     {
-      "ResourceId": "6660497004600967168",
-      "ApiId": "6661755994311966723",
+      "ResourceId": "6659511118182694912",
+      "ApiId": "6661755994320355337",
       "Resource": null,
       "Api": null,
-      "Id": "6670464522941841408"
+      "Id": "6671053930015440897"
+    },
+    {
+      "ResourceId": "6659511118182694912",
+      "ApiId": "6661755994324549632",
+      "Resource": null,
+      "Api": null,
+      "Id": "6671053930015440896"
+    },
+    {
+      "ResourceId": "6659511118182694912",
+      "ApiId": "6661755994332938245",
+      "Resource": null,
+      "Api": null,
+      "Id": "6671054447496085504"
     },
     {
       "ResourceId": "6662117446789054465",
@@ -4457,6 +4743,34 @@
       "Resource": null,
       "Api": null,
       "Id": "6670471985694982144"
+    },
+    {
+      "ResourceId": "6662118475672797185",
+      "ApiId": "6661755994328743939",
+      "Resource": null,
+      "Api": null,
+      "Id": "6671052931276161024"
+    },
+    {
+      "ResourceId": "6662118553405833217",
+      "ApiId": "6661755994328743940",
+      "Resource": null,
+      "Api": null,
+      "Id": "6671052985198133248"
+    },
+    {
+      "ResourceId": "6662118680421941249",
+      "ApiId": "6661755994328743941",
+      "Resource": null,
+      "Api": null,
+      "Id": "6671053141465317376"
+    },
+    {
+      "ResourceId": "6662118680421941249",
+      "ApiId": "6661755994332938241",
+      "Resource": null,
+      "Api": null,
+      "Id": "6671053141465317377"
     },
     {
       "ResourceId": "6662119483136229377",
@@ -4548,6 +4862,27 @@
       "Resource": null,
       "Api": null,
       "Id": "6670472605512450048"
+    },
+    {
+      "ResourceId": "6671051967819366400",
+      "ApiId": "6661755994337132546",
+      "Resource": null,
+      "Api": null,
+      "Id": "6677644361708814336"
+    },
+    {
+      "ResourceId": "6671051967819366400",
+      "ApiId": "6671471905973420032",
+      "Resource": null,
+      "Api": null,
+      "Id": "6671471996608135168"
+    },
+    {
+      "ResourceId": "6671051967819366400",
+      "ApiId": "6677644891122253824",
+      "Resource": null,
+      "Api": null,
+      "Id": "6677645500462350336"
     }
   ],
   "SysRRoleResourceEntities": [
@@ -4977,6 +5312,20 @@
       "Role": null,
       "Resource": null,
       "Id": "6669014659469361152"
+    },
+    {
+      "RoleId": "6671053300211335168",
+      "ResourceId": "6671051967819366400",
+      "Role": null,
+      "Resource": null,
+      "Id": "6671053566578999296"
+    },
+    {
+      "RoleId": "6671053300211335168",
+      "ResourceId": "6671055908154064897",
+      "Role": null,
+      "Resource": null,
+      "Id": "6671056449064091648"
     }
   ],
   "SysSettingEntities": [],
@@ -4984,7 +5333,7 @@
     {
       "UserType": 0,
       "UserName": "admin",
-      "DisplayName": "Admin",
+      "DisplayName": "Admin Manager",
       "Mobile": "",
       "Password": "96E79218965EB72C92A549DD5A33112",
       "Mail": "alonsoalon@163.com",
@@ -4993,16 +5342,16 @@
       "Avatar": null,
       "Description": null,
       "Permission": null,
-      "Revision": 10,
+      "Revision": 12,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": "6656383230713479168",
       "CreatedBy": "0",
       "CreatedByName": "INSTALL",
       "CreatedTime": "2020-04-13T18:18:59",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-20T23:31:38",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-05-27T03:10:41.355",
       "Id": "6650943897923698688"
     },
     {
@@ -5014,19 +5363,19 @@
       "Mail": "alonsoalon@163.com",
       "PermissionId": "6661232285310468096",
       "Wexin": "",
-      "Avatar": null,
-      "Description": null,
+      "Avatar": "1/6658760203095982080.jpg",
+      "Description": "且慢、且慢",
       "Permission": null,
-      "Revision": 20,
+      "Revision": 67,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": "6656383230713479168",
       "CreatedBy": "6650943897923698688",
       "CreatedByName": "admin",
       "CreatedTime": "2020-04-22T16:15:46",
-      "UpdatedBy": "6650943897923698688",
-      "UpdatedByName": "admin",
-      "UpdatedTime": "2020-05-20T23:31:22",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-06-13T19:32:15.822",
       "Id": "6658760203095982080"
     },
     {
