@@ -6,6 +6,7 @@ using AlonsoAdmin.Common.Utils;
 using AlonsoAdmin.HttpApi.Extensions;
 using AlonsoAdmin.HttpApi.Filters;
 using AlonsoAdmin.HttpApi.Logs;
+using AlonsoAdmin.MultiTenant;
 using AlonsoAdmin.MultiTenant.Extensions;
 using AlonsoAdmin.Repository;
 using FreeSql;
@@ -19,6 +20,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
 
 namespace AlonsoAdmin.HttpApi
 {
@@ -61,6 +63,9 @@ namespace AlonsoAdmin.HttpApi
 
             // 注册启动配置到容器
             services.Configure<SystemConfig>(Configuration.GetSection("System"));
+
+            // 注册启动配置到容器
+            services.Configure<List<TenantInfo>>(Configuration.GetSection("Tenants"));
 
             // 得到程序启动需要的参数配置        
             var _startupConfig = Configuration.GetSection("Startup").Get<StartupConfig>();

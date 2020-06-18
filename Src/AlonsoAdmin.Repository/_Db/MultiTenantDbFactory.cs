@@ -51,10 +51,10 @@ namespace AlonsoAdmin.Repository
             get
             {
                 var tenantInfo = _accessor.HttpContext.GetMultiTenantContext()?.TenantInfo;
-                if (tenantInfo == null)
-                {
-                    throw new Exception("没有找到租户信息");
-                }
+                //if (tenantInfo == null)
+                //{
+                //    throw new Exception("没有找到租户信息");
+                //}
                 return tenantInfo;
             }
         }
@@ -62,7 +62,10 @@ namespace AlonsoAdmin.Repository
 
         public IFreeSql Db(string dbKey = "default")
         {
-
+            if(Tenant == null){
+                return null;
+            }
+           
             var currentDbOption = Tenant.DbOptions.Where(e => e.Key.ToLower() == dbKey.ToLower()).FirstOrDefault();
             if (currentDbOption == null)
             {

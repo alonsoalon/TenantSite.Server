@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\V1\01.Tenant\" />
     <Folder Include="Controllers\V2\" />
   </ItemGroup>
 
