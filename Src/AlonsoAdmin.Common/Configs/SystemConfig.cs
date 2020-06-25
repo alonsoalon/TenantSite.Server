@@ -9,6 +9,10 @@ namespace AlonsoAdmin.Common.Configs
     public class SystemConfig
     {
         /// <summary>
+        /// 应用数据库Kes
+        /// </summary>
+        public string[] DbKeys { get; set; }
+        /// <summary>
         /// 监听Curd操作
         /// </summary>
         public bool WatchCurd { get; set; }

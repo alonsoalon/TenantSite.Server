@@ -93,5 +93,9 @@ namespace AlonsoAdmin.Common.ResponseEntity
             return success ? Ok() : Error(errMsg);
         }
 
+        public static IResponseEntity Ok(object p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
