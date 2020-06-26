@@ -5,17 +5,18 @@
 抽离企业应用软件研发公共部分，让研发人员有条件聚焦在业务研发，实现了用于权限管理的基础数据维护，权限赋权，缓存，上传等常规功能。 <br />
 
 UI项目见：
-* github:[https://github.com/alonsoalon/TenantSite.Server](https://github.com/alonsoalon/TenantSite.Server?_blank)
-* gitee:[https://gitee.com/alonsoalon/TenantSite.Server](https://gitee.com/alonsoalon/TenantSite.Server?_blank)
+* github:[https://github.com/alonsoalon/TenantSite.UI](https://github.com/alonsoalon/TenantSite.Server?_blank)
+* gitee:[https://gitee.com/alonsoalon/TenantSite.UI](https://gitee.com/alonsoalon/TenantSite.Server?_blank)
 
-## Docs
-* Docs:[www.iusaas.com](http://www.iusaas.com?_blank)
+## Docs 
+* 更多文档见：[www.iusaas.com](http://www.iusaas.com?_blank)
 
 ## DEMO
 [租户1示例](http://tenant1.iusaas.com/login?_blank) <br />
 [租户2示例](http://tenant2.iusaas.com/login?_blank) <br />
 
 ![image](http://www.iusaas.com/intro1.jpg)
+![image](http://www.iusaas.com/intro3.jpg)
 
 ## 目录结构
 解决方案目录结构如下：
