@@ -116,6 +116,7 @@ namespace AlonsoAdmin.HttpApi.Init.Controllers
             var connStr = req.ConnectionString;
             IFreeSql fsql = new FreeSqlBuilder()
                         .UseConnectionString(dbType, connStr)
+                        .UseAutoSyncStructure(true) //自动同步实体结构【开发环境必备】
                         .Build();
             DbConnection dbConnection = fsql.Ado.MasterPool.Get().Value; // 这儿验证 连接是否成功，这句代码可以不要，如果连接字符不变正确，为了提早发现（报异常）
             fsql.Aop.AuditValue += SyncDataAuditValue;
@@ -211,8 +212,10 @@ namespace AlonsoAdmin.HttpApi.Init.Controllers
 
                         if (db.Ado.DataType == DataType.SqlServer)
                         {
-                            var insrtSql = insert.AppendData(data).InsertIdentity().ToSql();
-                            await db.Ado.ExecuteNonQueryAsync($"SET IDENTITY_INSERT {tableName} ON\n {insrtSql} \nSET IDENTITY_INSERT {tableName} OFF");
+                            //var insrtSql = insert.AppendData(data).InsertIdentity().ToSql();
+                            //var sql = $"SET IDENTITY_INSERT {tableName} ON\n {insrtSql} \nSET IDENTITY_INSERT {tableName} OFF";
+                            //await db.Ado.ExecuteNonQueryAsync(sql);
+                            await insert.AppendData(data).InsertIdentity().ExecuteAffrowsAsync();
                         }
                         else
                         {
