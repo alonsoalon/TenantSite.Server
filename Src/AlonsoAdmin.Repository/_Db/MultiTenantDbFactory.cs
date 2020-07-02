@@ -6,6 +6,7 @@ using AlonsoAdmin.Entities;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.MultiTenant;
 using AlonsoAdmin.MultiTenant.Extensions;
+using FreeSql;
 using FreeSql.Aop;
 using FreeSql.DataAnnotations;
 using Microsoft.AspNetCore.Hosting;
@@ -131,6 +132,9 @@ namespace AlonsoAdmin.Repository
 
         private void ConfigEntityProperty(object s, ConfigEntityPropertyEventArgs e) {
 
+            
+    
+
             // 处理排序字段自动取最大值插入
             if (e.Property.GetCustomAttributes(typeof(MaxValueAttribute)).Any()) {
 
@@ -142,8 +146,29 @@ namespace AlonsoAdmin.Repository
                 var PropertyAttr = (e.Property.GetCustomAttribute(typeof(ColumnAttribute)) as FreeSql.DataAnnotations.ColumnAttribute);
                 if (PropertyAttr?.Name != "") fieldName = PropertyAttr.Name;
 
-                // sql语句在mysql下没问题，但在其他库未测试
-                e.ModifyResult.InsertValueSql = $"(SELECT a.max_v FROM (SELECT (IFNULL(max({fieldName}),0) + 1) max_v from {tableName}) a)";
+                IFreeSql fsql = s as IFreeSql;
+                string insertValueSql = "";
+
+                switch (fsql.Ado.DataType) {
+                    case DataType.MySql:
+                    case DataType.OdbcMySql:
+                        insertValueSql = $"(SELECT a.max_v FROM (SELECT (IFNULL(max({fieldName}),0) + 1) max_v from {tableName}) a)";
+                        break;
+                    case DataType.SqlServer:
+                    case DataType.OdbcSqlServer:
+                        insertValueSql = $"(SELECT a.max_v FROM (SELECT (isnull(max({fieldName}),0) + 1) max_v from {tableName}) a)";
+                        break;
+                    case DataType.Oracle:
+                    case DataType.OdbcOracle:
+                        insertValueSql = $"(SELECT a.max_v FROM (SELECT (nvl(max({fieldName}),0) + 1) max_v from {tableName}) a)";
+                        break;
+                    default:
+                        insertValueSql = $"(SELECT a.max_v FROM (SELECT (max({fieldName}) + 1) max_v from {tableName}) a)";
+                        break;
+                }
+
+                e.ModifyResult.InsertValueSql = insertValueSql;
+
             }
         }
 
