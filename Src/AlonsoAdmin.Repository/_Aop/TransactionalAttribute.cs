@@ -14,6 +14,7 @@ namespace AlonsoAdmin.Repository
     /// <summary>
     /// 事务处理，目前这个事务处理没调试成功，弃用状态，
     /// </summary>
+    [Obsolete]
     public class TransactionalAttribute : AbstractInterceptorAttribute
     {
         public Propagation Propagation { get; set; } = Propagation.Requierd;

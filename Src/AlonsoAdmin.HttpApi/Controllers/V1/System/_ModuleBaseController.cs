@@ -11,7 +11,7 @@ using static AlonsoAdmin.HttpApi.SwaggerHelper.CustomApiVersion;
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
 
-    [CustomRoute(ApiVersions.v1,"System")]    
+    [CustomRoute(ApiVersions.v1, "System")]
     public abstract class ModuleBaseController : BaseController
     {
     }

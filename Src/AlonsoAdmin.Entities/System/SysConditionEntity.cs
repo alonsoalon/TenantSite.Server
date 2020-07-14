@@ -25,7 +25,7 @@ namespace AlonsoAdmin.Entities.System
 		public string Description { get; set; } = string.Empty;
 
 		/// <summary>
-		/// 表达式树 表达式树,目前存放SQL语句
+		/// 表达式树(SQL)
 		/// </summary>
 		[Column(Name = "EXPRESSION", Position = 4)]
 		public string Expression { get; set; } = string.Empty;
