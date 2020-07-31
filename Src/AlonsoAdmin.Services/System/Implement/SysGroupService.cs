@@ -46,7 +46,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysGroupRepository.InsertAsync(item);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.GroupList);
 
             return ResponseEntity.Result(result != null && result?.Id != "");
         }
@@ -70,7 +70,7 @@ namespace AlonsoAdmin.Services.System.Implement
             await _sysGroupRepository.UpdateAsync(entity);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.GroupList);
 
             return ResponseEntity.Ok("更新成功");
         }
@@ -84,7 +84,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysGroupRepository.DeleteAsync(id);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.GroupList);
 
             return ResponseEntity.Result(result > 0);
         }
@@ -98,7 +98,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysGroupRepository.Where(m => ids.Contains(m.Id)).ToDelete().ExecuteAffrowsAsync();
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.GroupList);
 
             return ResponseEntity.Result(result > 0);
         }
@@ -113,7 +113,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysGroupRepository.SoftDeleteAsync(id);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.GroupList);
 
             return ResponseEntity.Result(result);
         }
@@ -128,7 +128,7 @@ namespace AlonsoAdmin.Services.System.Implement
             var result = await _sysGroupRepository.SoftDeleteAsync(ids);
 
             //清除缓存
-            await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
+            await _cache.RemoveByPatternAsync(CacheKeyTemplate.GroupList);
 
             return ResponseEntity.Result(result);
         }

@@ -18,8 +18,6 @@
     <Compile Include="System\Implement\SysLoginLogRepository.cs" />
     <Compile Include="System\Implement\SysApiRepository.cs" />
     <Compile Include="System\Implement\SysConditionRepository.cs" />
-    <Compile Include="System\Implement\SysDictionaryDetailRepository.cs" />
-    <Compile Include="System\Implement\SysDictionaryRepository.cs" />
     <Compile Include="System\Implement\SysGroupRepository.cs" />
     <Compile Include="System\Implement\SysPermissionRepository.cs" />
     <Compile Include="System\Implement\SysResourceRepository.cs" />
@@ -35,8 +33,6 @@
     <Compile Include="System\Interface\ISysLoginLogRepository.cs" />
     <Compile Include="System\Interface\ISysApiRepository.cs" />
     <Compile Include="System\Interface\ISysConditionRepository.cs" />
-    <Compile Include="System\Interface\ISysDictionaryDetailRepository.cs" />
-    <Compile Include="System\Interface\ISysDictionaryRepository.cs" />
     <Compile Include="System\Interface\ISysGroupRepository.cs" />
     <Compile Include="System\Interface\ISysPermissionRepository.cs" />
     <Compile Include="System\Interface\ISysResourceRepository.cs" />

@@ -7,24 +7,24 @@ namespace AlonsoAdmin.Common.Cache
 {
     public static class CacheKeyTemplate
     {
+        /// <summary>
+        /// 组织机构缓存
+        /// </summary>
+        [Description("全局-组织机构缓存")]
+        public const string GroupList = "admin:GroupList";
 
         /// <summary>
-        /// 权限岗菜单资源缓存 admin:Permission:权限岗主键:ResourceList
+        /// 权限模板菜单资源缓存 admin:Permission:权限模板主键:ResourceList
         /// </summary>
-        [Description("权限岗资源集合缓存")]
+        [Description("权限模板-资源集合缓存")]
         public const string PermissionResourceList = "admin:Permission:{0}:ResourceList";
 
 
-        /// <summary>
-        /// 权限岗权限组缓存 admin:Permission:权限岗主键:GroupList
-        /// </summary>
-        [Description("权限岗权限组集合缓存")]
-        public const string PermissionGroupList = "admin:Permission:{0}:GroupList";
 
         /// <summary>
-        /// 权限岗Api缓存 admin:Permission:权限岗主键:ApiList
+        /// 权限模板Api缓存 admin:Permission:权限模板主键:ApiList
         /// </summary>
-        [Description("权限岗Api集合缓存")]
+        [Description("权限模板-Api集合缓存")]
         public const string PermissionApiList = "admin:Permission:{0}:ApiList";
 
     }

@@ -14,13 +14,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-    [Description("组织机构")]
-    public class GroupController : ModuleBaseController
+    [Description("数据条件")]
+    public class ConditionController : ModuleBaseController
     {
-        private readonly ISysGroupService _sysGroupService;
-        public GroupController(ISysGroupService sysGroupService)
+        private readonly ISysConditionService _sysConditionService;
+        public ConditionController(ISysConditionService sysConditionService)
         {
-            _sysGroupService = sysGroupService;
+            _sysConditionService = sysConditionService;
         }
 
         #region 通用API方法
@@ -30,9 +30,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResponseEntity> Create(GroupAddRequest req)
+        public async Task<IResponseEntity> Create(ConditionAddRequest req)
         {
-            return await _sysGroupService.CreateAsync(req);
+            return await _sysConditionService.CreateAsync(req);
         }
 
         /// <summary>
@@ -41,9 +41,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IResponseEntity> Update(GroupEditRequest req)
+        public async Task<IResponseEntity> Update(ConditionEditRequest req)
         {
-            return await _sysGroupService.UpdateAsync(req);
+            return await _sysConditionService.UpdateAsync(req);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         public async Task<IResponseEntity> Delete(string id)
         {
 
-            return await _sysGroupService.DeleteAsync(id);
+            return await _sysConditionService.DeleteAsync(id);
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpPut]
         public async Task<IResponseEntity> DeleteBatch(string[] ids)
         {
-            return await _sysGroupService.DeleteBatchAsync(ids);
+            return await _sysConditionService.DeleteBatchAsync(ids);
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpDelete]
         public async Task<IResponseEntity> SoftDelete(string id)
         {
-            return await _sysGroupService.SoftDeleteAsync(id);
+            return await _sysConditionService.SoftDeleteAsync(id);
         }
 
 
@@ -90,7 +90,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpPut]
         public async Task<IResponseEntity> SoftDeleteBatch(string[] ids)
         {
-            return await _sysGroupService.SoftDeleteBatchAsync(ids);
+            return await _sysConditionService.SoftDeleteBatchAsync(ids);
 
         }
 
@@ -102,7 +102,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpGet]
         public async Task<IResponseEntity> GetItem(string id)
         {
-            return await _sysGroupService.GetItemAsync(id);
+            return await _sysConditionService.GetItemAsync(id);
         }
 
         /// <summary>
@@ -111,9 +111,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResponseEntity> GetList(RequestEntity<GroupFilterRequest> req)
+        public async Task<IResponseEntity> GetList(RequestEntity<ConditionFilterRequest> req)
         {
-            return await _sysGroupService.GetListAsync(req);
+            return await _sysConditionService.GetListAsync(req);
         }
 
         /// <summary>
@@ -122,9 +122,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResponseEntity> GetAll(GroupFilterRequest req)
+        public async Task<IResponseEntity> GetAll(ConditionFilterRequest req)
         {
-            return await _sysGroupService.GetAllAsync(req);
+            return await _sysConditionService.GetAllAsync(req);
         }
         #endregion
 

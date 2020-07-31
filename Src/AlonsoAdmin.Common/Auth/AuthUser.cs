@@ -87,6 +87,21 @@ namespace AlonsoAdmin.Common.Auth
             }
         }
 
+        public string GroupId
+        {
+            get
+            {
+                var name = _accessor?.HttpContext?.User?.FindFirst(ClaimAttributes.GroupId);
+
+                if (name != null && name.Value.IsNotNull())
+                {
+                    return name.Value;
+                }
+
+                return "";
+            }
+        }
+
 
 
         public TenantInfo Tenant
@@ -131,6 +146,11 @@ namespace AlonsoAdmin.Common.Auth
         /// 权限岗Id key
         /// </summary>
         public const string PermissionId = "pi";
+
+        /// <summary>
+        /// 部门 GroupID key
+        /// </summary>
+        public const string GroupId = "gi";
 
         /// <summary>
         /// 登录日志Id  key

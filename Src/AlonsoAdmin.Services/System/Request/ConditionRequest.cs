@@ -1,5 +1,4 @@
-﻿using AlonsoAdmin.Entities.System;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -9,23 +8,32 @@ namespace AlonsoAdmin.Services.System.Request
 	/// <summary>
 	/// 添加实体类 要么继承 数据库实体类，要么属性尽量取名一致(除非迁就前端)，避免automapper做对应映射处理
 	/// </summary>
-	public class PermissionAddRequest
-    {
+	public class ConditionAddRequest
+	{
 		/// <summary>
-		/// CODE
+		/// 编码
 		/// </summary>
-		public string Code { get; set; } = string.Empty;
+		public string Code { get; set; } 
 
 		/// <summary>
 		/// 标题
 		/// </summary>
-		[Required(ErrorMessage = "标题不能为空！")]
-		public string Title { get; set; } = string.Empty;
+		public string Title { get; set; } 
 
 		/// <summary>
 		/// 描述
 		/// </summary>
-		public string Description { get; set; } = string.Empty;
+		public string Description { get; set; } 
+
+		/// <summary>
+		/// 表达式树(SQL)
+		/// </summary>
+		public string Expression { get; set; }
+
+		/// <summary>
+		/// Json Where
+		/// </summary>
+		public string Condition { get; set; }
 
 		/// <summary>
 		/// 是否禁用
@@ -36,10 +44,9 @@ namespace AlonsoAdmin.Services.System.Request
 		/// 数据归属组
 		/// </summary>
 		public string GroupId { get; set; }
-
 	}
 
-	public class PermissionEditRequest : PermissionAddRequest
+	public class ConditionEditRequest : ConditionAddRequest
 	{
 		public string Id { get; set; }
 
@@ -49,7 +56,7 @@ namespace AlonsoAdmin.Services.System.Request
 
 	}
 
-	public class PermissionFilterRequest
+	public class ConditionFilterRequest
 	{
 		/// <summary>
 		/// 查询关键字
@@ -60,17 +67,5 @@ namespace AlonsoAdmin.Services.System.Request
 		/// 是否包含禁用的数据
 		/// </summary>
 		public bool WithDisable { get; set; } = false;
-	}
-
-
-	public class PermissionAssignPowerRequest {
-		[Required(ErrorMessage = "权限模板不能为空！")]
-		public string PermissionId { get; set; }
-
-
-		public List<string> RoleIds { get; set; }
-
-
-		public List<string> ConditionIds { get; set; }
 	}
 }

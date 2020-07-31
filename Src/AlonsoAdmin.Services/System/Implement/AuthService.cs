@@ -27,6 +27,7 @@ namespace AlonsoAdmin.Services.System.Implement
         private readonly ISysUserRepository _userRepository;
         private readonly ISysResourceRepository _sysResourceRepository;
         private readonly IAuthUser _authUser;
+        private readonly ISysGroupRepository _sysGroupRepository;
         private readonly IPermissionDomain _permissionDomain;
         public AuthService(
             ICache cache,
@@ -34,6 +35,7 @@ namespace AlonsoAdmin.Services.System.Implement
             ISysUserRepository userRepository,
             ISysResourceRepository resourceRepository,
             IAuthUser authUser,
+            ISysGroupRepository sysGroupRepository,
             IPermissionDomain permissionDomain
             )
         {
@@ -42,6 +44,7 @@ namespace AlonsoAdmin.Services.System.Implement
             _userRepository = userRepository;
             _sysResourceRepository = resourceRepository;
             _authUser = authUser;
+            _sysGroupRepository = sysGroupRepository;
             _permissionDomain = permissionDomain;
         }
 
@@ -87,10 +90,13 @@ namespace AlonsoAdmin.Services.System.Implement
 
             var password = MD5Encrypt.Encrypt32(req.Password);
             SysUserEntity user = new SysUserEntity();
-            using (_userRepository.DataFilter.Disable("Group"))
-            {
-                user = await _userRepository.GetAsync(a => a.UserName == req.UserName && a.Password == password);
-            }
+
+            //using (_userRepository.DataFilter.Disable("Group"))
+            //{
+            // user = await _userRepository.GetAsync(a => a.UserName == req.UserName && a.Password == password);
+            //}
+
+            user = await _userRepository.GetAsync(a => a.UserName == req.UserName && a.Password == password);
 
             if (user?.Id == "")
             {
@@ -118,7 +124,7 @@ namespace AlonsoAdmin.Services.System.Implement
         /// <returns></returns>
         public async Task<IResponseEntity> GetUserGroupsAsync() {
 
-            var cacheKey = string.Format(CacheKeyTemplate.PermissionGroupList, _authUser.PermissionId);
+            var cacheKey = CacheKeyTemplate.GroupList;
             List<SysGroupEntity> data = new List<SysGroupEntity>();
             if (await _cache.ExistsAsync(cacheKey))
             {
@@ -126,7 +132,12 @@ namespace AlonsoAdmin.Services.System.Implement
             }
             else
             {
-                data = await _permissionDomain.GetPermissionGroupsAsync(_authUser.PermissionId);
+
+                data = await _sysGroupRepository.Select
+                    .Where(a => a.IsDisabled == false)
+                    .OrderBy(true, a => a.OrderIndex)
+                    .ToListAsync();
+
                 await _cache.SetAsync(cacheKey, data);
             }
             var result = _mapper.Map<List<GroupForListResponse>>(data);

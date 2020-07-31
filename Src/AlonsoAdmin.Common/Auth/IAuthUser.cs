@@ -27,9 +27,14 @@ namespace AlonsoAdmin.Common.Auth
         string DisplayName { get; }
 
         /// <summary>
-        /// 权限岗Id
+        /// 权限模板Id
         /// </summary>
         string PermissionId { get; }
+
+        /// <summary>
+        /// 所在部门
+        /// </summary>
+        string GroupId { get; }
 
         TenantInfo Tenant { get; }
     }

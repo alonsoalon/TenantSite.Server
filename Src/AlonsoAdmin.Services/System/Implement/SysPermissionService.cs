@@ -26,6 +26,7 @@ namespace AlonsoAdmin.Services.System.Implement
         private readonly ISysPermissionRepository _sysPermissionRepository;
         private readonly ISysRPermissionGroupRepository _sysRPermissionGroupRepository;
         private readonly ISysRPermissionRoleRepository _sysRPermissionRoleRepository;
+        private readonly ISysRPermissionConditionRepository _sysRPermissionConditionRepository;
         private readonly IPermissionDomain _permissionDomain;
         public SysPermissionService(
             IMapper mapper,
@@ -33,6 +34,7 @@ namespace AlonsoAdmin.Services.System.Implement
             ISysPermissionRepository sysPermissionRepository,
             ISysRPermissionGroupRepository sysRPermissionGroupRepository,
             ISysRPermissionRoleRepository sysRPermissionRoleRepository,
+            ISysRPermissionConditionRepository sysRPermissionConditionRepository,
             IPermissionDomain permissionDomain
             )
         {
@@ -41,6 +43,7 @@ namespace AlonsoAdmin.Services.System.Implement
             _sysPermissionRepository = sysPermissionRepository;
             _sysRPermissionGroupRepository = sysRPermissionGroupRepository;
             _sysRPermissionRoleRepository = sysRPermissionRoleRepository;
+            _sysRPermissionConditionRepository = sysRPermissionConditionRepository;
             _permissionDomain = permissionDomain;
 
         }
@@ -166,7 +169,7 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> PermissionAssignPowerAsync(PermissionAssignPowerRequest req)
         {
 
-            var result = await _permissionDomain.PermissionAssignPowerAsync(req.PermissionId, req.RoleIds, req.GroupIds);
+            var result = await _permissionDomain.PermissionAssignPowerAsync(req.PermissionId, req.RoleIds, req.ConditionIds);
             //清除权限缓存
             await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
             return ResponseEntity.Result(result);
@@ -192,7 +195,14 @@ namespace AlonsoAdmin.Services.System.Implement
             return ResponseEntity.Ok(roleIds);
         }
 
+        public async Task<IResponseEntity> GetConditionIdsByPermissionIdAsync(string permissionId)
+        {
+            var conditionIds = await _sysRPermissionConditionRepository
+                .Select.Where(d => d.PermissionId == permissionId)
+                .ToListAsync(a => a.ConditionId);
 
+            return ResponseEntity.Ok(conditionIds);
+        }
 
         #endregion
 

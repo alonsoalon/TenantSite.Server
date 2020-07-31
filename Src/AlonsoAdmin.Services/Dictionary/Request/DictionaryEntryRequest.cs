@@ -107,6 +107,11 @@ namespace AlonsoAdmin.Services.Dictionary.Request
 		public string DictionaryHeaderId { get; set; } = string.Empty;
 
 		/// <summary>
+		/// 字典头（分类）Code
+		/// </summary>
+		public string DictionaryHeaderCode { get; set; }
+
+		/// <summary>
 		/// 查询关键字
 		/// </summary>
 		public string Key { get; set; } = string.Empty;

@@ -26,12 +26,7 @@ namespace AlonsoAdmin.Domain.System.Interface
         Task<List<SysResourceEntity>> GetPermissionResourcesAsync(string permissionId);
 
 
-        /// <summary>
-        /// 根据指定权限岗，得到权限数据组集合 
-        /// </summary>
-        /// <param name="permissionId"></param>
-        /// <returns></returns>
-        Task<List<SysGroupEntity>> GetPermissionGroupsAsync(string permissionId);
+
 
 
         /// <summary>

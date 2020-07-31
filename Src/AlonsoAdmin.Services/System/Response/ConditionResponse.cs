@@ -5,11 +5,10 @@ using System.Text;
 
 namespace AlonsoAdmin.Services.System.Response
 {
-
     /// <summary>
     /// ForList 实体对象（一般用于列表页展示数据用）
     /// </summary>
-    public class DictionaryHeaderForListResponse : SysDictionaryEntity
+    public class ConditionForListResponse : SysConditionEntity
     {
 
     }
@@ -17,7 +16,7 @@ namespace AlonsoAdmin.Services.System.Response
     /// <summary>
     /// ForIem 实体对象（一般用于明细页展示数据用）
     /// </summary>
-    public class DictionaryHeaderForItemResponse : SysDictionaryEntity
+    public class ConditionForItemResponse : SysConditionEntity
     {
 
     }

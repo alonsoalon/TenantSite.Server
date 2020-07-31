@@ -23,9 +23,9 @@ namespace AlonsoAdmin.Domain.System.Implement
         /// </summary>
         /// <param name="permissionId"></param>
         /// <param name="roleIds"></param>
-        /// <param name="groupIds"></param>
+        /// <param name="conditionIds"></param>
         /// <returns></returns>
-        public async Task<bool> PermissionAssignPowerAsync(string permissionId, List<string> roleIds, List<string> groupIds)
+        public async Task<bool> PermissionAssignPowerAsync(string permissionId, List<string> roleIds, List<string> conditionIds)
         {
 
             using (var uow = _systemDb.CreateUnitOfWork())
@@ -61,33 +61,33 @@ namespace AlonsoAdmin.Domain.System.Implement
 
                 #endregion
 
-                #region 权限与角色的关系处理
-                var dbPermissionGroup = uow.GetRepository<SysRPermissionGroupEntity>();
+                #region 权限与数据条件的关系处理
+                var dbPermissionCondition = uow.GetRepository<SysRPermissionConditionEntity>();
 
                 //查询已经在库资源
-                var oldGroupIds = await dbPermissionGroup.Where(d => d.PermissionId == permissionId).ToListAsync(m => m.GroupId);
+                var oldConditionIds = await dbPermissionCondition.Where(d => d.PermissionId == permissionId).ToListAsync(m => m.ConditionId);
 
                 //删除已经取消赋权的记录
-                var cancelGroupIds = oldGroupIds.Where(d => !groupIds.Contains(d));
-                if (cancelGroupIds.Count() > 0)
+                var cancelConditionIds = oldConditionIds.Where(d => !conditionIds.Contains(d));
+                if (cancelConditionIds.Count() > 0)
                 {
-                    await dbPermissionGroup.DeleteAsync(m => m.PermissionId == permissionId && cancelGroupIds.Contains(m.GroupId));
+                    await dbPermissionCondition.DeleteAsync(m => m.PermissionId == permissionId && cancelConditionIds.Contains(m.ConditionId));
                 }
 
                 //插入新赋权的记录
-                var insertGroupList = new List<SysRPermissionGroupEntity>();
-                var insertGroupIds = groupIds.Where(d => !oldGroupIds.Contains(d));
-                if (insertGroupIds.Count() > 0)
+                var insertConditionList = new List<SysRPermissionConditionEntity>();
+                var insertConditionIds = conditionIds.Where(d => !oldConditionIds.Contains(d));
+                if (insertConditionIds.Count() > 0)
                 {
-                    foreach (var roleId in insertGroupIds)
+                    foreach (var conditionId in insertConditionIds)
                     {
-                        insertGroupList.Add(new SysRPermissionGroupEntity()
+                        insertConditionList.Add(new SysRPermissionConditionEntity()
                         {
                             PermissionId = permissionId,
-                            GroupId = roleId
+                            ConditionId = conditionId
                         });
                     }
-                    await dbPermissionGroup.InsertAsync(insertGroupList);
+                    await dbPermissionCondition.InsertAsync(insertConditionList);
                 }
 
                 #endregion
@@ -117,25 +117,9 @@ namespace AlonsoAdmin.Domain.System.Implement
             return list;
         }
 
-        /// <summary>
-        /// 得到权限的权限数据组集合
-        /// </summary>
-        /// <param name="permissionId"></param>
-        /// <returns></returns>
-        public async Task<List<SysGroupEntity>> GetPermissionGroupsAsync(string permissionId)
-        {
-
-            var list = await _systemDb.GetRepository<SysRPermissionGroupEntity>().Select
-                .Include(a => a.Group)
-                .Distinct()
-                .ToListAsync(a => a.Group);
-
-            return list;
-        }
-
 
         /// <summary>
-        /// 得到权限岗的API集合
+        /// 得到权限模板的API集合
         /// </summary>
         /// <param name="permissionId"></param>
         /// <returns></returns>

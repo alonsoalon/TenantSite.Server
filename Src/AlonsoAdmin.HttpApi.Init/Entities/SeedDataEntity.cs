@@ -1,4 +1,5 @@
-﻿using AlonsoAdmin.Entities.System;
+﻿using AlonsoAdmin.Entities.Dictionary;
+using AlonsoAdmin.Entities.System;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,7 @@ namespace AlonsoAdmin.HttpApi.Init.Entities
     {
         public List<SysApiEntity> SysApiEntities { get; set; }
         public List<SysConditionEntity> SysConditionEntities { get; set; }
-        public List<SysDictionaryDetailEntity> SysDictionaryDetailEntities { get; set; }
-        public List<SysDictionaryEntity> SysDictionaryEntities { get; set; }
+
         public List<SysGroupEntity> SysGroupEntities { get; set; }
         public List<SysPermissionEntity> SysPermissionEntities { get; set; }
         public List<SysResourceEntity> SysResourceEntities { get; set; }
@@ -26,5 +26,8 @@ namespace AlonsoAdmin.HttpApi.Init.Entities
         public List<SysRRoleResourceEntity> SysRRoleResourceEntities { get; set; }
         public List<SysSettingEntity> SysSettingEntities { get; set; }
         public List<SysUserEntity> SysUserEntities { get; set; }
+
+        public List<DictionaryEntryEntity> SysDictionaryEntryEntities { get; set; }
+        public List<DictionaryHeaderEntity> SysDictionaryHeaderEntities { get; set; }
     }
 }

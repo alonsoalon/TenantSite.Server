@@ -1,4 +1,5 @@
-﻿using AlonsoAdmin.Entities.System;
+﻿using AlonsoAdmin.Entities.Dictionary;
+using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.HttpApi.Init.Entities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -38,8 +39,8 @@ namespace AlonsoAdmin.HttpApi.Init.Services
 
             var sysApiEntities = fsql.GetRepository<SysApiEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysConditionEntities = fsql.GetRepository<SysConditionEntity>().Select.Where(x => x.IsDeleted == false).ToList();
-            var SysDictionaryDetailEntities = fsql.GetRepository<SysDictionaryDetailEntity>().Select.Where(x => x.IsDeleted == false).ToList();
-            var SysDictionaryEntities = fsql.GetRepository<SysDictionaryEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysDictionaryEntryEntities = fsql.GetRepository<DictionaryEntryEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysDictionaryHeaderEntities = fsql.GetRepository<DictionaryHeaderEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysGroupEntities = fsql.GetRepository<SysGroupEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysPermissionEntities = fsql.GetRepository<SysPermissionEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysResourceEntities = fsql.GetRepository<SysResourceEntity>().Select.Where(x => x.IsDeleted == false).ToList();
@@ -56,8 +57,8 @@ namespace AlonsoAdmin.HttpApi.Init.Services
             {
                 SysApiEntities = sysApiEntities,
                 SysConditionEntities = SysConditionEntities,
-                SysDictionaryDetailEntities = SysDictionaryDetailEntities,
-                SysDictionaryEntities = SysDictionaryEntities,
+                SysDictionaryEntryEntities = SysDictionaryEntryEntities,
+                SysDictionaryHeaderEntities = SysDictionaryHeaderEntities,
                 SysGroupEntities = SysGroupEntities,
                 SysPermissionEntities = SysPermissionEntities,
                 SysResourceEntities = SysResourceEntities,

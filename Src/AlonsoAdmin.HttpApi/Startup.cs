@@ -60,26 +60,23 @@ namespace AlonsoAdmin.HttpApi
                 //.AllowCredentials());
             });
 
-
-            // 注册启动配置到容器
-            services.Configure<SystemConfig>(Configuration.GetSection("System"));
-
-            // 注册启动配置到容器
-            services.Configure<List<TenantInfo>>(Configuration.GetSection("Tenants"));
-
             // 得到程序启动需要的参数配置        
             var _startupConfig = Configuration.GetSection("Startup").Get<StartupConfig>();
 
             // 注册系统配置到容器
             services.Configure<SystemConfig>(Configuration.GetSection("System"));
 
+            // 注册租户配置到容器
+            services.Configure<List<TenantInfo>>(Configuration.GetSection("Tenants"));
+
+
             services.AddControllers(options =>
             {
                 if (_startupConfig.Log.Operation)
                 {
-                    options.Filters.Add<LogActionFilter>();
-                    options.Filters.Add<ValidateModelFilter>();// 自定义 模型验证内
+                    options.Filters.Add<LogActionFilter>();                    
                 }
+                options.Filters.Add<ValidateModelFilter>();// 自定义 模型验证
             })
             .ConfigureApiBehaviorOptions(options => {
                 //关闭默认模型验证,因为我们使用了自己的ValidateModelFilter

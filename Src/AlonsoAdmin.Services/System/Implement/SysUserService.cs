@@ -79,10 +79,10 @@ namespace AlonsoAdmin.Services.System.Implement
             }
 
             if (entity.PermissionId != req.PermissionId) {
-                //清除权限岗的资源缓存
+                //清除权限模板的资源缓存
                 await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
-                //清除权限岗的数据归属组缓存
-                await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
+                //清除权限模板的API缓存
+                await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionApiList);
             }
 
             _mapper.Map(req, entity);

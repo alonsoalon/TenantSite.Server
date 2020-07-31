@@ -96,6 +96,17 @@ namespace AlonsoAdmin.Services.System
             CreateMap<SysApiEntity, ApiForItemResponse>();
             #endregion
 
+            #region Condition 数据条件 映射
+            // 创建 用到的映射 (DTO -> DO)
+            CreateMap<ConditionAddRequest, SysConditionEntity>();
+            // 更新 用到的映射 (DTO -> DO)
+            CreateMap<ConditionEditRequest, SysConditionEntity>();
+            // 查询列表 用到的映射 (DO -> DTO)
+            CreateMap<SysConditionEntity, ConditionForListResponse>();
+            // 查询单条明细 用到的映射 (DO -> DTO)
+            CreateMap<SysConditionEntity, ConditionForItemResponse>();
+            #endregion
+
         }
     }
 }
