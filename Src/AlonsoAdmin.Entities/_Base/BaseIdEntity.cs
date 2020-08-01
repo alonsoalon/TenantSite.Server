@@ -8,7 +8,7 @@ namespace AlonsoAdmin.Entities
 		/// <summary>
 		/// 主键
 		/// </summary>
-		[Column(Name = "ID", Position = 1, IsPrimary = true)]
+		[Column(Name = "ID", Position = 1, StringLength = 64, IsPrimary = true)]
 		[Snowflake]
 		public string Id { get; set; }
 	}
