@@ -143,6 +143,9 @@ namespace AlonsoAdmin.HttpApi.Init.Controllers
                 await InitDtData(fsql, data.SysRRoleResourceEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysSettingEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysUserEntities.ToArray(), tran, sb);
+                await InitDtData(fsql, data.SysLoginLogEntities?.ToArray(), tran, sb);
+                await InitDtData(fsql, data.SysOperationLogEntities?.ToArray(), tran, sb);
+
                 sb.Append("</ul>");
                 uow.Commit();
             }

@@ -48,8 +48,13 @@ namespace AlonsoAdmin.Services.System.Implement
             _permissionDomain = permissionDomain;
         }
 
-
-        private async Task<AuthLoginResponse> getUserItem(SysUserEntity user)
+        /// <summary>
+        /// 得到用户相关属性
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="forceLoad">是否强制加载，不走缓存</param>
+        /// <returns></returns>
+        private async Task<AuthLoginResponse> getUserItem(SysUserEntity user,bool forceLoad=false)
         {
 
             var res = _mapper.Map<AuthLoginResponse>(user);
@@ -57,7 +62,7 @@ namespace AlonsoAdmin.Services.System.Implement
             #region 得到菜单数据
             AuthResourceResponse authResource = new AuthResourceResponse();
             var cacheKey = string.Format(CacheKeyTemplate.PermissionResourceList, user.PermissionId);
-            if (await _cache.ExistsAsync(cacheKey))
+            if (await _cache.ExistsAsync(cacheKey) && !forceLoad)
             {
                 authResource = await _cache.GetAsync<AuthResourceResponse>(cacheKey);
             }
@@ -103,7 +108,7 @@ namespace AlonsoAdmin.Services.System.Implement
                 return ResponseEntity.Error("账号或密码错误!");
             }
             
-            var res = await getUserItem(user);
+            var res = await getUserItem(user,true);
             return ResponseEntity.Ok(res);
         }
 

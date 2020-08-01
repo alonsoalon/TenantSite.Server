@@ -26,7 +26,12 @@ namespace AlonsoAdmin.HttpApi.Init.Entities
         public List<SysSettingEntity> SysSettingEntities { get; set; }
         public List<SysUserEntity> SysUserEntities { get; set; }
 
+        public List<SysLoginLogEntity> SysLoginLogEntities { get; set; }
+        public List<SysOperationLogEntity> SysOperationLogEntities { get; set; }
+
+
         public List<DictionaryEntryEntity> SysDictionaryEntryEntities { get; set; }
         public List<DictionaryHeaderEntity> SysDictionaryHeaderEntities { get; set; }
+
     }
 }

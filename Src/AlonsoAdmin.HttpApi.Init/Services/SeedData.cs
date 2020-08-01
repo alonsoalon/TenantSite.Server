@@ -52,6 +52,8 @@ namespace AlonsoAdmin.HttpApi.Init.Services
             var SysSettingEntities = fsql.GetRepository<SysSettingEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysUserEntities = fsql.GetRepository<SysUserEntity>().Select.Where(x => x.IsDeleted == false).ToList();
 
+
+
             SeedDataEntity seedDataEntity = new SeedDataEntity()
             {
                 SysApiEntities = sysApiEntities,
@@ -67,7 +69,9 @@ namespace AlonsoAdmin.HttpApi.Init.Services
                 SysRResourceApiEntities = SysRResourceApiEntities,
                 SysRRoleResourceEntities = SysRRoleResourceEntities,
                 SysSettingEntities = SysSettingEntities,
-                SysUserEntities = SysUserEntities
+                SysUserEntities = SysUserEntities,
+                SysLoginLogEntities = new List<SysLoginLogEntity>(),
+                SysOperationLogEntities = new List<SysOperationLogEntity>()
             };
 
 
