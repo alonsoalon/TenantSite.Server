@@ -40,31 +40,31 @@ namespace AlonsoAdmin.Entities.Dictionary
 		/// <summary>
 		/// 扩展字段1
 		/// </summary>
-		[Column(Name = "EX1", Position = 6)]
+		[Column(Name = "EX1", StringLength = -1, Position = 6)]
 		public string Ex1 { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 扩展字段2
 		/// </summary>
-		[Column(Name = "EX2", Position = 7)]
+		[Column(Name = "EX2", StringLength =-1, Position = 7)]
 		public string Ex2 { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 扩展字段3
 		/// </summary>
-		[Column(Name = "EX3", Position = 8)]
+		[Column(Name = "EX3", StringLength = -1, Position = 8)]
 		public string Ex3 { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 扩展字段4
 		/// </summary>
-		[Column(Name = "EX4", Position = 9)]
+		[Column(Name = "EX4", StringLength = -1, Position = 9)]
 		public string Ex4 { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 扩展字段5
 		/// </summary>
-		[Column(Name = "EX5", Position = 10)]
+		[Column(Name = "EX5", StringLength = -1, Position = 10)]
 		public string Ex5 { get; set; } = string.Empty;
 
 

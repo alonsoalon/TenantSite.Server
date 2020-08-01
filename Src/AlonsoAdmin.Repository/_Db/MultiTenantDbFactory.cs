@@ -179,10 +179,13 @@ namespace AlonsoAdmin.Repository
                 && e.Property.GetCustomAttribute<SnowflakeAttribute>(false) != null
                 )
             {
-                var sf = Common.IdGenerator.Snowflake.Instance();
                 var dataCenterId = _systemConfig.CurrentValue?.DataCenterId ?? 5;
                 var workId = _systemConfig.CurrentValue?.WorkId ?? 20;
-                sf.Init(dataCenterId, workId);
+                var sf = new Common.IdGenerator.SnowflakeId(dataCenterId, workId);
+                //var sf = Common.IdGenerator.Snowflake.Instance();
+                //var dataCenterId = _systemConfig.CurrentValue?.DataCenterId ?? 5;
+                //var workId = _systemConfig.CurrentValue?.WorkId ?? 20;
+                //sf.Init(dataCenterId, workId);
                 var id = sf.NextId();
                 e.Value = id.ToString();
             }

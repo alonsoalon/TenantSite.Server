@@ -23,7 +23,6 @@
     <Compile Include="System\Implement\SysResourceRepository.cs" />
     <Compile Include="System\Implement\SysRoleRepository.cs" />
     <Compile Include="System\Implement\SysRPermissionConditionRepository.cs" />
-    <Compile Include="System\Implement\SysRPermissionGroupRepository.cs" />
     <Compile Include="System\Implement\SysRPermissionRoleRepository.cs" />
     <Compile Include="System\Implement\SysRRoleResourceRepository.cs" />
     <Compile Include="System\Implement\SysRResourceApiRepository.cs" />
@@ -38,7 +37,6 @@
     <Compile Include="System\Interface\ISysResourceRepository.cs" />
     <Compile Include="System\Interface\ISysRoleRepository.cs" />
     <Compile Include="System\Interface\ISysRPermissionConditionRepository.cs" />
-    <Compile Include="System\Interface\ISysRPermissionGroupRepository.cs" />
     <Compile Include="System\Interface\ISysRPermissionRoleRepository.cs" />
     <Compile Include="System\Interface\ISysRRoleResourceRepository.cs" />
     <Compile Include="System\Interface\ISysRResourceApiRepository.cs" />

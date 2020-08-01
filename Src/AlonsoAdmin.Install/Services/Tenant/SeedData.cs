@@ -49,7 +49,6 @@ namespace AlonsoAdmin.Install.Services.Tenant
             var SysResourceEntities = fsql.GetRepository<SysResourceEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysRoleEntities = fsql.GetRepository<SysRoleEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysRPermissionConditionEntities = fsql.GetRepository<SysRPermissionConditionEntity>().Select.ToList();
-            var SysRPermissionGroupEntities = fsql.GetRepository<SysRPermissionGroupEntity>().Select.ToList();
             var SysRPermissionRoleEntities = fsql.GetRepository<SysRPermissionRoleEntity>().Select.ToList();
             var SysRResourceApiEntities = fsql.GetRepository<SysRResourceApiEntity>().Select.ToList();
             var SysRRoleResourceEntities = fsql.GetRepository<SysRRoleResourceEntity>().Select.ToList();
@@ -67,7 +66,6 @@ namespace AlonsoAdmin.Install.Services.Tenant
                 SysResourceEntities = SysResourceEntities,
                 SysRoleEntities = SysRoleEntities,
                 SysRPermissionConditionEntities = SysRPermissionConditionEntities,
-                SysRPermissionGroupEntities = SysRPermissionGroupEntities,
                 SysRPermissionRoleEntities = SysRPermissionRoleEntities,
                 SysRResourceApiEntities = SysRResourceApiEntities,
                 SysRRoleResourceEntities = SysRRoleResourceEntities,
@@ -126,7 +124,6 @@ namespace AlonsoAdmin.Install.Services.Tenant
         public List<SysResourceEntity> SysResourceEntities { get; set; }
         public List<SysRoleEntity> SysRoleEntities { get; set; }        
         public List<SysRPermissionConditionEntity> SysRPermissionConditionEntities { get; set; }
-        public List<SysRPermissionGroupEntity> SysRPermissionGroupEntities { get; set; }
         public List<SysRPermissionRoleEntity> SysRPermissionRoleEntities { get; set; }
         public List<SysRResourceApiEntity> SysRResourceApiEntities { get; set; }
         public List<SysRRoleResourceEntity> SysRRoleResourceEntities { get; set; }

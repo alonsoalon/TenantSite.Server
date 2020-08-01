@@ -9,8 +9,7 @@ namespace AlonsoAdmin.Common.Utils
 
         public static long GenSnowflakeId(uint dataCenterId = 5, uint workId =20)
         {
-            var sf = Common.IdGenerator.Snowflake.Instance();
-            sf.Init(dataCenterId, workId);
+            var sf = new Common.IdGenerator.SnowflakeId(dataCenterId, workId);
             var id = sf.NextId();
             return id;
         }

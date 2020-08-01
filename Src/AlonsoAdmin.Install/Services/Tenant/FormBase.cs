@@ -140,7 +140,6 @@ namespace AlonsoAdmin.Install.Services.Tenant
                     typeof(SysResourceEntity),// 资源
                     typeof(SysRoleEntity),// 角色
                     typeof(SysRPermissionConditionEntity),// 权限岗 与 数据条件关系表，功能未实现
-                    typeof(SysRPermissionGroupEntity),// 权限岗 与 数据组关系表
                     typeof(SysRPermissionRoleEntity),// 权限岗 与 角色关系表
                     typeof(SysRResourceApiEntity),// 资源 与 API关系表
                     typeof(SysRRoleResourceEntity),// 角色 与 资源关系表
@@ -165,7 +164,6 @@ namespace AlonsoAdmin.Install.Services.Tenant
                     InitDtData(fsql, data.SysResourceEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysRoleEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysRPermissionConditionEntities.ToArray(), tran).Wait();
-                    InitDtData(fsql, data.SysRPermissionGroupEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysRPermissionRoleEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysRResourceApiEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysRRoleResourceEntities.ToArray(), tran).Wait();

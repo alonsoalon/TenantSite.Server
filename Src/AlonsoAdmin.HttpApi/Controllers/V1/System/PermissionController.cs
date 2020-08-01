@@ -142,18 +142,6 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         }
 
         /// <summary>
-        /// 取指定权限模板下的数据组ID集合
-        /// </summary>
-        /// <param name="permissionId"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [Description("取指定权限模板下的数据组ID集合")]
-        public async Task<IResponseEntity> GetGroupIdsByPermissionId(string permissionId)
-        {
-            return await _sysPermissionService.GetGroupIdsByPermissionIdAsync(permissionId);
-        }
-
-        /// <summary>
         /// 取指定权限模板下的角色ID集合
         /// </summary>
         /// <param name="permissionId"></param>

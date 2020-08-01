@@ -37,9 +37,6 @@ namespace AlonsoAdmin.Entities.System
 		[Navigate(ManyToMany = typeof(SysRPermissionRoleEntity))]
 		public virtual ICollection<SysRoleEntity> Roles { get; set; }
 
-		[Navigate(ManyToMany = typeof(SysRPermissionGroupEntity))]
-		public virtual ICollection<SysGroupEntity> Groups { get; set; }
-
 		[Navigate(ManyToMany = typeof(SysRPermissionConditionEntity))]
 		public virtual ICollection<SysConditionEntity> Conditions { get; set; }
 

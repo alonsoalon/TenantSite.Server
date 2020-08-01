@@ -46,7 +46,6 @@ namespace AlonsoAdmin.HttpApi.Init.Services
             var SysResourceEntities = fsql.GetRepository<SysResourceEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysRoleEntities = fsql.GetRepository<SysRoleEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysRPermissionConditionEntities = fsql.GetRepository<SysRPermissionConditionEntity>().Select.ToList();
-            var SysRPermissionGroupEntities = fsql.GetRepository<SysRPermissionGroupEntity>().Select.ToList();
             var SysRPermissionRoleEntities = fsql.GetRepository<SysRPermissionRoleEntity>().Select.ToList();
             var SysRResourceApiEntities = fsql.GetRepository<SysRResourceApiEntity>().Select.ToList();
             var SysRRoleResourceEntities = fsql.GetRepository<SysRRoleResourceEntity>().Select.ToList();
@@ -64,7 +63,6 @@ namespace AlonsoAdmin.HttpApi.Init.Services
                 SysResourceEntities = SysResourceEntities,
                 SysRoleEntities = SysRoleEntities,
                 SysRPermissionConditionEntities = SysRPermissionConditionEntities,
-                SysRPermissionGroupEntities = SysRPermissionGroupEntities,
                 SysRPermissionRoleEntities = SysRPermissionRoleEntities,
                 SysRResourceApiEntities = SysRResourceApiEntities,
                 SysRRoleResourceEntities = SysRRoleResourceEntities,

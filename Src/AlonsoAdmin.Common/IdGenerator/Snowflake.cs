@@ -4,6 +4,10 @@ using System.Text;
 
 namespace AlonsoAdmin.Common.IdGenerator
 {
+    /// <summary>
+    /// 弃用
+    /// </summary>
+    [Obsolete]
     public class Snowflake
     {
         /// <summary>

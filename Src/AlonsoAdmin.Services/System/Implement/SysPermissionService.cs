@@ -24,7 +24,6 @@ namespace AlonsoAdmin.Services.System.Implement
         private readonly IMapper _mapper;
         private readonly ICache _cache;
         private readonly ISysPermissionRepository _sysPermissionRepository;
-        private readonly ISysRPermissionGroupRepository _sysRPermissionGroupRepository;
         private readonly ISysRPermissionRoleRepository _sysRPermissionRoleRepository;
         private readonly ISysRPermissionConditionRepository _sysRPermissionConditionRepository;
         private readonly IPermissionDomain _permissionDomain;
@@ -32,7 +31,6 @@ namespace AlonsoAdmin.Services.System.Implement
             IMapper mapper,
             ICache cache,
             ISysPermissionRepository sysPermissionRepository,
-            ISysRPermissionGroupRepository sysRPermissionGroupRepository,
             ISysRPermissionRoleRepository sysRPermissionRoleRepository,
             ISysRPermissionConditionRepository sysRPermissionConditionRepository,
             IPermissionDomain permissionDomain
@@ -41,7 +39,6 @@ namespace AlonsoAdmin.Services.System.Implement
             _mapper = mapper;
             _cache = cache;
             _sysPermissionRepository = sysPermissionRepository;
-            _sysRPermissionGroupRepository = sysRPermissionGroupRepository;
             _sysRPermissionRoleRepository = sysRPermissionRoleRepository;
             _sysRPermissionConditionRepository = sysRPermissionConditionRepository;
             _permissionDomain = permissionDomain;
@@ -177,14 +174,6 @@ namespace AlonsoAdmin.Services.System.Implement
 
 
 
-        public async Task<IResponseEntity> GetGroupIdsByPermissionIdAsync(string permissionId)
-        {
-            var groupIds = await _sysRPermissionGroupRepository
-                .Select.Where(d => d.PermissionId == permissionId)
-                .ToListAsync(a => a.GroupId);
-
-            return ResponseEntity.Ok(groupIds);
-        }
 
 
         public async Task<IResponseEntity> GetRoleIdsByPermissionIdAsync(string permissionId) {

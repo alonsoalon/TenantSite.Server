@@ -138,7 +138,6 @@ namespace AlonsoAdmin.HttpApi.Init.Controllers
                 await InitDtData(fsql, data.SysResourceEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysRoleEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysRPermissionConditionEntities.ToArray(), tran, sb);
-                await InitDtData(fsql, data.SysRPermissionGroupEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysRPermissionRoleEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysRResourceApiEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysRRoleResourceEntities.ToArray(), tran, sb);

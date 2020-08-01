@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Domain", "3-Domain", "{9C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlonsoAdmin.Install", "Src\AlonsoAdmin.Install\AlonsoAdmin.Install.csproj", "{B605F3C8-8CB6-4230-BC93-FF7F310A4F2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlonsoAdmin.HttpApi.Init", "src\AlonsoAdmin.HttpApi.Init\AlonsoAdmin.HttpApi.Init.csproj", "{3E62A911-4F85-4D6B-AC40-34E3FD4B0C8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlonsoAdmin.HttpApi.Init", "src\AlonsoAdmin.HttpApi.Init\AlonsoAdmin.HttpApi.Init.csproj", "{3E62A911-4F85-4D6B-AC40-34E3FD4B0C8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

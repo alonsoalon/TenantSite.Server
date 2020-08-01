@@ -20,7 +20,6 @@ namespace AlonsoAdmin.HttpApi.Init.Entities
         public List<SysResourceEntity> SysResourceEntities { get; set; }
         public List<SysRoleEntity> SysRoleEntities { get; set; }
         public List<SysRPermissionConditionEntity> SysRPermissionConditionEntities { get; set; }
-        public List<SysRPermissionGroupEntity> SysRPermissionGroupEntities { get; set; }
         public List<SysRPermissionRoleEntity> SysRPermissionRoleEntities { get; set; }
         public List<SysRResourceApiEntity> SysRResourceApiEntities { get; set; }
         public List<SysRRoleResourceEntity> SysRRoleResourceEntities { get; set; }

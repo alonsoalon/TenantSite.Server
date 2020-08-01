@@ -16,12 +16,7 @@ namespace AlonsoAdmin.Services.System.Interface
         /// <returns></returns>
         Task<IResponseEntity> PermissionAssignPowerAsync(PermissionAssignPowerRequest req);
 
-        /// <summary>
-        /// 取指定权限模板下的数据组ID集合
-        /// </summary>
-        /// <param name="permissionId"></param>
-        /// <returns></returns>
-        Task<IResponseEntity> GetGroupIdsByPermissionIdAsync(string permissionId);
+
 
         /// <summary>
         /// 取指定权限模板下的角色ID集合
