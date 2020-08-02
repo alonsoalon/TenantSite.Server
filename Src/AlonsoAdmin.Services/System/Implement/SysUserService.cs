@@ -150,6 +150,7 @@ namespace AlonsoAdmin.Services.System.Implement
                 .WhereIf(key.IsNotNull(), a => (a.UserName.Contains(key) || a.DisplayName.Contains(key)))
                 .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .Include(a=>a.Permission)
+                .Include(a => a.Group)
                 .Count(out var total)
                 .OrderBy(true, a => a.CreatedTime)
                 .Page(req.CurrentPage, req.PageSize)

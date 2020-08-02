@@ -29,11 +29,19 @@ namespace AlonsoAdmin.Services.System
             CreateMap<SysUserEntity, UserForListResponse>().ForMember(
                 d => d.PermissionName,
                 m => m.MapFrom(s =>s.Permission.Title)
+            ).ForMember(
+                d => d.GroupName,
+                m => m.MapFrom(s => s.Group.Title)
             );
+
+
             // 查询单条明细 用到的映射
             CreateMap<SysUserEntity, UserForItemResponse>().ForMember(
                 d => d.PermissionName,
                 m => m.MapFrom(s => s.Permission.Title)
+            ).ForMember(
+                d => d.GroupName,
+                m => m.MapFrom(s => s.Group.Title)
             );
             #endregion
 

@@ -78,6 +78,9 @@ namespace AlonsoAdmin.Entities.System
 		#region 导航属性
 		[Navigate("PermissionId")]
 		public virtual SysPermissionEntity Permission { get; set; }
+
+		[Navigate("GroupId")]
+		public virtual SysGroupEntity Group { get; set; }
 		#endregion
 	}
 

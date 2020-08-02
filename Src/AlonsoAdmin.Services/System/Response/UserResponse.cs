@@ -24,10 +24,15 @@ namespace AlonsoAdmin.Services.System.Response
         /// </summary>
         public string PermissionName { get; set; }
 
-        /// <summary>
-        /// 头像
-        /// </summary>
-        public string Avatar { get; set; }
+		/// <summary>
+		/// 所属组织机构
+		/// </summary>
+		public string GroupName { get; set; }
+
+		/// <summary>
+		/// 头像
+		/// </summary>
+		public string Avatar { get; set; }
 
 
 		#region 创建人相关
