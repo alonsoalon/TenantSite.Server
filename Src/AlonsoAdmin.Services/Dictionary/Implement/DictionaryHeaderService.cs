@@ -3,12 +3,14 @@ using AlonsoAdmin.Common.Cache;
 using AlonsoAdmin.Common.Extensions;
 using AlonsoAdmin.Common.RequestEntity;
 using AlonsoAdmin.Common.ResponseEntity;
+using AlonsoAdmin.Domain.System.Interface;
 using AlonsoAdmin.Entities.Dictionary;
 using AlonsoAdmin.Repository.Dictionary.Interface;
 using AlonsoAdmin.Services.Dictionary.Interface;
 using AlonsoAdmin.Services.Dictionary.Request;
 using AlonsoAdmin.Services.Dictionary.Response;
 using AutoMapper;
+using FreeSql.Internal.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +23,10 @@ namespace AlonsoAdmin.Services.Dictionary.Implement
         private readonly IMapper _mapper; 
         private readonly ICache _cache; 
         private readonly IAuthUser _authUser; 
-        private readonly IDictionaryHeaderRepository _dictionaryRepository; 
+        private readonly IDictionaryHeaderRepository _dictionaryRepository;
+
+        private readonly IPermissionDomain _permissionDomain;
+
 
         /// <summary>
         /// 构造函数 参数对象系统自动注入
@@ -34,14 +39,16 @@ namespace AlonsoAdmin.Services.Dictionary.Implement
             IMapper mapper,
             ICache cache,
             IAuthUser authUser,
-            IDictionaryHeaderRepository dictionaryRepository
+            IDictionaryHeaderRepository dictionaryRepository,
+            IPermissionDomain permissionDomain
             )
         {
             _mapper = mapper;
             _cache = cache;
             _authUser = authUser;
             _dictionaryRepository = dictionaryRepository;
-        }
+            _permissionDomain = permissionDomain;
+    }
 
         #region 通用接口服务实现(实现IBaseService.CS中定义的接口)
         /// <summary>
@@ -161,9 +168,14 @@ namespace AlonsoAdmin.Services.Dictionary.Implement
         /// <returns></returns>
         public async Task<IResponseEntity> GetListAsync(RequestEntity<DictionaryHeaderFilterRequest> req)
         {
+            // 得到权限模板配置的数据条件
+            var condition = await _permissionDomain.GetPermissionDynamicFilterAsync(_authUser.PermissionId, "DICTIONARY_HEADER");
+
             var key = req.Filter?.Key;
             var withDisable = req.Filter != null ? req.Filter.WithDisable : false;
+
             var list = await _dictionaryRepository.Select
+                .WhereDynamicFilter(condition)
                 .WhereIf(key.IsNotNull(), a => (a.Title.Contains(key) || a.Code.Contains(key) || a.Description.Contains(key)))
                 .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .Count(out var total)

@@ -2,6 +2,7 @@
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Entities.System.Enums;
 using AlonsoAdmin.Repository;
+using FreeSql.Internal.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -142,6 +143,42 @@ namespace AlonsoAdmin.Domain.System.Implement
 
             return list;
         }
+        public async Task<List<SysConditionEntity>> GetPermissionConditionsAsync(string permissionId)
+        {
+
+            // 这里待加入缓存
+            var list = await _systemDb.Select<SysRPermissionConditionEntity, SysConditionEntity>()
+                  .InnerJoin((a, b) => a.ConditionId == b.Id)
+                  .Where((a, b) => a.PermissionId == permissionId)
+                  .OrderBy((a, b) => b.OrderIndex)
+                  .ToListAsync((a, b) => b);
+
+            return list;
+        }
+
+
+        public async Task<DynamicFilterInfo> GetPermissionDynamicFilterAsync(string permissionId, string moduleKey) {
+
+            var conditions = await GetPermissionConditionsAsync(permissionId);
+            var currentConditions = conditions.Where(x => x.Code == moduleKey);
+
+            var cons = new List<DynamicFilterInfo>();
+            foreach (var item in currentConditions)
+            {
+                var conditionStr = item.Condition;
+                var dyCons = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DynamicFilterInfo>>(conditionStr);
+                foreach (var it in dyCons)
+                {
+                    cons.Add(it);
+                }
+            }
+
+            var condition = new DynamicFilterInfo();
+            condition.Logic = DynamicFilterLogic.Or;
+            condition.Filters = cons;
+            return condition;
+        }
+
 
     }
 }

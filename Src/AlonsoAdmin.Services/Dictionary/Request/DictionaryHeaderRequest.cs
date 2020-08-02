@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -101,5 +102,8 @@ namespace AlonsoAdmin.Services.Dictionary.Request
         /// 是否包含禁用的数据
         /// </summary>
         public bool WithDisable { get; set; } = false;
+
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FreeSql.Internal.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -24,6 +25,6 @@ namespace AlonsoAdmin.Common.RequestEntity
         /// <summary>
         /// 高级查询条件
         /// </summary>
-        public FreeSql.Internal.Model.DynamicFilterInfo DynamicFilter { get; set; } = null;
+        public DynamicFilterInfo DynamicFilter { get; set; } = null;
     }
 }
