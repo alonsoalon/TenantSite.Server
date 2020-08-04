@@ -2191,10 +2191,10 @@
       "Title": "字典分类条件控制",
       "Description": null,
       "Expression": null,
-      "Condition": null,
+      "Condition": "[{\"root\":true,\"logic\":\"And\",\"filters\":[{\"field\":\"Title\",\"label\":\"标题\",\"operator\":\"Contains\",\"value\":\"数据\",\"type\":\"\",\"config\":{}}]}]",
       "OrderIndex": 1,
       "Permissions": null,
-      "Revision": 1,
+      "Revision": 2,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
@@ -2203,7 +2203,7 @@
       "CreatedTime": "2020-07-14T11:13:27.663",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-07-14T14:59:04.665",
+      "UpdatedTime": "2020-08-02T22:26:38.125",
       "Id": "6688762317285048320"
     },
     {
@@ -2285,6 +2285,26 @@
       "UpdatedByName": null,
       "UpdatedTime": null,
       "Id": "6695121596325773312"
+    },
+    {
+      "Code": "DICTIONARY_HEADER",
+      "Title": "字典分类",
+      "Description": "不是以SYS_开头的字典分类",
+      "Expression": "",
+      "Condition": "[{\"root\":true,\"logic\":\"And\",\"filters\":[{\"field\":\"Code\",\"label\":\"编码\",\"operator\":\"NotStartsWith\",\"value\":\"SYS_\",\"type\":\"\",\"config\":{}}]}]",
+      "OrderIndex": 6,
+      "Permissions": null,
+      "Revision": 1,
+      "IsDisabled": false,
+      "IsDeleted": false,
+      "GroupId": "",
+      "CreatedBy": "6658760203095982080",
+      "CreatedByName": "alonso",
+      "CreatedTime": "2020-08-02T22:39:17.253",
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-08-02T22:40:23.95",
+      "Id": "77772283028652032"
     }
   ],
   "SysGroupEntities": [
@@ -4912,6 +4932,13 @@
       "Permission": null,
       "Condition": null,
       "Id": "6695146718843584512"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "ConditionId": "77772283028652032",
+      "Permission": null,
+      "Condition": null,
+      "Id": "77773421190791168"
     }
   ],
   "SysRPermissionRoleEntities": [
@@ -5033,6 +5060,13 @@
       "Permission": null,
       "Role": null,
       "Id": "6671055163610578944"
+    },
+    {
+      "PermissionId": "6669015644904308736",
+      "RoleId": "6687150249586933760",
+      "Permission": null,
+      "Role": null,
+      "Id": "77771614347542528"
     }
   ],
   "SysRResourceApiEntities": [
@@ -6110,6 +6144,7 @@
       "Avatar": null,
       "Description": null,
       "Permission": null,
+      "Group": null,
       "Revision": 12,
       "IsDisabled": false,
       "IsDeleted": false,
@@ -6134,7 +6169,8 @@
       "Avatar": "1/6658760203095982080.jpg",
       "Description": "且慢、且慢",
       "Permission": null,
-      "Revision": 67,
+      "Group": null,
+      "Revision": 69,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": "6656383230713479168",
@@ -6143,7 +6179,7 @@
       "CreatedTime": "2020-04-22T16:15:46",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-06-13T19:32:15.822",
+      "UpdatedTime": "2020-08-02T19:08:08.01",
       "Id": "6658760203095982080"
     },
     {
@@ -6158,6 +6194,7 @@
       "Avatar": null,
       "Description": null,
       "Permission": null,
+      "Group": null,
       "Revision": 4,
       "IsDisabled": false,
       "IsDeleted": false,
@@ -6182,6 +6219,7 @@
       "Avatar": null,
       "Description": null,
       "Permission": null,
+      "Group": null,
       "Revision": 4,
       "IsDisabled": false,
       "IsDeleted": false,
@@ -6195,6 +6233,8 @@
       "Id": "6669016097025114112"
     }
   ],
+  "SysLoginLogEntities": [],
+  "SysOperationLogEntities": [],
   "SysDictionaryEntryEntities": [
     {
       "DictionaryHeaderId": "6688770719411290112",
@@ -6500,7 +6540,7 @@
       "Code": "DICTIONARY_HEADER",
       "Description": "",
       "OrderIndex": 12,
-      "Ex1": "",
+      "Ex1": "[ {\"value\":\"Code\",\"label\":\"编码\"}]",
       "Ex2": "",
       "Ex3": "",
       "Ex4": "",
@@ -6508,16 +6548,16 @@
       "Parent": null,
       "Childs": null,
       "Dictionary": null,
-      "Revision": 0,
+      "Revision": 3,
       "IsDisabled": false,
       "IsDeleted": false,
       "GroupId": null,
       "CreatedBy": "6658760203095982080",
       "CreatedByName": "alonso",
       "CreatedTime": "2020-07-14T15:39:13.438",
-      "UpdatedBy": null,
-      "UpdatedByName": null,
-      "UpdatedTime": null,
+      "UpdatedBy": "6658760203095982080",
+      "UpdatedByName": "alonso",
+      "UpdatedTime": "2020-08-02T22:38:51.203",
       "Id": "6688829198637416448"
     }
   ],
@@ -6533,16 +6573,16 @@
       "Ex4": null,
       "Ex5": null,
       "DictionaryItems": null,
-      "Revision": 2,
+      "Revision": 3,
       "IsDisabled": false,
       "IsDeleted": false,
-      "GroupId": null,
+      "GroupId": "6656383230713479168",
       "CreatedBy": "6658760203095982080",
       "CreatedByName": "alonso",
       "CreatedTime": "2020-07-14T11:46:50.876",
       "UpdatedBy": "6658760203095982080",
       "UpdatedByName": "alonso",
-      "UpdatedTime": "2020-07-14T18:47:55.101",
+      "UpdatedTime": "2020-08-02T22:24:59.152",
       "Id": "6688184320089866240"
     },
     {

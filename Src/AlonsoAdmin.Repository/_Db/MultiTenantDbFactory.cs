@@ -181,12 +181,13 @@ namespace AlonsoAdmin.Repository
             {
                 var dataCenterId = _systemConfig.CurrentValue?.DataCenterId ?? 5;
                 var workId = _systemConfig.CurrentValue?.WorkId ?? 20;
-                var sf = new Common.IdGenerator.SnowflakeId(dataCenterId, workId);
-                //var sf = Common.IdGenerator.Snowflake.Instance();
-                //var dataCenterId = _systemConfig.CurrentValue?.DataCenterId ?? 5;
-                //var workId = _systemConfig.CurrentValue?.WorkId ?? 20;
-                //sf.Init(dataCenterId, workId);
-                var id = sf.NextId();
+                //var sf = new Common.IdGenerator.SnowflakeId(dataCenterId, workId);
+                //var id = sf.NextId();
+
+                var idWorker = Common.IdGenerator.Snowflake.Instance();
+                idWorker.Init(dataCenterId, workId);
+                var id = idWorker.NextId();
+                
                 e.Value = id.ToString();
             }
 

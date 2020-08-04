@@ -5,9 +5,9 @@ using System.Text;
 namespace AlonsoAdmin.Common.IdGenerator
 {
     /// <summary>
-    /// 弃用 新的雪花算法 见 SnowflakeId
+    /// 
     /// </summary>
-    [Obsolete]
+
     public class Snowflake
     {
         /// <summary>
