@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace AlonsoAdmin.Services.Dictionary.Request
@@ -21,54 +22,56 @@ namespace AlonsoAdmin.Services.Dictionary.Request
 		public string ParentId { get; set; }
 
 		/// <summary>
-		/// 名称
+		/// 编码
 		/// </summary>
-		public string Title { get; set; } 
+		[Required(ErrorMessage = "Code不能为空！")]
+		public string Code { get; set; } = string.Empty;
 
 		/// <summary>
-		/// 数据值
+		/// 名称
 		/// </summary>
-		public string Code { get; set; } 
+		[Required(ErrorMessage = "标题不能为空！")]
+		public string Title { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 描述
 		/// </summary>
-		public string Description { get; set; } 
+		public string Description { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 扩展字段1
 		/// </summary>
-		public string Ex1 { get; set; } 
+		public string Ex1 { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 扩展字段2
 		/// </summary>
-		public string Ex2 { get; set; } 
+		public string Ex2 { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 扩展字段3
 		/// </summary>
-		public string Ex3 { get; set; } 
+		public string Ex3 { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 扩展字段4
 		/// </summary>
-		public string Ex4 { get; set; } 
+		public string Ex4 { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 扩展字段5
 		/// </summary>
-		public string Ex5 { get; set; }
+		public string Ex5 { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 是否禁用
 		/// </summary>
-		public bool IsDisabled { get; set; }
+		public bool IsDisabled { get; set; } = false;
 
 		/// <summary>
 		/// 数据归属组
 		/// </summary>
-		public string GroupId { get; set; }
+		public string GroupId { get; set; } = string.Empty;
 
 	}
 

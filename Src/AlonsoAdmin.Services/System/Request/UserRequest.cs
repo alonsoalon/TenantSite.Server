@@ -12,40 +12,40 @@ namespace AlonsoAdmin.Services.System.Request
 		/// <summary>
 		/// 显示名称
 		/// </summary>
-		public string DisplayName { get; set; }
+		public string DisplayName { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 手机号
 		/// </summary>
-		public string Mobile { get; set; }
+		public string Mobile { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 电子邮件
 		/// </summary>
-		public string Mail { get; set; }
+		public string Mail { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 权限ID
 		/// </summary>
-		public string PermissionId { get; set; }
+		public string PermissionId { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 是否禁用
 		/// </summary>
-		public bool IsDisabled { get; set; }
+		public bool IsDisabled { get; set; } = false;
 
 		/// <summary>
 		/// 数据归属组
 		/// </summary>
-		public string GroupId { get; set; }
+		public string GroupId { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 描述
 		/// </summary>
-		public string Description { get; set; }
+		public string Description { get; set; } = string.Empty;
 
 
-		
+
 	}
 
 

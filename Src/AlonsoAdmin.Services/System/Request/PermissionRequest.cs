@@ -30,12 +30,12 @@ namespace AlonsoAdmin.Services.System.Request
 		/// <summary>
 		/// 是否禁用
 		/// </summary>
-		public bool IsDisabled { get; set; }
+		public bool IsDisabled { get; set; } = false;
 
 		/// <summary>
 		/// 数据归属组
 		/// </summary>
-		public string GroupId { get; set; }
+		public string GroupId { get; set; } = string.Empty;
 
 	}
 

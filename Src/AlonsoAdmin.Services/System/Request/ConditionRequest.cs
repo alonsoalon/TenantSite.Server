@@ -13,37 +13,37 @@ namespace AlonsoAdmin.Services.System.Request
 		/// <summary>
 		/// 编码
 		/// </summary>
-		public string Code { get; set; } 
+		public string Code { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 标题
 		/// </summary>
-		public string Title { get; set; } 
+		public string Title { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 描述
 		/// </summary>
-		public string Description { get; set; } 
+		public string Description { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 表达式树(SQL)
 		/// </summary>
-		public string Expression { get; set; }
+		public string Expression { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Json Where
 		/// </summary>
-		public string Condition { get; set; }
+		public string Condition { get; set; } = string.Empty;
 
 		/// <summary>
 		/// 是否禁用
 		/// </summary>
-		public bool IsDisabled { get; set; }
+		public bool IsDisabled { get; set; } = false;
 
 		/// <summary>
 		/// 数据归属组
 		/// </summary>
-		public string GroupId { get; set; }
+		public string GroupId { get; set; } = string.Empty;
 	}
 
 	public class ConditionEditRequest : ConditionAddRequest
