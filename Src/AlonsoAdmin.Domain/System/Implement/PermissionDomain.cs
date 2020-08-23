@@ -1,4 +1,5 @@
-﻿using AlonsoAdmin.Domain.System.Interface;
+﻿using AlonsoAdmin.Common.Auth;
+using AlonsoAdmin.Domain.System.Interface;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.Entities.System.Enums;
 using AlonsoAdmin.Repository;
@@ -14,9 +15,11 @@ namespace AlonsoAdmin.Domain.System.Implement
     public class PermissionDomain : IPermissionDomain
     {
         private readonly IFreeSql _systemDb;
-        public PermissionDomain(IMultiTenantDbFactory multiTenantDbFactory)
+        private readonly IAuthUser _authUser;
+        public PermissionDomain(IMultiTenantDbFactory multiTenantDbFactory, IAuthUser authUser)
         {
             _systemDb = multiTenantDbFactory.Db(Constants.SystemDbKey);
+            _authUser = authUser;
         }
 
         /// <summary>
@@ -165,7 +168,11 @@ namespace AlonsoAdmin.Domain.System.Implement
             var cons = new List<DynamicFilterInfo>();
             foreach (var item in currentConditions)
             {
-                var conditionStr = item.Condition;
+                var conditionStr = item.Condition?
+                    .Replace("{UserId}", _authUser.Id)
+                    .Replace("{UserGroupId}", _authUser.GroupId)
+                    .Replace("{UserPermissionId}", _authUser.PermissionId);
+
                 var dyCons = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DynamicFilterInfo>>(conditionStr);
                 foreach (var it in dyCons)
                 {

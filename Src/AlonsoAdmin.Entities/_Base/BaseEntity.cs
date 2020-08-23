@@ -43,7 +43,7 @@ namespace AlonsoAdmin.Entities
 		/// 数据归属组 为数据做数据权限提供方便
 		/// </summary>
 		[Column(Name = "GROUP_ID", Position = -8)]
-		public string GroupId { get; set; }
+		public string GroupId { get; set; } = string.Empty;
 
 
 		#region 创建人相关
