@@ -170,6 +170,7 @@ namespace AlonsoAdmin.Domain.System.Implement
             {
                 var conditionStr = item.Condition?
                     .Replace("{UserId}", _authUser.Id)
+                    .Replace("{UserName}", _authUser.UserName)
                     .Replace("{UserGroupId}", _authUser.GroupId)
                     .Replace("{UserPermissionId}", _authUser.PermissionId);
 

@@ -83,7 +83,7 @@ namespace AlonsoAdmin.Repository
 
         private IFreeSql CreateDb(FreeSql.DataType dbType, DbInfo currentDbOption)
         {
-             var master = currentDbOption.ConnectionStrings?.FirstOrDefault(e => e.UseType == DbUseType.Master);
+            var master = currentDbOption.ConnectionStrings?.FirstOrDefault(e => e.UseType == DbUseType.Master);
             if (master == null)
             {
                 throw new ArgumentNullException($"请设置租户 {Tenant.Code} 的主库连接字符串");
@@ -96,14 +96,15 @@ namespace AlonsoAdmin.Repository
                 freeSqlBuilder = freeSqlBuilder.UseSlave(slaveConnectionStrings);
             }
 
-            if (_env.IsDevelopment()) {
+            if (_env.IsDevelopment())
+            {
                 freeSqlBuilder = freeSqlBuilder.UseAutoSyncStructure(true); //自动同步实体结构【开发环境必备】
             }
 
             var fsql = freeSqlBuilder.Build();
 
 
-            fsql.Aop.ConfigEntityProperty +=  ConfigEntityProperty;
+            fsql.Aop.ConfigEntityProperty += ConfigEntityProperty;
             fsql.Aop.CurdBefore += CurdBefore;
             fsql.Aop.AuditValue += AuditValue;
             //fsql.Aop.SyncStructureAfter += SyncStructureAfter;
@@ -177,6 +178,7 @@ namespace AlonsoAdmin.Repository
             if (e.AuditValueType == AuditValueType.Insert
                 && e.Property.Name == "Id"
                 && e.Property.GetCustomAttribute<SnowflakeAttribute>(false) != null
+                && (e.Value == null || e.Value?.ToString() == "")
                 )
             {
                 var dataCenterId = _systemConfig.CurrentValue?.DataCenterId ?? 5;
@@ -187,7 +189,7 @@ namespace AlonsoAdmin.Repository
                 var idWorker = Common.IdGenerator.Snowflake.Instance();
                 idWorker.Init(dataCenterId, workId);
                 var id = idWorker.NextId();
-                
+
                 e.Value = id.ToString();
             }
 
