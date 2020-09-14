@@ -23,7 +23,7 @@ namespace AlonsoAdmin.HttpApi.Init.Entities
         public List<SysRPermissionRoleEntity> SysRPermissionRoleEntities { get; set; }
         public List<SysRResourceApiEntity> SysRResourceApiEntities { get; set; }
         public List<SysRRoleResourceEntity> SysRRoleResourceEntities { get; set; }
-        public List<SysSettingEntity> SysSettingEntities { get; set; }
+        public List<SysConfigEntity> SysSettingEntities { get; set; }
         public List<SysUserEntity> SysUserEntities { get; set; }
 
         public List<SysLoginLogEntity> SysLoginLogEntities { get; set; }
@@ -33,5 +33,6 @@ namespace AlonsoAdmin.HttpApi.Init.Entities
         public List<DictionaryEntryEntity> SysDictionaryEntryEntities { get; set; }
         public List<DictionaryHeaderEntity> SysDictionaryHeaderEntities { get; set; }
 
+        public List<SysConfigEntity> SysConfigEntities { get; set; }
     }
 }

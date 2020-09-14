@@ -2,7 +2,7 @@
 
 namespace AlonsoAdmin.Repository.System.Interface
 {
-    public interface ISysSettingRepository : IRepositoryBase<SysSettingEntity>
+    public interface ISysConfigRepository : IRepositoryBase<SysConfigEntity>
     {
 
     }

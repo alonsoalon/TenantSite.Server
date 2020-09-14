@@ -143,7 +143,7 @@ namespace AlonsoAdmin.Install.Services.Tenant
                     typeof(SysRPermissionRoleEntity),// 权限岗 与 角色关系表
                     typeof(SysRResourceApiEntity),// 资源 与 API关系表
                     typeof(SysRRoleResourceEntity),// 角色 与 资源关系表
-                    typeof(SysSettingEntity),// 系统设置表，相关功能暂未实现,表结构已设计
+                    typeof(SysConfigEntity),// 系统设置表，相关功能暂未实现,表结构已设计
                     typeof(SysUserEntity) // 用户表
                 });
                 Logs.Add("同步数据库结构 结束");

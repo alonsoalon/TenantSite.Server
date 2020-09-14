@@ -41,6 +41,7 @@ namespace AlonsoAdmin.HttpApi.Init.Services
             var SysConditionEntities = fsql.GetRepository<SysConditionEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysDictionaryEntryEntities = fsql.GetRepository<DictionaryEntryEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysDictionaryHeaderEntities = fsql.GetRepository<DictionaryHeaderEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysConfigEntities = fsql.GetRepository<SysConfigEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysGroupEntities = fsql.GetRepository<SysGroupEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysPermissionEntities = fsql.GetRepository<SysPermissionEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysResourceEntities = fsql.GetRepository<SysResourceEntity>().Select.Where(x => x.IsDeleted == false).ToList();
@@ -49,7 +50,7 @@ namespace AlonsoAdmin.HttpApi.Init.Services
             var SysRPermissionRoleEntities = fsql.GetRepository<SysRPermissionRoleEntity>().Select.ToList();
             var SysRResourceApiEntities = fsql.GetRepository<SysRResourceApiEntity>().Select.ToList();
             var SysRRoleResourceEntities = fsql.GetRepository<SysRRoleResourceEntity>().Select.ToList();
-            var SysSettingEntities = fsql.GetRepository<SysSettingEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysSettingEntities = fsql.GetRepository<SysConfigEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysUserEntities = fsql.GetRepository<SysUserEntity>().Select.Where(x => x.IsDeleted == false).ToList();
 
 
@@ -60,6 +61,7 @@ namespace AlonsoAdmin.HttpApi.Init.Services
                 SysConditionEntities = SysConditionEntities,
                 SysDictionaryEntryEntities = SysDictionaryEntryEntities,
                 SysDictionaryHeaderEntities = SysDictionaryHeaderEntities,
+                SysConfigEntities = SysConfigEntities,
                 SysGroupEntities = SysGroupEntities,
                 SysPermissionEntities = SysPermissionEntities,
                 SysResourceEntities = SysResourceEntities,

@@ -87,6 +87,11 @@ namespace AlonsoAdmin.Services.System.Request
 		public string Key { get; set; } = string.Empty;
 
 		/// <summary>
+		/// 所属组织ID
+		/// </summary>
+		public string GroupId { get; set; } = string.Empty;
+
+		/// <summary>
 		/// 是否包含禁用的数据
 		/// </summary>
 		public bool WithDisable { get; set; } = false;

@@ -12,13 +12,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-    [Description("角色管理")]
-    public class RoleController : ModuleBaseController
+    [Description("配置管理")]
+    public class ConfigController : ModuleBaseController
     {
-        private readonly ISysRoleService _sysRoleService;
-        public RoleController(ISysRoleService sysRoleService)
+        private readonly ISysConfigService _sysConfigService;
+        public ConfigController(ISysConfigService sysConfigService)
         {
-            _sysRoleService = sysRoleService;
+            _sysConfigService = sysConfigService;
         }
 
         #region 通用API方法
@@ -28,9 +28,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResponseEntity> Create(RoleAddRequest req)
+        public async Task<IResponseEntity> Create(ConfigAddRequest req)
         {
-            return await _sysRoleService.CreateAsync(req);
+            return await _sysConfigService.CreateAsync(req);
         }
 
         /// <summary>
@@ -39,9 +39,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IResponseEntity> Update(RoleEditRequest req)
+        public async Task<IResponseEntity> Update(ConfigEditRequest req)
         {
-            return await _sysRoleService.UpdateAsync(req);
+            return await _sysConfigService.UpdateAsync(req);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         public async Task<IResponseEntity> Delete(string id)
         {
 
-            return await _sysRoleService.DeleteAsync(id);
+            return await _sysConfigService.DeleteAsync(id);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpPut]
         public async Task<IResponseEntity> DeleteBatch(string[] ids)
         {
-            return await _sysRoleService.DeleteBatchAsync(ids);
+            return await _sysConfigService.DeleteBatchAsync(ids);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpDelete]
         public async Task<IResponseEntity> SoftDelete(string id)
         {
-            return await _sysRoleService.SoftDeleteAsync(id);
+            return await _sysConfigService.SoftDeleteAsync(id);
         }
 
 
@@ -88,7 +88,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpPut]
         public async Task<IResponseEntity> SoftDeleteBatch(string[] ids)
         {
-            return await _sysRoleService.SoftDeleteBatchAsync(ids);
+            return await _sysConfigService.SoftDeleteBatchAsync(ids);
 
         }
 
@@ -100,7 +100,7 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         [HttpGet]
         public async Task<IResponseEntity> GetItem(string id)
         {
-            return await _sysRoleService.GetItemAsync(id);
+            return await _sysConfigService.GetItemAsync(id);
         }
 
         /// <summary>
@@ -109,9 +109,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResponseEntity> GetList(RequestEntity<RoleFilterRequest> req)
+        public async Task<IResponseEntity> GetList(RequestEntity<ConfigFilterRequest> req)
         {
-            return await _sysRoleService.GetListAsync(req);
+            return await _sysConfigService.GetListAsync(req);
         }
 
         /// <summary>
@@ -120,36 +120,14 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         /// <param name="req"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResponseEntity> GetAll(RoleFilterRequest req)
+        public async Task<IResponseEntity> GetAll(ConfigFilterRequest req)
         {
-            return await _sysRoleService.GetAllAsync(req);
+            return await _sysConfigService.GetAllAsync(req);
         }
         #endregion
 
         #region 特殊API方法
 
-        /// <summary>
-        /// 根据指定角色ID取回该角色的资源ID集合
-        /// </summary>
-        /// <param name="roleId"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [Description("根据指定角色ID取回该角色的资源ID集合")]
-        public async Task<IResponseEntity> GetResourceIdsById(string roleId)
-        {
-            return await _sysRoleService.GetResourceIdsByIdAsync(roleId);
-        }  
-
-        /// <summary>
-        /// 为指定角色分配资源（角色赋权）
-        /// </summary>
-        /// <param name="req"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Description("为指定角色分配资源（角色赋权）")]
-        public async Task<IResponseEntity> RoleAssignResources(RoleResourceAssignRequest req) {
-            return await _sysRoleService.RoleAssignResourcesAsync(req);
-        }
 
         #endregion
 

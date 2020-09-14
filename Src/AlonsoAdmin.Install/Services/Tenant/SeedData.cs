@@ -52,7 +52,7 @@ namespace AlonsoAdmin.Install.Services.Tenant
             var SysRPermissionRoleEntities = fsql.GetRepository<SysRPermissionRoleEntity>().Select.ToList();
             var SysRResourceApiEntities = fsql.GetRepository<SysRResourceApiEntity>().Select.ToList();
             var SysRRoleResourceEntities = fsql.GetRepository<SysRRoleResourceEntity>().Select.ToList();
-            var SysSettingEntities = fsql.GetRepository<SysSettingEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysSettingEntities = fsql.GetRepository<SysConfigEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysUserEntities = fsql.GetRepository<SysUserEntity>().Select.Where(x => x.IsDeleted == false).ToList();
 
             SeedDataEntity seedDataEntity = new SeedDataEntity()
@@ -127,7 +127,7 @@ namespace AlonsoAdmin.Install.Services.Tenant
         public List<SysRPermissionRoleEntity> SysRPermissionRoleEntities { get; set; }
         public List<SysRResourceApiEntity> SysRResourceApiEntities { get; set; }
         public List<SysRRoleResourceEntity> SysRRoleResourceEntities { get; set; }
-        public List<SysSettingEntity> SysSettingEntities { get; set; }
+        public List<SysConfigEntity> SysSettingEntities { get; set; }
         public List<SysUserEntity> SysUserEntities { get; set; }
 
         public List<DictionaryEntryEntity> SysDictionaryEntryEntities { get; set; }

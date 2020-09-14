@@ -26,7 +26,7 @@
     <Compile Include="System\Implement\SysRPermissionRoleRepository.cs" />
     <Compile Include="System\Implement\SysRRoleResourceRepository.cs" />
     <Compile Include="System\Implement\SysRResourceApiRepository.cs" />
-    <Compile Include="System\Implement\SysSettingRepository.cs" />
+    <Compile Include="System\Implement\SysConfigRepository.cs" />
     <Compile Include="System\Implement\SysUserRepository.cs" />
     <Compile Include="System\Interface\ISysOprationLogRepository.cs" />
     <Compile Include="System\Interface\ISysLoginLogRepository.cs" />
@@ -40,7 +40,7 @@
     <Compile Include="System\Interface\ISysRPermissionRoleRepository.cs" />
     <Compile Include="System\Interface\ISysRRoleResourceRepository.cs" />
     <Compile Include="System\Interface\ISysRResourceApiRepository.cs" />
-    <Compile Include="System\Interface\ISysSettingRepository.cs" />
+    <Compile Include="System\Interface\ISysConfigRepository.cs" />
     <Compile Include="System\Interface\ISysUserRepository.cs" />
   </ItemGroup>
 

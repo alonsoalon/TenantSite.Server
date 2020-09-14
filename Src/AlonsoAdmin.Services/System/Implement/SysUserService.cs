@@ -145,11 +145,13 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> GetListAsync(RequestEntity<UserFilterRequest> req)
         {
             var key = req.Filter?.Key;
+            var groupId = req.Filter?.GroupId;
             var withDisable = req.Filter != null ? req.Filter.WithDisable : false;
             var list = await _sysUserRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.UserName.Contains(key) || a.DisplayName.Contains(key)))
+                .WhereIf(groupId.IsNotNull(), a => a.GroupId == groupId)
                 .WhereIf(!withDisable, a => a.IsDisabled == false)
-                .Include(a=>a.Permission)
+                .Include(a => a.Permission)
                 .Include(a => a.Group)
                 .Count(out var total)
                 .OrderBy(true, a => a.CreatedTime)
@@ -168,9 +170,11 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> GetAllAsync(UserFilterRequest req)
         {
             var key = req?.Key;
+            var groupId = req?.GroupId;
             var withDisable = req != null ? req.WithDisable : false;
             var list = await _sysUserRepository.Select
-                .WhereIf(key.IsNotNull(), a => (a.UserName.Contains(key) || a.DisplayName.Contains(key) ))
+                .WhereIf(key.IsNotNull(), a => (a.UserName.Contains(key) || a.DisplayName.Contains(key)))
+                .WhereIf(groupId.IsNotNull(), a => a.GroupId == groupId)
                 .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .Include(a => a.Permission)
                 .ToListAsync();

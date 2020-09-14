@@ -115,6 +115,17 @@ namespace AlonsoAdmin.Services.System
             CreateMap<SysConditionEntity, ConditionForItemResponse>();
             #endregion
 
+            #region Config 配置管理 映射
+            // 创建 用到的映射 (DTO -> DO)
+            CreateMap<ConfigAddRequest, SysConfigEntity>();
+            // 更新 用到的映射 (DTO -> DO)
+            CreateMap<ConfigEditRequest, SysConfigEntity>();
+            // 查询列表 用到的映射 (DO -> DTO)
+            CreateMap<SysConfigEntity, ConfigForListResponse>();
+            // 查询单条明细 用到的映射 (DO -> DTO)
+            CreateMap<SysConfigEntity, ConfigForItemResponse>();
+            #endregion
+
         }
     }
 }
