@@ -14,9 +14,9 @@ namespace AlonsoAdmin.Domain.System.Interface
         /// </summary>
         /// <param name="permissionId"></param>
         /// <param name="roleIds"></param>
-        /// <param name="groupIds"></param>
+        /// <param name="conditionIds"></param>
         /// <returns></returns>
-        Task<bool> PermissionAssignPowerAsync(string permissionId, List<string> roleIds, List<string> groupIds);
+        Task<bool> PermissionAssignPowerAsync(string permissionId, List<string> roleIds, List<string> conditionIds);
 
 
         /// <summary>

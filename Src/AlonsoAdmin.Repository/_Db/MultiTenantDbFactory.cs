@@ -139,13 +139,11 @@ namespace AlonsoAdmin.Repository
             // 处理排序字段自动取最大值插入
             if (e.Property.GetCustomAttributes(typeof(MaxValueAttribute)).Any()) {
 
-                string tableName=e.EntityType.Name;
                 var entityTypeAttr = (e.EntityType.GetCustomAttribute(typeof(TableAttribute)) as FreeSql.DataAnnotations.TableAttribute);
-                if (entityTypeAttr?.Name != "") tableName = entityTypeAttr.Name;
+                string tableName = string.IsNullOrWhiteSpace(entityTypeAttr.Name) ? e.EntityType.Name : entityTypeAttr.Name; // 取得表名
 
-                string fieldName= e.Property.Name;
                 var PropertyAttr = (e.Property.GetCustomAttribute(typeof(ColumnAttribute)) as FreeSql.DataAnnotations.ColumnAttribute);
-                if (PropertyAttr?.Name != "") fieldName = PropertyAttr.Name;
+                string fieldName = string.IsNullOrWhiteSpace(PropertyAttr.Name) ? e.Property.Name : PropertyAttr.Name; // 取得字段名
 
                 IFreeSql fsql = s as IFreeSql;
                 string insertValueSql = "";
@@ -179,6 +177,7 @@ namespace AlonsoAdmin.Repository
                 && e.Property.Name == "Id"
                 && e.Property.GetCustomAttribute<SnowflakeAttribute>(false) != null
                 && (e.Value == null || e.Value?.ToString() == "")
+                
                 )
             {
                 var dataCenterId = _systemConfig.CurrentValue?.DataCenterId ?? 5;
