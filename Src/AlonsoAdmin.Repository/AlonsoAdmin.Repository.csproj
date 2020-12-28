@@ -30,6 +30,7 @@
     <Compile Include="System\Implement\SysRRoleResourceRepository.cs" />
     <Compile Include="System\Implement\SysRResourceApiRepository.cs" />
     <Compile Include="System\Implement\SysSettingRepository.cs" />
+    <Compile Include="System\Implement\SysTaskQzRepository.cs" />
     <Compile Include="System\Implement\SysUserRepository.cs" />
     <Compile Include="System\Interface\ISysOprationLogRepository.cs" />
     <Compile Include="System\Interface\ISysLoginLogRepository.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="System\Interface\ISysRRoleResourceRepository.cs" />
     <Compile Include="System\Interface\ISysRResourceApiRepository.cs" />
     <Compile Include="System\Interface\ISysSettingRepository.cs" />
+    <Compile Include="System\Interface\ISysTaskQzRepository.cs" />
     <Compile Include="System\Interface\ISysUserRepository.cs" />
   </ItemGroup>
 

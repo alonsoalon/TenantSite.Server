@@ -96,6 +96,18 @@ namespace AlonsoAdmin.Services.System
             CreateMap<SysApiEntity, ApiForItemResponse>();
             #endregion
 
+            #region TaskQz
+
+            //新增
+            CreateMap<TaskQzAddRequest, SysTaskQzEntity>();
+            //编辑
+            CreateMap<TaskQzEditRequest, SysTaskQzEntity>();
+            //查询列表
+            CreateMap<SysTaskQzEntity, TaskQzForListResponse>();
+            //查询详情
+            CreateMap<SysTaskQzEntity, TaskQzForItemResponse>();
+
+            #endregion
         }
     }
 }

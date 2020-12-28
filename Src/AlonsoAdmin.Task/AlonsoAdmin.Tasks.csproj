@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Quartz" Version="3.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AlonsoAdmin.Common\AlonsoAdmin.Common.csproj" />
+    <ProjectReference Include="..\AlonsoAdmin.Entities\AlonsoAdmin.Entities.csproj" />
+    <ProjectReference Include="..\AlonsoAdmin.Repository\AlonsoAdmin.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
