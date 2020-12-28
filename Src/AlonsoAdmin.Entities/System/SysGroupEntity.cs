@@ -50,8 +50,7 @@ namespace AlonsoAdmin.Entities.System
 		public bool? Opened { get; set; }
 
 		#region 导航属性
-		[Navigate(ManyToMany = typeof(SysRPermissionGroupEntity))]
-		public virtual ICollection<SysPermissionEntity> Permissions { get; set; }
+
 		#endregion
 
 	}

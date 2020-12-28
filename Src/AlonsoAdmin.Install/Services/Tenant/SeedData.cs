@@ -1,4 +1,5 @@
-﻿using AlonsoAdmin.Entities.System;
+﻿using AlonsoAdmin.Entities.Dictionary;
+using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.MultiTenant;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -41,32 +42,30 @@ namespace AlonsoAdmin.Install.Services.Tenant
 
             var sysApiEntities = fsql.GetRepository<SysApiEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysConditionEntities = fsql.GetRepository<SysConditionEntity>().Select.Where(x => x.IsDeleted == false).ToList();
-            var SysDictionaryDetailEntities = fsql.GetRepository<SysDictionaryDetailEntity>().Select.Where(x => x.IsDeleted == false).ToList();
-            var SysDictionaryEntities = fsql.GetRepository<SysDictionaryEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysDictionaryDetailEntities = fsql.GetRepository<DictionaryEntryEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysDictionaryEntities = fsql.GetRepository<DictionaryHeaderEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysGroupEntities = fsql.GetRepository<SysGroupEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysPermissionEntities = fsql.GetRepository<SysPermissionEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysResourceEntities = fsql.GetRepository<SysResourceEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysRoleEntities = fsql.GetRepository<SysRoleEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysRPermissionConditionEntities = fsql.GetRepository<SysRPermissionConditionEntity>().Select.ToList();
-            var SysRPermissionGroupEntities = fsql.GetRepository<SysRPermissionGroupEntity>().Select.ToList();
             var SysRPermissionRoleEntities = fsql.GetRepository<SysRPermissionRoleEntity>().Select.ToList();
             var SysRResourceApiEntities = fsql.GetRepository<SysRResourceApiEntity>().Select.ToList();
             var SysRRoleResourceEntities = fsql.GetRepository<SysRRoleResourceEntity>().Select.ToList();
-            var SysSettingEntities = fsql.GetRepository<SysSettingEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysSettingEntities = fsql.GetRepository<SysConfigEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysUserEntities = fsql.GetRepository<SysUserEntity>().Select.Where(x => x.IsDeleted == false).ToList();
 
             SeedDataEntity seedDataEntity = new SeedDataEntity()
             {
                 SysApiEntities = sysApiEntities,
                 SysConditionEntities = SysConditionEntities,
-                SysDictionaryDetailEntities = SysDictionaryDetailEntities,
-                SysDictionaryEntities = SysDictionaryEntities,
+                SysDictionaryEntryEntities = SysDictionaryDetailEntities,
+                SysDictionaryHeaderEntities = SysDictionaryEntities,
                 SysGroupEntities = SysGroupEntities,
                 SysPermissionEntities = SysPermissionEntities,
                 SysResourceEntities = SysResourceEntities,
                 SysRoleEntities = SysRoleEntities,
                 SysRPermissionConditionEntities = SysRPermissionConditionEntities,
-                SysRPermissionGroupEntities = SysRPermissionGroupEntities,
                 SysRPermissionRoleEntities = SysRPermissionRoleEntities,
                 SysRResourceApiEntities = SysRResourceApiEntities,
                 SysRRoleResourceEntities = SysRRoleResourceEntities,
@@ -119,18 +118,19 @@ namespace AlonsoAdmin.Install.Services.Tenant
     {
         public List<SysApiEntity> SysApiEntities { get; set; }
         public List<SysConditionEntity> SysConditionEntities { get; set; }
-        public List<SysDictionaryDetailEntity> SysDictionaryDetailEntities { get; set; }
-        public List<SysDictionaryEntity> SysDictionaryEntities { get; set; }
+
         public List<SysGroupEntity> SysGroupEntities { get; set; }
         public List<SysPermissionEntity> SysPermissionEntities { get; set; }
         public List<SysResourceEntity> SysResourceEntities { get; set; }
         public List<SysRoleEntity> SysRoleEntities { get; set; }        
         public List<SysRPermissionConditionEntity> SysRPermissionConditionEntities { get; set; }
-        public List<SysRPermissionGroupEntity> SysRPermissionGroupEntities { get; set; }
         public List<SysRPermissionRoleEntity> SysRPermissionRoleEntities { get; set; }
         public List<SysRResourceApiEntity> SysRResourceApiEntities { get; set; }
         public List<SysRRoleResourceEntity> SysRRoleResourceEntities { get; set; }
-        public List<SysSettingEntity> SysSettingEntities { get; set; }
+        public List<SysConfigEntity> SysSettingEntities { get; set; }
         public List<SysUserEntity> SysUserEntities { get; set; }
+
+        public List<DictionaryEntryEntity> SysDictionaryEntryEntities { get; set; }
+        public List<DictionaryHeaderEntity> SysDictionaryHeaderEntities { get; set; }
     }
 }

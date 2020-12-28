@@ -79,10 +79,10 @@ namespace AlonsoAdmin.Services.System.Implement
             }
 
             if (entity.PermissionId != req.PermissionId) {
-                //清除权限岗的资源缓存
+                //清除权限模板的资源缓存
                 await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
-                //清除权限岗的数据归属组缓存
-                await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionGroupList);
+                //清除权限模板的API缓存
+                await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionApiList);
             }
 
             _mapper.Map(req, entity);
@@ -145,11 +145,14 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> GetListAsync(RequestEntity<UserFilterRequest> req)
         {
             var key = req.Filter?.Key;
+            var groupId = req.Filter?.GroupId;
             var withDisable = req.Filter != null ? req.Filter.WithDisable : false;
             var list = await _sysUserRepository.Select
                 .WhereIf(key.IsNotNull(), a => (a.UserName.Contains(key) || a.DisplayName.Contains(key)))
+                .WhereIf(groupId.IsNotNull(), a => a.GroupId == groupId)
                 .WhereIf(!withDisable, a => a.IsDisabled == false)
-                .Include(a=>a.Permission)
+                .Include(a => a.Permission)
+                .Include(a => a.Group)
                 .Count(out var total)
                 .OrderBy(true, a => a.CreatedTime)
                 .Page(req.CurrentPage, req.PageSize)
@@ -167,9 +170,11 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> GetAllAsync(UserFilterRequest req)
         {
             var key = req?.Key;
+            var groupId = req?.GroupId;
             var withDisable = req != null ? req.WithDisable : false;
             var list = await _sysUserRepository.Select
-                .WhereIf(key.IsNotNull(), a => (a.UserName.Contains(key) || a.DisplayName.Contains(key) ))
+                .WhereIf(key.IsNotNull(), a => (a.UserName.Contains(key) || a.DisplayName.Contains(key)))
+                .WhereIf(groupId.IsNotNull(), a => a.GroupId == groupId)
                 .WhereIf(!withDisable, a => a.IsDisabled == false)
                 .Include(a => a.Permission)
                 .ToListAsync();

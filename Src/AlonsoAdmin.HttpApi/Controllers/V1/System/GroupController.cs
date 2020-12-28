@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-    [Description("归属组")]
+    [Description("组织机构")]
     public class GroupController : ModuleBaseController
     {
         private readonly ISysGroupService _sysGroupService;

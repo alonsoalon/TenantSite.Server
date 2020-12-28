@@ -83,7 +83,7 @@ namespace AlonsoAdmin.Repository
 
         private IFreeSql CreateDb(FreeSql.DataType dbType, DbInfo currentDbOption)
         {
-             var master = currentDbOption.ConnectionStrings?.FirstOrDefault(e => e.UseType == DbUseType.Master);
+            var master = currentDbOption.ConnectionStrings?.FirstOrDefault(e => e.UseType == DbUseType.Master);
             if (master == null)
             {
                 throw new ArgumentNullException($"请设置租户 {Tenant.Code} 的主库连接字符串");
@@ -96,14 +96,15 @@ namespace AlonsoAdmin.Repository
                 freeSqlBuilder = freeSqlBuilder.UseSlave(slaveConnectionStrings);
             }
 
-            if (_env.IsDevelopment()) {
+            if (_env.IsDevelopment())
+            {
                 freeSqlBuilder = freeSqlBuilder.UseAutoSyncStructure(true); //自动同步实体结构【开发环境必备】
             }
 
             var fsql = freeSqlBuilder.Build();
 
 
-            fsql.Aop.ConfigEntityProperty +=  ConfigEntityProperty;
+            fsql.Aop.ConfigEntityProperty += ConfigEntityProperty;
             fsql.Aop.CurdBefore += CurdBefore;
             fsql.Aop.AuditValue += AuditValue;
             //fsql.Aop.SyncStructureAfter += SyncStructureAfter;
@@ -138,13 +139,11 @@ namespace AlonsoAdmin.Repository
             // 处理排序字段自动取最大值插入
             if (e.Property.GetCustomAttributes(typeof(MaxValueAttribute)).Any()) {
 
-                string tableName=e.EntityType.Name;
                 var entityTypeAttr = (e.EntityType.GetCustomAttribute(typeof(TableAttribute)) as FreeSql.DataAnnotations.TableAttribute);
-                if (entityTypeAttr?.Name != "") tableName = entityTypeAttr.Name;
+                string tableName = string.IsNullOrWhiteSpace(entityTypeAttr.Name) ? e.EntityType.Name : entityTypeAttr.Name; // 取得表名
 
-                string fieldName= e.Property.Name;
                 var PropertyAttr = (e.Property.GetCustomAttribute(typeof(ColumnAttribute)) as FreeSql.DataAnnotations.ColumnAttribute);
-                if (PropertyAttr?.Name != "") fieldName = PropertyAttr.Name;
+                string fieldName = string.IsNullOrWhiteSpace(PropertyAttr.Name) ? e.Property.Name : PropertyAttr.Name; // 取得字段名
 
                 IFreeSql fsql = s as IFreeSql;
                 string insertValueSql = "";
@@ -177,13 +176,19 @@ namespace AlonsoAdmin.Repository
             if (e.AuditValueType == AuditValueType.Insert
                 && e.Property.Name == "Id"
                 && e.Property.GetCustomAttribute<SnowflakeAttribute>(false) != null
+                && (e.Value == null || e.Value?.ToString() == "")
+                
                 )
             {
-                var sf = Common.IdGenerator.Snowflake.Instance();
                 var dataCenterId = _systemConfig.CurrentValue?.DataCenterId ?? 5;
                 var workId = _systemConfig.CurrentValue?.WorkId ?? 20;
-                sf.Init(dataCenterId, workId);
-                var id = sf.NextId();
+                //var sf = new Common.IdGenerator.SnowflakeId(dataCenterId, workId);
+                //var id = sf.NextId();
+
+                var idWorker = Common.IdGenerator.Snowflake.Instance();
+                idWorker.Init(dataCenterId, workId);
+                var id = idWorker.NextId();
+
                 e.Value = id.ToString();
             }
 

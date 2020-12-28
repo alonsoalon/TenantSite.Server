@@ -94,8 +94,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
                 var claims = new Claim[]{
                     new Claim(ClaimAttributes.UserId, user.Id.ToString()),
                     new Claim(ClaimAttributes.UserName, user.UserName),
-                    new Claim(ClaimAttributes.DisplayName,user.DisplayName),
-                    new Claim(ClaimAttributes.PermissionId,user.PermissionId)
+                    new Claim(ClaimAttributes.DisplayName,user.DisplayName??""),
+                    new Claim(ClaimAttributes.PermissionId,user.PermissionId??""),
+                    new Claim(ClaimAttributes.GroupId,user.GroupId??"")
                 };
                 var token = _authToken.Build(claims);
                 #endregion
@@ -140,8 +141,9 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
             var claims = new Claim[]{
                     new Claim(ClaimAttributes.UserId, user.Id.ToString()),
                     new Claim(ClaimAttributes.UserName, user.UserName),
-                    new Claim(ClaimAttributes.DisplayName,user.DisplayName),
-                    new Claim(ClaimAttributes.PermissionId,user.PermissionId)
+                    new Claim(ClaimAttributes.DisplayName,user.DisplayName??""),
+                    new Claim(ClaimAttributes.PermissionId,user.PermissionId??""),
+                    new Claim(ClaimAttributes.GroupId,user.GroupId??"")
                 };
             var token = _authToken.Build(claims);
             #endregion

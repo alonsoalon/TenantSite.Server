@@ -2,7 +2,7 @@
 
 namespace AlonsoAdmin.Repository.System.Interface
 {
-    public interface ISysRPermissionGroupRepository : IRepositoryBase<SysRPermissionGroupEntity>
+    public interface ISysConfigRepository : IRepositoryBase<SysConfigEntity>
     {
 
     }

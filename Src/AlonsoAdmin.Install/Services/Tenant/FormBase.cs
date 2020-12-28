@@ -1,4 +1,5 @@
 ﻿using AlonsoAdmin.Common.Configs;
+using AlonsoAdmin.Entities.Dictionary;
 using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.MultiTenant;
 using Blazui.Component;
@@ -130,8 +131,8 @@ namespace AlonsoAdmin.Install.Services.Tenant
                 {
                     typeof(SysApiEntity), // API 
                     typeof(SysConditionEntity),// 数据条件 相关功能暂未实现,表结构已设计
-                    typeof(SysDictionaryDetailEntity),// 数据字典明细，相关功能暂未实现,表结构已设计
-                    typeof(SysDictionaryEntity),// 数据字典主表，相关功能暂未实现,表结构已设计
+                    typeof(DictionaryEntryEntity),// 数据字典明细，相关功能暂未实现,表结构已设计
+                    typeof(DictionaryHeaderEntity),// 数据字典主表，相关功能暂未实现,表结构已设计
                     typeof(SysGroupEntity), // 数据归属组
                     typeof(SysLoginLogEntity),// 登录日志
                     typeof(SysOperationLogEntity),// API访问日志
@@ -139,11 +140,10 @@ namespace AlonsoAdmin.Install.Services.Tenant
                     typeof(SysResourceEntity),// 资源
                     typeof(SysRoleEntity),// 角色
                     typeof(SysRPermissionConditionEntity),// 权限岗 与 数据条件关系表，功能未实现
-                    typeof(SysRPermissionGroupEntity),// 权限岗 与 数据组关系表
                     typeof(SysRPermissionRoleEntity),// 权限岗 与 角色关系表
                     typeof(SysRResourceApiEntity),// 资源 与 API关系表
                     typeof(SysRRoleResourceEntity),// 角色 与 资源关系表
-                    typeof(SysSettingEntity),// 系统设置表，相关功能暂未实现,表结构已设计
+                    typeof(SysConfigEntity),// 系统设置表，相关功能暂未实现,表结构已设计
                     typeof(SysUserEntity) // 用户表
                 });
                 Logs.Add("同步数据库结构 结束");
@@ -157,14 +157,13 @@ namespace AlonsoAdmin.Install.Services.Tenant
 
                     InitDtData(fsql, data.SysApiEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysConditionEntities.ToArray(), tran).Wait();
-                    InitDtData(fsql, data.SysDictionaryDetailEntities.ToArray(), tran).Wait();
-                    InitDtData(fsql, data.SysDictionaryEntities.ToArray(), tran).Wait();
+                    InitDtData(fsql, data.SysDictionaryEntryEntities.ToArray(), tran).Wait();
+                    InitDtData(fsql, data.SysDictionaryHeaderEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysGroupEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysPermissionEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysResourceEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysRoleEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysRPermissionConditionEntities.ToArray(), tran).Wait();
-                    InitDtData(fsql, data.SysRPermissionGroupEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysRPermissionRoleEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysRResourceApiEntities.ToArray(), tran).Wait();
                     InitDtData(fsql, data.SysRRoleResourceEntities.ToArray(), tran).Wait();

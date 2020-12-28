@@ -27,6 +27,7 @@ namespace AlonsoAdmin.Services.System.Implement
         private readonly ISysUserRepository _userRepository;
         private readonly ISysResourceRepository _sysResourceRepository;
         private readonly IAuthUser _authUser;
+        private readonly ISysGroupRepository _sysGroupRepository;
         private readonly IPermissionDomain _permissionDomain;
         public AuthService(
             ICache cache,
@@ -34,6 +35,7 @@ namespace AlonsoAdmin.Services.System.Implement
             ISysUserRepository userRepository,
             ISysResourceRepository resourceRepository,
             IAuthUser authUser,
+            ISysGroupRepository sysGroupRepository,
             IPermissionDomain permissionDomain
             )
         {
@@ -42,11 +44,17 @@ namespace AlonsoAdmin.Services.System.Implement
             _userRepository = userRepository;
             _sysResourceRepository = resourceRepository;
             _authUser = authUser;
+            _sysGroupRepository = sysGroupRepository;
             _permissionDomain = permissionDomain;
         }
 
-
-        private async Task<AuthLoginResponse> getUserItem(SysUserEntity user)
+        /// <summary>
+        /// 得到用户相关属性
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="forceLoad">是否强制加载，不走缓存</param>
+        /// <returns></returns>
+        private async Task<AuthLoginResponse> getUserItem(SysUserEntity user,bool forceLoad=false)
         {
 
             var res = _mapper.Map<AuthLoginResponse>(user);
@@ -54,7 +62,7 @@ namespace AlonsoAdmin.Services.System.Implement
             #region 得到菜单数据
             AuthResourceResponse authResource = new AuthResourceResponse();
             var cacheKey = string.Format(CacheKeyTemplate.PermissionResourceList, user.PermissionId);
-            if (await _cache.ExistsAsync(cacheKey))
+            if (await _cache.ExistsAsync(cacheKey) && !forceLoad)
             {
                 authResource = await _cache.GetAsync<AuthResourceResponse>(cacheKey);
             }
@@ -87,17 +95,20 @@ namespace AlonsoAdmin.Services.System.Implement
 
             var password = MD5Encrypt.Encrypt32(req.Password);
             SysUserEntity user = new SysUserEntity();
-            using (_userRepository.DataFilter.Disable("Group"))
-            {
-                user = await _userRepository.GetAsync(a => a.UserName == req.UserName && a.Password == password);
-            }
+
+            //using (_userRepository.DataFilter.Disable("Group"))
+            //{
+            // user = await _userRepository.GetAsync(a => a.UserName == req.UserName && a.Password == password);
+            //}
+
+            user = await _userRepository.GetAsync(a => a.UserName == req.UserName && a.Password == password);
 
             if (user?.Id == "")
             {
                 return ResponseEntity.Error("账号或密码错误!");
             }
             
-            var res = await getUserItem(user);
+            var res = await getUserItem(user,true);
             return ResponseEntity.Ok(res);
         }
 
@@ -118,7 +129,7 @@ namespace AlonsoAdmin.Services.System.Implement
         /// <returns></returns>
         public async Task<IResponseEntity> GetUserGroupsAsync() {
 
-            var cacheKey = string.Format(CacheKeyTemplate.PermissionGroupList, _authUser.PermissionId);
+            var cacheKey = CacheKeyTemplate.GroupList;
             List<SysGroupEntity> data = new List<SysGroupEntity>();
             if (await _cache.ExistsAsync(cacheKey))
             {
@@ -126,7 +137,12 @@ namespace AlonsoAdmin.Services.System.Implement
             }
             else
             {
-                data = await _permissionDomain.GetPermissionGroupsAsync(_authUser.PermissionId);
+
+                data = await _sysGroupRepository.Select
+                    .Where(a => a.IsDisabled == false)
+                    .OrderBy(true, a => a.OrderIndex)
+                    .ToListAsync();
+
                 await _cache.SetAsync(cacheKey, data);
             }
             var result = _mapper.Map<List<GroupForListResponse>>(data);

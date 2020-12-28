@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-    [Description("角色")]
+    [Description("角色管理")]
     public class RoleController : ModuleBaseController
     {
         private readonly ISysRoleService _sysRoleService;

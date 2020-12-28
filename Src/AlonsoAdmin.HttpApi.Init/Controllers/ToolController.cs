@@ -131,19 +131,22 @@ namespace AlonsoAdmin.HttpApi.Init.Controllers
                 sb.Append("<ul>");
                 await InitDtData(fsql, data.SysApiEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysConditionEntities.ToArray(), tran, sb);
-                await InitDtData(fsql, data.SysDictionaryDetailEntities.ToArray(), tran, sb);
-                await InitDtData(fsql, data.SysDictionaryEntities.ToArray(), tran, sb);
+                await InitDtData(fsql, data.SysDictionaryEntryEntities.ToArray(), tran, sb);
+                await InitDtData(fsql, data.SysDictionaryHeaderEntities.ToArray(), tran, sb);
+                await InitDtData(fsql, data.SysConfigEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysGroupEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysPermissionEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysResourceEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysRoleEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysRPermissionConditionEntities.ToArray(), tran, sb);
-                await InitDtData(fsql, data.SysRPermissionGroupEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysRPermissionRoleEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysRResourceApiEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysRRoleResourceEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysSettingEntities.ToArray(), tran, sb);
                 await InitDtData(fsql, data.SysUserEntities.ToArray(), tran, sb);
+                await InitDtData(fsql, data.SysLoginLogEntities?.ToArray(), tran, sb);
+                await InitDtData(fsql, data.SysOperationLogEntities?.ToArray(), tran, sb);
+
                 sb.Append("</ul>");
                 uow.Commit();
             }

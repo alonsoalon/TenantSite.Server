@@ -29,7 +29,12 @@ namespace AlonsoAdmin.Services.System.Response
         /// 权限岗ID
         /// </summary>
         public string PermissionId { get; set; }
-        
+
+        /// <summary>
+        /// 部门ID
+        /// </summary>
+        public string GroupId { get; set; }
+
 
         /// <summary>
         /// 头像

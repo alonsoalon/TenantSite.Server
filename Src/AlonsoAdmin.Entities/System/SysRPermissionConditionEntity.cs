@@ -24,12 +24,6 @@ namespace AlonsoAdmin.Entities.System
 		[Column(Name = "CONDITION_ID", Position = 3)]
 		public string ConditionId { get; set; } 
 
-		/// <summary>
-		/// 表达式树 表达式树，目前存放SQL
-		/// </summary>
-		[Column(Name = "EXPRESSION", Position = 4)]
-		public string Expression { get; set; } = string.Empty;
-
 
 		#region 导航属性
 		/// <summary>

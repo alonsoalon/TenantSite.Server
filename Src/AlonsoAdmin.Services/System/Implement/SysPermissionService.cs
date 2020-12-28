@@ -24,23 +24,23 @@ namespace AlonsoAdmin.Services.System.Implement
         private readonly IMapper _mapper;
         private readonly ICache _cache;
         private readonly ISysPermissionRepository _sysPermissionRepository;
-        private readonly ISysRPermissionGroupRepository _sysRPermissionGroupRepository;
         private readonly ISysRPermissionRoleRepository _sysRPermissionRoleRepository;
+        private readonly ISysRPermissionConditionRepository _sysRPermissionConditionRepository;
         private readonly IPermissionDomain _permissionDomain;
         public SysPermissionService(
             IMapper mapper,
             ICache cache,
             ISysPermissionRepository sysPermissionRepository,
-            ISysRPermissionGroupRepository sysRPermissionGroupRepository,
             ISysRPermissionRoleRepository sysRPermissionRoleRepository,
+            ISysRPermissionConditionRepository sysRPermissionConditionRepository,
             IPermissionDomain permissionDomain
             )
         {
             _mapper = mapper;
             _cache = cache;
             _sysPermissionRepository = sysPermissionRepository;
-            _sysRPermissionGroupRepository = sysRPermissionGroupRepository;
             _sysRPermissionRoleRepository = sysRPermissionRoleRepository;
+            _sysRPermissionConditionRepository = sysRPermissionConditionRepository;
             _permissionDomain = permissionDomain;
 
         }
@@ -166,7 +166,7 @@ namespace AlonsoAdmin.Services.System.Implement
         public async Task<IResponseEntity> PermissionAssignPowerAsync(PermissionAssignPowerRequest req)
         {
 
-            var result = await _permissionDomain.PermissionAssignPowerAsync(req.PermissionId, req.RoleIds, req.GroupIds);
+            var result = await _permissionDomain.PermissionAssignPowerAsync(req.PermissionId, req.RoleIds, req.ConditionIds);
             //清除权限缓存
             await _cache.RemoveByPatternAsync(CacheKeyTemplate.PermissionResourceList);
             return ResponseEntity.Result(result);
@@ -174,14 +174,6 @@ namespace AlonsoAdmin.Services.System.Implement
 
 
 
-        public async Task<IResponseEntity> GetGroupIdsByPermissionIdAsync(string permissionId)
-        {
-            var groupIds = await _sysRPermissionGroupRepository
-                .Select.Where(d => d.PermissionId == permissionId)
-                .ToListAsync(a => a.GroupId);
-
-            return ResponseEntity.Ok(groupIds);
-        }
 
 
         public async Task<IResponseEntity> GetRoleIdsByPermissionIdAsync(string permissionId) {
@@ -192,7 +184,14 @@ namespace AlonsoAdmin.Services.System.Implement
             return ResponseEntity.Ok(roleIds);
         }
 
+        public async Task<IResponseEntity> GetConditionIdsByPermissionIdAsync(string permissionId)
+        {
+            var conditionIds = await _sysRPermissionConditionRepository
+                .Select.Where(d => d.PermissionId == permissionId)
+                .ToListAsync(a => a.ConditionId);
 
+            return ResponseEntity.Ok(conditionIds);
+        }
 
         #endregion
 

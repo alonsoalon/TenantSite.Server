@@ -30,12 +30,12 @@ namespace AlonsoAdmin.Services.System.Request
 		/// <summary>
 		/// 是否禁用
 		/// </summary>
-		public bool IsDisabled { get; set; }
+		public bool IsDisabled { get; set; } = false;
 
 		/// <summary>
 		/// 数据归属组
 		/// </summary>
-		public string GroupId { get; set; }
+		public string GroupId { get; set; } = string.Empty;
 
 	}
 
@@ -64,13 +64,13 @@ namespace AlonsoAdmin.Services.System.Request
 
 
 	public class PermissionAssignPowerRequest {
-		[Required(ErrorMessage = "角色不能为空！")]
+		[Required(ErrorMessage = "权限模板不能为空！")]
 		public string PermissionId { get; set; }
 
-		[Required(ErrorMessage = "角色不能为空！")]
+
 		public List<string> RoleIds { get; set; }
 
-		[Required(ErrorMessage = "组不能为空！")]
-		public List<string> GroupIds { get; set; }
+
+		public List<string> ConditionIds { get; set; }
 	}
 }

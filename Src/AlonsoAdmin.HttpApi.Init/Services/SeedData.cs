@@ -1,4 +1,5 @@
-﻿using AlonsoAdmin.Entities.System;
+﻿using AlonsoAdmin.Entities.Dictionary;
+using AlonsoAdmin.Entities.System;
 using AlonsoAdmin.HttpApi.Init.Entities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -38,37 +39,41 @@ namespace AlonsoAdmin.HttpApi.Init.Services
 
             var sysApiEntities = fsql.GetRepository<SysApiEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysConditionEntities = fsql.GetRepository<SysConditionEntity>().Select.Where(x => x.IsDeleted == false).ToList();
-            var SysDictionaryDetailEntities = fsql.GetRepository<SysDictionaryDetailEntity>().Select.Where(x => x.IsDeleted == false).ToList();
-            var SysDictionaryEntities = fsql.GetRepository<SysDictionaryEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysDictionaryEntryEntities = fsql.GetRepository<DictionaryEntryEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysDictionaryHeaderEntities = fsql.GetRepository<DictionaryHeaderEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysConfigEntities = fsql.GetRepository<SysConfigEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysGroupEntities = fsql.GetRepository<SysGroupEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysPermissionEntities = fsql.GetRepository<SysPermissionEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysResourceEntities = fsql.GetRepository<SysResourceEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysRoleEntities = fsql.GetRepository<SysRoleEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysRPermissionConditionEntities = fsql.GetRepository<SysRPermissionConditionEntity>().Select.ToList();
-            var SysRPermissionGroupEntities = fsql.GetRepository<SysRPermissionGroupEntity>().Select.ToList();
             var SysRPermissionRoleEntities = fsql.GetRepository<SysRPermissionRoleEntity>().Select.ToList();
             var SysRResourceApiEntities = fsql.GetRepository<SysRResourceApiEntity>().Select.ToList();
             var SysRRoleResourceEntities = fsql.GetRepository<SysRRoleResourceEntity>().Select.ToList();
-            var SysSettingEntities = fsql.GetRepository<SysSettingEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysSettingEntities = fsql.GetRepository<SysConfigEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysUserEntities = fsql.GetRepository<SysUserEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+
+
 
             SeedDataEntity seedDataEntity = new SeedDataEntity()
             {
                 SysApiEntities = sysApiEntities,
                 SysConditionEntities = SysConditionEntities,
-                SysDictionaryDetailEntities = SysDictionaryDetailEntities,
-                SysDictionaryEntities = SysDictionaryEntities,
+                SysDictionaryEntryEntities = SysDictionaryEntryEntities,
+                SysDictionaryHeaderEntities = SysDictionaryHeaderEntities,
+                SysConfigEntities = SysConfigEntities,
                 SysGroupEntities = SysGroupEntities,
                 SysPermissionEntities = SysPermissionEntities,
                 SysResourceEntities = SysResourceEntities,
                 SysRoleEntities = SysRoleEntities,
                 SysRPermissionConditionEntities = SysRPermissionConditionEntities,
-                SysRPermissionGroupEntities = SysRPermissionGroupEntities,
                 SysRPermissionRoleEntities = SysRPermissionRoleEntities,
                 SysRResourceApiEntities = SysRResourceApiEntities,
                 SysRRoleResourceEntities = SysRRoleResourceEntities,
                 SysSettingEntities = SysSettingEntities,
-                SysUserEntities = SysUserEntities
+                SysUserEntities = SysUserEntities,
+                SysLoginLogEntities = new List<SysLoginLogEntity>(),
+                SysOperationLogEntities = new List<SysOperationLogEntity>()
             };
 
 

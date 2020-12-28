@@ -29,11 +29,19 @@ namespace AlonsoAdmin.Services.System
             CreateMap<SysUserEntity, UserForListResponse>().ForMember(
                 d => d.PermissionName,
                 m => m.MapFrom(s =>s.Permission.Title)
+            ).ForMember(
+                d => d.GroupName,
+                m => m.MapFrom(s => s.Group.Title)
             );
+
+
             // 查询单条明细 用到的映射
             CreateMap<SysUserEntity, UserForItemResponse>().ForMember(
                 d => d.PermissionName,
                 m => m.MapFrom(s => s.Permission.Title)
+            ).ForMember(
+                d => d.GroupName,
+                m => m.MapFrom(s => s.Group.Title)
             );
             #endregion
 
@@ -94,6 +102,28 @@ namespace AlonsoAdmin.Services.System
             CreateMap<SysApiEntity, ApiForListResponse>();
             // 查询单条明细 用到的映射
             CreateMap<SysApiEntity, ApiForItemResponse>();
+            #endregion
+
+            #region Condition 数据条件 映射
+            // 创建 用到的映射 (DTO -> DO)
+            CreateMap<ConditionAddRequest, SysConditionEntity>();
+            // 更新 用到的映射 (DTO -> DO)
+            CreateMap<ConditionEditRequest, SysConditionEntity>();
+            // 查询列表 用到的映射 (DO -> DTO)
+            CreateMap<SysConditionEntity, ConditionForListResponse>();
+            // 查询单条明细 用到的映射 (DO -> DTO)
+            CreateMap<SysConditionEntity, ConditionForItemResponse>();
+            #endregion
+
+            #region Config 配置管理 映射
+            // 创建 用到的映射 (DTO -> DO)
+            CreateMap<ConfigAddRequest, SysConfigEntity>();
+            // 更新 用到的映射 (DTO -> DO)
+            CreateMap<ConfigEditRequest, SysConfigEntity>();
+            // 查询列表 用到的映射 (DO -> DTO)
+            CreateMap<SysConfigEntity, ConfigForListResponse>();
+            // 查询单条明细 用到的映射 (DO -> DTO)
+            CreateMap<SysConfigEntity, ConfigForItemResponse>();
             #endregion
 
             #region TaskQz

@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AlonsoAdmin.HttpApi.Controllers.V1.System
 {
-    [Description("权限岗")]
+    [Description("权限模板")]
     public class PermissionController : ModuleBaseController
     {
         private readonly ISysPermissionService _sysPermissionService;
@@ -142,27 +142,27 @@ namespace AlonsoAdmin.HttpApi.Controllers.V1.System
         }
 
         /// <summary>
-        /// 取指定权限岗下的数据组ID集合
+        /// 取指定权限模板下的角色ID集合
         /// </summary>
         /// <param name="permissionId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Description("取指定权限岗下的数据组ID集合")]
-        public async Task<IResponseEntity> GetGroupIdsByPermissionId(string permissionId)
-        {
-            return await _sysPermissionService.GetGroupIdsByPermissionIdAsync(permissionId);
-        }
-
-        /// <summary>
-        /// 取指定权限岗下的角色ID集合
-        /// </summary>
-        /// <param name="permissionId"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [Description("取指定权限岗下的角色ID集合")]
+        [Description("取指定权限模板下的角色ID集合")]
         public async Task<IResponseEntity> GetRoleIdsByPermissionId(string permissionId)
         {
             return await _sysPermissionService.GetRoleIdsByPermissionIdAsync(permissionId);
+        }
+
+        /// <summary>
+        /// 取指定权限模板下的数据条件ID集合
+        /// </summary>
+        /// <param name="permissionId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Description("取指定权限模板下的数据条件ID集合")]
+        public async Task<IResponseEntity> GetConditionIdsByPermissionId(string permissionId)
+        {
+            return await _sysPermissionService.GetConditionIdsByPermissionIdAsync(permissionId);
         }
         #endregion
 
