@@ -52,6 +52,7 @@ namespace AlonsoAdmin.HttpApi.Init.Services
             var SysRRoleResourceEntities = fsql.GetRepository<SysRRoleResourceEntity>().Select.ToList();
             var SysSettingEntities = fsql.GetRepository<SysConfigEntity>().Select.Where(x => x.IsDeleted == false).ToList();
             var SysUserEntities = fsql.GetRepository<SysUserEntity>().Select.Where(x => x.IsDeleted == false).ToList();
+            var SysTaskQzEntities = fsql.GetRepository<SysTaskQzEntity>().Select.Where(x => x.IsDeleted == false).ToList();
 
 
 
@@ -72,6 +73,7 @@ namespace AlonsoAdmin.HttpApi.Init.Services
                 SysRRoleResourceEntities = SysRRoleResourceEntities,
                 SysSettingEntities = SysSettingEntities,
                 SysUserEntities = SysUserEntities,
+                SysTaskQzEntities= SysTaskQzEntities,
                 SysLoginLogEntities = new List<SysLoginLogEntity>(),
                 SysOperationLogEntities = new List<SysOperationLogEntity>()
             };
