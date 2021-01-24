@@ -9,6 +9,7 @@ using AlonsoAdmin.HttpApi.Logs;
 using AlonsoAdmin.MultiTenant;
 using AlonsoAdmin.MultiTenant.Extensions;
 using AlonsoAdmin.Repository;
+using AlonsoAdmin.Tasks;
 using FreeSql;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -20,6 +21,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Quartz.Spi;
 using System.Collections.Generic;
 
 namespace AlonsoAdmin.HttpApi
@@ -131,7 +133,7 @@ namespace AlonsoAdmin.HttpApi
             }
             #endregion
 
-
+           
 
             // 注册 AutoMapper 
             services.RegisterMapper();
@@ -150,8 +152,9 @@ namespace AlonsoAdmin.HttpApi
                 services.AddScoped<ILogHandler, LogHandler>();
             }
 
-            
-
+            #region 注册计划任务
+            services.AddJobSetup();
+            #endregion
 
         }
 

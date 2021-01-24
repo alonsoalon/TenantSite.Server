@@ -34,5 +34,7 @@ namespace AlonsoAdmin.HttpApi.Init.Entities
         public List<DictionaryHeaderEntity> SysDictionaryHeaderEntities { get; set; }
 
         public List<SysConfigEntity> SysConfigEntities { get; set; }
+
+        public List<SysTaskQzEntity> SysTaskQzEntities { get; set; }
     }
 }
