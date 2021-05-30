@@ -345,3 +345,4 @@ healthchecksdb
 *images/
 /Src/AlonsoAdmin.HttpApi/AlonsoAdmin.HttpApi.xml
 /Src/AlonsoAdmin.HttpApi/AlonsoAdmin.Entities.xml
+.template.config
